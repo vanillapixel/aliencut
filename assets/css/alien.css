@@ -1,0 +1,229 @@
+
+
+html, body {
+
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+a {
+
+	color: white;
+	text-decoration: none;
+	-webkit-transition: 1s;
+	-o-transition: 1s;
+	transition: 1s;
+}
+
+a:hover {
+
+	color: black;
+}
+
+.top_line {
+
+	background: linear-gradient(90deg,#7728F9,#00D036);
+	height: 1px;
+	width: 100%;
+
+}
+
+.bottom_line {
+
+	background: linear-gradient(90deg,#00D036,#7728F9);
+	height: 1px;
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+	z-index: 9999;
+}
+
+.container {
+
+	height: calc(100% - 1px);
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.l_col {
+
+	background-color: #1e1e20;
+	width: calc(20% - 1px);
+	height: calc(100% - 1px);
+	position: absolute;
+	display: inline-block;
+	border-right: 1px solid gray;
+}
+
+.foto {
+
+	height: 20%;
+}
+
+.items {
+
+	height: 80%;
+}
+
+.content {
+
+	width: 80%;
+	display: inline-block;
+	background-color: #1e1e20;
+	height: 100%;
+	position: relative;
+	left: 20%;
+}
+
+div.items ul li {
+
+	color: white;
+	font-size: 20px;
+	list-style: none;
+	padding: 20px;
+	text-align: center;
+	line-height: 25px;
+}
+
+div.items ul li :hover {
+
+	color: black;
+	background: gray;
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+.prof_pic {
+
+	width: 90%;
+	padding: 30px 15px 0 15px;
+}
+
+h1 {
+
+	font-size: 20px;
+	color: black;
+}
+
+ul {
+
+	margin: 0px;
+	padding: 0px;
+}
+
+.r_col {
+
+	width: 50%;
+	height: 100%;
+	float: right;
+	display: inline-block;
+
+}
+
+#player {
+
+	width: 80%;
+	z-index: 15;
+	padding: 100px 70px;
+}
+
+.c_col {
+
+	width: 50%;
+	height: 50%;
+	display: inline-block;
+}
+
+.title_section {
+
+	text-align: center;
+	font-size: 42px;
+	color: white;
+}
+
+.text_section {
+
+	color: gray;
+	line-height: 2.5;
+	padding: 0px 10%;
+}
+
+video { 
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+  transition: 1s opacity;
+  opacity: 0.4;
+}
+.stopfade { 
+
+   opacity: 0;
+}
+
+ button { 
+
+  display: block;
+  width: 80%;
+  padding: .4rem;
+  border: none; 
+  margin: 1rem auto; 
+  font-size: 1.5rem;
+  background: rgba(255,255,255,0.23);
+  color: #fff;
+  border-radius: 3px; 
+  cursor: pointer;
+  transition: .3s background;
+  z-index: 999;
+}
+
+ button:hover { 
+
+   background: rgba(0,0,0,0.5);
+}
+
+.social {
+
+	fill: gray;
+	display: inline;
+	padding: 10px;
+}
+
+.social:hover {
+
+	fill: green;
+}
+
+#alien {
+
+	height: 100px;
+}
+
+div#social ul {
+
+    overflow: hidden;
+}
+
+div#social ul li {
+
+	float: left;
+	list-style-type: none;
+	margin: 0px !important;
+}
+
+/*social buttons*/
+
+div#social ul li img  {
+
+	height: 40px;
+}
