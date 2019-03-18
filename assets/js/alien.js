@@ -47,16 +47,24 @@ function lateralMenu() {
 const baseMovement = 103;
 let multiplier = 0;
 
-eventsSlider = target => {
-  if ($(target).hasClass("next")) {
-    multiplier = multiplier + 1;
-    $(".event").css("transform", `translate(-${baseMovement * multiplier}%)`);
-    if (multiplier >= 1) {
+eventsSlider = (_this, n) => {
+  if ($(_this).hasClass("next")) {
+    if (multiplier < n - 1) {
+      multiplier = multiplier + 1;
+      $(".event").css("transform", `translate(-${baseMovement * multiplier}%)`)
+      if (multiplier === (n - 1))
+        $(".next").css("opacity", "0");
+    }
+    if (multiplier > 0) {
       $(".previous").css("opacity", "1");
     }
-  } else if (multiplier >= 1) {
+  } 
+  // if the controller button is 'previous'
+  else if (multiplier > 0) {
     multiplier = multiplier - 1;
     $(".event").css("transform", `translate(-${baseMovement * multiplier}%)`);
+    if (multiplier < n - 1)
+      $(".next").css("opacity", "1");
     if (multiplier === 0) {
       $(".previous").css("opacity", "0");
     }
@@ -64,6 +72,6 @@ eventsSlider = target => {
 };
 
 $(".controller").click(function() {
-  let target = this;
-  eventsSlider(target);
+  const eventsColoumns = Math.ceil($(".event").length / 3)
+  eventsSlider(this, eventsColoumns);
 });
