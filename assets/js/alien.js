@@ -30,7 +30,6 @@ $(enterWebsiteButton).click(function() {
   $(intro).css("opacity", "0.2");
   $(main).css("z-index", "9999");
   $(main).addClass("website-active");
-  $(audioButton).fadeOut("slow");
   $(video).prop("muted", true);
   lateralMenu(500);
 });
@@ -38,10 +37,11 @@ $(enterWebsiteButton).click(function() {
 //menu animation
 
 function lateralMenu() {
-  $(sidebar).css(
-    "transform",
-    "translateX(0vw) scale(1) rotate(-10deg) skew(-10deg)"
-  );
+  // TODO: either reactivate or delete
+  // $(sidebar).css(
+  //   "transform",
+  //   "translateX(0vw) scale(1) rotate(-10deg) skew(-10deg)"
+  // );
 }
 
 const baseMovement = 103;
@@ -51,20 +51,18 @@ eventsSlider = (_this, n) => {
   if ($(_this).hasClass("next")) {
     if (multiplier < n - 1) {
       multiplier = multiplier + 1;
-      $(".event").css("transform", `translate(-${baseMovement * multiplier}%)`)
-      if (multiplier === (n - 1))
-        $(".next").css("opacity", "0");
+      $(".event").css("transform", `translate(-${baseMovement * multiplier}%)`);
+      if (multiplier === n - 1) $(".next").css("opacity", "0");
     }
     if (multiplier > 0) {
       $(".previous").css("opacity", "1");
     }
-  } 
+  }
   // if the controller button is 'previous'
   else if (multiplier > 0) {
     multiplier = multiplier - 1;
     $(".event").css("transform", `translate(-${baseMovement * multiplier}%)`);
-    if (multiplier < n - 1)
-      $(".next").css("opacity", "1");
+    if (multiplier < n - 1) $(".next").css("opacity", "1");
     if (multiplier === 0) {
       $(".previous").css("opacity", "0");
     }
@@ -72,6 +70,6 @@ eventsSlider = (_this, n) => {
 };
 
 $(".controller").click(function() {
-  const eventsColoumns = Math.ceil($(".event").length / 3)
+  const eventsColoumns = Math.ceil($(".event").length / 3);
   eventsSlider(this, eventsColoumns);
 });

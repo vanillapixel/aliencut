@@ -14,14 +14,7 @@
 
   <body>
     <header></header>
-    <div class="top-line"></div>
-    <div class="bottom-line"></div>
-    <div class="intro">
-      <p class="draw meet enter-website">
-        <span class="mini-text">enter the</span>
-        <br />alien world
-      </p>
-      <div class="speaker-icon-audio-on"></div>
+    <div class="background">
       <video poster="" id="bgvid" autoplay loop muted>
         <source src="./assets/video/teaser.webm" type="video/webm" />
         <source src="./assets/video/teaser.mp4" type="video/mp4" />
@@ -29,33 +22,40 @@
         browser.
       </video>
     </div>
+    <div class="top-line"></div>
+    <div class="bottom-line"></div>
+    <div class="intro">
+      <div class="logo">
+        <img
+          class="logo-pic"
+          src="./assets/img/aliencut_logo.png"
+          alt="Alien_Cut_logo"
+        />
+      </div>
+      <p class="draw meet enter-website">
+        <span class="mini-text">enter the</span>
+        <br />alien world
+      </p>
+      <div class="speaker-icon-audio-on"></div>
+    </div>
     <div class="main-container">
       <div class="sidebar-container">
-        <div class="logo">
-          <img
-            class="logo-pic"
-            src="./assets/img/aliencut_logo.png"
-            alt="Alien_Cut_logo"
-          />
-        </div>
         <ul class="sidebar-menu">
           <a href=""
-            ><li class="text-link" data-content="Events">
+            ><li class="sidebar-item">
               Events
             </li></a
           >
-          <a href=""><li class="text-link" data-content="E-shop">E-shop</li></a>
+          <a href=""><li class="sidebar-item">E-shop</li></a>
           <a href="#"
-            ><li class="text-link" data-content="Free Download">
+            ><li class="sidebar-item">
               Free Download
             </li></a
           >
           <a href="./gallery/index.html"
-            ><li class="text-link" data-content="Gallery">Gallery</li></a
+            ><li class="sidebar-item">Gallery</li></a
           >
-          <a href="#"
-            ><li class="text-link" data-content="Booking">Booking</li></a
-          >
+          <a href="#"><li class="sidebar-item">Booking</li></a>
         </ul>
         <div id="social">
           <h3 class="follow-us">Follow us</h3>
@@ -65,19 +65,13 @@
               target="_blank"
             >
               <li>
-                <img
-                  src="./assets/img/icon/facebook.svg"
-                  alt=""
-                />
+                <img src="./assets/img/icon/facebook.svg" alt="" />
                 <p>AlienCutOfficial</p>
               </li>
             </a>
             <a href="https://www.instagram.com/alien_cut/" target="_blank">
               <li>
-                <img
-                  src="./assets/img/icon/instagram.svg"
-                  alt=""
-                />
+                <img src="./assets/img/icon/instagram.svg" alt="" />
                 <p>alien_cut</p>
               </li>
             </a>
@@ -86,10 +80,7 @@
               target="_blank"
             >
               <li>
-                <img
-                  src="./assets/img/icon/youtube.svg"
-                  alt=""
-                />
+                <img src="./assets/img/icon/youtube.svg" alt="" />
                 <p>Alien Cut</p>
               </li>
             </a>
@@ -98,10 +89,7 @@
               target="_blank"
             >
               <li>
-                <img
-                  src="./assets/img/icon/youtube.svg"
-                  alt=""
-                />
+                <img src="./assets/img/icon/youtube.svg" alt="" />
                 <p>MegaDance</p>
               </li>
             </a>
@@ -142,7 +130,7 @@
                 </div>
                 <h3 class="location">@ La Baya</h3>
               </li>
-              <li class="event">
+              <li class="event next-event">
                 <div class="event-details">
                   <h4 class="date">13 mar 2019</h4>
                   <h5 class="city">Segrate (MI)</h5>

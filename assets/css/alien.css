@@ -16,8 +16,8 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: "Play", sans-serif;
-  overflow: hidden;
   background-color: var(--charcoal);
+  overflow-x: hidden;
 }
 a {
   color: white;
@@ -70,16 +70,23 @@ ul {
   bottom: 0;
   z-index: 999;
 }
-.intro {
+.background {
   height: 100vh;
   width: 100vw;
-  background-color: black;
   position: fixed;
   top: 0;
   z-index: 0;
+  opacity: 0.2;
   transition: 1s;
   -o-transition: 1s;
   -webkit-transition: 1s;
+  background-attachment: var(--charcoal);
+}
+.intro {
+  position: relative;
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
 }
 .enter-website {
   color: white;
@@ -205,31 +212,34 @@ ul {
   width: 100%;
   margin: 0px;
   padding: 0px;
-  grid-template-columns: minmax(300px, auto) 1fr;
+  display: flex;
   z-index: 2;
   opacity: 0;
   display: none;
   transition: 0.5s;
 }
 .website-active {
-  display: grid;
+  display: flex;
   opacity: 1;
 }
 .sidebar-container {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0);
   display: flex;
+  position: fixed;
+  left: 19%;
+  z-index: 9999;
+  width: 20%;
   flex-direction: column;
   transition: 1s;
-  transform: translateX(-30vw) scale(2) rotate(10deg) skew(10deg);
-  /* opacity: 0.6; */
   height: 104%;
   top: -2%;
-  position: relative;
+  justify-content: center;
+  text-align: right;
 }
 .sidebar-menu {
   margin-top: 30px;
 }
-.text-link {
+.sidebar-item {
   position: relative;
   font-size: 2rem;
   text-decoration: none;
@@ -238,34 +248,10 @@ ul {
   padding: 15px 30px;
   transition: 0.3s all;
 }
-.text-link:before,
-.text-link:after {
-  content: attr(data-content);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: inherit;
-}
-.text-link:before {
-  color: var(--green);
-  z-index: -1;
-}
-.text-link:after {
-  color: var(--purple);
-  z-index: -2;
-}
-.text-link:hover {
-  background: #2b2b2b;
-}
-.text-link:hover:before {
-  -webkit-animation: glitchy 0.3s ease infinite;
-  animation: glitchy 0.3s ease infinite;
-}
-.text-link:hover:after {
-  -webkit-animation: glitchy 0.3s ease infinite reverse;
-  animation: glitchy 0.3s ease infinite reverse;
+.sidebar-item:hover {
+  box-shadow: 0 0 10px #1eff4e, 0 0 30px #1eff4e, inset 0 0 10px #1eff4e,
+    inset 0 0 30px #1eff4e;
+  border: 4px solid #fff;
 }
 
 /* CONTENT */
@@ -274,12 +260,12 @@ ul {
   display: inline-block;
   height: 100%;
   position: relative;
-  overflow: hidden;
 }
 .content-wrapper {
   position: relative;
   display: grid;
   grid-template-columns: 2fr 5fr;
+  grid-gap: 20%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
   transition: 0.5s;
@@ -287,10 +273,25 @@ ul {
 .title {
   display: flex;
   color: white;
-  font-size: 50px;
+  font-size: 110px;
   transform: rotate(-90deg);
   justify-self: center;
   align-self: center;
+  text-shadow: 0 0 35px #113f42;
+}
+.title:after {
+  content: "Events";
+  position: absolute;
+  left: 13px;
+  color: rgba(249, 40, 40, 0.8);
+  z-index: -1;
+}
+.title:before {
+  content: "Events";
+  position: absolute;
+  left: 16px;
+  color: rgba(179, 39, 222, 0.8);
+  z-index: -1;
 }
 .content {
   display: flex;
@@ -334,7 +335,6 @@ ul {
 .event {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  width: 80%;
   align-items: center;
   justify-items: center;
   margin: 10px;
@@ -354,11 +354,7 @@ ul {
   transition-delay: 0.6s;
 }
 .event-details {
-  border-right: 3px solid white;
-  width: 100%;
-  justify-self: center;
-  text-align: center;
-  background: #0b442547;
+  background: #113f4247;
 }
 .event h3 {
   grid-column: 2;
@@ -378,8 +374,12 @@ ul {
 .event h5 {
   padding: 15px;
 }
-#bio-section {
-  display: none;
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  opacity: 0.6;
 }
 .logo-pic {
   max-width: 250px;
@@ -398,9 +398,6 @@ video {
 
 /*e-shop section*/
 
-#e-shop-section {
-  display: none;
-}
 #e-shop-section .content {
   display: flex;
   flex-direction: row;
@@ -413,8 +410,14 @@ video {
   transition: 0.7s;
   overflow: hidden;
   flex-direction: column;
+  margin: 0 10px;
+  cursor: pointer;
 }
-
+.eshop-item-container:hover {
+  position: relative;
+  background: rgba(999, 999, 999, 0.2);
+  border-radius: 25px;
+}
 .eshop-item-container img {
   width: 100%;
 }
@@ -422,29 +425,6 @@ p.product-name {
   color: white;
   font-size: 25px;
   text-align: center;
-}
-
-.eshop-item-container:hover {
-  transform: skew(-10deg) rotate(-10deg) scale(2) translate(-100px);
-  position: relative;
-  background: rgba(999, 999, 999, 0.2);
-  padding: 20px;
-  border-radius: 25px;
-}
-
-.eshop-item-container:after {
-  position: absolute;
-  top: 0px;
-  right: -40px;
-  width: auto;
-  background: var(--purple);
-  height: 20px;
-  display: inline-block;
-  content: "shop now";
-  color: white;
-  padding: 10px 30px;
-  padding-left: 80px;
-  transform: rotate(45deg);
 }
 .eshop-item-container img {
   width: 100%;
@@ -466,10 +446,25 @@ p.product-name {
   margin: 0;
   padding: 0;
 }
+.follow-us:after {
+  border-left: 6px solid TRANSPARENT;
+  border-top: 6px solid WHITE;
+  border-right: 6px solid transparent;
+  content: "";
+  height: 0px;
+  max-height: 0px;
+  position: relative;
+  top: 25px;
+  margin-left: 10px;
+}
 div#social ul {
   display: flex;
   flex-direction: column;
   position: relative;
+  max-height: 0px;
+  overflow: hidden;
+  transition: 1s;
+  max-height: 300px;
 }
 div#social ul li {
   cursor: pointer;
@@ -477,9 +472,11 @@ div#social ul li {
   list-style-type: none;
   margin: 10px 0;
   display: flex;
+  justify-content: end;
+  flex-direction: row-reverse;
 }
 div#social ul li p {
-  margin-left: 20px;
+  margin-right: 20px;
   align-self: center;
 }
 div#social ul li p:after {
@@ -499,103 +496,15 @@ div#social ul li:hover p:after {
   z-index: -1;
 }
 div#social ul li img {
-  height: 40px;
-}
-@-webkit-keyframes glitchy {
-  0% {
-    -webkit-transform: translate(-2px, 2px);
-    transform: translate(-2px, 2px);
-  }
-  25% {
-    -webkit-transform: translate(-2px, -2px);
-    transform: translate(-2px, -2px);
-  }
-  50% {
-    -webkit-transform: translate(2px, 2px);
-    transform: translate(2px, 2px);
-  }
-  75% {
-    -webkit-transform: translate(2px, -2px);
-    transform: translate(2px, -2px);
-  }
-  100% {
-    -webkit-transform: translate(-2px, 2px);
-    transform: translate(-2px, 2px);
-  }
-}
-@keyframes glitchy {
-  0% {
-    -webkit-transform: translate(-2px, 2px);
-    transform: translate(-2px, 2px);
-  }
-  25% {
-    -webkit-transform: translate(-2px, -2px);
-    transform: translate(-2px, -2px);
-  }
-  50% {
-    -webkit-transform: translate(2px, 2px);
-    transform: translate(2px, 2px);
-  }
-  75% {
-    -webkit-transform: translate(2px, -2px);
-    transform: translate(2px, -2px);
-  }
-  100% {
-    -webkit-transform: translate(-2px, 2px);
-    transform: translate(-2px, 2px);
-  }
-}
-@-webkit-keyframes line-glitchy {
-  0% {
-    -webkit-transform: translate(-1px, 1px);
-    transform: translate(-1px, 1px);
-  }
-  25% {
-    -webkit-transform: translate(-1px, -1px);
-    transform: translate(-1px, -1px);
-  }
-  50% {
-    -webkit-transform: translate(1px, 1px);
-    transform: translate(1px, 1px);
-  }
-  75% {
-    -webkit-transform: translate(1px, -1px);
-    transform: translate(1px, -1px);
-  }
-  100% {
-    -webkit-transform: translate(-1px, 1px);
-    transform: translate(-1px, 1px);
-  }
-}
-@keyframes line-glitchy {
-  0% {
-    -webkit-transform: translate(-1px, 1px);
-    transform: translate(-1px, 1px);
-  }
-  25% {
-    -webkit-transform: translate(-1px, -1px);
-    transform: translate(-1px, -1px);
-  }
-  50% {
-    -webkit-transform: translate(1px, 1px);
-    transform: translate(1px, 1px);
-  }
-  75% {
-    -webkit-transform: translate(1px, -1px);
-    transform: translate(1px, -1px);
-  }
-  100% {
-    -webkit-transform: translate(-1px, 1px);
-    transform: translate(-1px, 1px);
-  }
+  height: 30px;
 }
 @media only screen and (max-width: 600px) {
   .sidebar-container {
     position: absolute;
   }
   h2 {
-    color: red
-  } 
+    color: red;
+  }
 }
 @media only screen and (max-width: 600px) {
   body {
