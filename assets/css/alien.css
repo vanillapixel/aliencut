@@ -76,11 +76,11 @@ ul {
   position: fixed;
   top: 0;
   z-index: 0;
-  opacity: 0.2;
+  opacity: 1;
   transition: 1s;
   -o-transition: 1s;
   -webkit-transition: 1s;
-  background-attachment: var(--charcoal);
+  background: black;
 }
 .intro {
   position: relative;
@@ -195,7 +195,7 @@ ul {
   width: 65px;
   height: 65px;
   display: inline-block;
-  background: no-repeat url(./assets/img/icon/sound-icon.gif);
+  background: no-repeat url(../img/icon/sound-icon.gif);
   background-size: 150px;
   background-position: center;
   position: absolute;
@@ -226,7 +226,7 @@ ul {
   background-color: rgba(0, 0, 0, 0);
   display: flex;
   position: fixed;
-  left: 19%;
+  left: 12%;
   z-index: 9999;
   width: 20%;
   flex-direction: column;
@@ -264,7 +264,7 @@ ul {
 .content-wrapper {
   position: relative;
   display: grid;
-  grid-template-columns: 2fr 5fr;
+  grid-template-columns: 1fr 5fr;
   grid-gap: 20%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
@@ -273,6 +273,7 @@ ul {
 .title {
   display: flex;
   color: white;
+  max-width: 330px;
   font-size: 110px;
   transform: rotate(-90deg);
   justify-self: center;
@@ -280,14 +281,14 @@ ul {
   text-shadow: 0 0 35px #113f42;
 }
 .title:after {
-  content: "Events";
+  content: attr(title);
   position: absolute;
   left: 13px;
   color: rgba(249, 40, 40, 0.8);
   z-index: -1;
 }
 .title:before {
-  content: "Events";
+  content: attr(title);
   position: absolute;
   left: 16px;
   color: rgba(179, 39, 222, 0.8);
@@ -295,10 +296,44 @@ ul {
 }
 .content {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 15%;
+}
+#events-section {
+}
+.slider {
+  display: flex;
   flex-direction: row;
   align-items: center;
 }
-#events-section {
+.slider-bar {
+  width: 40%;
+  position: relative;
+  margin: 50px auto;
+  border-radius: 10px;
+  height: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+.slider-slot {
+  display: flex;
+  height: 5px;
+  border: 2px solid #6A6E7C;
+  flex: 1;
+  margin: 0 3px;
+  border-radius: 20px;
+}
+.slider-pod {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 9px;
+  border-radius: 20px;
+  transition: 1s ease-in-out;
+  background: #6A6E7C;
+  background: #113f42;
 }
 .next {
   transform: rotate(180deg);
@@ -326,15 +361,15 @@ ul {
   flex-direction: column;
   justify-content: center;
   position: relative;
-  flex-basis: 70%;
+  flex: 1;
   margin: 0 50px;
   max-height: 450px;
   overflow: hidden;
   flex-wrap: wrap;
 }
 .event {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  width: 500px;
   align-items: center;
   justify-items: center;
   margin: 10px;
@@ -343,7 +378,7 @@ ul {
   transition-timing-function: cubic-bezier(0.78, -0.35, 0.51, 0.95);
 }
 .event:nth-child(even) {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(12, 12, 12, 0.1);
 }
 .event:nth-child(3n + 2) {
   left: 100px;
@@ -354,27 +389,32 @@ ul {
   transition-delay: 0.6s;
 }
 .event-details {
-  background: #113f4247;
+  background: #113f429e;
+  display: flex;
+  flex-basis: 35%;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  justify-content: space-evenly;
+  text-transform: capitalize;
 }
-.event h3 {
+.event-details .date {
+  color: rgba(999, 999, 999, 0.3);
+  grid-column: 1;
+  justify-self: center;
+  align-self: center;
+  margin: 0;
+}
+.event-details .city, .event .location, .event-details .date {
+  text-transform: capitalize;
+}
+.event .location {
   grid-column: 2;
   grid-row: span 2;
   justify-self: left;
   padding: 15px;
   font-size: 2rem;
 }
-.event-details h4 {
-  color: rgba(999, 999, 999, 0.3);
-  grid-column: 1;
-  justify-self: center;
-  align-self: center;
-  margin: 0;
-  padding: 15px;
-}
-.event h5 {
-  padding: 15px;
-}
-
 .logo {
   position: absolute;
   top: 20px;
@@ -393,7 +433,7 @@ video {
   top: -7%;
   width: 100%;
   transition: 1s opacity;
-  opacity: 0.6;
+  opacity: .3;
 }
 
 /*e-shop section*/
