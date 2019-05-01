@@ -9,7 +9,7 @@ const intro = $(".intro"),
 $(video).prop("volume", 0.3);
 
 // audio on/off button
-$(audioButton).click(function () {
+$(audioButton).click(function() {
   if ($(video).prop("muted")) {
     $(this).toggleClass("audio-on");
     $(video).prop("muted", false);
@@ -24,7 +24,7 @@ $(audioButton).click(function () {
 //     });
 
 //enter the website animation
-$(enterWebsiteButton).click(function () {
+$(enterWebsiteButton).click(function() {
   // $(enterWebsiteButton).text('Loading...');
   $(enterWebsiteButton).fadeOut("slow");
   $(intro).css("opacity", "0.2");
@@ -48,14 +48,16 @@ const baseMovement = 103;
 let multiplier = 0;
 
 eventsSlider = (_this, n) => {
-  const sliderPod = document.querySelector('.slider-pod')
+  const sliderPod = document.querySelector(".slider-pod");
 
   if ($(_this).hasClass("next")) {
     if (multiplier < n - 1) {
       multiplier = multiplier + 1;
-      sliderPod.style.transform = `translate(calc(100%*${multiplier} + 3*${multiplier}%))`
+      sliderPod.style.transform = `translate(calc(100%*${multiplier} + 3*${multiplier}%))`;
       $(".event").css("transform", `translate(-${baseMovement * multiplier}%)`);
-      if (multiplier === n - 1) $(".next").css("opacity", "0");
+      if (multiplier + 1 === n) {
+        $(".next").css("opacity", "0");
+      }
     }
     if (multiplier > 0) {
       $(".previous").css("opacity", "1");
@@ -64,37 +66,50 @@ eventsSlider = (_this, n) => {
   // if the controller button is 'previous'
   else if (multiplier > 0) {
     multiplier = multiplier - 1;
-    sliderPod.style.transform = `translate(calc(100%*${multiplier} + 3*${multiplier}%))`
+    sliderPod.style.transform = `translate(calc(100%*${multiplier} + 3*${multiplier}%))`;
     $(".event").css("transform", `translate(-${baseMovement * multiplier}%)`);
-    if (multiplier < n - 1) $(".next").css("opacity", "1");
+    if (multiplier < n - 1) {
+      $(".next").css("opacity", "1");
+    }
     if (multiplier === 0) {
       $(".previous").css("opacity", "0");
     }
   }
 };
-sliderPodHandler = (n) => {
-  const sliderPod = document.querySelector('.slider-pod')
+sliderPodHandler = n => {
+  const sliderPod = document.querySelector(".slider-pod");
   // sets the slider pod width equally wide to the slider slots width
-  sliderPod.style.width = `calc(${100 / n}% - 2px)`
-  $(".slider-slot").click(function () {
-    let multiplier = 0;
-    multiplier = $('.slider-slot').index(this)
-    sliderPod.style.transform = `translate(calc(100%*${multiplier} + 3*${multiplier}%)`
-    $(".event").css("transform", `translate(-${baseMovement * multiplier}%)`);
+  sliderPod.style.width = `calc(${100 / n}% - 2px)`;
+  $(".slider-slot").click(function() {
+    multiplier = $(".slider-slot").index(this);
+    console.log(multiplier, n);
+    if (multiplier > 0) {
+      $(".previous").css("opacity", "1");
+      sliderPod.style.transform = `translate(calc(100%*${multiplier} + 3*${multiplier}%)`;
+      $(".event").css("transform", `translate(-${baseMovement * multiplier}%)`);
+    }
+    if (multiplier === 0) {
+      $(".previous").css("opacity", "0");
+      sliderPod.style.transform = `translate(calc(100%*${multiplier} + 3*${multiplier}%)`;
+      $(".event").css("transform", `translate(-${baseMovement * multiplier}%)`);
+    }
+    multiplier + 1 === n
+      ? $(".next").css("opacity", "0")
+      : $(".next").css("opacity", "1");
   });
-}
-createSliderSlots = (n) => {
-  const sliderBar = document.querySelector('.slider-bar')
+};
+createSliderSlots = n => {
+  const sliderBar = document.querySelector(".slider-bar");
   for (let i = 0; i < n; i++) {
     // creates a slider slot in the slider bar for each slider coloumn
-    sliderBar.innerHTML += `<div class='slider-slot'></div>`
-    sliderPodHandler(n)
+    sliderBar.innerHTML += `<div class='slider-slot'></div>`;
+    sliderPodHandler(n);
   }
-}
+};
 
 // function calls
 
-$(".controller").click(function () {
+$(".controller").click(function() {
   const eventsColoumns = Math.ceil($(".event").length / 3);
   eventsSlider(this, eventsColoumns);
 });
@@ -102,5 +117,4 @@ $(".controller").click(function () {
 document.addEventListener("DOMContentLoaded", () => {
   const eventsColoumns = Math.ceil($(".event").length / 3);
   createSliderSlots(eventsColoumns);
-})
-
+});

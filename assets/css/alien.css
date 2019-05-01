@@ -265,7 +265,7 @@ ul {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 5fr;
-  grid-gap: 20%;
+  grid-gap: 17%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
   transition: 0.5s;
@@ -298,7 +298,7 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-right: 15%;
+  margin-right: 5%;
 }
 #events-section {
 }
@@ -320,7 +320,7 @@ ul {
 .slider-slot {
   display: flex;
   height: 5px;
-  border: 2px solid #6A6E7C;
+  border: 2px solid #6a6e7c;
   flex: 1;
   margin: 0 3px;
   border-radius: 20px;
@@ -333,7 +333,7 @@ ul {
   height: 9px;
   border-radius: 20px;
   transition: 1s ease-in-out;
-  background: #6A6E7C;
+  background: #6a6e7c;
   background: #113f42;
 }
 .next {
@@ -364,13 +364,14 @@ ul {
   position: relative;
   flex: 1;
   margin: 0 50px;
-  max-height: 450px;
+  max-height: 500px;
   overflow: hidden;
   flex-wrap: wrap;
 }
 .event {
   display: flex;
-  width: 500px;
+  width: 700px;
+  border: 5px solid #012729e3;
   align-items: center;
   justify-items: center;
   margin: 10px;
@@ -390,31 +391,39 @@ ul {
   transition-delay: 0.6s;
 }
 .event-details {
-  background: #113f429e;
+  background: #012729e3;
   display: flex;
-  flex-basis: 35%;
-  flex-direction: column;
+  flex-basis: 40%;
+  flex-direction: row;
   align-items: center;
-  padding: 5px;
+  padding: 10px;
   justify-content: space-evenly;
   text-transform: capitalize;
 }
-.event-details .date {
+.date {
   color: rgba(999, 999, 999, 0.3);
-  grid-column: 1;
-  justify-self: center;
-  align-self: center;
-  margin: 0;
+  border-right: 3px solid white;
+  padding: 10px;
+  padding-right: 25px;
 }
-.event-details .city, .event .location, .event-details .date {
+.day {
+  font-size: 2.2em;
+}
+.provincia {
+  text-transform: uppercase;
+}
+.city,
+.location,
+.date {
   text-transform: capitalize;
+  text-align: center;
 }
-.event .location {
+.location {
   grid-column: 2;
   grid-row: span 2;
   justify-self: left;
   padding: 15px;
-  font-size: 2rem;
+  font-size: 2.5em;
 }
 .logo {
   position: absolute;
@@ -434,7 +443,7 @@ video {
   top: -7%;
   width: 100%;
   transition: 1s opacity;
-  opacity: .3;
+  opacity: 0.2;
 }
 
 /*e-shop section*/
