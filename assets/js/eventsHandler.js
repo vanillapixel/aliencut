@@ -4,61 +4,61 @@ document.addEventListener("DOMContentLoaded", () => {
     // dummy dates
     [
       {
-        date: "2019-03-17",
+        date: "2019-01-17",
         location: "la baya",
         city: "perugia",
         province: "pg"
       },
       {
-        date: "2019-03-28",
+        date: "2019-02-28",
         location: "tenax",
         city: "bergamo",
         province: "bg"
       },
       {
-        date: "2019-04-15",
+        date: "2019-05-15",
         location: "Greenhouse",
         city: "segrate",
         province: "mi"
       },
       {
-        date: "2019-04-22",
+        date: "2019-06-22",
         location: "lercio",
         city: "ascoli piceno",
         province: "bg"
       },
       {
-        date: "2019-04-29",
+        date: "2019-07-29",
         location: "aftereffects",
         city: "sondrio",
         province: "bg"
       },
       {
-        date: "2019-05-05",
+        date: "2019-08-05",
         location: "silvermoon",
         city: "perugia",
         province: "pg"
       },
       {
-        date: "2019-05-12",
+        date: "2019-09-12",
         location: "tenax",
         city: "bergamo",
         province: "bg"
       },
       {
-        date: "2019-05-21",
+        date: "2019-10-21",
         location: "palazzetto dello sport",
         city: "ascoli piceno",
         province: "bg"
       },
       {
-        date: "2019-06-12",
+        date: "2019-11-12",
         location: "nightcrawl",
         city: "napoli",
         province: "na"
       },
       {
-        date: "2019-06-12",
+        date: "2019-12-12",
         location: "cocoricò",
         city: "savona",
         province: "sv"

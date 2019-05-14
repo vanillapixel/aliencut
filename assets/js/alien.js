@@ -53,49 +53,48 @@ eventsSlider = (_this, n) => {
   if ($(_this).hasClass("next")) {
     if (multiplier < n - 1) {
       multiplier = multiplier + 1;
-      sliderPod.style.transform = `translate(calc(100%*${multiplier} + 3*${multiplier}%))`;
+      sliderPod.style.transform = `translate(calc(100%*${multiplier} + 2*${multiplier}%))`;
       $(".event").css("transform", `translate(-${baseMovement * multiplier}%)`);
       if (multiplier + 1 === n) {
-        $(".next").css("opacity", "0");
+        $(".next").css({ opacity: "0", cursor: "default" });
       }
     }
     if (multiplier > 0) {
-      $(".previous").css("opacity", "1");
+      $(".previous").css({ opacity: "1", cursor: "pointer" });
     }
   }
   // if the controller button is 'previous'
   else if (multiplier > 0) {
     multiplier = multiplier - 1;
-    sliderPod.style.transform = `translate(calc(100%*${multiplier} + 3*${multiplier}%))`;
+    sliderPod.style.transform = `translate(calc(100%*${multiplier} + 2*${multiplier}%))`;
     $(".event").css("transform", `translate(-${baseMovement * multiplier}%)`);
     if (multiplier < n - 1) {
-      $(".next").css("opacity", "1");
+      $(".next").css({ opacity: "1", cursor: "pointer" });
     }
     if (multiplier === 0) {
-      $(".previous").css("opacity", "0");
+      $(".previous").css({ opacity: "0", cursor: "default" });
     }
   }
 };
 sliderPodHandler = n => {
   const sliderPod = document.querySelector(".slider-pod");
   // sets the slider pod width equally wide to the slider slots width
-  sliderPod.style.width = `calc(${100 / n}% - 2px)`;
+  sliderPod.style.width = `calc(${100 / n}% - 1.5px)`;
   $(".slider-slot").click(function() {
     multiplier = $(".slider-slot").index(this);
-    console.log(multiplier, n);
     if (multiplier > 0) {
-      $(".previous").css("opacity", "1");
-      sliderPod.style.transform = `translate(calc(100%*${multiplier} + 3*${multiplier}%)`;
+      $(".previous").css({ opacity: "1", cursor: "pointer" });
+      sliderPod.style.transform = `translate(calc(100%*${multiplier} + 2*${multiplier}%)`;
       $(".event").css("transform", `translate(-${baseMovement * multiplier}%)`);
     }
     if (multiplier === 0) {
-      $(".previous").css("opacity", "0");
+      $(".previous").css({ opacity: "0", cursor: "default" });
       sliderPod.style.transform = `translate(calc(100%*${multiplier} + 3*${multiplier}%)`;
       $(".event").css("transform", `translate(-${baseMovement * multiplier}%)`);
     }
     multiplier + 1 === n
-      ? $(".next").css("opacity", "0")
-      : $(".next").css("opacity", "1");
+      ? $(".next").css({ opacity: "0", cursor: "default" })
+      : $(".next").css({ opacity: "1", cursor: "pointer" });
   });
 };
 createSliderSlots = n => {
