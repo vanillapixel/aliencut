@@ -4,12 +4,13 @@ const intro = $(".intro"),
   audioButton = $(".speaker-icon-audio-on"),
   enterWebsiteButton = $(".enter-website"),
   audioStatus = $(".speaker-icon-audio-on:after"),
-  sidebar = $(".sidebar-container");
+  sidebar = $(".sidebar-container"),
+  titles = document.querySelectorAll('.title');
 
 $(video).prop("volume", 0.3);
 
 // audio on/off button
-$(audioButton).click(function() {
+$(audioButton).click(function () {
   if ($(video).prop("muted")) {
     $(this).toggleClass("audio-on");
     $(video).prop("muted", false);
@@ -24,7 +25,7 @@ $(audioButton).click(function() {
 //     });
 
 //enter the website animation
-$(enterWebsiteButton).click(function() {
+$(enterWebsiteButton).click(function () {
   // $(enterWebsiteButton).text('Loading...');
   $(enterWebsiteButton).fadeOut("slow");
   $(intro).css("opacity", "0.2");
@@ -80,7 +81,7 @@ sliderPodHandler = n => {
   const sliderPod = document.querySelector(".slider-pod");
   // sets the slider pod width equally wide to the slider slots width
   sliderPod.style.width = `calc(${100 / n}% - 1.5px)`;
-  $(".slider-slot").click(function() {
+  $(".slider-slot").click(function () {
     multiplier = $(".slider-slot").index(this);
     if (multiplier > 0) {
       $(".previous").css({ opacity: "1", cursor: "pointer" });
@@ -105,10 +106,20 @@ createSliderSlots = n => {
     sliderPodHandler(n);
   }
 };
+centerTitles = () => {
+
+  for (let i = 0; i < titles.length; i++) {
+    let lettersArr = [...titles[i].innerText]
+    if (lettersArr.length > 6) {
+      let transValue = 17 * (lettersArr.length - 6)
+      titles[i].style.transform = `translateY(${transValue}px) rotate(-90deg)`
+    }
+  }
+}
 
 // function calls
 
-$(".controller").click(function() {
+$(".controller").click(function () {
   const eventsColoumns = Math.ceil($(".event").length / 3);
   eventsSlider(this, eventsColoumns);
 });
@@ -116,4 +127,6 @@ $(".controller").click(function() {
 document.addEventListener("DOMContentLoaded", () => {
   const eventsColoumns = Math.ceil($(".event").length / 3);
   createSliderSlots(eventsColoumns);
+  centerTitles();
 });
+
