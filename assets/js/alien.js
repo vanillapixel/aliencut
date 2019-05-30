@@ -125,4 +125,19 @@ document.addEventListener("DOMContentLoaded", () => {
   createSliderSlots(nrColoumns);
   centerTitles();
   eventOpacity(multiplier);
+  const options = {
+    scale: 1.4,
+    glare: true,
+    maxGlare: 2,
+    speed: 2200,
+    perspective: 800,
+    maxTilt: 30
+  };
+  const tilt = [
+    $(".eshop-item-container").tilt(options),
+    $(".business-card").tilt(options, (options.scale = 1.2))
+  ];
+  tilt.on("change", callback); // parameters: event, transforms
+  tilt.on("tilt.mouseLeave", callback); // parameters: event
+  tilt.on("tilt.mouseEnter", callback); // parameters: event
 });

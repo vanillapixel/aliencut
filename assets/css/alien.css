@@ -4,10 +4,6 @@
   --charcoal: #0a0a0a;
   --mainColor: #a05031;
 }
-::selection,
-::-moz-selection {
-  background: var(--mainColor);
-}
 @font-face {
   font-family: "Play";
   font-family: "Exo2-Light";
@@ -39,8 +35,8 @@ header {
   position: absolute;
 }
 ::selection {
-  color: #2b2b2b;
-  background: #323232;
+  color: #white;
+  background: var(--mainColor);
 }
 a {
   color: white;
@@ -237,6 +233,7 @@ video {
 }
 iframe {
   border: 0;
+  margin: 50px 0
 }
 .main-container {
   width: 100%;
@@ -408,14 +405,14 @@ iframe {
   flex-wrap: wrap;
 }
 .events:after {
-    content: '2019';
-    font-size: 300px;
-    position: absolute;
-    color: #cccccc38;
-    z-index: -1;
-    transform: rotate(-15deg) skew(-15deg) translate(-50%, 50%);
-    top: -50%;
-    left: 50%;
+  content: '2019';
+  font-size: 300px;
+  position: absolute;
+  color: #cccccc38;
+  z-index: -1;
+  transform: rotate(-15deg) skew(-15deg) translate(-50%, 50%);
+  top: -50%;
+  left: 50%;
 }
 .event {
   display: flex;
@@ -514,32 +511,37 @@ margin: 50px;
 .eshop-item-container {
   display: flex;
   position: relative;
-  transition: 0.7s;
-  overflow: hidden;
+  transform-style: preserve-3d;
   flex-direction: column;
   margin: 0 10px;
   cursor: pointer;
+  border-radius: 25px;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+  background-image: linear-gradient(135deg, #ff008a 0%, #101c25 100%);
+  background: rgba(12, 12, 12, 0.4);
 }
 .eshop-item-container:hover {
-  position: relative;
-  background: rgba(999, 999, 999, 0.2);
-  border-radius: 25px;
+  z-index: 9
 }
 .eshop-item-container img {
   width: 100%;
+  transition: .5s .1s all;
 }
 p.product-name {
   color: white;
   font-size: 25px;
   text-align: center;
+  padding: 10px;
+  transition: .5s .1s all;
+  text-shadow: 2px 1px 0px var(--mainColor);
 }
-.eshop-item-container img {
-  width: 100%;
+.eshop-item-container:hover img, .eshop-item-container:hover p.product-name {
+  transform: translateZ(50px)
 }
-p.product-name {
-  color: white;
-  font-size: 25px;
-  text-align: center;
+.SprdMain .sprd-listpage {
+  background: var(--charcoal) !important;
 }
 
 /*social buttons*/
@@ -607,6 +609,9 @@ div#social ul li:hover p:after {
 div#social ul li img {
   height: 30px;
 }
+#booking-section .content {
+  flex-direction: row;
+}
 .business-card {
   color: white;
   position: relative;
@@ -622,11 +627,12 @@ div#social ul li img {
   box-sizing: border-box;
   border-top: 5px solid var(--mainColor);
   border-bottom: 5px solid var(--mainColor);
-  transition: .7s;
   background-color: var(--charcoal);
+  transform: scale(.8);
 }
 .business-card img {
   width: 100%;
+  -webkit-user-drag: none;
 }
 .contact {
   justify-self: flex-end;
@@ -637,6 +643,7 @@ div#social ul li img {
   height: 25%;
   width: 100%;
   text-align: right;
+  user-select: text;
 }
 .business-card img {
   width: 100%;
@@ -644,32 +651,14 @@ div#social ul li img {
   box-sizing: border-box;
   background: #0a0a0a;
 }
-.first-card {
-  z-index: 5;
-  transform: rotate(15deg) skew(15deg);
-}
-.second-card {
-  position: absolute;
-  transform: translate(50px, -50px) rotate(10deg) skew(10deg) scale(.8);
-  opacity: 0.1;
-  z-index: 4;
-}
-/* .business-card:after {
-  content: '';
-  width: 35px;
-  height: 100%;
-  top: 0;
-  position: absolute;
-  background: var(--mainColor);
-  right: 0;
-} */
 .business-card:before {
     content: '';
-    width: 50%;
+    width: 48%;
     height: 100%;
     bottom: -69%;
     position: absolute;
     transform: rotate(55deg);
+    box-shadow: -4px -3px 14px 4px red;
     background: rgba(999, 999, 999, 0.5);
     right: -14%;
 }
@@ -680,6 +669,10 @@ div#social ul li img {
   text-align: right;
   padding-bottom: 20px;
   font-size: .8em;
+}
+.info p {
+  user-select: text;
+  text-shadow: 2px 2px 2px var(--mainColor)
 }
 
 /* medium screen resolution */
