@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     firstSection = document.querySelector("section");
 
   // enter the website animation
-  $(enterWebsiteButton).click(function() {
+  $(enterWebsiteButton).click(function () {
     $(enterWebsiteButton).fadeOut("slow");
     $(intro).css("opacity", "0.2");
     $(main).addClass("website-active");
@@ -46,18 +46,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // if controller button is next
     _this.classList.contains("next")
       ? multiplier < n - 1
-        ? (multiplier++,
+        ? (multiplier++ ,
           multiplier + 1 === n
             ? Object.assign(nextBtn.style, disabledBtn)
             : null,
           multiplier > 0 ? Object.assign(previousBtn.style, enabledBtn) : null)
         : null
       : multiplier > 0
-      ? // if controller button is previous
-        (multiplier--,
-        multiplier < n - 1 ? Object.assign(nextBtn.style, enabledBtn) : null,
-        multiplier === 0 ? Object.assign(previousBtn.style, disabledBtn) : null)
-      : null;
+        ? // if controller button is previous
+        (multiplier-- ,
+          multiplier < n - 1 ? Object.assign(nextBtn.style, enabledBtn) : null,
+          multiplier === 0 ? Object.assign(previousBtn.style, disabledBtn) : null)
+        : null;
     // the slider pod moves according to the column shown
     sliderPod.style.transform = `translate(calc(100%*${multiplier} + 2*${multiplier}%))`;
     itemsArr.forEach(
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const sliderPod = document.querySelector(".slider-pod");
     // sets the slider pod width equally wide to the slider slots width
     sliderPod.style.width = `calc(${100 / n}% - 1.5px)`;
-    $(".slider-slot").click(function() {
+    $(".slider-slot").click(function () {
       multiplier = $(".slider-slot").index(this);
       multiplier > 0
         ? Object.assign(previousBtn.style, enabledBtn)
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // function calls
 
-  $(".controller").click(function() {
+  $(".controller").click(function () {
     eventsSlider(this, nrColoumns);
   });
 

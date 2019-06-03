@@ -523,7 +523,8 @@ margin: 50px;
   background: rgba(12, 12, 12, 0.4);
 }
 .eshop-item-container:hover {
-  z-index: 9
+  z-index: 9;
+  box-shadow: 3px 3px 0px #403636, 5px 5px 0px #0b0b0c;
 }
 .eshop-item-container img {
   width: 100%;
@@ -533,7 +534,7 @@ p.product-name {
   color: white;
   font-size: 25px;
   text-align: center;
-  padding: 10px;
+  margin-top: 10px;
   transition: .5s .1s all;
   text-shadow: 2px 1px 0px var(--mainColor);
 }
@@ -596,9 +597,9 @@ div#social ul li p:after {
   height: 5px;
   display: inline-block;
   transform: skew(-35deg);
-  transition: 1s;
+  transition: .5s;
   position: absolute;
-  bottom: -5px;
+  bottom: -6px;
   left: -2px;
 }
 div#social ul li:hover p:after {
@@ -680,6 +681,7 @@ div#social ul li img {
 @media only screen and (max-width: 1600px) {
   .sidebar-container {
     top: 0;
+    height: 100vh;
   }
   .sidebar-item, .follow-us {
     font-size: 1.5em
