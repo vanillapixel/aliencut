@@ -101,6 +101,22 @@ video {
   height: 100vh;
   transition: .5s;
 }
+.bigger-text {
+  color: inherit;
+  font-size: 35px;
+  letter-spacing: 11px;
+  text-transform: uppercase;
+  transition: 2.5s all;
+  animation: blinker 3s linear infinite;
+  text-shadow: 5px 4px 10px rgba(119, 40, 249, 0.8);
+  cursor: pointer;
+  background: none;
+  border: 0;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 0 2px transparent;
+  padding: 75px 50px;
+  z-index: 1;
+}
 .enter-website {
   color: white;
   font-size: 35px;
@@ -403,6 +419,7 @@ iframe {
   max-height: 500px;
   overflow: hidden;
   flex-wrap: wrap;
+  cursor: grab;
 }
 .events:after {
   content: '2019';
