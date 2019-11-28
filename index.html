@@ -9,44 +9,69 @@
       rel="stylesheet"
     />
     <link rel="icon" href="./assets/img/icon/favicon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
-
   <body>
+    <header>
+      <div class="logo-container">
+        <img
+          class="logo-pic"
+          src="./assets/img/aliencut_logo.png"
+          alt="Alien_Cut_logo"
+        />
+      </div>
+    </header>
+    <div class="zoom-modal">
+      <div class="zoomed-picture-container">
+        <img src="" alt="" />
+      </div>
+    </div>
     <div class="background">
-      <video poster="" id="bgvid" autoplay loop muted>
+      <video id="bgvid" autoplay loop muted>
         <source src="./assets/video/teaser.mp4" type="video/mp4" />
         Your browser does not support the video tag. I suggest you upgrade your
         browser.
       </video>
     </div>
     <div class="intro">
-      <header>
-        <div class="logo">
-          <img
-            class="logo-pic"
-            src="./assets/img/aliencut_logo.png"
-            alt="Alien_Cut_logo"
-          />
-        </div>
-      </header>
       <main id="news" class="section-wrapper">
-        <h1 title="News" class="title">News</h1>
+        <h1 title="News" class="title news-title title-active">News</h1>
         <div class="content">
           <h3 class="news-subtitle">E' uscito il nostro nuovo disco</h3>
           <h2 class="news-title">Alien Cut, Paps vs Dj Matrix - FLEX</h2>
-          <iframe
+          <div id="player"></div>
+          <!-- <iframe
+            id="youtube_player"
+            class="yt_player_iframe"
+            width="640"
+            height="360"
+            src="http://www.youtube.com/embed/tjoRDr8VrLU?enablejsapi=1&version=3&playerapiid=ytplayer"
+            allowfullscreen="true"
+            allowscriptaccess="always"
+            frameborder="0"
             width="70%"
             height="55%"
-            src="https://www.youtube.com/embed/tjoRDr8VrLU"
           >
-          </iframe>
+          </iframe> -->
+          <!-- <iframe
+            src="https://www.youtube.com/embed/tjoRDr8VrLU
+            http://www.youtube.com/v/tjoRDr8VrLU?version=3&enablejsapi=1"
+          >
+          </iframe> -->
         </div>
       </main>
-      <p class="draw meet enter-website">
+      <div class="enter-website">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
         <span class="mini-text">enter the</span>
-        <p class="bigger-text">alien world</p>
-      </p>
+        <p>Alien world</p>
+      </div>
     </div>
     <div class="main-container">
       <div class="sidebar-container">
@@ -84,12 +109,12 @@
               </li>
             </a>
             <a
-              href="https://www.youtube.com/channel/UCbUOpM5k4vt1pCg0dVvRHIg"
+              href="https://www.youtube.com/channel/UCcJt2JFL5mfL3gIU70HDEbQ"
               target="_blank"
             >
               <li>
                 <img src="./assets/img/icon/youtube.svg" alt="" />
-                <p>MegaDance</p>
+                <p>Musica Che Sposta</p>
               </li>
             </a>
             <a href="https://demodrop.com/aliencut" target="_blank">
@@ -134,7 +159,9 @@
                   </g>
                 </svg>
               </div>
-              <ul class="events"></ul>
+              <ul class="events">
+                <span class="year">2019</span>
+              </ul>
               <div class="controller next">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -169,64 +196,199 @@
             </div>
           </div>
         </section>
-        <section id="e-shop-section" class="section-wrapper">
+        <section id="eshop" class="section-wrapper">
           <h1 title="E-shop" class="title">E-shop</h1>
           <div class="content">
-            <div class="eshop-item-container">
-              <img src="./assets/img/eshop/bass-line.png" alt="" />
-              <p class="product-name">Bass Line</p>
+            <div id="hoodies-tshirts" class="category-container">
+              <div class="items-wrapper">
+                <div class="item">
+                  <img src="./assets/img/eshop/bass-line.png" alt="Bass line collection" />
+                </div>
+                <div class="item">
+                  <img src="./assets/img/eshop/kick-line.png" alt="Kick line collection" />
+                </div>
+                <div class="item">
+                  <img src="./assets/img/eshop/mamma-mia.png" alt="Mamma mia special edition" />
+                </div>
+                <div class="item">
+                  <img src="./assets/img/eshop/offri-da-bere.png" alt="Offri da bere special edition" />
+                </div>
+              </div>
+              <div class="items-details">
+                <h4 class="items-category">Felpe e T-Shirts</h4>
+                <a class="cta pulse" href="https://www.moteefe.com/store/alien-cut-store" target="_blank">Compra ora
+                </a>
+              </div>
             </div>
-            <div class="eshop-item-container">
-              <img src="./assets/img/eshop/kick-line.png" alt="" />
-              <p class="product-name">Kick Line</p>
+            <div id="accessories" class="category-container">
+              <div class="items-wrapper">
+                <div class="item">
+                  <img class="flat-image" src="./assets/img/eshop/sacca-alien.png" alt="Sacca Alien Cut" />
+                </div>
+                <div class="item">
+                  <img src="./assets/img/eshop/beanie.png" alt="Beanie Alien Cut" />
+                </div>
+                <div class="item">
+                  <img class="flat-image" src="./assets/img/eshop/cappello-fluo.png" alt="Cappello Fluo Alien Cut" />
+                </div>
+              </div>
+              <div class="items-details">
+                <h4 class="items-category">Accessori</h4>
+                <a  class="cta pulse" href="https://shop.spreadshirt.it/alien-cut-official-store/" target="_blank">Compra ora
+                </a>
+              </div>
             </div>
-            <div class="eshop-item-container">
-              <img src="./assets/img/eshop/mamma-mia.png" alt="" />
-              <p class="product-name">Mamma mia</p>
-            </div>
-            <div class="eshop-item-container">
-              <img src="./assets/img/eshop/offri-da-bere.png" alt="" />
-              <p class="product-name">Offri da bere</p>
+            <div id="braccialetti" class="category-container">
+              <div class="items-wrapper">
+                <div class="item">
+                  <img src="./assets/img/eshop/braccialetti.png" alt="Braccialetti Alien Cut" />
+                </div>
+              </div>
+              <div class="items-details">
+                <h4 class="items-category">Braccialetti</h4>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                  <input type="hidden" name="cmd" value="_s-xclick">
+                  <div class="bracelet-color-selection-container">
+                    <p class="select-color-text">Scegli il colore:</p>
+                    <div class="select-color-buttons">
+                      <input type="radio" id="white-bracelet" name="hosted_button_id" value="W2USVWFLCAZ5U" checked>
+                      <label id="" for="white-bracelet">Bianco</label>
+                      <input type="radio" id="golden-bracelet" name="hosted_button_id" value="CTUY6JTAJA2ZW">
+                      <label for="golden-bracelet">Oro</label>
+                    </div>
+                  </div>
+                  <button class="cta pulse">Compra ora - 8.99€</button>
+                  <input type="hidden" border="0" name="submit">
+                </form>
+              </div>
             </div>
           </div>
         </section>
-        <section id="bio-section" class="section-wrapper">
+        <section id="gallery-section" class="section-wrapper">
           <h1 title="Gallery" class="title">Gallery</h1>
-          <div class="content">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://shop.spreadshirt.it/alien-cut-official-store/"
-              frameborder="0"
-            ></iframe>
+          <div class="content" id="gallery-section">
+            <ul class="gallery-pictures">
+              <li class="picture">
+                <img src="./assets/img/gallery/alien_bg_1.jpg" alt="" />
+              </li>
+              <li class="picture">
+                <img src="./assets/img/gallery/alien_bg_2.jpg" alt="" />
+              </li>
+              <li class="picture">
+                <img src="./assets/img/gallery/alien_bg_3.jpg" alt="" />
+              </li>
+              <li class="picture">
+                <img src="./assets/img/gallery/alien_bg_4.jpg" alt="" />
+              </li>
+              <li class="picture">
+                <img src="./assets/img/gallery/alien_bg_5.jpg" alt="" />
+              </li>
+              <li class="picture">
+                <img src="./assets/img/gallery/alien_bg_6.jpg" alt="" />
+              </li>
+              <li class="picture">
+                <img src="./assets/img/gallery/alien_bg_7.jpg" alt="" />
+              </li>
+              <li class="picture">
+                <img src="./assets/img/gallery/alien_bg_8.jpg" alt="" />
+              </li>
+              <li class="picture">
+                <img src="./assets/img/gallery/alien_bg_9.jpg" alt="" />
+              </li>
+            </ul>
           </div>
         </section>
         <section id="booking-section" class="section-wrapper">
           <h1 title="Booking" class="title">Booking</h1>
           <div class="content">
-            <div class="business-card first-card">
+            <form method="post" action="action.php">
+              <div class="form-segment-wrapper">
+                <div class="form-segment">
+                  <input type="text" name="first_name" required/>
+                  <label for="nome">Nome:</label>
+                </div>
+                <div class="form-segment">
+                  <input type="text" name="last_name" required/>
+                  <label for="cognome">Cognome:</label>
+                </div>
+              </div>
+              <div class="form-segment-wrapper">
+              <div class="form-segment">
+                <input type="text" name="email"required/>
+                <label for="email">Email:</label>
+              </div>
+              <div class="form-segment">
+                <input type="text" name="telephone"/>
+                <label for="telephone">Telefono:</label>
+              </div>
+              </div>
+              <div class="form-segment">
+                <input type="text" name="subject" required/>
+                <label for="Oggetto">Oggetto:</label>
+              </div>
+              <div class="form-segment">
+                <textarea
+                  name="message"
+                  id=""
+                  cols="10"
+                  rows="10"
+                  placeholder="Facce 'npo sapè che te serve'"
+                  required
+                ></textarea>
+                <label for="Testo">Messaggio:</label>
+              </div>
+              <div class="form-segment">
+                <input class="pulse" type="submit" name="submit" value="Invia Messaggio">
+              </input>
+            </div>
+            </form>
+            <!-- <div class="business-card first-card">
               <img src="assets/img/paolo-giusti.png" alt="Paolo Giusti" />
               <div class="info">
                 <p>+39 3489690023</p>
                 <p>info@aliencut.com</p>
               </div>
-            </div>
-            <div class="business-card second-card">
-              <!-- <img src="assets/img/paolo-giusti.png" alt="Paolo Giusti"> -->
-              <p class="contact">Cristina Peroni</p>
-              <div class="info">
-                <p>+39 3489690023</p>
-                <p>info@aliencut.com</p>
-              </div>
-            </div>
+            </div> -->
           </div>
         </section>
       </div>
     </div>
-    <script src="./assets/js/eventsHandler.js"></script>
+    <script src="./assets/js/eventsData.js"></script>
     <script src="./assets/js/item-selector-handler.js"></script>
-    <script src="./assets/js/alien.js"></script>
-    <script src="./assets/js/tilt.jquery.js"></script>
-    <script src="./assets/js/glitch-text.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
+    <script src="./assets/js/alien2.js"></script>
+    <script src="./assets/js/youtubeIframeHandler.js"></script>
+    <script>
+      const intro = $(".intro");
+      const main = $(".main-container");
+      const video = $("#bgvid");
+      const enterWebsiteButton = $(".enter-website");
+      const titles = document.querySelectorAll(".title");
+      const firstSection = document.querySelector("section");
+      const logo = document.querySelector(".logo-container");
+      $(enterWebsiteButton).click(function() {
+        logo.classList.add("logo-animation-off");
+        $(enterWebsiteButton).fadeOut("slow");
+        $(main).addClass("website-active");
+        // just making sure it's going to be muted
+        $(video).prop("muted", true);
+        // scrolls down to the first section
+        $("html, body").animate(
+          {
+            scrollTop:
+              // main.offset.top
+              $(firstSection).offset().top -
+              firstSection.style.marginTop -
+              Number(
+                window
+                  .getComputedStyle(firstSection)
+                  .marginTop.replace(/px/, "")
+              ) -
+              60
+          },
+          900
+        );
+      });
+    </script>
   </body>
 </html>

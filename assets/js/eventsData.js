@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <p class="provincia">(${events[i].province})</p>
     </h5>
   </div>
-<h3 class="location">@ ${events[i].location}</h3>
+<h3 class="location"><span>@</span> ${events[i].location}</h3>
 </li>`;
   }
 });

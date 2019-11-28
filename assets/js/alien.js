@@ -1,19 +1,20 @@
 //TODO: split scripts into different files
 
 document.addEventListener("DOMContentLoaded", () => {
-  const intro = $(".intro"),
-    main = $(".main-container"),
-    video = $("#bgvid"),
-    enterWebsiteButton = $(".enter-website"),
-    titles = document.querySelectorAll(".title"),
-    firstSection = document.querySelector("section");
+  const intro = $(".intro");
+  const main = $(".main-container");
+  const video = $("#bgvid");
+  const enterWebsiteButton = $(".enter-website");
+  const titles = document.querySelectorAll(".title");
+  const firstSection = document.querySelector("section");
+  const logo = document.querySelector(".logo-container");
 
   // 'enter the website' animation
   $(enterWebsiteButton).click(function() {
+    logo.classList.add("logo-animation-off");
     $(enterWebsiteButton).fadeOut("slow");
-    $(intro).css("opacity", "0.2");
     $(main).addClass("website-active");
-    // just making sure
+    // just making sure it's going to be muted
     $(video).prop("muted", true);
     // scrolls down to the first section
     $("html, body").animate(
@@ -31,14 +32,26 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   });
 
+  function centerTitles() {
+    let transValue;
+    // centers (or tries to) the .titles
+    titles.forEach(title => {
+      let lettersArr = [...title.innerText];
+      lettersArr.length > 6
+        ? ((transValue = 17 * (lettersArr.length - 6)),
+          (title.style.top = `${transValue}px`))
+        : null;
+    });
+  }
+
   // event slider animation
   const nextBtn = document.querySelector(".next"),
     previousBtn = document.querySelector(".previous"),
     itemsArr = document.querySelectorAll(".event"),
     // hides button
-    disabledBtn = { opacity: "0", cursor: "default" },
+    disabledBtn = { opacity: "0.3", cursor: "default", pointerEvents: "none" },
     // shows button
-    enabledBtn = { opacity: "1", cursor: "pointer" },
+    enabledBtn = { opacity: "1", cursor: "pointer", pointerEvents: "auto" },
     baseMovement = 103,
     itemsPerColumn = 3,
     nrColumns = Math.ceil(itemsArr.length / itemsPerColumn),
@@ -48,23 +61,33 @@ document.addEventListener("DOMContentLoaded", () => {
       transitionDuration: "1s"
     };
   let multiplier = 0;
+  const sliderPod = document.querySelector(".slider-pod");
 
-  eventsSlider = (_this, n) => {
-    const sliderPod = document.querySelector(".slider-pod");
+  function eventsSlider(buttonPressed, n) {
     // if controller button is next
-    _this.classList.contains("next")
-      ? multiplier < n - 1
-        ? (multiplier++,
-          multiplier + 1 === n
-            ? Object.assign(nextBtn.style, disabledBtn)
-            : null,
-          multiplier > 0 ? Object.assign(previousBtn.style, enabledBtn) : null)
-        : null
-      : multiplier > 0 // if controller button is previous
-      ? (multiplier--,
-        multiplier < n - 1 ? Object.assign(nextBtn.style, enabledBtn) : null,
-        multiplier === 0 ? Object.assign(previousBtn.style, disabledBtn) : null)
-      : null;
+    if (buttonPressed.classList.contains("next")) {
+      if (multiplier < n - 1) {
+        multiplier++;
+      }
+      if (multiplier === n - 1) {
+        Object.assign(nextBtn.style, disabledBtn);
+      }
+      if (multiplier > 0) {
+        Object.assign(previousBtn.style, enabledBtn);
+      }
+    }
+    // if controller button is previous
+    else {
+      if (multiplier > 0) {
+        multiplier--;
+        if (multiplier < n - 1) {
+          Object.assign(nextBtn.style, enabledBtn);
+        }
+        if (multiplier === 0) {
+          Object.assign(previousBtn.style, disabledBtn);
+        }
+      }
+    }
     // the slider pod moves according to the column shown
     sliderPod.style.transform = `translate(${multiplier * 100 +
       2 * multiplier}%)`;
@@ -74,12 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     //FIXME: reactivate it once the dragging system is complete
     // opacityHandler(multiplier);
-  };
+  }
 
-  controllerUpdateHandler = () => {};
-
-  sliderPodHandler = n => {
-    const sliderPod = document.querySelector(".slider-pod");
+  function sliderPodHandler(n) {
     // sets the slider pod width equally wide to the slider slots width
     sliderPod.style.width = `calc(${100 / n}% - 1.5px)`;
     $(".slider-slot").click(function() {
@@ -99,26 +119,45 @@ document.addEventListener("DOMContentLoaded", () => {
       //FIXME: reactivate it once the dragging system is complete
       // opacityHandler(multiplier);
     });
-  };
+  }
+  Draggable.create("#scroller", {
+    type: "scrollLeft",
+    edgeResistance: 0,
+    throwProps: true,
+    cursor: "grab",
+    activeCursor: "grabbing"
+  });
 
-  updatePodPositionHandler = eventTranslation => {
-    const sliderPod = document.querySelector(".slider-pod");
-    let { style } = sliderPod;
-    const eventWidth = Number(
-      window
-        .getComputedStyle(document.querySelector(".event"))
-        .width.replace(/px/, "")
+  const zoomedPicture = "";
+
+  $(".picture img").click(function() {
+    let picSrc = this.attributes.src.value;
+    console.log(this.parentElement.parentElement.children);
+    const index = [...this.parentElement.parentElement.children].indexOf(
+      this.parentElement
     );
-    style.transform = `translate(${(-eventTranslation / eventWidth) * 100}px)`;
-    Object.assign(style, onMoveTransitionOptions);
-  };
+    console.log(index);
 
-  createSliderSlots = n => {
+    console.log(this.attributes.src.value);
+  });
+
+  function createSliderSlots(n) {
     const sliderBar = document.querySelector(".slider-bar");
     for (let i = 0; i < n; i++) {
+      const el = document.createElement("div");
+      el.className = "slider-slot";
+
       // creates a slider slot in the slider bar for each slider coloumn
-      sliderBar.innerHTML += `<div class='slider-slot'></div>`;
+      sliderBar.appendChild(el);
       sliderPodHandler(n);
+    }
+  }
+
+  opacityHandler = x => {
+    for (let i = 0; i < itemsArr.length; i++) {
+      itemsArr[i].style.opacity = 0.3;
+      let opacity = i >= x * 3 && i < (x + 1) * 3 ? 1 : 0.2;
+      itemsArr[i].style.opacity = opacity;
     }
   };
   centerTitles = () => {
@@ -128,114 +167,20 @@ document.addEventListener("DOMContentLoaded", () => {
       let lettersArr = [...title.innerText];
       lettersArr.length > 6
         ? ((transValue = 17 * (lettersArr.length - 6)),
-          (title.style.transform = `translateY(${transValue}px) rotate(-90deg)`))
+          (title.style.top = `${transValue}px`))
         : null;
     });
   };
 
-  opacityHandler = x => {
-    for (let i = 0; i < itemsArr.length; i++) {
-      itemsArr[i].style.opacity = 0.3;
-      let opacity = i >= x * 3 && i < (x + 1) * 3 ? 1 : 0.2;
-      itemsArr[i].style.opacity = opacity;
-    }
-  };
+  //events listeners
+  const controllers = document.querySelectorAll(".controller");
+  for (let i = 0; i < controllers.length; i++) {
+    controllers[i].addEventListener("click", function() {
+      eventsSlider(this, nrColumns);
+    });
+  }
 
-  // function calls
-
-  $(".controller").click(function() {
-    eventsSlider(this, nrColumns);
-  });
-
-  createSliderSlots(nrColumns);
+  //function calls
   centerTitles();
-  //FIXME: reactivate it once the dragging system is complete
-  // opacityHandler(multiplier);
-
-  // -------------------------------------------------------
-  // tilt script
-  // -------------------------------------------------------
-
-  const options = {
-    scale: 1.4,
-    glare: false,
-    maxGlare: 2,
-    speed: 2200,
-    perspective: 800,
-    maxTilt: 30
-  };
-  const getTranslateX = () => {
-    let style = window.getComputedStyle(itemsArr[0]);
-    let matrix = new WebKitCSSMatrix(style.webkitTransform);
-    return matrix.m41;
-  };
-
-  $(".eshop-item-container").tilt(options),
-    $(".business-card").tilt(options, (options.scale = 1.2));
-
-  // -------------------------------------------------------
-  // drag handler
-  // -------------------------------------------------------
-
-  const events = document.querySelector(".events");
-  let dragging = false;
-  let initialCoords = 0;
-  let currCoords = 0;
-  let currTranslation = getTranslateX();
-  let itemWidth = Number(
-    window.getComputedStyle(itemsArr[0]).width.replace(/px/, "")
-  );
-
-  events.onmousedown = e => {
-    dragging = true;
-    initialCoords = e.clientX;
-    events.style.cursor = "grabbing";
-    itemsArr.forEach(item => {
-      const { style } = item;
-      Object.assign(style, onMoveTransitionOptions);
-    });
-    currTranslation = getTranslateX();
-  };
-  events.onmouseup = e => {
-    dragging = false;
-    let transitionDelay = 0;
-    events.style.cursor = "grab";
-    itemsArr.forEach((item, id) => {
-      const { style } = item;
-      switch ((id + 1) % 3) {
-        case 0:
-          transitionDelay = "0.6s";
-          break;
-        case 1:
-          transitionDelay = "0s";
-          break;
-        case 2:
-          transitionDelay = "0.3s";
-          break;
-      }
-      Object.assign(style, onMoveTransitionOptions);
-      style.transitionDelay = transitionDelay;
-    });
-  };
-  events.onmouseleave = () => {
-    dragging = false;
-    return;
-  };
-  events.onmousemove = e => {
-    let toTranslate = 0;
-    if (dragging) {
-      currCoords = e.clientX;
-      //
-      toTranslate = currTranslation - [(initialCoords - currCoords) * 2];
-      if (
-        toTranslate < 0 &&
-        toTranslate > -(10 * (nrColumns * 2 - 1) + itemWidth * (nrColumns - 1))
-      ) {
-        itemsArr.forEach(item => {
-          item.style.transform = `translate(${toTranslate}px)`;
-        });
-        updatePodPositionHandler(toTranslate);
-      }
-    }
-  };
+  createSliderSlots(nrColumns);
 });

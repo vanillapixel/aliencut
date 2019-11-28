@@ -1,2 +1,0 @@
-# aliencut
-Alien Cut website

@@ -1,5 +1,6 @@
 // vars
 const el = $("section");
+const title = $("section .title");
 const selector = $(".sidebar-item");
 let previousSelector = "";
 
@@ -22,7 +23,7 @@ selector.on("click", function() {
 });
 
 $(selector[0]).addClass("selector-active");
-selectorOnWindowScrollHandler = () => {
+highlightSelector = () => {
   $(window).scroll(function() {
     for (i = 0; i < el.length; i++) {
       let top_of_element = $(el[i]).offset().top;
@@ -31,15 +32,17 @@ selectorOnWindowScrollHandler = () => {
       let top_of_screen = $(window).scrollTop();
       // if the product is in the browser window
       if (
-        top_of_element > top_of_screen &&
-        bottom_of_element < bottom_of_screen
+        top_of_element + 250 > top_of_screen &&
+        bottom_of_element - 250 < bottom_of_screen
       ) {
         // removes all classes to the selectors and add the active class only to the displayed item
         $(selector).removeClass("selector-active");
         $(selector[i]).addClass("selector-active");
+        $(title).removeClass("title-active");
+        $(title[i]).addClass("title-active");
       }
     }
   });
 };
 
-selectorOnWindowScrollHandler();
+highlightSelector();
