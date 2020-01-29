@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Alien Cut - The creators of MegaDance</title>
     <link rel="stylesheet" href="./assets/css/alien.css" />
     <link
@@ -160,7 +161,6 @@
                 </svg>
               </div>
               <ul class="events">
-                <span class="year">2019</span>
               </ul>
               <div class="controller next">
                 <svg
@@ -192,7 +192,15 @@
               </div>
             </div>
             <div class="slider-bar">
-              <div class="slider-pod"></div>
+              <div class="slider-pod">
+                <div class="period">
+                  <div class="months">
+                    <span class="first-month"></span>
+                    <span class="second-month"></span>
+                  </div>
+                  <span class="year">2020</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -238,7 +246,7 @@
                 </a>
               </div>
             </div>
-            <div id="braccialetti" class="category-container">
+            <div id="bracelets" class="category-container">
               <div class="items-wrapper">
                 <div class="item">
                   <img src="./assets/img/eshop/braccialetti.png" alt="Braccialetti Alien Cut" />
@@ -301,60 +309,64 @@
         <section id="booking-section" class="section-wrapper">
           <h1 title="Booking" class="title">Booking</h1>
           <div class="content">
-            <form method="post" action="action.php">
-              <div class="form-segment-wrapper">
+            <div class="contact-choice">
+              <div class="contact-container reveal-number">
+                <span class="contact-number-text">Contattaci al telefono</span>
+                <span class="reveal-number-text">(clicca qui per mostrare il numero)</span>
+              </div>
+              <div class="contact-container reveal-form">
+                <span class="form-contact-text">Lasciaci un messaggio</span>
+                <span class="reveal-form-text">(clicca qui per mostrare il form)</span>
+              </div>
+              <form class="contact-form" method="post" action="action.php">
+                <div class="form-segment-wrapper">
+                  <div class="form-segment">
+                    <input type="text" name="first_name" required/>
+                    <label for="nome">Nome:</label>
+                  </div>
+                  <div class="form-segment">
+                    <input type="text" name="last_name" required/>
+                    <label for="cognome">Cognome:</label>
+                  </div>
+                </div>
+                <div class="form-segment-wrapper">
                 <div class="form-segment">
-                  <input type="text" name="first_name" required/>
-                  <label for="nome">Nome:</label>
+                  <input type="text" name="email"required/>
+                  <label for="email">Email:</label>
                 </div>
                 <div class="form-segment">
-                  <input type="text" name="last_name" required/>
-                  <label for="cognome">Cognome:</label>
+                  <input type="text" name="telephone"/>
+                  <label for="telephone">Telefono:</label>
                 </div>
+                </div>
+                <div class="form-segment">
+                  <input type="text" name="subject" required/>
+                  <label for="Oggetto">Oggetto:</label>
+                </div>
+                <div class="form-segment">
+                  <textarea
+                    name="message"
+                    id=""
+                    cols="10"
+                    rows="10"
+                    placeholder="Facce 'npo sapè che te serve'"
+                    required
+                  ></textarea>
+                  <label for="Testo">Messaggio:</label>
+                </div>
+                <div class="form-segment">
+                  <input class="pulse" type="submit" name="submit" value="Invia Messaggio">
+                </input>
               </div>
-              <div class="form-segment-wrapper">
-              <div class="form-segment">
-                <input type="text" name="email"required/>
-                <label for="email">Email:</label>
-              </div>
-              <div class="form-segment">
-                <input type="text" name="telephone"/>
-                <label for="telephone">Telefono:</label>
-              </div>
-              </div>
-              <div class="form-segment">
-                <input type="text" name="subject" required/>
-                <label for="Oggetto">Oggetto:</label>
-              </div>
-              <div class="form-segment">
-                <textarea
-                  name="message"
-                  id=""
-                  cols="10"
-                  rows="10"
-                  placeholder="Facce 'npo sapè che te serve'"
-                  required
-                ></textarea>
-                <label for="Testo">Messaggio:</label>
-              </div>
-              <div class="form-segment">
-                <input class="pulse" type="submit" name="submit" value="Invia Messaggio">
-              </input>
+              </form>
             </div>
-            </form>
-            <!-- <div class="business-card first-card">
-              <img src="assets/img/paolo-giusti.png" alt="Paolo Giusti" />
-              <div class="info">
-                <p>+39 3489690023</p>
-                <p>info@aliencut.com</p>
-              </div>
-            </div> -->
           </div>
         </section>
       </div>
     </div>
     <script src="./assets/js/eventsData.js"></script>
     <script src="./assets/js/item-selector-handler.js"></script>
+    <script src="./assets/js/contact-section-handler.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
     <script src="./assets/js/alien2.js"></script>
     <script src="./assets/js/youtubeIframeHandler.js"></script>
@@ -383,8 +395,7 @@
                 window
                   .getComputedStyle(firstSection)
                   .marginTop.replace(/px/, "")
-              ) -
-              60
+              )
           },
           900
         );

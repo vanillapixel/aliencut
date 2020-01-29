@@ -1,13 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   function Slider(target, options, target) {
-    const itemsArr = document.querySelectorAll(`.${target}`);
+    const eventsArray = document.querySelectorAll(`.${target}`);
     const controllers = document.querySelectorAll(`.controller`);
     const sliderPod = document.querySelector(".slider-pod");
+    const year = document.querySelector(".year");
+    let isMobile = checkIfMobile();
 
     let defaultOptions = {
       itemsPerColumn: 1,
       baseMovement: 103
     };
+    const sliderSlotsGap = 6;
+    const ssg = sliderSlotsGap;
 
     if (options) {
       for (let option in options) {
@@ -17,14 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const { itemsPerColumn, baseMovement } = defaultOptions;
 
-    const nrColumns = Math.ceil(itemsArr.length / itemsPerColumn);
+    const nrColumns = Math.ceil(eventsArray.length / itemsPerColumn);
     updateSliderPodWidth(nrColumns);
 
-    // first column is nr.0
-    let displayedColumn = 0;
-    updateSliderItemsOpacity();
-
     createSliderSlots(nrColumns);
+
     const sliderSlots = document.querySelectorAll(".slider-slot");
 
     const buttonStyle = {
@@ -44,35 +45,120 @@ document.addEventListener("DOMContentLoaded", () => {
     const onMoveTransitionOptions = {
       transitionDelay: "0s",
       transitionTimingFunction: "cubic-bezier(0,.29,.41,.98)",
-      transitionDuration: "1s"
+      transitionDuration: ".3s"
     };
 
-    function updateSliderItemsOpacity() {
-      for (let i = 0; i < itemsArr.length; i++) {
-        itemsArr[i].style.opacity = 0.3;
-        if (
-          displayedColumn * itemsPerColumn <= i &&
-          i <= displayedColumn * itemsPerColumn + 2
-        ) {
-          itemsArr[i].style.opacity = 1;
-        }
+    // first column is nr.0
+    let displayedColumn = 0;
+    eventsArray.forEach((x, id) => {
+      if (x.classList.contains("next-event")) {
+        displayedColumn = Math.floor(id / itemsPerColumn);
+      }
+    });
+
+    function checkIfMobile() {
+      if (window.innerWidth <= 800) {
+        return true;
+      } else return false;
+    }
+
+    function setEventsTranslateToZero() {
+      eventsArray.forEach(event => {
+        event.style.transform = "translate(0px)";
+      });
+    }
+
+    function eventsTranslationHandler() {
+      if (checkIfMobile() === true) {
+        setEventsTranslateToZero();
+      } else {
+        updateSlider();
       }
     }
 
+    function checkYear(item, years) {
+      const getDataYear = item.children[0].getAttribute("data-year");
+      if (years.hasOwnProperty(getDataYear)) {
+        years[getDataYear]++;
+      } else {
+        years[getDataYear] = 1;
+      }
+    }
+
+    function updateYear(years) {
+      let updatedYear;
+      updatedYear = Object.values(years).reduce((a, b) => (a > b ? a : b));
+      Object.keys(years).forEach(entry => {
+        if (years[entry] == updatedYear) {
+          year.textContent = entry;
+        }
+      });
+    }
+
+    function getMonths(item, months) {
+      const month = item.querySelector(".month");
+      months.push(month.textContent);
+    }
+    function updateMonths(months, monthsContainer) {
+      const firstMonthEl = document.querySelector(".first-month");
+      const secondMonthEl = document.querySelector(".second-month");
+      const firstMonthText = months[0];
+      const secondMonthText = months[months.length - 1];
+      monthsContainer.classList.remove("opacity-flash");
+      if (months.length === 1 || firstMonthText === secondMonthText) {
+        firstMonthEl.textContent = months[0];
+        secondMonthEl.textContent = "";
+      } else {
+        firstMonthEl.textContent = `${firstMonthText.substring(0, 3)} - `;
+        secondMonthEl.textContent = secondMonthText.substring(0, 3);
+      }
+    }
+
+    function updateSliderItemsOpacity(item) {
+      item.style.opacity = 1;
+    }
+
+    function updateDisplayedColumnItems() {
+      const monthsContainer = document.querySelector(".months");
+      const years = {};
+      let months = [];
+      monthsContainer.classList.add("opacity-flash");
+      eventsArray.forEach((item, id) => {
+        item.style.opacity = 0.3;
+        if (
+          displayedColumn * itemsPerColumn <= id &&
+          id < displayedColumn * itemsPerColumn + itemsPerColumn
+        ) {
+          updateSliderItemsOpacity(item);
+          checkYear(item, years);
+          getMonths(item, months);
+        }
+      });
+      setTimeout(function() {
+        updateYear(years);
+        updateMonths(months, monthsContainer);
+      }, 1200);
+    }
+
     function updateSliderPodPosition() {
-      sliderPod.style.transform = `translate(${displayedColumn * 100 +
-        2 * displayedColumn}%)`;
+      sliderPod.style.transform = `translate(calc(${displayedColumn} * 100% +
+        ${ssg * displayedColumn}px)`;
+    }
+
+    function updateSliderPodWidth(n) {
+      // sets the slider pod width equally wide to the slider slots width
+      sliderPod.style.width = `calc(((100% + ${ssg}px) - ${ssg} * ${n}px) / ${n})`;
     }
 
     function updateSliderItemsPosition() {
-      itemsArr.forEach(
+      eventsArray.forEach(
         item =>
           (item.style.transform = `translate(-${baseMovement *
             displayedColumn}%)`)
       );
     }
 
-    function updateDisplayedColumn(buttonPressed) {
+    function updateDisplayedColumnNumber(buttonPressed) {
       if (buttonPressed) {
         if (buttonPressed == "next") {
           displayedColumn++;
@@ -80,7 +166,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (buttonPressed == "previous") {
           displayedColumn--;
         }
-      } else {
       }
     }
 
@@ -103,11 +188,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    function updateSliderPodWidth(n) {
-      // sets the slider pod width equally wide to the slider slots width
-      sliderPod.style.width = `calc(${100 / n}% - 1.5px)`;
-    }
-
     function createSliderSlots(n) {
       const sliderBar = document.querySelector(`.slider-bar`);
       for (let i = 0; i < n; i++) {
@@ -119,35 +199,144 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    function updateSlider() {
+      updateSliderItemsPosition();
+      updateControllerStyle();
+      updateSliderPodPosition();
+      updateDisplayedColumnItems();
+    }
+
     // events listeners
     controllers.forEach(controller => {
       controller.addEventListener("click", function() {
-        if (this.classList.contains("next")) {
-          updateDisplayedColumn("next");
-        } else {
-          updateDisplayedColumn("previous");
-        }
-        updateSliderItemsPosition();
-        updateControllerStyle();
-        updateSliderPodPosition();
-        updateSliderItemsOpacity();
+        this.classList.contains("next")
+          ? updateDisplayedColumnNumber("next")
+          : updateDisplayedColumnNumber("previous");
+        updateSlider();
       });
     });
     sliderSlots.forEach((sliderSlot, id) =>
       sliderSlot.addEventListener("click", function() {
         displayedColumn = id;
-        updateSliderItemsPosition();
-        updateControllerStyle();
-        updateSliderPodPosition();
-        updateSliderItemsOpacity();
-
+        updateSlider();
         //FIXME: reactivate it once the dragging system is complete
         // opacityHandler(multiplier);
       })
     );
+
+    // drag animation functionality
+    //FIXME: fix the sliderPod drag animation
+
+    const dragTransitionOptions = {
+      transitionDelay: "0s",
+      transitionTimingFunction: "cubic-bezier(0,.29,.41,.98)",
+      transitionDuration: "0s"
+    };
+
+    function getTranslateX() {
+      const eventsArray = document.querySelectorAll(`.${target}`);
+      let style = window.getComputedStyle(eventsArray[0]);
+      let matrix = new WebKitCSSMatrix(style.webkitTransform);
+      return matrix.m41;
+    }
+
+    function podPositionUpdater(amountToTranslate) {
+      let { style } = sliderPod;
+      const eventWidth = Number(
+        window
+          .getComputedStyle(document.querySelector(".event"))
+          .width.replace(/px/, "")
+      );
+      const sliderBarWidth = Number(
+        window
+          .getComputedStyle(document.querySelector(".slider-bar"))
+          .width.replace(/px/, "")
+      );
+      style.transform = `translate(${(-amountToTranslate * sliderBarWidth) /
+        eventWidth /
+        10}%)`;
+      Object.assign(style, dragTransitionOptions);
+    }
+
+    const events = document.querySelector(".events");
+    let dragging = false;
+    let initialCoords = 0;
+    let currCoords = 0;
+    let currItemTranslation = getTranslateX();
+    let itemWidth = Number(
+      window.getComputedStyle(eventsArray[0]).width.replace(/px/, "")
+    );
+
+    function resetAnimationProps() {
+      dragging = false;
+      let transitionDelay = 0;
+      events.style.cursor = "grab";
+      eventsArray.forEach((item, id) => {
+        const { style } = item;
+        switch (id % 3) {
+          case 0:
+            transitionDelay = "0s";
+            break;
+          case 1:
+            transitionDelay = "0.3s";
+            break;
+          case 2:
+            transitionDelay = "0.6s";
+            break;
+        }
+        style.transitionDuration = "1s";
+        style.transitionTimingFunction =
+          "cubic-bezier(0.78, -0.35, 0.51, 0.95)";
+        style.transitionDelay = transitionDelay;
+      });
+      sliderPod.style.transitionDuration = "1.6s";
+      sliderPod.style.transitionTimingFunction = "ease-in-out";
+      sliderPod.style.transitionDelay = 0;
+    }
+
+    function slideItems(e) {
+      let amountToTranslate = 0;
+      if (dragging) {
+        currCoords = e.clientX;
+        amountToTranslate =
+          currItemTranslation - [(initialCoords - currCoords) * 2];
+        // prevents from oversliding from either right or left
+        if (
+          amountToTranslate < 0 &&
+          amountToTranslate >
+            -(10 * (nrColumns * 2 - 1) + itemWidth * (nrColumns - 1))
+        ) {
+          eventsArray.forEach(item => {
+            item.style.transform = `translate(${amountToTranslate}px)`;
+          });
+          podPositionUpdater(amountToTranslate);
+        }
+      }
+    }
+
+    function setDraggingStatus(e) {
+      dragging = true;
+      initialCoords = e.clientX;
+      events.style.cursor = "grabbing";
+      eventsArray.forEach(item => {
+        const { style } = item;
+        Object.assign(style, dragTransitionOptions);
+      });
+      currItemTranslation = getTranslateX();
+    }
+    //function calls
+    eventsTranslationHandler();
+
+    // event listeners
+    window.addEventListener("resize", eventsTranslationHandler);
+
+    // touch event listeners
+    // events.addEventListener("mouseup", resetAnimationProps);
+    // events.addEventListener("mouseleave", resetAnimationProps);
+    // events.addEventListener("mousemove", e => slideItems(e));
+    // events.addEventListener("mousedown", e => setDraggingStatus(e));
   }
 
-  //function calls
   const eventsSliderOpts = {
     itemsPerColumn: 3,
     baseMovement: 103
