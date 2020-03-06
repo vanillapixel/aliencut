@@ -1,48 +1,97 @@
 // vars
-const el = $("section");
-const title = $("section .title");
-const selector = $(".sidebar-item");
-let previousSelector = "";
+const sections = document.querySelectorAll("section");
+const titles = document.querySelectorAll("section .title");
+const selectors = document.querySelectorAll(".sidebar-item");
+const mainContainer = document.querySelector(".main-container");
+let titlesPositions = [];
+let currentActiveSelector = document.querySelector(".sidebar-item");
+let currentActiveTitle = document.querySelector("section .title");
+let lastScroll = window.pageYOffset;
+let currentScroll = window.pageYOffset;
+let scrolling = false;
+
+// activates the first selector when page loads
+selectors[0].classList.add("selector-active");
 
 // Item selector click function
-selector.on("click", function() {
-  // clicked selector gets class
-  $(this).addClass("selector-active");
-  // previous selected item exists?
-  if (previousSelector != "") {
-    previousSelector.removeClass("selector-active");
-  }
-
-  // scrolls the page to the selected item
-  let elID = $(selector).index(this);
-  el[elID].scrollIntoView({ behavior: "smooth", block: "center" });
-
-  // current selected item becomes previous
-  previousSelector = $(this);
-  return previousSelector;
+selectors.forEach((selector, id) => {
+  selector.addEventListener("click", function() {
+    // removes the active class from the first element - see line 11
+    currentActiveSelector.classList.remove("selector-active");
+    this.classList.add("selector-active");
+    // scrolls the page to the selected item
+    sections[id].scrollIntoView({ behavior: "smooth", block: "start" });
+    // current selected item becomes previous
+    currentActiveSelector = this;
+    return currentActiveSelector;
+  });
 });
 
-$(selector[0]).addClass("selector-active");
-highlightSelector = () => {
-  $(window).scroll(function() {
-    for (i = 0; i < el.length; i++) {
-      let top_of_element = $(el[i]).offset().top;
-      let bottom_of_element = $(el[i]).offset().top + $(el[i]).outerHeight();
-      let bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
-      let top_of_screen = $(window).scrollTop();
-      // if the product is in the browser window
-      if (
-        top_of_element + 250 > top_of_screen &&
-        bottom_of_element - 250 < bottom_of_screen
-      ) {
-        // removes all classes to the selectors and add the active class only to the displayed item
-        $(selector).removeClass("selector-active");
-        $(selector[i]).addClass("selector-active");
-        $(title).removeClass("title-active");
-        $(title[i]).addClass("title-active");
+function checkIfTitleIsInWindow() {
+  // top of the screen
+  let windowTop = lastScroll;
+  // bottom of the screen
+  let windowBottom = windowTop + window.innerHeight;
+  // scrolling down
+  titlesPositions.forEach((titlePos, id) => {
+    if (currentScroll > lastScroll) {
+      if (titlePos.top < windowBottom && titlePos.bottom > windowTop) {
+        updateSelectorsTitles(id);
+      }
+      //scrolling up
+    } else {
+      if (titlePos.bottom > windowTop && titlePos.bottom < windowBottom) {
+        updateSelectorsTitles(id);
       }
     }
   });
-};
+}
 
-highlightSelector();
+function updateSelectorsTitles(id) {
+  currentActiveSelector.classList.remove("selector-active");
+  selectors[id].classList.add("selector-active");
+  currentActiveSelector = selectors[id];
+
+  currentActiveTitle.classList.remove("title-active");
+  titles[id].classList.add("title-active");
+  currentActiveTitle = titles[id];
+}
+
+function getTitlePositions() {
+  titlesPositions = [];
+  titles.forEach(title => {
+    // distance from top of the document
+    let titleTop =
+      title.getBoundingClientRect().top +
+      title.ownerDocument.defaultView.pageYOffset;
+
+    // distance from top of the document + height of element
+    let titleBottom = titleTop + title.getBoundingClientRect().height;
+
+    titlesPositions.push({ top: titleTop, bottom: titleBottom });
+  });
+}
+
+enterWebsiteButton.addEventListener("click", function() {
+  if (titlesPositions == false) {
+    getTitlePositions();
+  }
+});
+
+window.addEventListener("resize", function() {
+  titlesPositions.length = 0;
+  getTitlePositions();
+});
+window.addEventListener("scroll", function() {
+  currentScroll = window.pageYOffset;
+  // throttling the scrolling eventlistener - event is triggered every 150 pixel difference (both directions)
+  if (currentScroll > lastScroll + 150 || currentScroll < lastScroll - 150) {
+    if (scrolling == false) {
+      scrolling = true;
+      getTitlePositions();
+      checkIfTitleIsInWindow();
+      lastScroll = currentScroll;
+    }
+    scrolling = false;
+  }
+});

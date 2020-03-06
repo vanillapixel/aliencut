@@ -24,8 +24,9 @@ function revealNumber() {
     fadeOutElement(contactNumberText);
     revealNumberText.textContent = "clicca qui per chiamare";
     const newAnchor = document.createElement("a");
-    newAnchor.setAttribute("href", "tel:3381785771");
-    newAnchor.textContent = "3381785771";
+    newAnchor.setAttribute("href", "tel:+393489690023");
+    newAnchor.textContent = "+393489690023";
+    newAnchor.style.animation = "box-shadow-flash 6s";
     revealNummberBtn.appendChild(newAnchor);
   }
 }

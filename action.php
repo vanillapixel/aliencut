@@ -12,7 +12,7 @@ if(isset($_POST['email'])) {
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
  
     // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "giorgio.adamo.ap@gmail.com";
+    $email_to = "info@aliencut.com";
     $email_subject = $subject;
  
     function died($error) {
