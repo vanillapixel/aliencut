@@ -31,9 +31,7 @@ selectors.forEach((selector, id) => {
       ? netAmountToScroll - headerHeigth
       : netAmountToScroll;
 
-    console.log(amountToScroll);
-
-    window.scroll({ top: amountToScroll, behavior: "smooth" });
+    window.scroll(window.scroll({ top: amountToScroll, behavior: "smooth" }));
     // current selected item becomes previous
     currentActiveSelector = this;
     return currentActiveSelector;

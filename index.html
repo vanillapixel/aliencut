@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Alien Cut - The creators of MegaDance</title>
+    <title>Alien Cut Official Website</title>
     <link rel="stylesheet" href="./assets/css/alien.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Play"
@@ -26,11 +26,13 @@
         />
       </div>
       <div class="menu">
-        <span class="menu-text">Menu</span>
-        <div class="lines">
-          <span class="menu-line"></span>
-          <span class="menu-line"></span>
-          <span class="menu-line"></span>
+        <div class="menu-wrapper">
+          <span class="menu-text">Menu</span>
+          <div class="lines">
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+          </div>
         </div>
       </div>
     </header>
@@ -127,17 +129,17 @@
               <a href="https://music.apple.com/it/album/musica-che-sposta/1489723000" target="_blank">
                 <div class="news-cta-container">
                   <div class="news-cta-icon">
-                    <img src="./assets/img/news/musica-che-sposta/apple-music.png" alt="Acquista su Apple Music">
+                    <img src="./assets/img/news/musica-che-sposta/apple-music.png" alt="Buy Now su Apple Music">
                   </div>
                   <div class="news-cta-text-wrapper">
-                    <span class="news-cta-text">Acquista su <p>Apple Music</p></span>
+                    <span class="news-cta-text">Buy Now su <p>Apple Music</p></span>
                   </div>
                 </div>
               </a>
               <a href="https://www.amazon.it/Musica-Che-Sposta-Alien-Cut/dp/B081KQLJ9N/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=musica%20che%20sposta&qid=1574473456&sr=8-1&fbclid=IwAR39NDsD-4j8qgKtZeJ7M0wB5NuenSS5_9fCgoPthrXOusHlmlcoIk5H8Iw" target="_blank">
                 <div class="news-cta-container">
                   <div class="news-cta-icon">
-                    <img src="./assets/img/news/musica-che-sposta/amazon.jpg" alt="Acquista su Amazon Music">
+                    <img src="./assets/img/news/musica-che-sposta/amazon.jpg" alt="Buy Now su Amazon Music">
                   </div>
                   <div class="news-cta-text-wrapper">
                     <span class="news-cta-text">Ordina su <p>Amazon Music</p></span>
@@ -310,7 +312,7 @@
               </div>
               <div class="items-details">
                 <h4 class="items-category">Felpe e T-Shirts</h4>
-                <a class="cta pulse" href="https://www.moteefe.com/store/alien-cut-store" target="_blank">Compra ora
+                <a class="cta pulse" href="https://www.moteefe.com/store/alien-cut-store" target="_blank">Buy Now
                 </a>
               </div>
             </div>
@@ -328,7 +330,7 @@
               </div>
               <div class="items-details">
                 <h4 class="items-category">Accessori</h4>
-                <a  class="cta pulse" href="https://shop.spreadshirt.it/alien-cut-official-store/" target="_blank">Compra ora
+                <a  class="cta pulse" href="https://shop.spreadshirt.it/alien-cut-official-store/" target="_blank">Buy Now
                 </a>
               </div>
             </div>
@@ -351,7 +353,7 @@
                       <label for="golden-bracelet">Oro</label>
                     </div>
                   </div>
-                  <button class="cta pulse">Compra ora - 8.99€</button>
+                  <button class="cta pulse">Buy Now - 9.00€</button>
                   <input type="hidden" border="0" name="submit">
                 </form>
               </div>
@@ -397,7 +399,7 @@
           <div class="content">
             <div class="contact-choice">
               <div class="contact-container reveal-number">
-                <span class="contact-number-text">Contattaci al telefono</span>
+                <span class="contact-number-text">Chiamaci o scrivici su WhatsApp</span>
                 <span class="reveal-number-text">(clicca qui per mostrare il numero)</span>
               </div>
               <div class="contact-container reveal-form">
@@ -435,7 +437,6 @@
                     id=""
                     cols="10"
                     rows="10"
-                    placeholder="Facce 'npo sapè che te serve'"
                     required
                   ></textarea>
                   <label for="Testo">Messaggio:</label>
@@ -458,24 +459,27 @@
       const logo = document.querySelector(".logo-container");
       const newsWrapperHeight = document.querySelector('.news-wrapper').offsetHeight
       const headerHeigth = document.querySelector('header').offsetHeight
-      const isMobile = () => (window.innerWidth <= 800 ? true : false);
+      const isMobile = () => (window.innerWidth <= 1280 ? true : false);
       const sidebarLogo = document.querySelector('.sidebar-logo')
       const menu = document.querySelector('.menu')
       const sidebar = document.querySelector('.sidebar-container')
 
       function toggleMenu() {
-        sidebar.classList.toggle('sidebar-active')
-        menu.classList.toggle('menu-active')
+        if (isMobile()) {
+          sidebar.classList.toggle('sidebar-active')
+          menu.classList.toggle('menu-open')
+        }
       }
 
       menu.addEventListener('click', toggleMenu)
+      sidebar.addEventListener('click', toggleMenu)
 
       document.addEventListener('scroll', adjustLogoOpacity)
       document.addEventListener('resize', isMobile)
 
       function adjustLogoOpacity () {
         if (!isMobile()) {
-          if (window.pageYOffset < newsWrapperHeight - 50) {
+          if (window.pageYOffset < newsWrapperHeight - 100) {
             logo.style.opacity = 1 - Math.round(window.pageYOffset / newsWrapperHeight * 1.5 * 10) / 10
             sidebarLogo.style.opacity = 0
             logo.style.display = 'block'
