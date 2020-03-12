@@ -31,8 +31,6 @@ selectors.forEach((selector, id) => {
       ? netAmountToScroll - headerHeigth
       : netAmountToScroll;
 
-    console.log(amountToScroll);
-
     window.scroll({ top: amountToScroll, behavior: "smooth" });
     // current selected item becomes previous
     currentActiveSelector = this;
@@ -45,8 +43,19 @@ function checkIfTitleIsInWindow() {
   let windowTop = lastScroll;
   // bottom of the screen
   let windowBottom = windowTop + window.innerHeight;
-  // scrolling down
-  if (currentScroll > lastScroll) {
+  // mobile
+  if (isMobile()) {
+    for (let i = 0; i < titlesPositions.length; i++) {
+      if (
+        titlesPositions[i].top > window.pageYOffset &&
+        titlesPositions[i].bottom < window.pageYOffset + window.innerHeight
+      ) {
+        updateSelectorsTitles(i);
+      }
+    }
+  }
+  // scrolling down - desktop
+  else if (currentScroll > lastScroll) {
     for (let i = 0; i < titlesPositions.length; i++) {
       if (
         titlesPositions[i].top < windowBottom &&
@@ -56,7 +65,7 @@ function checkIfTitleIsInWindow() {
       }
     }
   } else {
-    //scrolling up
+    //scrolling up - desktop
     for (let i = titlesPositions.length - 1; i >= 0; i--) {
       if (
         titlesPositions[i].bottom > windowTop &&
@@ -105,8 +114,12 @@ window.addEventListener("resize", function() {
 });
 window.addEventListener("scroll", function() {
   currentScroll = window.pageYOffset;
+  let throttleValue = isMobile() ? 50 : 150;
   // throttling the scrolling eventlistener - event is triggered every 150 pixel difference (both directions)
-  if (currentScroll > lastScroll + 150 || currentScroll < lastScroll - 150) {
+  if (
+    currentScroll > lastScroll + throttleValue ||
+    currentScroll < lastScroll - throttleValue
+  ) {
     if (scrolling == false) {
       scrolling = true;
       getTitlePositions();

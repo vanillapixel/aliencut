@@ -405,7 +405,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const cancelledEvents = document.querySelectorAll(".cancelled");
 
   function staggerCancelledEventsAnimations() {
-    console.log(cancelledEvents);
     cancelledEvents.forEach((x, id) => {
       x.style.animationDelay = `${id * 1}s`;
     });
