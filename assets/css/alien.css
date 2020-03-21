@@ -964,7 +964,7 @@ video {
   -ms-flex-preferred-size: 14%;
       flex-basis: 14%;
   background: rgba(0, 0, 0, 0.4);
-  min-width: 250px;
+  min-width: 25rem;
 }
 
 .sidebar-logo {
@@ -1393,7 +1393,7 @@ video {
   position: absolute;
   left: 0;
   content: "cancellato 💀 corona virus";
-  background: red;
+  background: #ff6138;
   font-size: 3.5rem;
   -webkit-animation: opacityFlash 10s infinite;
           animation: opacityFlash 10s infinite;
@@ -2371,7 +2371,7 @@ video {
     color: white;
     font-size: 2.3rem;
     position: absolute;
-    left: -50%;
+    left: -30px;
     top: 45%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
@@ -2452,6 +2452,9 @@ video {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
     margin: 5rem 0;
+  }
+  #booking-section .content .contact-choice {
+    width: 100%;
   }
 }
 
