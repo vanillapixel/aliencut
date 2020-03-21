@@ -961,8 +961,8 @@ video {
           justify-content: center;
   margin-left: 1rem;
   text-align: right;
-  -ms-flex-preferred-size: 14%;
-      flex-basis: 14%;
+  -ms-flex-preferred-size: 16%;
+      flex-basis: 16%;
   background: rgba(0, 0, 0, 0.4);
   min-width: 25rem;
 }
