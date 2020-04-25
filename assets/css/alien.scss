@@ -775,6 +775,15 @@ video {
     border-radius: 20px;
     cursor: pointer;
     background: $dark-grey;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: 30px;
+      width: 100%;
+      transform: translateY(-50%);
+    }
     &:nth-child(2) {
       margin-left: 0;
     }

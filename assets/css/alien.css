@@ -1193,6 +1193,17 @@ video {
   background: rgba(47, 47, 47, 0.9);
 }
 
+#events-section .slider-slot:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 30px;
+  width: 100%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
 #events-section .slider-slot:nth-child(2) {
   margin-left: 0;
 }
