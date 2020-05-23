@@ -240,6 +240,66 @@ ul {
     }
   }
 }
+.first-mask,
+.second-mask,
+.third-mask {
+  position: fixed;
+  padding: 0 50px;
+  height: 100vh;
+  width: 100vw;
+  z-index: 9999999;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transform: translateY(120%);
+  transition: 1.3s cubic-bezier(0, 1, 1, 0) 0.2s;
+}
+.first-mask {
+  transition-duration: 1.8s;
+  background: $dark;
+}
+.second-mask {
+  background: $main-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    color: white;
+    font-size: 12rem;
+    letter-spacing: 0rem;
+    text-transform: uppercase;
+    transform: rotate(0deg);
+    transition: letter-spacing 1.2s cubic-bezier(0, 1, 1, 0) 0.5s;
+    &:before,
+    &:after {
+      white-space: nowrap;
+      font-size: inherit;
+    }
+    &:before {
+      content: "<<<";
+    }
+    &:after {
+      content: ">>>";
+    }
+  }
+}
+.third-mask {
+  background: white;
+  transition-duration: 1s;
+  transition-delay: 0.7s;
+}
+.fm-down-shifted {
+  transform: translateY(-120%);
+}
+.fm-up-shifted {
+  transform: translateY(120%);
+}
+.sm-down-shifted {
+  transform: translateY(-240%);
+}
+.sm-up-shifted {
+  transform: translateY(240%);
+}
 .background {
   position: fixed;
   top: 0;
@@ -625,10 +685,11 @@ video {
   min-width: 25rem;
 }
 .sidebar-logo {
-  margin: 4rem;
-  margin-bottom: 5rem;
+  margin: 5rem;
+  margin-bottom: 6rem;
   opacity: 0;
   transition: 0.3s 0.1s;
+  cursor: pointer;
   img {
     width: 100%;
   }
@@ -780,7 +841,7 @@ video {
       position: absolute;
       top: 50%;
       left: 0;
-      height: 30px;
+      height: 50px;
       width: 100%;
       transform: translateY(-50%);
     }
@@ -939,16 +1000,16 @@ video {
         white-space: nowrap;
         animation-delay: inherit;
       }
-      .location h3:after {
-        content: "";
-        position: absolute;
-        background: #ff6138;
-        width: 100%;
-        height: 3px;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-      }
+      // .location h3:after {
+      //   content: "";
+      //   position: absolute;
+      //   background: #ff6138;
+      //   width: 100%;
+      //   height: 3px;
+      //   top: 50%;
+      //   left: 0;
+      //   transform: translateY(-50%);
+      // }
     }
     .next-event .location span {
       color: $main-color;
@@ -1743,6 +1804,10 @@ video {
   .sidebar-container {
     width: 50%;
     opacity: 0;
+  }
+  .second-mask h1 {
+    font-size: 8rem;
+    transform: rotate(90deg);
   }
   .news-wrapper {
     flex-direction: column;

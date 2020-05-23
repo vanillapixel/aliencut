@@ -10,10 +10,6 @@
       rel="stylesheet"
     />
     <link rel="icon" href="./assets/img/icon/favicon.png" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css"
-    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
@@ -36,6 +32,9 @@
         </div>
       </div>
     </header>
+    <div class="first-mask"></div>
+    <div class="second-mask"><h1>teleporting</h1></div>
+    <div class="third-mask"></div>
     <div class="zoom-modal">
       <div class="backdrop"></div>
       <div class="close-button"></div>
@@ -126,16 +125,6 @@
                   </div>
                 </div>
               </a>
-              <a href="https://music.apple.com/it/album/musica-che-sposta/1489723000" target="_blank">
-                <div class="news-cta-container">
-                  <div class="news-cta-icon">
-                    <img src="./assets/img/news/musica-che-sposta/apple-music.png" alt="Buy Now su Apple Music">
-                  </div>
-                  <div class="news-cta-text-wrapper">
-                    <span class="news-cta-text">Buy Now su <p>Apple Music</p></span>
-                  </div>
-                </div>
-              </a>
               <a href="https://www.amazon.it/Musica-Che-Sposta-Alien-Cut/dp/B081KQLJ9N/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=musica%20che%20sposta&qid=1574473456&sr=8-1&fbclid=IwAR39NDsD-4j8qgKtZeJ7M0wB5NuenSS5_9fCgoPthrXOusHlmlcoIk5H8Iw" target="_blank">
                 <div class="news-cta-container">
                   <div class="news-cta-icon">
@@ -146,7 +135,16 @@
                   </div>
                 </div>
               </a>
-            </div>
+              <a href="https://music.apple.com/it/album/musica-che-sposta/1489723000" target="_blank">
+                <div class="news-cta-container">
+                  <div class="news-cta-icon">
+                    <img src="./assets/img/news/musica-che-sposta/apple-music.png" alt="Buy Now su Apple Music">
+                  </div>
+                  <div class="news-cta-text-wrapper">
+                    <span class="news-cta-text">Buy Now su <p>Apple Music</p></span>
+                  </div>
+                </div>
+              </a>
             </div>
         </div>
       </main>
@@ -451,80 +449,7 @@
         </section>
       </div>
     </div>
-    <script>
-      const main = document.querySelector(".main-container");
-      const video = document.querySelector("#bgvid");
-      const enterWebsiteButton = document.querySelector(".enter-website");
-      const firstSection = document.querySelector(".content-container");
-      const logo = document.querySelector(".logo-container");
-      const newsWrapperHeight = document.querySelector('.news-wrapper').offsetHeight
-      const headerHeigth = document.querySelector('header').offsetHeight
-      const isMobile = () => (window.innerWidth <= 1280 ? true : false);
-      const sidebarLogo = document.querySelector('.sidebar-logo')
-      const menu = document.querySelector('.menu')
-      const sidebar = document.querySelector('.sidebar-container')
-
-      function toggleMenu() {
-        if (isMobile()) {
-          sidebar.classList.toggle('sidebar-active')
-          menu.classList.toggle('menu-open')
-        }
-      }
-
-      menu.addEventListener('click', toggleMenu)
-      sidebar.addEventListener('click', toggleMenu)
-
-      document.addEventListener('scroll', adjustLogoOpacity)
-      document.addEventListener('resize', isMobile)
-
-      function adjustLogoOpacity () {
-        if (!isMobile()) {
-          if (window.pageYOffset < newsWrapperHeight - 100) {
-            logo.style.opacity = 1 - Math.round(window.pageYOffset / newsWrapperHeight * 1.5 * 10) / 10
-            sidebarLogo.style.opacity = 0
-            logo.style.display = 'block'
-          }
-          else {
-            sidebarLogo.style.opacity = 1
-            logo.style.display = 'none'
-          }
-        }
-      }
-
-      enterWebsiteButton.addEventListener('click', (function() {
-        menu.style.opacity = 1
-        logo.classList.add("logo-animation-off");
-        main.classList.add("website-active");
-        // just making sure it's going to be muted
-        $(video).prop("muted", true);
-        // scrolls down to the first section
-      
-        let firstSectionTop = firstSection.getBoundingClientRect().top
-        let scrollTop = getScrollTop()
-
-        function getScrollTop () {
-          const firstSectionMargin = Number(
-            window
-            .getComputedStyle(firstSection)
-            .marginTop.replace(/px/, "")
-            )
-          const scrolledValue = window.pageYOffset
-          let value = 0
-
-          if (window.innerWidth > 800 ) {
-            value = firstSectionTop - firstSectionMargin + scrolledValue
-          } else {
-            value = newsWrapperHeight + firstSectionMargin
-          }
-          return value
-        }
-
-        $("html, body").animate(
-          {scrollTop},
-          900
-        );
-      }));
-    </script>
+    <script src="./assets/js/newsAnimation.js"></script>
     <script src="./assets/js/eventsData.js"></script>
     <script src="./assets/js/item-selector-handler.js"></script>
     <script src="./assets/js/contact-section-handler.js"></script>

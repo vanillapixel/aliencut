@@ -1,7 +1,8 @@
+let isMobile = () => (window.innerWidth <= 800 ? true : false);
+let triggeredByMenu = false;
 document.addEventListener("DOMContentLoaded", () => {
   const $ = (s, o = document) => o.querySelector(s);
   const $$ = (s, o = document) => o.querySelectorAll(s);
-  let isMobile = () => (window.innerWidth <= 800 ? true : false);
 
   function Slider(container, options, target) {
     const eventsArray = $$(target);
@@ -11,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let defaultOptions = {
       itemsPerColumn: 1,
-      baseMovement: 103
+      baseMovement: 103,
     };
     const sliderSlotsGap = 6;
     const ssg = sliderSlotsGap;
@@ -35,20 +36,20 @@ document.addEventListener("DOMContentLoaded", () => {
       disabled: {
         opacity: 0.3,
         cursor: "default",
-        pointerEvents: "none"
+        pointerEvents: "none",
       },
       enabled: {
         opacity: 1,
         cursor: "pointer",
-        pointerEvents: "all"
-      }
+        pointerEvents: "all",
+      },
     };
 
     // event slider animation
     const onMoveTransitionOptions = {
       transitionDelay: "0s",
       transitionTimingFunction: "cubic-bezier(0,.29,.41,.98)",
-      transitionDuration: ".3s"
+      transitionDuration: ".3s",
     };
 
     // first column is nr.0
@@ -61,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function setEventsTranslateToZero() {
-      eventsArray.forEach(event => {
+      eventsArray.forEach((event) => {
         event.style.transform = "translate(0px)";
       });
     }
@@ -86,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateYear(years) {
       let updatedYear;
       updatedYear = Object.values(years).reduce((a, b) => (a > b ? a : b));
-      Object.keys(years).forEach(entry => {
+      Object.keys(years).forEach((entry) => {
         if (years[entry] == updatedYear) {
           year.textContent = entry;
         }
@@ -132,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
           getMonths(item, months);
         }
       });
-      setTimeout(function() {
+      setTimeout(function () {
         updateYear(years);
         updateMonths(months, monthsContainer);
       }, 1200);
@@ -150,9 +151,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateSliderItemsPosition() {
       eventsArray.forEach(
-        item =>
-          (item.style.transform = `translate(-${baseMovement *
-            displayedColumn}%)`)
+        (item) =>
+          (item.style.transform = `translate(-${
+            baseMovement * displayedColumn
+          }%)`)
       );
     }
 
@@ -207,18 +209,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // events listeners
-    controllers.forEach(controller => {
-      controller.addEventListener("click", function() {
+    controllers.forEach((controller) => {
+      controller.addEventListener("click", function () {
         const buttonClasses = this.classList.value.split(" ");
         const buttonClass = buttonClasses
-          .filter(x => x != "controller")
+          .filter((x) => x != "controller")
           .toString();
         updateDisplayedColumnNumber(buttonClass);
         updateSlider();
       });
     });
     sliderSlots.forEach((sliderSlot, id) =>
-      sliderSlot.addEventListener("click", function() {
+      sliderSlot.addEventListener("click", function () {
         console.log(id);
         updateDisplayedColumnNumber(id);
         updateSlider();
@@ -234,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dragTransitionOptions = {
       transitionDelay: "0s",
       transitionTimingFunction: "cubic-bezier(0,.29,.41,.98)",
-      transitionDuration: "0s"
+      transitionDuration: "0s",
     };
 
     function getTranslateX() {
@@ -252,9 +254,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const sliderBarWidth = Number(
         window.getComputedStyle($(".slider-bar")).width.replace(/px/, "")
       );
-      style.transform = `translate(${(-amountToTranslate * sliderBarWidth) /
-        eventWidth /
-        10}%)`;
+      style.transform = `translate(${
+        (-amountToTranslate * sliderBarWidth) / eventWidth / 10
+      }%)`;
       Object.assign(style, dragTransitionOptions);
     }
 
@@ -306,7 +308,7 @@ document.addEventListener("DOMContentLoaded", () => {
           amountToTranslate >
             -(10 * (nrColumns * 2 - 1) + itemWidth * (nrColumns - 1))
         ) {
-          eventsArray.forEach(item => {
+          eventsArray.forEach((item) => {
             item.style.transform = `translate(${amountToTranslate}px)`;
           });
           podPositionUpdater(amountToTranslate);
@@ -318,7 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
       dragging = true;
       initialCoords = e.clientX;
       events.style.cursor = "grabbing";
-      eventsArray.forEach(item => {
+      eventsArray.forEach((item) => {
         const { style } = item;
         Object.assign(style, dragTransitionOptions);
       });
@@ -341,7 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const eventsSliderOpts = {
     itemsPerColumn: 3,
-    baseMovement: 103
+    baseMovement: 103,
   };
   new Slider(".slider", eventsSliderOpts, ".event");
 });
