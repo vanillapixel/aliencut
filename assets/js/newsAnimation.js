@@ -90,7 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("scroll", newsSectionScrollAnimation);
 
-  function newsSectionScrollAnimation() {
+  function newsSectionScrollAnimation(e) {
+    console.log(e);
     newScroll = window.scrollY;
     if (!scrolling && websiteActive && !triggeredByMenu) {
       let scrollTop;
@@ -122,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         thirdMask.style.transform = `translateY(${
           -window.innerHeight * 1.2
         }px)`;
-        teleporting.style.letterSpacing = isMobile() ? "6rem" : "12rem";
+        teleporting.style.letterSpacing = isMobile() ? "6rem" : "8rem";
       }
       if (scrollableUp && delta === "negative") {
         scrolling = true;
@@ -146,7 +147,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   logo.addEventListener("click", function () {
+    triggeredByMenu = true;
     window.scroll({ top: 0, behavior: "smooth" });
+    setTimeout(() => (triggeredByMenu = false), 1500);
   });
   sidebarLogo.addEventListener("click", function () {
     window.scroll({ top: 0, behavior: "smooth" });

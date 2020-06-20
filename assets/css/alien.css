@@ -831,6 +831,9 @@ video {
 .news-wrapper #news .content .news-title {
   font-size: 4rem;
   text-transform: uppercase;
+  -webkit-animation: 5.5s pulse infinite;
+          animation: 5.5s pulse infinite;
+  padding: 1rem 3rem;
 }
 
 .news-wrapper #news .content .news-subtitle {
@@ -2606,7 +2609,7 @@ video {
     padding: 0;
   }
   .news-wrapper #news .content .news-title {
-    padding: 4rem 0;
+    padding: 4rem;
     font-size: 4.2rem;
   }
   .news-wrapper #news .content .news-main-content {

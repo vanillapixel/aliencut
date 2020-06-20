@@ -536,6 +536,8 @@ video {
       .news-title {
         font-size: 4rem;
         text-transform: uppercase;
+        animation: 5.5s pulse infinite;
+        padding: 1rem 3rem;
       }
       .news-subtitle {
         font-size: 2.5rem;
@@ -1822,7 +1824,7 @@ video {
       padding: 0;
       .content {
         .news-title {
-          padding: 4rem 0;
+          padding: 4rem;
           font-size: 4.2rem;
         }
         .news-main-content {
