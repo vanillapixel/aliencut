@@ -2,6 +2,7 @@
 
 ## Alien Cut website
 
+<<<<<<< HEAD
 [_Live Preview_](https://vanillapixel.github.io/aliencut/)
 
 [_Live Website_](https://www.aliencut.com/)
@@ -16,3 +17,8 @@ The website serves the main purpose to attract events organizers and location ow
 ### Coding
 
 I decided _not_ to use any 3rd party libraries as the project was intended to be a test ground to learn creating highly customized functionalities and to push myself to learn whatever happens behind the scenes of libraries methods.
+=======
+Live Preview @ https://vanillapixel.github.io/aliencut/
+
+I realised this website by crafting each line of code without using any css nor js libraries to increase the customisation value and also to gain experience and understanding of what normally would happen behind the hood of libraries like gsap or bootstrap. 
+>>>>>>> 2a703a9962a55740415bfe3c15ce071d17664d8c
