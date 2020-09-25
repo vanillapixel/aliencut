@@ -88,10 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let newScroll = previousScroll;
   let delta;
 
-  document.addEventListener("scroll", newsSectionScrollAnimation);
+  // document.addEventListener("scroll", newsSectionScrollAnimation);
 
   function newsSectionScrollAnimation(e) {
-    console.log(e);
     newScroll = window.scrollY;
     if (!scrolling && websiteActive && !triggeredByMenu) {
       let scrollTop;

@@ -276,6 +276,12 @@ document.addEventListener("DOMContentLoaded", () => {
       province: "to",
     },
     {
+      date: "2020-08-27",
+      location: "sax disco",
+      city: "castelsardo ",
+      province: "ss",
+    },
+    {
       date: "2020-01-10",
       location: "number one event",
       city: "pancalieri",
