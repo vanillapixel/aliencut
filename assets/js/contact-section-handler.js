@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const revealFormBtn = document.querySelector(".reveal-form");
+  const revealNumberBtn = document.querySelector(".reveal-number");
   const form = document.querySelector(".contact-form");
   const revealFormText = document.querySelector(".reveal-form-text");
-  const revealNummberBtn = document.querySelector(
+  const revealNummberWrapper = document.querySelector(
     ".reveal-number-text-wrapper"
   );
   const contactNumberText = document.querySelector(".contact-number-text");
@@ -30,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       newAnchor.style.animation = "box-shadow-flash 6s infinite";
       newAnchor.style.overflow = "hidden";
       newAnchor.style.height = "0px";
-      revealNummberBtn.appendChild(newAnchor);
+      revealNummberWrapper.appendChild(newAnchor);
       newAnchor.style.transition = "0.5s";
       setTimeout(() => {
         newAnchor.style.height = contactNumberHeight + "px";
@@ -42,6 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
     fadeOutElement(revealFormText);
   }
 
+  revealNumberBtn.addEventListener("click", revealNumber);
   revealFormBtn.addEventListener("click", toggleForm);
-  revealNummberBtn.addEventListener("click", revealNumber);
 });
