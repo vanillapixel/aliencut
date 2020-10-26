@@ -1093,6 +1093,7 @@ video {
   left: 0;
   content: "cancellato 💀 corona virus";
   background: #ff6138;
+  color: white;
   font-size: 3.5rem;
   animation: opacityFlash 10s infinite;
   width: 100%;
