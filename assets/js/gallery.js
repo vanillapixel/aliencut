@@ -104,41 +104,41 @@ document.addEventListener("DOMContentLoaded", () => {
   backdrop.addEventListener("click", closeModal);
 });
 
-// TODO: Pics display animation
-
-/*
+// TODO: Pics display animation to finish
 
 const pics = document.querySelectorAll(".picture");
 
-pics.forEach((x, id) => {
-  x.style.opacity = 1;
-  x.style.transform = "translateY(0px)";
-  x.style.transitionDelay = `${id * 0.1}s`;
-});
+function picsIn() {
+  pics.forEach((x, id) => {
+    x.style.opacity = 1;
+    x.style.transform = "translateY(0px)";
+    x.style.transition = `1s ${id * 0.1}s`;
+  });
+}
 
-pics.forEach((x) => {
-  const position = x.getBoundingClientRect().top;
-  x.style.opacity = 0;
-  x.style.transition = "1s";
-  let mode;
-  const COEFFICIENT = 4;
-  const translation = {
-    1: `-${COEFFICIENT * 100}px`,
-    2: "0px",
-    3: `${COEFFICIENT * 100}px`,
-  };
-  console.log(position);
-  if (position > 200 && position < 398) {
-    mode = 2;
-  }
+function picsOut() {
+  pics.forEach((x, id) => {
+    const position = x.getBoundingClientRect().top;
+    x.style.opacity = 0;
+    x.style.transition = `1s ${id * 0.1}s`;
+    let mode;
+    const COEFFICIENT = 4;
+    const translation = {
+      1: `-${COEFFICIENT * 100}px`,
+      2: "0px",
+      3: `${COEFFICIENT * 100}px`,
+    };
+    console.log(position);
+    if (position > 200 && position < 398) {
+      mode = 2;
+    }
 
-  if (position < 199) {
-    mode = 1;
-  }
-  if (position > 399) {
-    mode = 3;
-  }
-  x.style.transform = `translateY(${translation[mode]}) scale(2)`;
-});
-
-*/
+    if (position < 199) {
+      mode = 1;
+    }
+    if (position > 399) {
+      mode = 3;
+    }
+    x.style.transform = `translateY(${translation[mode]}) scale(2)`;
+  });
+}

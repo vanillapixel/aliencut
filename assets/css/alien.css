@@ -1350,7 +1350,6 @@ video {
   margin: 1rem 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   transition: 0.5s;
   cursor: pointer;
@@ -1358,15 +1357,16 @@ video {
 }
 
 #booking-section .content .contact-number-text {
-  transition: 0.5s;
+  max-height: 5rem;
+  transition: 0.5s all, 0.5s max-height 0.25s, 0.5s max-width 0.25s;
 }
 
-#booking-section .content .reveal-number {
+#booking-section .content .contact-container {
   display: flex;
   flex-direction: row;
 }
 
-#booking-section .content .reveal-number svg {
+#booking-section .content .contact-container svg {
   height: 100%;
   width: 5rem;
   position: relative;
@@ -1381,14 +1381,13 @@ video {
   transition: 0.5s;
 }
 
-#booking-section .content .reveal-number-text-wrapper {
+#booking-section .content .reveal-number-text-wrapper, #booking-section .content .reveal-form-text-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 #booking-section .content .form-extended {
-  max-height: 100%;
+  max-height: 100rem;
 }
 
 #booking-section .content form {

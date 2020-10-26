@@ -12,14 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function fadeOutElement(el) {
     const { style } = el;
     style.opacity = 0;
-    style.height = "0px";
-    setTimeout(
-      () => {
-        style.display = "none";
-      },
-      500,
-      el
-    );
+    style.maxHeight = "0rem";
+    style.maxWidth = "0rem";
+    style.visibility = "hidden";
   }
   function revealNumber() {
     if (!numberRevealed) {
