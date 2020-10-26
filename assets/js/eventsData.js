@@ -335,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
       date: "2020-10-31",
       location: "discoteca mirror",
       city: "marsaglia",
-      status: "cancelled",
+      // status: "cancelled",
       province: "cn",
     },
   ];
