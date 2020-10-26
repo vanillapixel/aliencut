@@ -58,7 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
     eventsArray.forEach((x, id) => {
       if (x.classList.contains("next-event")) {
         displayedColumn = Math.floor(id / itemsPerColumn);
+        return;
       }
+      displayedColumn = Math.floor((eventsArray.length - 1) / itemsPerColumn);
     });
 
     function setEventsTranslateToZero() {
