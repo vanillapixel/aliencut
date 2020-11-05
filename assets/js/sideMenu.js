@@ -4,9 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const titles = document.querySelectorAll("section .title");
   const selectors = document.querySelectorAll(".sidebar-item");
   const mainContainer = document.querySelector(".main-container");
-  const enterWebsiteButton = document.querySelector(".enter-website");
+  // const enterWebsiteButton = document.querySelector(".enter-website");
   const headerHeight = document.querySelector("header").offsetHeight;
   const isMobile = () => (window.innerWidth <= 1280 ? true : false);
+  const sidebar = document.querySelector(".sidebar-container");
+  const menuIcon = document.querySelector(".burger-menu-icon");
   let titlesPositions = [];
   let currentActiveSelector = document.querySelector(".sidebar-item");
   let currentActiveTitle = document.querySelector("section .title");
@@ -21,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   selectors.forEach((selector, id) => {
     selector.addEventListener("click", function () {
       triggeredByMenu = true;
-      // removes the active class from the first element - see line 11
+      // removes the active class from the first element
       currentActiveSelector.classList.remove("selector-active");
       this.classList.add("selector-active");
       // scrolls the page to the selected item
@@ -43,6 +45,16 @@ document.addEventListener("DOMContentLoaded", () => {
       return currentActiveSelector;
     });
   });
+
+  function toggleMenu() {
+    if (isMobile()) {
+      menuIcon.classList.toggle("burger-menu-icon-open");
+      sidebar.classList.toggle("sidebar-active");
+    }
+  }
+
+  menuIcon.addEventListener("click", toggleMenu);
+  sidebar.addEventListener("click", toggleMenu);
 
   function checkIfTitleIsInWindow() {
     // top of the screen
@@ -108,11 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  enterWebsiteButton.addEventListener("click", function () {
-    if (titlesPositions == false) {
-      getTitlePositions();
-    }
-  });
+  if (titlesPositions == false) {
+    getTitlePositions();
+  }
 
   window.addEventListener("resize", function () {
     titlesPositions.length = 0;

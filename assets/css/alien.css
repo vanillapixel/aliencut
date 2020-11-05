@@ -1,4 +1,9 @@
 @charset "UTF-8";
+:root {
+  --main-color: #38ff59;
+  --main-color: #ff6138;
+}
+
 * {
   user-select: none;
   -webkit-font-smoothing: antialiased;
@@ -24,7 +29,7 @@ body::-webkit-scrollbar {
 html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
   border-radius: 0px;
-  background-color: #ff6138;
+  background-color: var(--main-color);
 }
 
 html {
@@ -39,19 +44,16 @@ header {
 }
 
 header .logo-container {
+  cursor: pointer;
+  filter: drop-shadow(0px 0px 0px var(--main-color));
   transition: filter 0.5s;
-  filter: drop-shadow(-3px -3px 1px #ff6138);
 }
 
 header .logo-container img {
   max-width: 20rem;
 }
 
-header .logo-animation-off {
-  filter: drop-shadow(0px 0px 0px #ff6138);
-}
-
-header .menu {
+header .burger-menu-icon {
   display: none;
 }
 
@@ -78,7 +80,7 @@ header .menu {
 
 ::selection {
   color: white;
-  background: #ff6138;
+  background: var(--main-color);
 }
 
 a {
@@ -173,7 +175,7 @@ ul {
 }
 
 .zoom-modal .close-button:hover {
-  background: #ff6138;
+  background: var(--main-color);
 }
 
 .zoom-modal .close-button:after, .zoom-modal .close-button:before {
@@ -276,7 +278,7 @@ ul {
 }
 
 .second-mask {
-  background: #ff6138;
+  background: var(--main-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -374,7 +376,7 @@ video {
   letter-spacing: 1.1rem;
   text-transform: uppercase;
   transition: 2.5s all;
-  text-shadow: 3px 2px 4px #ff6138;
+  text-shadow: 3px 2px 4px var(--main-color);
   cursor: pointer;
   background: none;
   border: 0;
@@ -441,7 +443,7 @@ video {
 
 @keyframes colorChange-l2r {
   0% {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.4), #ff6138);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4), var(--main-color));
   }
   50%,
   100% {
@@ -470,7 +472,7 @@ video {
 
 @keyframes colorChange-t2b {
   0% {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), #ff6138);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), var(--main-color));
   }
   70%,
   100% {
@@ -503,7 +505,7 @@ video {
   }
   50%,
   100% {
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.4), #ff6138);
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.4), var(--main-color));
   }
 }
 
@@ -532,7 +534,7 @@ video {
   }
   70%,
   100% {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), #ff6138);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), var(--main-color));
   }
 }
 
@@ -553,7 +555,7 @@ video {
 
 .news-wrapper #news {
   position: relative;
-  width: 70%;
+  width: 80%;
   margin: 8rem 0;
   padding: 0;
 }
@@ -582,10 +584,11 @@ video {
 }
 
 .news-wrapper #news .content .news-title {
-  font-size: 4rem;
+  font-size: 7rem;
   text-transform: uppercase;
   animation: 5.5s pulse infinite;
   padding: 1rem 3rem;
+  white-space: nowrap;
 }
 
 .news-wrapper #news .content .news-subtitle {
@@ -597,7 +600,7 @@ video {
   flex-direction: row;
   align-content: space-around;
   width: 100%;
-  margin: 5rem 0;
+  margin: 2rem 0;
 }
 
 .news-wrapper #news .content .news-main-content .news-image-container {
@@ -678,7 +681,7 @@ video {
   content: "";
   height: 300%;
   width: 20px;
-  background: #ff6138;
+  background: var(--main-color);
   position: absolute;
   transform: skew(-25deg);
   left: -20px;
@@ -716,7 +719,7 @@ video {
   font-size: 2.2rem;
   font-weight: 800;
   white-space: nowrap;
-  color: #ff6138;
+  color: var(--main-color);
 }
 
 .main-container {
@@ -782,12 +785,12 @@ video {
 }
 
 .neon:hover {
-  box-shadow: 0 0 10px #ff6138, 0 0 30px #ff6138, inset 0 0 10px #ff6138, inset 0 0 30px #ff6138;
+  box-shadow: 0 0 10px var(--main-color), 0 0 30px var(--main-color), inset 0 0 10px var(--main-color), inset 0 0 30px var(--main-color);
   border: 4px solid #fff;
 }
 
 .selector-active {
-  box-shadow: 0 0 10px #ff6138, 0 0 30px #ff6138, inset 0 0 10px #ff6138, inset 0 0 30px #ff6138;
+  box-shadow: 0 0 10px var(--main-color), 0 0 30px var(--main-color), inset 0 0 10px var(--main-color), inset 0 0 30px var(--main-color);
   border: 4px solid #fff;
 }
 
@@ -837,8 +840,8 @@ video {
 .title-active {
   top: 0px;
   opacity: 1;
-  text-shadow: 7px 1px #ff6138;
-  box-shadow: inset 100px 0px 0px #ff6138;
+  text-shadow: 7px 1px var(--main-color);
+  box-shadow: inset 100px 0px 0px var(--main-color);
 }
 
 .content {
@@ -895,7 +898,7 @@ video {
 
 .controller:hover svg {
   transform: scale(1.4);
-  fill: #ff6138;
+  fill: var(--main-color);
 }
 
 #events-section .slider {
@@ -950,7 +953,7 @@ video {
   height: 100%;
   border-radius: 20px;
   transition: 1.6s ease-in-out;
-  background: #ff6138;
+  background: var(--main-color);
   z-index: 1;
 }
 
@@ -966,7 +969,7 @@ video {
 
 #events-section .slider-pod .period .year {
   top: 0.7rem;
-  color: #ff6138;
+  color: var(--main-color);
 }
 
 #events-section .slider-pod .period .months {
@@ -1038,7 +1041,7 @@ video {
   justify-content: center;
   align-items: center;
   color: rgba(255, 255, 255, 0.8);
-  border-right: 3px solid #ff6138;
+  border-right: 3px solid var(--main-color);
   padding: 1rem;
   padding-right: 2.5rem;
 }
@@ -1092,7 +1095,7 @@ video {
   position: absolute;
   left: 0;
   content: "cancellato 💀 corona virus";
-  background: #ff6138;
+  background: var(--main-color);
   color: white;
   font-size: 3.5rem;
   animation: opacityFlash 10s infinite;
@@ -1111,7 +1114,7 @@ video {
 }
 
 #events-section .events .next-event .location span {
-  color: #ff6138;
+  color: var(--main-color);
 }
 
 /*e-shop section*/
@@ -1147,12 +1150,12 @@ video {
   width: auto;
   padding: 20px 50px;
   margin: auto;
-  border: 2px solid #ff6138 !important;
+  border: 2px solid var(--main-color) !important;
   cursor: pointer;
   transition: 1s;
   font-family: play;
   font-weight: 800;
-  color: #ff6138;
+  color: var(--main-color);
   background: #0a0a0a;
   font-size: 3.2em;
   white-space: nowrap;
@@ -1160,7 +1163,7 @@ video {
 }
 
 #eshop .content .cta:hover {
-  background: #ff6138;
+  background: var(--main-color);
   color: #fff;
 }
 
@@ -1184,7 +1187,7 @@ video {
   height: 220%;
   z-index: 0;
   opacity: 1;
-  background: #ff6138;
+  background: var(--main-color);
   transform: rotate(-10deg);
 }
 
@@ -1217,7 +1220,7 @@ video {
 }
 
 #eshop .content .category-container .items-wrapper .item img:hover {
-  filter: drop-shadow(-1px -1px 1px white) drop-shadow(2px 2px 5px #ff6138);
+  filter: drop-shadow(-1px -1px 1px white) drop-shadow(2px 2px 5px var(--main-color));
 }
 
 #eshop .content #accessories {
@@ -1308,6 +1311,7 @@ video {
   max-width: 100%;
   overflow: hidden;
   height: 100%;
+  padding: 2rem 0;
 }
 
 #gallery-section .content .gallery-pictures .picture {
@@ -1327,7 +1331,7 @@ video {
 }
 
 #gallery-section .content .gallery-pictures .picture img:hover {
-  filter: drop-shadow(1px 1px 3px white) drop-shadow(2px 2px 5px #ff6138);
+  filter: drop-shadow(1px 1px 3px white) drop-shadow(2px 2px 5px var(--main-color));
 }
 
 #booking-section .content {
@@ -1371,7 +1375,7 @@ video {
   height: 100%;
   width: 5rem;
   position: relative;
-  fill: #ff6138;
+  fill: var(--main-color);
   background-size: contain;
   margin-right: 5rem;
 }
@@ -1412,7 +1416,7 @@ video {
 }
 
 #booking-section .content form .form-segment-wrapper .form-segment label:after {
-  box-shadow: inset 120px 0px 1px #000000, inset -8px -20px 0px #ff6138;
+  box-shadow: inset 16rem 0px 1px #000000, inset -8px -20px 0px var(--main-color);
 }
 
 #booking-section .content form .form-segment {
@@ -1428,7 +1432,7 @@ video {
 }
 
 #booking-section .content form .form-segment label {
-  color: #ff6138;
+  color: var(--main-color);
   margin-bottom: 7px;
   position: relative;
   overflow: hidden;
@@ -1438,7 +1442,7 @@ video {
 }
 
 #booking-section .content form .form-segment label:after {
-  box-shadow: inset 120px 0px 1px #000000, inset -8px -20px 0px #ff6138;
+  box-shadow: inset 16rem 0px 1px #000000, inset -8px -20px 0px var(--main-color);
   content: "";
   width: 110%;
   height: 100%;
@@ -1475,26 +1479,26 @@ video {
   width: auto;
   padding: 20px 20%;
   margin: auto;
-  border: 2px solid #ff6138 !important;
+  border: 2px solid var(--main-color) !important;
   cursor: pointer;
   transition: 1s;
   font-family: play;
   font-weight: 800;
-  color: #ff6138;
+  color: var(--main-color);
 }
 
 #booking-section .content form .form-segment input[type="submit"]:hover {
-  background: #ff6138;
+  background: var(--main-color);
   color: #fff;
 }
 
 #booking-section .content form .form-segment:focus-within {
-  border: 1px solid #ff6138;
+  border: 1px solid var(--main-color);
   opacity: 1;
 }
 
 #booking-section .content form .form-segment:focus-within label {
-  color: #ff6138;
+  color: var(--main-color);
 }
 
 #booking-section .content form .form-segment:focus-within label:after {
@@ -1602,41 +1606,6 @@ video {
   animation: box-shadow-flash 10s infinite;
 }
 
-@keyframes box-shadow-flash {
-  0%,
-  40%,
-  60%,
-  100% {
-    box-shadow: inset 0px 0px #ff6138;
-  }
-  42%,
-  58% {
-    box-shadow: inset 1000px 0px #ff6138;
-  }
-}
-
-@keyframes next-event {
-  0%,
-  25%,
-  75%,
-  100% {
-    transform: translateY(0%);
-  }
-  35%,
-  65% {
-    transform: translateY(110%);
-  }
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0px #ff6138;
-  }
-  45% {
-    box-shadow: 0 0 0 15px #ff613800;
-  }
-}
-
 /* medium screen resolution */
 @media only screen and (max-width: 1600px) {
   header .logo-pic {
@@ -1652,7 +1621,7 @@ video {
     min-height: 650px;
   }
   .follow-us:after {
-    top: 23px;
+    top: 17px;
   }
   div#social ul li p {
     margin-right: 10px;
@@ -1714,7 +1683,7 @@ video {
   .title-active {
     top: 0px !important;
     opacity: 1;
-    box-shadow: inset 80px 0px 0px #ff6138;
+    box-shadow: inset 80px 0px 0px var(--main-color);
   }
   .section-wrapper {
     display: flex;
@@ -1826,20 +1795,19 @@ video {
   header .logo-container .logo-pic {
     max-width: 15rem;
   }
-  header .menu {
+  header .burger-menu-icon {
     display: flex;
     flex-direction: column;
     align-content: space-around;
     height: 30px;
     width: 30px;
-    opacity: 0;
+    opacity: 1;
     cursor: pointer;
-    transition: 0.7s;
   }
-  header .menu .menu-wrapper {
+  header .burger-menu-icon .burger-menu-icon-wrapper {
     height: 100%;
   }
-  header .menu .menu-wrapper .menu-text {
+  header .burger-menu-icon .burger-menu-icon-wrapper .burger-menu-icon-text {
     color: white;
     font-size: 2.3rem;
     position: absolute;
@@ -1849,29 +1817,29 @@ video {
     opacity: 1;
     transition: 0.7s;
   }
-  header .menu .menu-wrapper .lines {
+  header .burger-menu-icon .burger-menu-icon-wrapper .lines {
     height: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
   }
-  header .menu .menu-wrapper .lines .menu-line {
+  header .burger-menu-icon .burger-menu-icon-wrapper .lines .line {
     width: 70%;
     height: 2px;
     background: white;
     margin: auto 0;
     transition: 0.7s;
   }
-  header .menu .menu-wrapper .lines .menu-line:nth-child(odd) {
+  header .burger-menu-icon .burger-menu-icon-wrapper .lines .line:nth-child(odd) {
     align-self: flex-start;
   }
-  header .menu .menu-wrapper .lines .menu-line:nth-child(even) {
+  header .burger-menu-icon .burger-menu-icon-wrapper .lines .line:nth-child(even) {
     align-self: flex-end;
   }
-  header .menu-open .menu-wrapper .menu-text {
+  header .burger-menu-icon-open .burger-menu-icon-wrapper .burger-menu-icon-text {
     opacity: 0;
   }
-  header .menu-open .menu-wrapper .lines .menu-line:nth-child(even) {
+  header .burger-menu-icon-open .burger-menu-icon-wrapper .lines .line:nth-child(even) {
     transform: translateX(-84%);
     background: #ff6138;
     width: 130%;
@@ -1888,6 +1856,32 @@ video {
   }
   .news-wrapper #news .news-cta-icon img {
     transform: none;
+  }
+  .news-wrapper .color-picker-wrapper {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+  }
+  .news-wrapper .color-picker-wrapper .color-option {
+    width: 3rem;
+    height: 100%;
+    transform: skew(45deg);
+    margin-right: 1rem;
+    background: #ff6138;
+  }
+  .news-wrapper .color-picker-wrapper .color-option:nth-child(2) {
+    background: #a30f0f;
+  }
+  .news-wrapper .color-picker-wrapper .color-option:nth-child(3) {
+    background: #ff2ed2;
+  }
+  .news-wrapper .color-picker-wrapper .color-option:nth-child(4) {
+    background: #a037ff;
+  }
+  .news-wrapper .color-picker-wrapper .color-option:nth-child(5) {
+    background: #0f7ea3;
   }
   .news-wrapper .enter-website {
     margin: 7rem 0;
@@ -1958,7 +1952,7 @@ video {
   }
   .news-wrapper #news .content .news-title {
     padding: 4rem;
-    font-size: 4.2rem;
+    font-size: 5.5rem;
   }
   .news-wrapper #news .content .news-main-content {
     flex-direction: column;
@@ -2067,6 +2061,7 @@ video {
   }
   #gallery-section .content .gallery-pictures {
     flex-direction: column;
+    margin-bottom: 5rem;
   }
   #gallery-section .content .gallery-pictures .picture {
     margin: 2rem;
@@ -2094,5 +2089,49 @@ video {
   }
   #booking-section .content .contact-choice form label {
     font-size: 2.2rem;
+  }
+}
+
+@keyframes box-shadow-flash {
+  0%,
+  40%,
+  60%,
+  100% {
+    box-shadow: inset 0px 0px var(--main-color);
+  }
+  42%,
+  58% {
+    box-shadow: inset 1000px 0px var(--main-color);
+  }
+}
+
+@keyframes next-event {
+  0%,
+  25%,
+  75%,
+  100% {
+    transform: translateY(0%);
+  }
+  35%,
+  65% {
+    transform: translateY(110%);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0px var(--main-color);
+  }
+  45% {
+    box-shadow: 0 0 0 15px #ff613800;
+  }
+}
+
+@keyframes colorExplosion {
+  0% {
+    box-shadow: 0px 0px 10px 1px red;
+  }
+  100% {
+    box-shadow: 0px 0px 1000px 1000px transparent, 0px 0px 10000px 10px var(--main-color);
   }
 }

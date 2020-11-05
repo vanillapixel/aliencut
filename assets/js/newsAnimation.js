@@ -5,14 +5,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const thirdMask = document.querySelector(".third-mask");
   const teleporting = document.querySelector(".second-mask h1");
   const main = document.querySelector(".main-container");
-  const enterWebsiteButton = document.querySelector(".enter-website");
+  // const enterWebsiteButton = document.querySelector(".enter-website");
   const firstSection = document.querySelector(".content-container");
   const logo = document.querySelector(".logo-container");
   let headerHeight = Math.floor(document.querySelector("header").offsetHeight);
   const isMobile = () => (window.innerWidth <= 1280 ? true : false);
-  const menu = document.querySelector(".menu");
-  const sidebar = document.querySelector(".sidebar-container");
+  const menuIcon = document.querySelector(".burger-menu-icon");
   let newsWrapperHeight;
+
+  main.classList.add("website-active");
+
   setTimeout(() => {
     // gives time to the picture in the news section to load in order to calculate its exact height
     newsWrapperHeight = Math.floor(
@@ -23,16 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 300);
   let scrolling = false;
   let websiteActive = false;
-
-  function toggleMenu() {
-    if (isMobile()) {
-      sidebar.classList.toggle("sidebar-active");
-      menu.classList.toggle("menu-open");
-    }
-  }
-
-  menu.addEventListener("click", toggleMenu);
-  sidebar.addEventListener("click", toggleMenu);
 
   document.addEventListener("scroll", adjustLogoOpacity);
   document.addEventListener("resize", isMobile);
@@ -68,11 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return value;
   }
 
-  enterWebsiteButton.addEventListener("click", scrollOutNewsSection);
+  // enterWebsiteButton.addEventListener("click", scrollOutNewsSection);
 
   function scrollOutNewsSection() {
     websiteActive = true;
-    menu.style.opacity = 1;
+    menuIcon.style.opacity = 1;
     logo.classList.add("logo-animation-off");
     main.classList.add("website-active");
 

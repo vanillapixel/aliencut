@@ -1,6 +1,12 @@
 // colors
 // $main-color: #a05031;
-$main-color: #ff6138;
+
+:root {
+  --main-color: #38ff59;
+  --main-color: #ff6138;
+}
+
+$main-color: var(--main-color);
 $sec-color: #1d5267e3;
 $sec-color: white;
 $dark: #0a0a0a;
@@ -8,6 +14,11 @@ $transparent-dark: rgba(0, 0, 0, 0.4);
 $transparent-darker: rgba(0, 0, 0, 0.9);
 $dark-grey: rgba(47, 47, 47, 0.9);
 $light-grey: #6a6e7c;
+$first-color-option: #ff6138;
+$second-color-option: #a30f0f;
+$third-color-option: #ff2ed2;
+$forth-color-option: #a037ff;
+$fifth-color-option: #0f7ea3;
 
 * {
   -webkit-user-select: none;
@@ -43,19 +54,17 @@ header {
   left: 85px;
   top: 65px;
   .logo-container {
-    // filter: drop-shadow(-5px -2px 0px $main-color)
-    //   drop-shadow(-8px -2px 0px $sec-color);
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 0px $main-color);
     transition: filter 0.5s;
-    filter: drop-shadow(-3px -3px 1px $main-color);
     img {
       max-width: 20rem;
     }
   }
   .logo-animation-off {
-    filter: drop-shadow(0px 0px 0px $main-color);
-    //   drop-shadow(0px 0px 0px $sec-color);
+    // filter: drop-shadow(-3px -3px 1px $main-color);
   }
-  .menu {
+  .burger-menu-icon {
     display: none;
   }
 }
@@ -510,7 +519,7 @@ video {
   min-height: 100vh;
   #news {
     position: relative;
-    width: 70%;
+    width: 80%;
     margin: 8rem 0;
     padding: 0;
     &:after {
@@ -534,10 +543,11 @@ video {
       align-content: space-between;
       z-index: 1;
       .news-title {
-        font-size: 4rem;
+        font-size: 7rem;
         text-transform: uppercase;
         animation: 5.5s pulse infinite;
         padding: 1rem 3rem;
+        white-space: nowrap;
       }
       .news-subtitle {
         font-size: 2.5rem;
@@ -547,7 +557,7 @@ video {
         flex-direction: row;
         align-content: space-around;
         width: 100%;
-        margin: 5rem 0;
+        margin: 2rem 0;
         .news-image-container {
           width: 50%;
           img {
@@ -618,7 +628,7 @@ video {
                 content: "";
                 height: 300%;
                 width: 20px;
-                background: #ff6138;
+                background: $main-color;
                 position: absolute;
                 transform: skew(-25deg);
                 left: -20px;
@@ -884,7 +894,7 @@ video {
       }
       .year {
         top: 0.7rem;
-        color: #ff6138;
+        color: $main-color;
       }
       .months {
         top: -2.8rem;
@@ -1015,7 +1025,7 @@ video {
       // .location h3:after {
       //   content: "";
       //   position: absolute;
-      //   background: #ff6138;
+      //   background: $main-color;
       //   width: 100%;
       //   height: 3px;
       //   top: 50%;
@@ -1090,7 +1100,7 @@ video {
       height: 220%;
       z-index: 0;
       opacity: 1;
-      background: #ff6138;
+      background: $main-color;
       transform: rotate(-10deg);
     }
     .items-wrapper,
@@ -1116,7 +1126,7 @@ video {
           transition: 0.5s 0.1s all, 0.9s filter;
           &:hover {
             filter: drop-shadow(-1px -1px 1px white)
-              drop-shadow(2px 2px 5px #ff6138);
+              drop-shadow(2px 2px 5px $main-color);
           }
         }
       }
@@ -1207,6 +1217,7 @@ video {
     max-width: 100%;
     overflow: hidden;
     height: 100%;
+    padding: 2rem 0;
     .picture {
       position: relative;
       list-style: none;
@@ -1244,7 +1255,7 @@ video {
         transition: 0.3s;
         &:hover {
           filter: drop-shadow(1px 1px 3px white)
-            drop-shadow(2px 2px 5px #ff6138);
+            drop-shadow(2px 2px 5px $main-color);
         }
       }
     }
@@ -1319,7 +1330,7 @@ video {
         box-sizing: content-box;
         label {
           &:after {
-            box-shadow: inset 120px 0px 1px #000000,
+            box-shadow: inset 16rem 0px 1px #000000,
               inset -8px -20px 0px $main-color;
           }
         }
@@ -1345,7 +1356,7 @@ video {
         padding: 2px 5px;
         z-index: 1;
         &:after {
-          box-shadow: inset 120px 0px 1px #000000,
+          box-shadow: inset 16rem 0px 1px #000000,
             inset -8px -20px 0px $main-color;
           content: "";
           width: 110%;
@@ -1489,40 +1500,9 @@ video {
         animation: box-shadow-flash 10s infinite;
       }
     }
-    @keyframes box-shadow-flash {
-      0%,
-      40%,
-      60%,
-      100% {
-        box-shadow: inset 0px 0px #ff6138;
-      }
-      42%,
-      58% {
-        box-shadow: inset 1000px 0px #ff6138;
-      }
-    }
-    @keyframes next-event {
-      0%,
-      25%,
-      75%,
-      100% {
-        transform: translateY(0%);
-      }
-      35%,
-      65% {
-        transform: translateY(110%);
-      }
-    }
   }
 }
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0px $main-color;
-  }
-  45% {
-    box-shadow: 0 0 0 15px #ff613800;
-  }
-}
+
 
 /* medium screen resolution */
 
@@ -1542,7 +1522,7 @@ video {
     min-height: 650px;
   }
   .follow-us:after {
-    top: 23px;
+    top: 17px;
   }
   div#social ul li p {
     margin-right: 10px;
@@ -1718,18 +1698,17 @@ video {
         max-width: 15rem;
       }
     }
-    .menu {
+    .burger-menu-icon {
       display: flex;
       flex-direction: column;
       align-content: space-around;
       height: 30px;
       width: 30px;
-      opacity: 0;
+      opacity: 1;
       cursor: pointer;
-      transition: 0.7s;
-      .menu-wrapper {
+      .burger-menu-icon-wrapper {
         height: 100%;
-        .menu-text {
+        .burger-menu-icon-text {
           color: white;
           font-size: 2.3rem;
           position: absolute;
@@ -1744,7 +1723,7 @@ video {
           position: relative;
           display: flex;
           flex-direction: column;
-          .menu-line {
+          .line {
             width: 70%;
             height: 2px;
             background: white;
@@ -1760,13 +1739,13 @@ video {
         }
       }
     }
-    .menu-open {
-      .menu-wrapper {
-        .menu-text {
+    .burger-menu-icon-open {
+      .burger-menu-icon-wrapper {
+        .burger-menu-icon-text {
           opacity: 0;
         }
         .lines {
-          .menu-line {
+          .line {
             &:nth-child(even) {
               transform: translateX(-84%);
               background: #ff6138;
@@ -1787,6 +1766,32 @@ video {
       margin: 0;
       .news-cta-icon img {
         transform: none;
+      }
+    }
+    .color-picker-wrapper {
+      position: absolute;
+      top: -30px;
+      left: 0;
+      display: flex;
+      flex-direction: row;
+      .color-option {
+        width: 3rem;
+        height: 100%;
+        transform: skew(45deg);
+        margin-right: 1rem;
+        background: $first-color-option;
+        &:nth-child(2) {
+          background: $second-color-option;
+        }
+        &:nth-child(3) {
+          background: $third-color-option;
+        }
+        &:nth-child(4) {
+          background: $forth-color-option;
+        }
+        &:nth-child(5) {
+          background: $fifth-color-option;
+        }
       }
     }
     .enter-website {
@@ -1857,7 +1862,7 @@ video {
       .content {
         .news-title {
           padding: 4rem;
-          font-size: 4.2rem;
+          font-size: 5.5rem;
         }
         .news-main-content {
           flex-direction: column;
@@ -1979,6 +1984,7 @@ video {
       margin-right: auto;
       .gallery-pictures {
         flex-direction: column;
+        margin-bottom: 5rem;
         .picture {
           margin: 2rem;
           img {
@@ -2010,5 +2016,46 @@ video {
         }
       }
     }
+  }
+}
+
+@keyframes box-shadow-flash {
+      0%,
+      40%,
+      60%,
+      100% {
+        box-shadow: inset 0px 0px $main-color;
+      }
+      42%,
+      58% {
+        box-shadow: inset 1000px 0px $main-color;
+      }
+    }
+@keyframes next-event {
+  0%,
+  25%,
+  75%,
+  100% {
+    transform: translateY(0%);
+  }
+  35%,
+  65% {
+    transform: translateY(110%);
+  }
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0px $main-color;
+  }
+  45% {
+    box-shadow: 0 0 0 15px #ff613800;
+  }
+}
+@keyframes colorExplosion {
+  0% {
+    box-shadow: 0px 0px 10px 1px red;
+  }
+  100% {
+    box-shadow: 0px 0px 1000px 1000px transparent, 0px 0px 10000px 10px $main-color;
   }
 }

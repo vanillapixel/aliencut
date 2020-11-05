@@ -335,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
       date: "2020-10-31",
       location: "discoteca mirror",
       city: "marsaglia",
-      // status: "cancelled",
+      status: "cancelled",
       province: "cn",
     },
   ];
@@ -358,7 +358,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
     if (closestDate == Infinity) {
-      events[events.length - 1].isClosest = true;
+      // events[events.length - 1].isClosest = true;
     } else {
       const formattedClosestDate = `${closestDate.getFullYear()}-${
         closestDate.getMonth() >= 9
@@ -384,14 +384,15 @@ document.addEventListener("DOMContentLoaded", () => {
   events.slice(-15).map((event) => {
     const { date, city, province, location } = event;
     const formattedDate = new Date(date);
-    eventsContainer.innerHTML += `<li 
-    ${
-      event.status === "cancelled"
-        ? 'class="event cancelled"'
-        : event.hasOwnProperty("isClosest")
-        ? 'class="event next-event"'
-        : 'class="event"'
-    }>
+    const newDate = document.createElement("li");
+    newDate.classList.add("event");
+
+    if (event.status === "cancelled") {
+      newDate.classList.add("cancelled");
+    } else if (event.hasOwnProperty("isClosest")) {
+      newDate.classList.add("next-event");
+    }
+    newDate.innerHTML = `<
   <div class="event-details" data-year="${formattedDate.getFullYear()}">
     <h4 class="date">
     <p class="day">${
@@ -410,9 +411,10 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
   <div class="location">
   <h3><span>@</span> ${location}</h3>
-  </div>
-</li>`;
+  </div>`;
+    eventsContainer.appendChild(newDate);
   });
+
   const cancelledEvents = document.querySelectorAll(".cancelled");
 
   function staggerCancelledEventsAnimations() {
