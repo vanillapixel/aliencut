@@ -1541,7 +1541,7 @@ video {
   margin-top: 15px;
 }
 
-#social ul li {
+#social ul li a {
   display: flex;
   cursor: pointer;
   width: auto;
@@ -1551,13 +1551,13 @@ video {
   flex-direction: row-reverse;
 }
 
-#social ul li p {
+#social ul li a p {
   font-size: 1.7rem;
   margin-right: 20px;
   align-self: center;
 }
 
-#social ul li p:after {
+#social ul li a p:after {
   content: "";
   display: inline-block;
   position: absolute;
@@ -1570,13 +1570,13 @@ video {
   transition: 0.5s;
 }
 
-#social ul li:hover p:after {
+#social ul li a:hover p:after {
   background: #eeee;
   z-index: -1;
   transform: skew(-35deg) scaleX(1);
 }
 
-#social ul li img {
+#social ul li a img {
   height: 30px;
 }
 

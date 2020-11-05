@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="cache-control" content="max-age=31536000" />
     <title>Alien Cut Official Website</title>
     <link rel="stylesheet" href="./assets/css/alien.css" />
     <link
@@ -10,6 +11,7 @@
       rel="stylesheet"
     />
     <link rel="icon" href="./assets/img/icon/favicon.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="./assets/img/icon/favicon.png"/>
   </head>
   <body>
     <header>
@@ -182,51 +184,51 @@
         <div id="social">
           <h3 class="follow-us">Follow us</h3>
           <ul>
-            <a
-              href="https://www.facebook.com/AlienCutOfficial/"
-              rel="noreferrer" rel="noopener" target="_blank"
-            >
-              <li>
+            <li>
+              <a
+                href="https://www.facebook.com/AlienCutOfficial/"
+                rel="noreferrer" rel="noopener" target="_blank"
+              >
                 <img src="./assets/img/icon/facebook.svg" alt="Facebook icon" />
                 <p>AlienCutOfficial</p>
-              </li>
-            </a>
+              </a>
+            </li>
+                <li>
             <a href="https://www.instagram.com/alien_cut/" rel="noreferrer" rel="noopener" target="_blank">
-              <li>
                 <img src="./assets/img/icon/instagram.svg" alt="Instagram icon" />
                 <p>alien_cut</p>
-              </li>
-            </a>
+              </a>
+            </li>
+            <li>
             <a
               href="https://www.youtube.com/channel/UCbUOpM5k4vt1pCg0dVvRHIg"
               rel="noreferrer" rel="noopener" target="_blank"
             >
-              <li>
                 <img src="./assets/img/icon/youtube.svg" alt="Youtube icon" />
                 <p>Alien Cut</p>
-              </li>
-            </a>
+              </a>
+            </li>
+            <li>
             <a
               href="https://www.youtube.com/channel/UCcJt2JFL5mfL3gIU70HDEbQ"
               rel="noreferrer" rel="noopener" target="_blank"
             >
-              <li>
                 <img src="./assets/img/icon/youtube.svg" alt="Youtube icon" />
                 <p>Musica Che Sposta</p>
-              </li>
-            </a>
+              </a>
+            </li>
+                <li>
             <a href="https://demodrop.com/aliencut" rel="noreferrer" rel="noopener" target="_blank">
-              <li>
                 <img src="./assets/img/icon/demodrop.png" alt="Demodrop icon" />
                 <p>Free Downloads</p>
-              </li>
-            </a>
+              </a>
+            </li>
+                <li>
             <a href="https://www.twitch.tv/aliencut" rel="noreferrer" rel="noopener" target="_blank">
-              <li>
                 <img src="./assets/img/icon/twitch.png" alt="Twitch icon" />
                 <p>Live Streams!</p>
-              </li>
-            </a>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -432,37 +434,37 @@
               <form class="contact-form" method="post" action="action.php">
                 <div class="form-segment-wrapper">
                   <div class="form-segment">
-                    <input type="text" name="given-name" autocomplete="given-name" required/>
-                    <label for="nome">Nome:</label>
+                    <input type="text" name="given-name" id="given-name" autocomplete="given-name" required/>
+                    <label for="given-name">Nome:</label>
                   </div>
                   <div class="form-segment">
-                    <input type="text" name="family-name" autocomplete="family-name" required/>
-                    <label for="cognome">Cognome:</label>
+                    <input type="text" name="family-name" id="family-name" autocomplete="family-name" required/>
+                    <label for="family-name">Cognome:</label>
                   </div>
                 </div>
                 <div class="form-segment-wrapper">
                 <div class="form-segment">
-                  <input type="text" name="email"required/>
+                  <input type="text" id="email" name="email"required/>
                   <label for="email">Email:</label>
                 </div>
                 <div class="form-segment">
-                  <input type="text" name="telephone"/>
+                  <input type="text" id="telephone" name="telephone"/>
                   <label for="telephone">Telefono:</label>
                 </div>
                 </div>
                 <div class="form-segment">
-                  <input type="text" name="subject" autocomplete="off" required/>
-                  <label for="Oggetto">Oggetto:</label>
+                  <input type="text" id="subject" name="subject" autocomplete="off" required/>
+                  <label for="subject">Oggetto:</label>
                 </div>
                 <div class="form-segment">
                   <textarea
                     name="message"
-                    id=""
+                    id="text-message"
                     cols="10"
                     rows="10"
                     required
                   ></textarea>
-                  <label for="Testo">Messaggio:</label>
+                  <label for="text-message">Messaggio:</label>
                 </div>
                 <div class="form-segment">
                   <input class="pulse" type="submit" name="submit" value="Invia Messaggio">
