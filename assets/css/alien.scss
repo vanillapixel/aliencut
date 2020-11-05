@@ -1593,6 +1593,7 @@ video {
     min-height: auto;
     max-height: fit-content;
     min-height: 80vh;
+    padding: 8rem 0;
   }
 
   #events-section {
@@ -1901,7 +1902,13 @@ video {
       }
     }
   }
-
+  .section-wrapper {
+    height: auto;
+    padding: 8rem 0;
+    .content {
+      margin: 0 auto;
+    }
+  }
   #events-section {
     .events {
       max-height: fit-content;
@@ -1932,13 +1939,6 @@ video {
     .controller {
       display: none;
       pointer-events: none;
-    }
-  }
-  .section-wrapper {
-    height: auto;
-    padding: 0;
-    .content {
-      margin: 0 auto;
     }
   }
   #eshop {
@@ -1984,7 +1984,6 @@ video {
       margin-right: auto;
       .gallery-pictures {
         flex-direction: column;
-        margin-bottom: 5rem;
         .picture {
           margin: 2rem;
           img {
