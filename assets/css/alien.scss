@@ -521,7 +521,6 @@ video {
     position: relative;
     width: 80%;
     margin: 8rem 0;
-    padding: 0;
     &:after {
       content: "";
       width: 100%;
@@ -1634,6 +1633,13 @@ video {
   }
 }
 @media only screen and (max-width: 1280px) {
+  .section-wrapper {
+    min-height: 60vh;
+    flex-direction: column;
+  }
+  .title {
+    transform: rotate(0deg);
+  }
   .sidebar-container {
     display: flex;
     position: fixed;
@@ -1800,18 +1806,8 @@ video {
       align-self: center;
     }
   }
-  .section-wrapper {
-    flex-direction: column;
-  }
-  .title {
-    transform: rotate(0deg);
-    margin: 5rem 0;
-  }
   #booking-section .content {
     align-items: center;
-    .contact-choice {
-      width: 100%;
-    }
   }
 }
 @media (max-width: 800px) {
@@ -1859,7 +1855,6 @@ video {
       width: 100%;
       position: relative;
       transform: scale(0.9);
-      padding: 0;
       .content {
         .news-title {
           padding: 4rem;
@@ -1995,7 +1990,6 @@ video {
     }
   }
   #booking-section {
-    min-height: 60vh;
     .content {
       flex-direction: column;
       width: 80%;
