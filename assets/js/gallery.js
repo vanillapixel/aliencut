@@ -128,7 +128,6 @@ function picsOut() {
       2: "0px",
       3: `${COEFFICIENT * 100}px`,
     };
-    console.log(position);
     if (position > 200 && position < 398) {
       mode = 2;
     }
