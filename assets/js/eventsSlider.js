@@ -223,7 +223,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     sliderSlots.forEach((sliderSlot, id) =>
       sliderSlot.addEventListener("click", function () {
-        console.log(id);
         updateDisplayedColumnNumber(id);
         updateSlider();
         //FIXME: reactivate it once the dragging system is complete
