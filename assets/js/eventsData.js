@@ -338,6 +338,18 @@ document.addEventListener("DOMContentLoaded", () => {
       status: "cancelled",
       province: "cn",
     },
+        {
+      date: "2021-03-06",
+      location: "tenax",
+      city: "samugheo",
+      province: "or",
+    },
+    {
+      date: "2021-02-27",
+      location: "touch club",
+      city: "casale monferrato",
+      province: "al",
+    },
   ];
 
   //making sure that the dates are sorted
