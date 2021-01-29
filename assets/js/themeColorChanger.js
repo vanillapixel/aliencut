@@ -1,11 +1,20 @@
-// different color every day
+// different theme color every day
 
-const root = document.documentElement;
+// const root = document.documentElement;
 
-const defaultColors = ["#ff6138", "#E91E63", "#009688", "#a037ff", "#0f7ea3"];
-const day = new Date().getDay();
-root.style.setProperty("--main-color", defaultColors[day]);
+// const defaultColors = [
+//   "#ff6137",
+//   "#E91E63",
+//   "#009688",
+//   "#a037ff",
+//   "#0f7ea3",
+//   "#38ff59",
+//   "#dbe912",
+// ];
+// const day = new Date().getDay();
+// root.style.setProperty("--main-color", defaultColors[day + 1]);
 
+// USER COLOR PICKER CONTEST
 /* color picker to let the user change the theme color
 
 const colorsOptions = document.querySelectorAll(".color-option");
