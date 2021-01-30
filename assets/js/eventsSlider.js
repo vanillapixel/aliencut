@@ -247,17 +247,20 @@ document.addEventListener("DOMContentLoaded", () => {
       return matrix.m41;
     }
 
-    function podPositionUpdater(amountToTranslate) {
+    function podPositionUpdater(itemsAmountToTranslate) {
       let { style } = sliderPod;
-      const eventWidth = Number(
-        window.getComputedStyle($(target)).width.replace(/px/, "")
+      console.log(itemsAmountToTranslate);
+      const eventWidth = parseInt(getComputedStyle($(target)).width);
+      const sliderBarWidth = parseInt(getComputedStyle($(".slider-bar")).width);
+      const podAmountToTranslate = Math.abs(
+        (((itemsAmountToTranslate * (nrColumns - 1)) / eventWidth) *
+          (nrColumns - 1) *
+          (nrColumns - 1) *
+          103) /
+          100
       );
-      const sliderBarWidth = Number(
-        window.getComputedStyle($(".slider-bar")).width.replace(/px/, "")
-      );
-      style.transform = `translate(${
-        (-amountToTranslate * sliderBarWidth) / eventWidth / 10
-      }%)`;
+      console.log(podAmountToTranslate);
+      style.transform = `translate(${podAmountToTranslate}%)`;
       Object.assign(style, dragTransitionOptions);
     }
 
@@ -266,11 +269,13 @@ document.addEventListener("DOMContentLoaded", () => {
     let initialCoords = 0;
     let currCoords = 0;
     let currItemTranslation = getTranslateX();
-    let itemWidth = Number(
-      window.getComputedStyle(eventsArray[0]).width.replace(/px/, "")
-    );
+    let itemWidth = parseInt(getComputedStyle(eventsArray[0]).width);
 
-    function resetAnimationProps() {
+    function stopDragItems() {
+      setTimeout(() => {
+        updateSliderItemsPosition();
+        updateSliderPodPosition();
+      }, 250);
       dragging = false;
       let transitionDelay = 0;
       events.style.cursor = "grab";
@@ -297,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
       sliderPod.style.transitionDelay = 0;
     }
 
-    function slideItems(e) {
+    function dragItems(e) {
       let amountToTranslate = 0;
       if (dragging) {
         currCoords = e.clientX;
@@ -313,11 +318,21 @@ document.addEventListener("DOMContentLoaded", () => {
             item.style.transform = `translate(${amountToTranslate}px)`;
           });
           podPositionUpdater(amountToTranslate);
+          highlightDisplayedColumnItems(amountToTranslate);
         }
       }
     }
 
-    function setDraggingStatus(e) {
+    function highlightDisplayedColumnItems(amountToTranslate) {
+      displayedColumn = Math.floor(
+        Math.abs(amountToTranslate) /
+          parseInt(getComputedStyle(eventsArray[0]).width)
+      );
+      updateControllerStyle();
+      updateDisplayedColumnItems();
+    }
+
+    function startDragItems(e) {
       dragging = true;
       initialCoords = e.clientX;
       events.style.cursor = "grabbing";
@@ -327,6 +342,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       currItemTranslation = getTranslateX();
     }
+
     //function calls
     eventsTranslationHandler();
 
@@ -336,10 +352,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // touch event listeners
-    // events.addEventListener("mouseup", resetAnimationProps);
-    // events.addEventListener("mouseleave", resetAnimationProps);
-    // events.addEventListener("mousemove", e => slideItems(e));
-    // events.addEventListener("mousedown", e => setDraggingStatus(e));
+    events.addEventListener("mouseup", stopDragItems);
+    events.addEventListener("mouseleave", stopDragItems);
+    events.addEventListener("mousemove", dragItems);
+    events.addEventListener("mousedown", startDragItems);
   }
 
   const eventsSliderOpts = {
