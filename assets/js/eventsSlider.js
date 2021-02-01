@@ -248,20 +248,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function podPositionUpdater(itemsAmountToTranslate) {
-      let { style } = sliderPod;
-      console.log(itemsAmountToTranslate);
       const eventWidth = parseInt(getComputedStyle($(target)).width);
-      const sliderBarWidth = parseInt(getComputedStyle($(".slider-bar")).width);
       const podAmountToTranslate = Math.abs(
-        (((itemsAmountToTranslate * (nrColumns - 1)) / eventWidth) *
-          (nrColumns - 1) *
-          (nrColumns - 1) *
-          103) /
-          100
+        (itemsAmountToTranslate / eventWidth) * 100
       );
-      console.log(podAmountToTranslate);
-      style.transform = `translate(${podAmountToTranslate}%)`;
-      Object.assign(style, dragTransitionOptions);
+      sliderPod.style.transform = `translate(calc(${podAmountToTranslate}% + ${
+        ssg * displayedColumn
+      }px))`;
     }
 
     const events = $(".events");
@@ -270,6 +263,39 @@ document.addEventListener("DOMContentLoaded", () => {
     let currCoords = 0;
     let currItemTranslation = getTranslateX();
     let itemWidth = parseInt(getComputedStyle(eventsArray[0]).width);
+
+    function startDragItems(e) {
+      dragging = true;
+      initialCoords = e.clientX;
+      events.style.cursor = "grabbing";
+      eventsArray.forEach((item) => {
+        const { style } = item;
+        Object.assign(style, dragTransitionOptions);
+      });
+      currItemTranslation = getTranslateX();
+      Object.assign(sliderPod.style, dragTransitionOptions);
+    }
+
+    function dragItems(e) {
+      let amountToTranslate = 0;
+      if (dragging) {
+        currCoords = e.clientX;
+        amountToTranslate =
+          currItemTranslation - [(initialCoords - currCoords) * 2];
+        // prevents from oversliding from either right or left
+        if (
+          amountToTranslate < 0 &&
+          amountToTranslate >
+            -(10 * (nrColumns * 2 - 1) + itemWidth * (nrColumns - 1))
+        ) {
+          eventsArray.forEach((item) => {
+            item.style.transform = `translate(${amountToTranslate}px)`;
+          });
+          podPositionUpdater(amountToTranslate);
+          highlightDisplayedColumnItems(amountToTranslate);
+        }
+      }
+    }
 
     function stopDragItems() {
       setTimeout(() => {
@@ -302,27 +328,6 @@ document.addEventListener("DOMContentLoaded", () => {
       sliderPod.style.transitionDelay = 0;
     }
 
-    function dragItems(e) {
-      let amountToTranslate = 0;
-      if (dragging) {
-        currCoords = e.clientX;
-        amountToTranslate =
-          currItemTranslation - [(initialCoords - currCoords) * 2];
-        // prevents from oversliding from either right or left
-        if (
-          amountToTranslate < 0 &&
-          amountToTranslate >
-            -(10 * (nrColumns * 2 - 1) + itemWidth * (nrColumns - 1))
-        ) {
-          eventsArray.forEach((item) => {
-            item.style.transform = `translate(${amountToTranslate}px)`;
-          });
-          podPositionUpdater(amountToTranslate);
-          highlightDisplayedColumnItems(amountToTranslate);
-        }
-      }
-    }
-
     function highlightDisplayedColumnItems(amountToTranslate) {
       displayedColumn = Math.floor(
         Math.abs(amountToTranslate) /
@@ -330,17 +335,6 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       updateControllerStyle();
       updateDisplayedColumnItems();
-    }
-
-    function startDragItems(e) {
-      dragging = true;
-      initialCoords = e.clientX;
-      events.style.cursor = "grabbing";
-      eventsArray.forEach((item) => {
-        const { style } = item;
-        Object.assign(style, dragTransitionOptions);
-      });
-      currItemTranslation = getTranslateX();
     }
 
     //function calls
