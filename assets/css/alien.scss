@@ -252,6 +252,7 @@ ul {
 .first-mask,
 .second-mask,
 .third-mask {
+  display: none !important;
   position: fixed;
   padding: 0 50px;
   height: 100vh;
@@ -542,7 +543,7 @@ video {
       align-content: space-between;
       z-index: 1;
       .news-title {
-        font-size: 7rem;
+        font-size: 5rem;
         text-transform: uppercase;
         animation: 5.5s pulse infinite;
         padding: 1rem 3rem;
@@ -832,7 +833,7 @@ video {
   transform: scale(1.4);
   fill: $main-color;
 }
-#events-section {
+#events {
   .slider {
     display: flex;
     flex-direction: row;
@@ -1048,7 +1049,7 @@ video {
     display: flex;
     flex-direction: column;
     align-content: center;
-    justify-content: space-evenly;
+    justify-content: center;
     .items-category {
       font-size: 6.4rem;
       text-align: center;
@@ -1090,6 +1091,9 @@ video {
     margin: 1rem;
     width: 90%;
     overflow: hidden;
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
     &:after {
       // content: "";
       position: absolute;
@@ -1102,16 +1106,18 @@ video {
       background: $main-color;
       transform: rotate(-10deg);
     }
-    .items-wrapper,
+    .items-images-wrapper,
     .items-details {
       z-index: 1;
     }
-    .items-wrapper {
+    .items-images-wrapper {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
-      max-width: 40%;
-      .item {
+      width: 45%;
+      padding: 0 4rem;
+      justify-content: center;
+      .item-image {
         display: flex;
         position: relative;
         border-radius: 25px;
@@ -1120,7 +1126,7 @@ video {
         align-items: center;
         margin: 0 -5rem;
         img {
-          width: 17rem;
+          max-width: 45rem;
           height: 20rem;
           transition: 0.5s 0.1s all, 0.9s filter;
           &:hover {
@@ -1128,17 +1134,6 @@ video {
               drop-shadow(2px 2px 5px $main-color);
           }
         }
-      }
-    }
-  }
-  #accessories {
-    flex-direction: row-reverse;
-    .flat-image {
-      transform: scaleX(1.5);
-    }
-    .items-wrapper {
-      .item {
-        margin: 0 -2rem;
       }
     }
   }
@@ -1198,8 +1193,13 @@ video {
       }
     }
   }
+  #keyholder {
+    img {
+      height: auto !important;
+    }
+  }
 }
-#gallery-section .content {
+#gallery .content {
   flex-direction: row;
   align-items: center;
   margin-right: 20px;
@@ -1260,7 +1260,7 @@ video {
     }
   }
 }
-#booking-section .content {
+#booking .content {
   .contact-choice {
     display: flex;
     flex-direction: column;
@@ -1285,7 +1285,7 @@ video {
     max-height: 5rem;
     transition: 0.5s all, 0.5s max-height 0.25s, 0.5s max-width 0.25s;
   }
-  
+
   .contact-container {
     display: flex;
     flex-direction: row;
@@ -1297,21 +1297,22 @@ video {
       background-size: contain;
       margin-right: 5rem;
     }
-    }
-    .reveal-number-text,
-    .reveal-form-text {
-      font-size: 1.4rem;
-      transition: 0.5s;
-    }
-    .reveal-number-text-wrapper, .reveal-form-text-wrapper {
-      display: flex;
-      flex-direction:column;
-    }
-  
+  }
+  .reveal-number-text,
+  .reveal-form-text {
+    font-size: 1.4rem;
+    transition: 0.5s;
+  }
+  .reveal-number-text-wrapper,
+  .reveal-form-text-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
   flex-direction: row;
   justify-content: space-evenly;
   .form-extended {
-    max-height: 100rem;
+    max-height: 170rem;
   }
   form {
     display: flex;
@@ -1502,7 +1503,6 @@ video {
   }
 }
 
-
 /* medium screen resolution */
 
 @media only screen and (max-width: 1600px) {
@@ -1595,7 +1595,7 @@ video {
     padding: 8rem 0;
   }
 
-  #events-section {
+  #events {
     .events {
       max-height: 50rem;
       &:after {
@@ -1806,7 +1806,7 @@ video {
       align-self: center;
     }
   }
-  #booking-section .content {
+  #booking .content {
     align-items: center;
   }
 }
@@ -1841,10 +1841,6 @@ video {
     width: 50%;
     opacity: 0;
   }
-  .second-mask h1 {
-    font-size: 8rem;
-    transform: rotate(90deg);
-  }
   .news-wrapper {
     flex-direction: column;
     height: auto;
@@ -1871,8 +1867,9 @@ video {
             margin-top: 30px;
             width: auto;
             margin-left: 0;
+            flex-wrap: wrap;
             a {
-              width: 33%;
+              width: 35%;
             }
             .news-cta-container {
               flex-direction: column;
@@ -1904,7 +1901,7 @@ video {
       margin: 0 auto;
     }
   }
-  #events-section {
+  #events {
     .events {
       max-height: fit-content;
       margin: 1rem 0.5rem;
@@ -1943,9 +1940,11 @@ video {
         max-width: 95%;
         margin: 1rem auto;
         width: 100%;
-        .items-wrapper {
-          max-width: 80%;
+        .items-images-wrapper {
+          max-width: 60%;
+          width: auto;
           margin: auto;
+          justify-content: center;
         }
         .cta {
           width: 90%;
@@ -1972,9 +1971,12 @@ video {
           max-width: 350px;
         }
       }
+      #keyholder {
+        flex-direction: column;
+      }
     }
   }
-  #gallery-section {
+  #gallery {
     .content {
       margin-right: auto;
       .gallery-pictures {
@@ -1989,7 +1991,7 @@ video {
       }
     }
   }
-  #booking-section {
+  #booking {
     .content {
       flex-direction: column;
       width: 80%;
@@ -2013,17 +2015,17 @@ video {
 }
 
 @keyframes box-shadow-flash {
-      0%,
-      40%,
-      60%,
-      100% {
-        box-shadow: inset 0px 0px $main-color;
-      }
-      42%,
-      58% {
-        box-shadow: inset 1000px 0px $main-color;
-      }
-    }
+  0%,
+  40%,
+  60%,
+  100% {
+    box-shadow: inset 0px 0px $main-color;
+  }
+  42%,
+  58% {
+    box-shadow: inset 1000px 0px $main-color;
+  }
+}
 @keyframes next-event {
   0%,
   25%,
@@ -2049,6 +2051,7 @@ video {
     box-shadow: 0px 0px 10px 1px red;
   }
   100% {
-    box-shadow: 0px 0px 1000px 1000px transparent, 0px 0px 10000px 10px $main-color;
+    box-shadow: 0px 0px 1000px 1000px transparent,
+      0px 0px 10000px 10px $main-color;
   }
 }

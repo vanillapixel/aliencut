@@ -338,7 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
       status: "cancelled",
       province: "cn",
     },
-        {
+    {
       date: "2021-03-06",
       location: "tenax",
       city: "samugheo",

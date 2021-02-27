@@ -225,14 +225,8 @@ document.addEventListener("DOMContentLoaded", () => {
       sliderSlot.addEventListener("click", function () {
         updateDisplayedColumnNumber(id);
         updateSlider();
-        //FIXME: reactivate it once the dragging system is complete
-        // opacityHandler(multiplier);
       })
     );
-
-    // drag animation functionality
-    // CURRENTLY DISABLED
-    //FIXME: fix the sliderPod drag animation
 
     const dragTransitionOptions = {
       transitionDelay: "0s",
@@ -274,6 +268,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       currItemTranslation = getTranslateX();
       Object.assign(sliderPod.style, dragTransitionOptions);
+      events.addEventListener("mouseup", stopDragItems);
+      events.addEventListener("mouseleave", stopDragItems);
+      events.addEventListener("mousemove", dragItems);
     }
 
     function dragItems(e) {
@@ -326,6 +323,9 @@ document.addEventListener("DOMContentLoaded", () => {
       sliderPod.style.transitionDuration = "1.6s";
       sliderPod.style.transitionTimingFunction = "ease-in-out";
       sliderPod.style.transitionDelay = 0;
+      events.removeEventListener("mouseup", stopDragItems);
+      events.removeEventListener("mouseleave", stopDragItems);
+      events.removeEventListener("mousemove", dragItems);
     }
 
     function highlightDisplayedColumnItems(amountToTranslate) {
@@ -343,13 +343,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // event listeners
     window.addEventListener("resize", () => {
       eventsTranslationHandler();
+      isMobile();
+      isMobile()
+        ? events.removeEventListener("mousedown", startDragItems)
+        : events.addEventListener("mousedown", startDragItems);
     });
-
-    // touch event listeners
-    events.addEventListener("mouseup", stopDragItems);
-    events.addEventListener("mouseleave", stopDragItems);
-    events.addEventListener("mousemove", dragItems);
-    events.addEventListener("mousedown", startDragItems);
+    !isMobile() && events.addEventListener("mousedown", startDragItems);
   }
 
   const eventsSliderOpts = {
