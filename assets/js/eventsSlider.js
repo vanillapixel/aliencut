@@ -86,6 +86,7 @@ setTimeout(() => {
 
     function checkYear(item, years) {
       const getDataYear = item.children[0].getAttribute("data-year");
+      console.log(years);
       if (years.hasOwnProperty(getDataYear)) {
         years[getDataYear]++;
       } else {
@@ -167,16 +168,16 @@ setTimeout(() => {
       );
     }
 
-    function updateDisplayedColumnNumber(arg) {
-      if (typeof arg === "string") {
-        if (arg == "next") {
+    function updateDisplayedColumnNumber(id) {
+      if (typeof id === "string") {
+        if (id == "next") {
           displayedColumn++;
         }
-        if (arg == "previous") {
+        if (id == "previous") {
           displayedColumn--;
         }
       } else {
-        displayedColumn = arg;
+        displayedColumn = id;
       }
     }
 
@@ -220,7 +221,7 @@ setTimeout(() => {
     // events listeners
     controllers.forEach((controller) => {
       controller.addEventListener("click", function () {
-        const buttonClasses = this.classList.value.split(" ");
+        const buttonClasses = this.classList;
         const buttonClass = buttonClasses
           .filter((x) => x != "controller")
           .toString();
@@ -230,8 +231,10 @@ setTimeout(() => {
     });
     sliderSlots.forEach((sliderSlot, id) =>
       sliderSlot.addEventListener("click", function () {
-        updateDisplayedColumnNumber(id);
-        updateSlider();
+        if (displayedColumn !== id) {
+          updateDisplayedColumnNumber(id);
+          updateSlider();
+        }
       })
     );
 

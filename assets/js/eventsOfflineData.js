@@ -1,4 +1,4 @@
-const events2 = [
+const events = [
   {
     date: "2019-01-05",
     location: "tenax",
@@ -350,81 +350,3 @@ const events2 = [
     province: "al",
   },
 ];
-function getClosestDate() {
-  let closestDate = Infinity;
-  events.forEach((event) => {
-    let date = new Date(event.date);
-    if (
-      date >= today &&
-      (date < new Date(closestDate) || date < closestDate) &&
-      event.status != "cancelled"
-    ) {
-      closestDate = date;
-      event.isNextEvent = true;
-    }
-  });
-}
-let events = [];
-const today = new Date();
-async function getData() {
-  const { eventsRef } = await import("./database.js");
-  eventsRef.on("value", async (snapshot) => {
-    data = snapshot.val();
-    //making sure that the dates are sorted
-    data.sort((a, b) => (a.date > b.date ? 1 : b.date > a.date ? -1 : 0));
-    events = data.slice(-15);
-    await getClosestDate();
-    await processDatabase();
-  });
-}
-
-getData();
-
-const eventsContainer = document.querySelector(".events");
-
-function processDatabase() {
-  events.forEach((event) => {
-    const { date, city, province, location } = event;
-    const formattedDate = new Date(date);
-    const newDate = document.createElement("li");
-    newDate.classList.add("event");
-
-    if (event.status === "cancelled") {
-      newDate.classList.add("cancelled");
-    } else if (event.hasOwnProperty("isNextEvent")) {
-      newDate.classList.add("next-event");
-    }
-    newDate.innerHTML = `
-  <div class="event-details" data-year="${formattedDate.getFullYear()}">
-    <h4 class="date">
-    <p class="day">${
-      formattedDate.getDate() > 9
-        ? formattedDate.getDate()
-        : "0" + formattedDate.getDate()
-    }</p>
-    <p class="month">${new Intl.DateTimeFormat("it-IT", {
-      month: "short",
-    }).format(formattedDate)}</p>
-    </h4>
-    <h5 class="city">
-      <p class="comune">${city}</p>
-      <p class="provincia">(${province})</p>
-    </h5>
-  </div>
-  <div class="location">
-  <h3><span>@</span> ${location}</h3>
-  </div>`;
-    eventsContainer.appendChild(newDate);
-  });
-}
-
-// getClosestDate();
-
-const cancelledEvents = document.querySelectorAll(".cancelled");
-
-function staggerCancelledEventsAnimations() {
-  cancelledEvents.forEach((x, id) => {
-    x.style.animationDelay = `${id * 1}s`;
-  });
-}
-staggerCancelledEventsAnimations();
