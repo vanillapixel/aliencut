@@ -1,8 +1,15 @@
 let isMobile = () => (window.innerWidth <= 800 ? true : false);
 let triggeredByMenu = false;
-document.addEventListener("DOMContentLoaded", () => {
+setTimeout(() => {
   const $ = (s, o = document) => o.querySelector(s);
   const $$ = (s, o = document) => o.querySelectorAll(s);
+
+  const eventsSliderOpts = {
+    itemsPerColumn: 3,
+    baseMovement: 103,
+  };
+
+  new Slider(".slider", eventsSliderOpts, ".event");
 
   function Slider(container, options, target) {
     const eventsArray = $$(target);
@@ -251,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }px))`;
     }
 
-    const events = $(".events");
+    const eventsSection = $(".events");
     let dragging = false;
     let initialCoords = 0;
     let currCoords = 0;
@@ -261,16 +268,16 @@ document.addEventListener("DOMContentLoaded", () => {
     function startDragItems(e) {
       dragging = true;
       initialCoords = e.clientX;
-      events.style.cursor = "grabbing";
+      eventsSection.style.cursor = "grabbing";
       eventsArray.forEach((item) => {
         const { style } = item;
         Object.assign(style, dragTransitionOptions);
       });
       currItemTranslation = getTranslateX();
       Object.assign(sliderPod.style, dragTransitionOptions);
-      events.addEventListener("mouseup", stopDragItems);
-      events.addEventListener("mouseleave", stopDragItems);
-      events.addEventListener("mousemove", dragItems);
+      eventsSection.addEventListener("mouseup", stopDragItems);
+      eventsSection.addEventListener("mouseleave", stopDragItems);
+      eventsSection.addEventListener("mousemove", dragItems);
     }
 
     function dragItems(e) {
@@ -301,7 +308,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 250);
       dragging = false;
       let transitionDelay = 0;
-      events.style.cursor = "grab";
+      eventsSection.style.cursor = "grab";
       eventsArray.forEach((item, id) => {
         const { style } = item;
         switch (id % 3) {
@@ -323,9 +330,9 @@ document.addEventListener("DOMContentLoaded", () => {
       sliderPod.style.transitionDuration = "1.6s";
       sliderPod.style.transitionTimingFunction = "ease-in-out";
       sliderPod.style.transitionDelay = 0;
-      events.removeEventListener("mouseup", stopDragItems);
-      events.removeEventListener("mouseleave", stopDragItems);
-      events.removeEventListener("mousemove", dragItems);
+      eventsSection.removeEventListener("mouseup", stopDragItems);
+      eventsSection.removeEventListener("mouseleave", stopDragItems);
+      eventsSection.removeEventListener("mousemove", dragItems);
     }
 
     function highlightDisplayedColumnItems(amountToTranslate) {
@@ -345,15 +352,9 @@ document.addEventListener("DOMContentLoaded", () => {
       eventsTranslationHandler();
       isMobile();
       isMobile()
-        ? events.removeEventListener("mousedown", startDragItems)
-        : events.addEventListener("mousedown", startDragItems);
+        ? eventsSection.removeEventListener("mousedown", startDragItems)
+        : eventsSection.addEventListener("mousedown", startDragItems);
     });
-    !isMobile() && events.addEventListener("mousedown", startDragItems);
+    !isMobile() && eventsSection.addEventListener("mousedown", startDragItems);
   }
-
-  const eventsSliderOpts = {
-    itemsPerColumn: 3,
-    baseMovement: 103,
-  };
-  new Slider(".slider", eventsSliderOpts, ".event");
-});
+}, 1000);

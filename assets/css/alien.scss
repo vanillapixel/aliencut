@@ -833,7 +833,7 @@ video {
   transform: scale(1.4);
   fill: $main-color;
 }
-#events {
+#events-section {
   .slider {
     display: flex;
     flex-direction: row;
@@ -1129,10 +1129,6 @@ video {
           max-width: 45rem;
           height: 20rem;
           transition: 0.5s 0.1s all, 0.9s filter;
-          &:hover {
-            filter: drop-shadow(-1px -1px 1px white)
-              drop-shadow(2px 2px 5px $main-color);
-          }
         }
       }
     }
@@ -1252,10 +1248,6 @@ video {
       img {
         height: 200px;
         transition: 0.3s;
-        &:hover {
-          filter: drop-shadow(1px 1px 3px white)
-            drop-shadow(2px 2px 5px $main-color);
-        }
       }
     }
   }
