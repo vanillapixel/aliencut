@@ -61,6 +61,7 @@ setTimeout(() => {
 
     // first column is nr.0
     let displayedColumn = 0;
+    let displayedYears;
     // the upcoming event is displayed
     eventsArray.forEach((x, id) => {
       if (x.classList.contains("next-event")) {
@@ -96,6 +97,7 @@ setTimeout(() => {
 
     function updateYear(years) {
       let updatedYear;
+      //TODO: set max to retrieve year with highest value
       updatedYear = Object.values(years).reduce((a, b) => (a > b ? a : b));
       Object.keys(years).forEach((entry) => {
         if (years[entry] == updatedYear) {
@@ -127,26 +129,15 @@ setTimeout(() => {
       item.style.opacity = 1;
     }
 
-    function updateDisplayedColumnItems() {
-      const monthsContainer = $(".months");
-      const years = {};
-      let months = [];
-      monthsContainer.classList.add("opacity-flash");
-      eventsArray.forEach((item, id) => {
-        item.style.opacity = 0.3;
-        if (
-          displayedColumn * itemsPerColumn <= id &&
-          id < displayedColumn * itemsPerColumn + itemsPerColumn
-        ) {
-          updateSliderItemsOpacity(item);
-          checkYear(item, years);
-          getMonths(item, months);
-        }
-      });
-      setTimeout(function () {
-        updateYear(years);
-        updateMonths(months, monthsContainer);
-      }, 1200);
+    function updateDisplayedColumnItems(item, id, years, months) {
+      if (
+        displayedColumn * itemsPerColumn <= id &&
+        id < displayedColumn * itemsPerColumn + itemsPerColumn
+      ) {
+        updateSliderItemsOpacity(item);
+        checkYear(item, years);
+        getMonths(item, months);
+      }
     }
 
     function updateSliderPodPosition() {
@@ -159,33 +150,14 @@ setTimeout(() => {
       sliderPod.style.width = `calc(((100% + ${ssg}px) - ${ssg} * ${n}px) / ${n})`;
     }
 
-    function updateSliderItemsPosition() {
-      eventsArray.forEach(
-        (item) =>
-          (item.style.transform = `translate(-${
-            baseMovement * displayedColumn
-          }%)`)
-      );
-    }
-
-    function updateDisplayedColumnNumber(id) {
-      if (typeof id === "string") {
-        if (id == "next") {
-          displayedColumn++;
-        }
-        if (id == "previous") {
-          displayedColumn--;
-        }
-      } else {
-        displayedColumn = id;
-      }
+    function updateSliderItemsPosition(item) {
+      item.style.transform = `translate(-${baseMovement * displayedColumn}%)`;
     }
 
     function updateControllerStyle() {
       let [previousBtn, nextBtn] = controllers;
       const { disabled, enabled } = buttonStyle;
       const n = nrColumns;
-      // TODO: Use spread operator instead of Object assign
       if (displayedColumn === n - 1) {
         Object.assign(nextBtn.style, disabled);
       }
@@ -212,27 +184,37 @@ setTimeout(() => {
     }
 
     function updateSlider() {
-      updateSliderItemsPosition();
+      const monthsContainer = $(".months");
+      monthsContainer.classList.add("opacity-flash");
+      eventsArray.forEach((item, id) => {
+        item.style.opacity = 0.3;
+        updateSliderItemsPosition(item);
+        updateDisplayedColumnItems(item, id);
+      });
       updateControllerStyle();
       updateSliderPodPosition();
-      updateDisplayedColumnItems();
+      setTimeout(function () {
+        updateYear();
+        updateMonths(monthsContainer);
+      }, 1200);
     }
 
     // events listeners
     controllers.forEach((controller) => {
       controller.addEventListener("click", function () {
-        const buttonClasses = this.classList;
-        const buttonClass = buttonClasses
-          .filter((x) => x != "controller")
-          .toString();
-        updateDisplayedColumnNumber(buttonClass);
+        if (this.classList.contains("previous")) {
+          displayedColumn--;
+        }
+        if (this.classList.contains("next")) {
+          displayedColumn++;
+        }
         updateSlider();
       });
     });
     sliderSlots.forEach((sliderSlot, id) =>
       sliderSlot.addEventListener("click", function () {
         if (displayedColumn !== id) {
-          updateDisplayedColumnNumber(id);
+          displayedColumn = id;
           updateSlider();
         }
       })
@@ -290,6 +272,10 @@ setTimeout(() => {
         amountToTranslate =
           currItemTranslation - [(initialCoords - currCoords) * 2];
         // prevents from oversliding from either right or left
+        displayedColumn = Math.floor(
+          Math.abs(amountToTranslate) /
+            parseInt(getComputedStyle(eventsArray[0]).width)
+        );
         if (
           amountToTranslate < 0 &&
           amountToTranslate >
@@ -306,13 +292,13 @@ setTimeout(() => {
 
     function stopDragItems() {
       setTimeout(() => {
-        updateSliderItemsPosition();
         updateSliderPodPosition();
       }, 250);
       dragging = false;
       let transitionDelay = 0;
       eventsSection.style.cursor = "grab";
       eventsArray.forEach((item, id) => {
+        updateSliderItemsPosition(item);
         const { style } = item;
         switch (id % 3) {
           case 0:
@@ -339,12 +325,9 @@ setTimeout(() => {
     }
 
     function highlightDisplayedColumnItems(amountToTranslate) {
-      displayedColumn = Math.floor(
-        Math.abs(amountToTranslate) /
-          parseInt(getComputedStyle(eventsArray[0]).width)
-      );
       updateControllerStyle();
-      updateDisplayedColumnItems();
+      updateSliderItemsPosition();
+      updateDisplayedColumnItems(item, id, years, months);
     }
 
     //function calls
