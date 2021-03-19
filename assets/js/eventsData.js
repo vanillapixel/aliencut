@@ -373,8 +373,9 @@ async function getData() {
     //making sure that the dates are sorted
     data.sort((a, b) => (a.date > b.date ? 1 : b.date > a.date ? -1 : 0));
     events = data.slice(-15);
-    await getClosestDate();
-    await processDatabase();
+    getClosestDate();
+    processDatabase();
+    staggerCancelledEventsAnimations();
   });
 }
 
@@ -420,11 +421,9 @@ function processDatabase() {
 
 // getClosestDate();
 
-const cancelledEvents = document.querySelectorAll(".cancelled");
-
 function staggerCancelledEventsAnimations() {
+  const cancelledEvents = document.querySelectorAll(".cancelled");
   cancelledEvents.forEach((x, id) => {
     x.style.animationDelay = `${id * 1}s`;
   });
 }
-staggerCancelledEventsAnimations();

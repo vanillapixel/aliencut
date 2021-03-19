@@ -7,9 +7,21 @@ setTimeout(() => {
   const eventsSliderOpts = {
     itemsPerColumn: 3,
     baseMovement: 103,
+    sliderSlotsGap: 6
   };
 
-  new Slider(".slider", eventsSliderOpts, ".event");
+  new Slider(".slider", eventsSliderOpts, data);
+
+  class Slider {
+    constructor(container, options, data){
+      const {...options} = options
+      this.container = container
+      this.data = data
+      this.options = options
+    }
+
+
+  }
 
   function Slider(container, options, target) {
     const eventsArray = $$(target);
@@ -21,7 +33,7 @@ setTimeout(() => {
       itemsPerColumn: 1,
       baseMovement: 103,
     };
-    const sliderSlotsGap = 6;
+    const 
     const ssg = sliderSlotsGap;
 
     if (options) {
