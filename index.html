@@ -13,15 +13,17 @@
   <meta http-equiv="content-language" content="it">
   <meta property="fb:app_id" content="101522564871" />
     <title>Alien Cut Official Website</title>
-    <link rel="stylesheet" href="./assets/css/alien.css" />
     <link
-      href="https://fonts.googleapis.com/css?family=Play"
-      rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Play"
+    rel="stylesheet"
     />
+    <link rel="stylesheet" href="./assets/css/cookies-enabler.css" />
+    <link rel="stylesheet" href="./assets/css/alien.css" />
     <link rel="icon" href="./assets/img/icon/favicon.png" type="image/x-icon" />
     <link rel="apple-touch-icon" href="./assets/img/icon/favicon.png"/>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
     <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
-    <script src="./assets/js/database.js" type="module" defer></script>
     <script src="./assets/js/newsAnimation.js" defer></script>
     <script src="./assets/js/eventsData.js" defer></script>
     <script src="./assets/js/sideMenu.js" defer></script>
@@ -124,7 +126,7 @@
       <main id="news" class="section-wrapper">
         <h1 title="News" class="title news-title title-active">News</h1>
         <div class="content">
-          <h2 class="news-title">Nuovo singolo - FUORI ORA!</h2>
+          <h2 class="news-title">Nuovo singolo FUORI ORA!</h2>
           <div class="news-main-content">
             <div class="news-image-container">
               <img src="./assets/img/news/g_nel_body.jpg" alt="G nel body - nuovo singolo" class="news-image">
@@ -519,6 +521,19 @@
         </section>
       </div>
     </div>
+        <script src="./assets/js/cookies-enabler.min.js"></script>
+
+            <script type="text/plain" class="ce-script" async src="https://www.googletagmanager.com/gtag/js?id=UA-80724916-3"></script>
+    <script type="text/plain" class="ce-script">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-80724916-3');
+    </script>
+    <script>
+      COOKIES_ENABLER.init();
+    </script>
   <!-- <script src="https://www.paypal.com/sdk/js?client-id=AVf3VWyrBuDsGa1gRRsaO6Q40PZfG4esy2rXyt6UZFpRQAGT3Te9mI4hAC508IZ8mzzGlI0maPzcrjzk&currency=EUR" async data-sdk-integration-source="button-factory"></script> -->
 
   </body>

@@ -1,4 +1,4 @@
-const events2 = [
+let data = [
   {
     date: "2019-01-05",
     location: "tenax",
@@ -338,21 +338,17 @@ const events2 = [
     province: "cn",
   },
   {
-    date: "2021-05-06",
-    location: "tenax",
-    city: "samugheo",
-    province: "or",
-  },
-  {
     date: "2021-02-27",
     location: "touch club",
     city: "casale monferrato",
     province: "al",
   },
 ];
+
+const DATA_LIMIT = 15;
 function getClosestDate() {
   let closestDate = Infinity;
-  events.forEach((event) => {
+  data.forEach((event) => {
     let date = new Date(event.date);
     if (
       date >= today &&
@@ -364,27 +360,34 @@ function getClosestDate() {
     }
   });
 }
-let events = [];
 const today = new Date();
 async function getData() {
   const { eventsRef } = await import("./database.js");
   eventsRef.on("value", async (snapshot) => {
     data = snapshot.val();
     //making sure that the dates are sorted
-    data.sort((a, b) => (a.date > b.date ? 1 : b.date > a.date ? -1 : 0));
-    events = data.slice(-15);
-    getClosestDate();
-    processDatabase();
-    staggerCancelledEventsAnimations();
+    processData();
   });
 }
 
-getData();
+function processData() {
+  sortData();
+  getClosestDate();
+  createElementsFromData();
+  staggerCancelledEventsAnimations();
+}
+
+// getData();
 
 const eventsContainer = document.querySelector(".events");
 
-function processDatabase() {
-  events.forEach((event) => {
+function sortData() {
+  data.sort((a, b) => (a.date > b.date ? 1 : b.date > a.date ? -1 : 0));
+}
+
+function createElementsFromData() {
+  sortData();
+  data.slice(-DATA_LIMIT).forEach((event) => {
     const { date, city, province, location } = event;
     const formattedDate = new Date(date);
     const newDate = document.createElement("li");
@@ -427,3 +430,4 @@ function staggerCancelledEventsAnimations() {
     x.style.animationDelay = `${id * 1}s`;
   });
 }
+processData();

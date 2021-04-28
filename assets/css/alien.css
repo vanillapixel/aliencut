@@ -2,6 +2,17 @@
 :root {
   --main-color: #38ff59;
   --main-color: #ff6138;
+  --sec-color: white;
+  --dark: #0a0a0a;
+  --transparent-dark: rgba(0, 0, 0, 0.4);
+  --transparent-darker: rgba(0, 0, 0, 0.9);
+  --dark-grey: rgba(47, 47, 47, 0.9);
+  --light-grey: #6a6e7c;
+  --first-color-option: #ff6138;
+  --second-color-option: #a30f0f;
+  --third-color-option: #ff2ed2;
+  --forth-color-option: #a037ff;
+  --fifth-color-option: #0f7ea3;
 }
 
 * {
@@ -17,7 +28,7 @@
 html,
 body {
   font-family: "Play", sans-serif;
-  background-color: #0a0a0a;
+  background-color: var(--dark);
 }
 
 html::-webkit-scrollbar,
@@ -149,7 +160,7 @@ ul {
 .zoom-modal .backdrop {
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: var(--transparent-darker);
   position: absolute;
   top: 0;
   left: 0;
@@ -166,7 +177,7 @@ ul {
   position: absolute;
   width: 5rem;
   height: 5rem;
-  background: #6a6e7c;
+  background: var(--light-grey);
   top: 5rem;
   right: 5rem;
   z-index: 1;
@@ -212,7 +223,7 @@ ul {
   width: 70%;
   margin: auto;
   height: 70%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--transparent-dark);
   display: flex;
 }
 
@@ -275,7 +286,7 @@ ul {
 
 .first-mask {
   transition-duration: 1.8s;
-  background: #0a0a0a;
+  background: var(--dark);
 }
 
 .second-mask {
@@ -337,7 +348,7 @@ ul {
   z-index: 0;
   opacity: 1;
   transition: 1s;
-  background: rgba(47, 47, 47, 0.9);
+  background: var(--dark-grey);
 }
 
 video {
@@ -444,11 +455,11 @@ video {
 
 @keyframes colorChange-l2r {
   0% {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.4), var(--main-color));
+    background: linear-gradient(to right, var(--transparent-dark), var(--main-color));
   }
   50%,
   100% {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.4), white);
+    background: linear-gradient(to right, var(--transparent-dark), var(--sec-color));
   }
 }
 
@@ -473,11 +484,11 @@ video {
 
 @keyframes colorChange-t2b {
   0% {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), var(--main-color));
+    background: linear-gradient(to bottom, var(--transparent-dark), var(--main-color));
   }
   70%,
   100% {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), white);
+    background: linear-gradient(to bottom, var(--transparent-dark), var(--sec-color));
   }
 }
 
@@ -502,11 +513,11 @@ video {
 
 @keyframes colorChange-r2l {
   0% {
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.4), white);
+    background: linear-gradient(to left, var(--transparent-dark), var(--sec-color));
   }
   50%,
   100% {
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.4), var(--main-color));
+    background: linear-gradient(to left, var(--transparent-dark), var(--main-color));
   }
 }
 
@@ -531,11 +542,11 @@ video {
 
 @keyframes colorChange-b2t {
   0% {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), white);
+    background: linear-gradient(to top, var(--transparent-dark), var(--sec-color));
   }
   70%,
   100% {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), var(--main-color));
+    background: linear-gradient(to top, var(--transparent-dark), var(--main-color));
   }
 }
 
@@ -549,7 +560,7 @@ video {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--transparent-dark);
   transition: 0.5s;
   min-height: 100vh;
 }
@@ -588,7 +599,7 @@ video {
   text-transform: uppercase;
   animation: 5.5s pulse infinite;
   padding: 1rem 3rem;
-  white-space: nowrap;
+  text-align: center;
 }
 
 .news-wrapper #news .content .news-subtitle {
@@ -625,7 +636,7 @@ video {
   display: flex;
   color: white;
   font-size: 3.3rem;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--transparent-dark);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -755,7 +766,7 @@ video {
   margin-left: 1rem;
   text-align: right;
   flex-basis: 16%;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--transparent-dark);
   min-width: 25rem;
 }
 
@@ -807,7 +818,7 @@ video {
   flex-direction: row;
   padding: 50px 0;
   min-height: 80vh;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--transparent-dark);
   transition: 0.5s;
   margin: 50px 20px;
   overflow: hidden;
@@ -889,7 +900,7 @@ video {
   width: 100%;
   height: 100%;
   transition: 0.5s;
-  fill: #6a6e7c;
+  fill: var(--light-grey);
 }
 
 .controller svg use {
@@ -925,7 +936,7 @@ video {
   margin: 0 3px;
   border-radius: 20px;
   cursor: pointer;
-  background: rgba(47, 47, 47, 0.9);
+  background: var(--dark-grey);
 }
 
 #events-section .slider-slot:after {
@@ -993,7 +1004,7 @@ video {
   display: flex;
   position: relative;
   width: 63rem;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--transparent-dark);
   align-items: center;
   justify-items: center;
   margin: 10px;
@@ -1006,7 +1017,7 @@ video {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: #0a0a0a;
+  background: var(--dark);
   margin-left: 20px;
   z-index: -1;
   transform: translateX(100%);
@@ -1052,7 +1063,7 @@ video {
 
 #events-section .events .event .event-details .month {
   font-size: 3rem;
-  color: #6a6e7c;
+  color: var(--light-grey);
 }
 
 #events-section .events .event .event-details .provincia {
@@ -1088,7 +1099,7 @@ video {
 }
 
 #events-section .events .event .location span {
-  color: rgba(47, 47, 47, 0.9);
+  color: var(--dark-grey);
 }
 
 #events-section .events .cancelled:before {
@@ -1156,7 +1167,7 @@ video {
   font-family: play;
   font-weight: 800;
   color: var(--main-color);
-  background: #0a0a0a;
+  background: var(--dark);
   font-size: 3.2em;
   white-space: nowrap;
   outline: none;
@@ -1171,7 +1182,7 @@ video {
   position: relative;
   display: flex;
   flex-direction: row;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--transparent-dark);
   justify-content: space-around;
   padding: 5rem 1rem;
   margin: 1rem;
@@ -1340,7 +1351,7 @@ video {
 #booking .content .contact-container {
   color: white;
   font-size: 3.3rem;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--transparent-dark);
   padding: 4rem;
   margin: 1rem 0;
   display: flex;
@@ -1411,7 +1422,7 @@ video {
 }
 
 #booking .content form .form-segment {
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--transparent-dark);
   padding: 20px;
   margin: 3px 5px;
   display: flex;
@@ -1450,7 +1461,7 @@ video {
   background: transparent;
   font-size: 16px;
   border: none;
-  border-bottom: 1px solid #6a6e7c;
+  border-bottom: 1px solid var(--light-grey);
   color: #787878;
   padding: 7px;
 }
@@ -1737,7 +1748,7 @@ video {
     margin: 0;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.9);
+    background: var(--transparent-darker);
     font-size: 6rem;
     padding: 0;
     justify-content: center;
@@ -1769,7 +1780,7 @@ video {
     position: absolute;
     top: 0;
     left: -600%;
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--transparent-dark);
     z-index: -1;
   }
   header {
@@ -1780,7 +1791,7 @@ video {
     align-items: center;
     width: 100%;
     height: 70px;
-    background: #0a0a0a;
+    background: var(--dark);
     top: 0;
     left: 0;
     padding: 4rem 6rem;
@@ -1868,19 +1879,19 @@ video {
     height: 100%;
     transform: skew(45deg);
     margin-right: 1rem;
-    background: #ff6138;
+    background: var(--first-color-option);
   }
   .news-wrapper .color-picker-wrapper .color-option:nth-child(2) {
-    background: #a30f0f;
+    background: var(--second-color-option);
   }
   .news-wrapper .color-picker-wrapper .color-option:nth-child(3) {
-    background: #ff2ed2;
+    background: var(--third-color-option);
   }
   .news-wrapper .color-picker-wrapper .color-option:nth-child(4) {
-    background: #a037ff;
+    background: var(--forth-color-option);
   }
   .news-wrapper .color-picker-wrapper .color-option:nth-child(5) {
-    background: #0f7ea3;
+    background: var(--fifth-color-option);
   }
   .news-wrapper .enter-website {
     margin: 7rem 0;
@@ -1953,7 +1964,10 @@ video {
     flex-wrap: wrap;
   }
   .news-wrapper #news .content .news-main-content .news-details a {
-    width: 35%;
+    width: 40%;
+    margin-bottom: 2rem;
+    padding: 2rem 2rem;
+    box-sizing: content-box;
   }
   .news-wrapper #news .content .news-main-content .news-details .news-cta-container {
     flex-direction: column;
