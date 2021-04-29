@@ -1335,12 +1335,12 @@ video {
   transition: 0.3s;
 }
 
-#booking .content {
+.content {
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-#booking .content .contact-choice {
+.content .contact-choice {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1348,7 +1348,7 @@ video {
   width: 80%;
 }
 
-#booking .content .contact-container {
+.content .contact-container {
   color: white;
   font-size: 3.3rem;
   background: var(--transparent-dark);
@@ -1362,17 +1362,17 @@ video {
   white-space: nowrap;
 }
 
-#booking .content .contact-number-text {
+.content .contact-number-text {
   max-height: 5rem;
   transition: 0.5s all, 0.5s max-height 0.25s, 0.5s max-width 0.25s;
 }
 
-#booking .content .contact-container {
+.content .contact-container {
   display: flex;
   flex-direction: row;
 }
 
-#booking .content .contact-container svg {
+.content .contact-container svg {
   height: 100%;
   width: 5rem;
   position: relative;
@@ -1381,23 +1381,23 @@ video {
   margin-right: 5rem;
 }
 
-#booking .content .reveal-number-text,
-#booking .content .reveal-form-text {
+.content .reveal-number-text,
+.content .reveal-form-text {
   font-size: 1.4rem;
   transition: 0.5s;
 }
 
-#booking .content .reveal-number-text-wrapper,
-#booking .content .reveal-form-text-wrapper {
+.content .reveal-number-text-wrapper,
+.content .reveal-form-text-wrapper {
   display: flex;
   flex-direction: column;
 }
 
-#booking .content .form-extended {
+.content .form-extended {
   max-height: 170rem;
 }
 
-#booking .content form {
+.content form {
   display: flex;
   flex-direction: column;
   max-height: 0;
@@ -1405,23 +1405,23 @@ video {
   transition: 0.7s;
 }
 
-#booking .content form .form-segment-wrapper {
+.content form .form-segment-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
 }
 
-#booking .content form .form-segment-wrapper .form-segment {
+.content form .form-segment-wrapper .form-segment {
   flex-basis: 45%;
   box-sizing: content-box;
 }
 
-#booking .content form .form-segment-wrapper .form-segment label:after {
+.content form .form-segment-wrapper .form-segment label:after {
   box-shadow: inset 16rem 0px 1px #000000, inset -8px -20px 0px var(--main-color);
 }
 
-#booking .content form .form-segment {
+.content form .form-segment {
   background: var(--transparent-dark);
   padding: 20px;
   margin: 3px 5px;
@@ -1433,7 +1433,7 @@ video {
   position: relative;
 }
 
-#booking .content form .form-segment label {
+.content form .form-segment label {
   color: var(--main-color);
   margin-bottom: 7px;
   position: relative;
@@ -1443,7 +1443,7 @@ video {
   z-index: 1;
 }
 
-#booking .content form .form-segment label:after {
+.content form .form-segment label:after {
   box-shadow: inset 16rem 0px 1px #000000, inset -8px -20px 0px var(--main-color);
   content: "";
   width: 110%;
@@ -1456,8 +1456,8 @@ video {
   z-index: -1;
 }
 
-#booking .content form .form-segment input,
-#booking .content form .form-segment textarea {
+.content form .form-segment input,
+.content form .form-segment textarea {
   background: transparent;
   font-size: 16px;
   border: none;
@@ -1466,18 +1466,18 @@ video {
   padding: 7px;
 }
 
-#booking .content form .form-segment input:focus,
-#booking .content form .form-segment textarea:focus {
+.content form .form-segment input:focus,
+.content form .form-segment textarea:focus {
   outline: none;
 }
 
-#booking .content form .form-segment textarea {
+.content form .form-segment textarea {
   min-height: 150px;
   max-height: 335px;
   resize: vertical;
 }
 
-#booking .content form .form-segment input[type="submit"] {
+.content form .form-segment input[type="submit"] {
   width: auto;
   padding: 20px 20%;
   margin: auto;
@@ -1489,21 +1489,21 @@ video {
   color: var(--main-color);
 }
 
-#booking .content form .form-segment input[type="submit"]:hover {
+.content form .form-segment input[type="submit"]:hover {
   background: var(--main-color);
   color: #fff;
 }
 
-#booking .content form .form-segment:focus-within {
+.content form .form-segment:focus-within {
   border: 1px solid var(--main-color);
   opacity: 1;
 }
 
-#booking .content form .form-segment:focus-within label {
+.content form .form-segment:focus-within label {
   color: var(--main-color);
 }
 
-#booking .content form .form-segment:focus-within label:after {
+.content form .form-segment:focus-within label:after {
   left: -5%;
 }
 
@@ -2073,21 +2073,21 @@ video {
     height: auto;
     width: 100%;
   }
-  #booking .content {
+  .content {
     flex-direction: column;
     width: 80%;
   }
-  #booking .content .reveal-number-text,
-  #booking .content .reveal-form-text {
+  .content .reveal-number-text,
+  .content .reveal-form-text {
     font-size: 2.2rem;
   }
-  #booking .content .contact-choice {
+  .content .contact-choice {
     width: 100%;
   }
-  #booking .content .contact-choice form .form-segment-wrapper {
+  .content .contact-choice form .form-segment-wrapper {
     flex-direction: column;
   }
-  #booking .content .contact-choice form label {
+  .content .contact-choice form label {
     font-size: 2.2rem;
   }
 }
