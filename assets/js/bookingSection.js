@@ -20,13 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function revealNumber() {
     if (!numberRevealed) {
       numberRevealed = true;
-      const contactNumberHeight = contactNumberText.getBoundingClientRect()
-        .height;
+      const contactNumberHeight =
+        contactNumberText.getBoundingClientRect().height;
       fadeOutElement(contactNumberText);
       revealNumberText.style.animation = "blinker 1s linear ";
       revealNumberText.textContent = "clicca qui per chiamare";
       const newAnchor = document.createElement("a");
       newAnchor.setAttribute("href", "tel:+393489690023");
+      newAnchor.classList.add("medium-text");
       newAnchor.textContent = "+393489690023";
       newAnchor.style.animation = "box-shadow-flash 6s infinite";
       newAnchor.style.overflow = "hidden";

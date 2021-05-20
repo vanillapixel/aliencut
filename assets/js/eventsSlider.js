@@ -16,6 +16,11 @@ setTimeout(() => {
     const controllers = $$(`${container} .controller`);
     const sliderPod = $(".slider-pod");
     const year = $(".year");
+    const monthsContainer = $(".months");
+    const firstMonthEl = $(".first-month");
+    const secondMonthEl = $(".second-month");
+    let months = [];
+    let years = [];
 
     let defaultOptions = {
       itemsPerColumn: 1,
@@ -85,9 +90,9 @@ setTimeout(() => {
       }
     }
 
-    function checkYear(item, years) {
+    function checkYear(item) {
+      years = [];
       const getDataYear = item.children[0].getAttribute("data-year");
-      console.log(years);
       if (years.hasOwnProperty(getDataYear)) {
         years[getDataYear]++;
       } else {
@@ -95,24 +100,23 @@ setTimeout(() => {
       }
     }
 
-    function updateYear(years) {
-      let updatedYear;
-      //TODO: set max to retrieve year with highest value
-      updatedYear = Object.values(years).reduce((a, b) => (a > b ? a : b));
-      Object.keys(years).forEach((entry) => {
-        if (years[entry] == updatedYear) {
-          year.textContent = entry;
-        }
-      });
+    function updateYear() {
+      year.textContent = Math.max(...Object.keys(years));
+      // let updatedYear;
+      // //TODO: set max to retrieve year with highest value
+      // updatedYear = Object.values(years).reduce((a, b) => (a > b ? a : b));
+      // Object.keys(years).forEach((entry) => {
+      //   if (years[entry] == updatedYear) {
+      //     year.textContent = entry;
+      //   }
+      // });
     }
 
-    function getMonths(item, months) {
+    function getMonths(item) {
       const month = item.querySelector(".month");
       months.push(month.textContent);
     }
-    function updateMonths(months, monthsContainer) {
-      const firstMonthEl = $(".first-month");
-      const secondMonthEl = $(".second-month");
+    function updateMonths() {
       const firstMonthText = months[0];
       const secondMonthText = months[months.length - 1];
       monthsContainer.classList.remove("opacity-flash");
@@ -135,8 +139,8 @@ setTimeout(() => {
         id < displayedColumn * itemsPerColumn + itemsPerColumn
       ) {
         updateSliderItemsOpacity(item);
-        // checkYear(item);
-        // getMonths(item);
+        checkYear(item);
+        getMonths(item);
       }
     }
 
@@ -184,8 +188,9 @@ setTimeout(() => {
     }
 
     function updateSlider() {
-      const monthsContainer = $(".months");
       monthsContainer.classList.add("opacity-flash");
+      months = [];
+      years = [];
       eventsArray.forEach((item, id) => {
         item.style.opacity = 0.3;
         updateSliderItemsPosition(item);
@@ -194,8 +199,8 @@ setTimeout(() => {
       updateControllerStyle();
       updateSliderPodPosition();
       setTimeout(function () {
-        // updateYear();
-        // updateMonths(monthsContainer);
+        updateYear();
+        updateMonths();
       }, 1200);
     }
 
@@ -284,8 +289,8 @@ setTimeout(() => {
           eventsArray.forEach((item) => {
             item.style.transform = `translate(${amountToTranslate}px)`;
           });
-          podPositionUpdater(amountToTranslate);
           highlightDisplayedColumnItems(amountToTranslate);
+          podPositionUpdater(amountToTranslate);
         }
       }
     }
@@ -327,7 +332,7 @@ setTimeout(() => {
     function highlightDisplayedColumnItems(amountToTranslate) {
       updateControllerStyle();
       updateSliderItemsPosition();
-      updateDisplayedColumnItems(item, id, years, months);
+      updateDisplayedColumnItems(item, id);
     }
 
     //function calls
@@ -336,7 +341,6 @@ setTimeout(() => {
     // event listeners
     window.addEventListener("resize", () => {
       eventsTranslationHandler();
-      isMobile();
       isMobile()
         ? eventsSection.removeEventListener("mousedown", startDragItems)
         : eventsSection.addEventListener("mousedown", startDragItems);

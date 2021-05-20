@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // vars
   const sections = document.querySelectorAll("section");
-  const titles = document.querySelectorAll("section .title");
+  const sectionsNames = document.querySelectorAll("section .section-name");
   const selectors = document.querySelectorAll(".sidebar-item");
   const mainContainer = document.querySelector(".main-container");
   // const enterWebsiteButton = document.querySelector(".enter-website");
@@ -9,9 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const isMobile = () => (window.innerWidth <= 1280 ? true : false);
   const sidebar = document.querySelector(".sidebar-container");
   const menuIcon = document.querySelector(".burger-menu-icon");
-  let titlesPositions = [];
+  let sectionsPositions = [];
+  let sectionsNamesPositions = [];
   let currentActiveSelector = document.querySelector(".sidebar-item");
-  let currentActiveTitle = document.querySelector("section .title");
+  let currentActiveSectionName = document.querySelector(
+    "section .section-name"
+  );
   let lastScroll = window.pageYOffset;
   let currentScroll = window.pageYOffset;
   let scrolling = false;
@@ -22,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Item selector click function
   selectors.forEach((selector, id) => {
     selector.addEventListener("click", function () {
-      triggeredByMenu = true;
       // removes the active class from the first element
       currentActiveSelector.classList.remove("selector-active");
       this.classList.add("selector-active");
@@ -41,7 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
       window.scroll({ top: amountToScroll, behavior: "smooth" });
       // current selected item becomes previous
       currentActiveSelector = this;
-      setTimeout(() => (triggeredByMenu = false), 1500);
       return currentActiveSelector;
     });
   });
@@ -56,77 +57,103 @@ document.addEventListener("DOMContentLoaded", () => {
   menuIcon.addEventListener("click", toggleMenu);
   sidebar.addEventListener("click", toggleMenu);
 
-  function checkIfTitleIsInWindow() {
+  function checkIfSectionNameIsInWindow() {
     // top of the screen
     let windowTop = lastScroll;
     // bottom of the screen
     let windowBottom = windowTop + window.innerHeight;
     // mobile
     if (isMobile()) {
-      for (let i = 0; i < titlesPositions.length; i++) {
+      for (let i = 0; i < sectionsNamesPositions.length; i++) {
         if (
-          titlesPositions[i].top > window.pageYOffset &&
-          titlesPositions[i].bottom < window.pageYOffset + window.innerHeight
+          sectionsNamesPositions[i].top > window.pageYOffset &&
+          sectionsNamesPositions[i].bottom <
+            window.pageYOffset + window.innerHeight
         ) {
-          updateSelectorsTitles(i);
+          updateSelectorsSectionsNames(i);
         }
       }
+      return;
     }
     // scrolling down - desktop
-    else if (currentScroll > lastScroll) {
-      for (let i = 0; i < titlesPositions.length; i++) {
+    if (currentScroll > lastScroll) {
+      for (let i = 0; i < sectionsPositions.length; i++) {
         if (
-          titlesPositions[i].top < windowBottom &&
-          titlesPositions[i].bottom > windowTop
+          sectionsPositions[i].top < windowBottom &&
+          sectionsPositions[i].bottom > windowTop
         ) {
-          updateSelectorsTitles(i);
+          updateSelectorsSectionsNames(i);
         }
       }
-    } else {
-      //scrolling up - desktop
-      for (let i = titlesPositions.length - 1; i >= 0; i--) {
+      return;
+    }
+    //scrolling up - desktop
+    if (currentScroll < lastScroll) {
+      for (let i = sectionsPositions.length - 1; i >= 0; i--) {
         if (
-          titlesPositions[i].bottom > windowTop &&
-          titlesPositions[i].bottom < windowBottom
+          sectionsPositions[i].bottom > windowTop &&
+          sectionsPositions[i].bottom < windowBottom
         ) {
-          updateSelectorsTitles(i);
+          updateSelectorsSectionsNames(i);
         }
       }
     }
   }
 
-  function updateSelectorsTitles(id) {
+  function updateSelectorsSectionsNames(id) {
     currentActiveSelector.classList.remove("selector-active");
     selectors[id].classList.add("selector-active");
     currentActiveSelector = selectors[id];
 
-    currentActiveTitle.classList.remove("title-active");
-    titles[id].classList.add("title-active");
-    currentActiveTitle = titles[id];
+    currentActiveSectionName.classList.remove("section-name-active");
+    sectionsNames[id].classList.add("section-name-active");
+    currentActiveSectionName = sectionsNames[id];
   }
 
-  function getTitlePositions() {
-    titlesPositions = [];
-    titles.forEach((title) => {
+  function getSectionsPosition() {
+    if (isMobile()) {
+      sectionsNamesPositions = [];
+      sectionsNames.forEach((sectionName) => {
+        // distance from top of the document
+        let sectionNameTop =
+          sectionName.getBoundingClientRect().top +
+          sectionName.ownerDocument.defaultView.pageYOffset;
+
+        // distance from top of the document + height of element
+        let sectionNameBottom =
+          sectionNameTop + sectionName.getBoundingClientRect().height;
+
+        sectionsNamesPositions.push({
+          top: sectionNameTop,
+          bottom: sectionNameBottom,
+        });
+      });
+      return;
+    }
+    sectionsPositions = [];
+    sections.forEach((section) => {
       // distance from top of the document
-      let titleTop =
-        title.getBoundingClientRect().top +
-        title.ownerDocument.defaultView.pageYOffset;
+      let sectionTop =
+        section.getBoundingClientRect().top +
+        section.ownerDocument.defaultView.pageYOffset;
 
       // distance from top of the document + height of element
-      let titleBottom = titleTop + title.getBoundingClientRect().height;
+      let sectionBottom = sectionTop + section.getBoundingClientRect().height;
 
-      titlesPositions.push({ top: titleTop, bottom: titleBottom });
+      sectionsPositions.push({
+        top: sectionTop,
+        bottom: sectionBottom,
+      });
     });
   }
 
-  if (titlesPositions == false) {
-    getTitlePositions();
+  if (sectionsPositions == false) {
+    getSectionsPosition();
   }
 
   window.addEventListener("resize", function () {
-    titlesPositions.length = 0;
-    getTitlePositions();
+    sectionsPositions.length = 0;
+    getSectionsPosition();
   });
   window.addEventListener("scroll", function () {
     currentScroll = window.pageYOffset;
@@ -138,11 +165,12 @@ document.addEventListener("DOMContentLoaded", () => {
     ) {
       if (scrolling == false) {
         scrolling = true;
-        getTitlePositions();
-        checkIfTitleIsInWindow();
+        getSectionsPosition();
+        checkIfSectionNameIsInWindow();
         lastScroll = currentScroll;
       }
       scrolling = false;
     }
   });
+  checkIfSectionNameIsInWindow();
 });
