@@ -226,7 +226,7 @@ function tracksPackageCardTemplate(trackInfo) {
   const songs = trackInfo.songs;
   const paypalCode = trackInfo.paypalCode;
   let tracksListHtml = "";
-  songs.forEach(function (song) {
+  songs.forEach((song) => {
     const { title, artists, remixArtists } = song;
     tracksListHtml += `<div class="track-container">
       <span class="small-text track">${artists.join(", ")} - ${title} ${
@@ -247,8 +247,8 @@ function tracksPackageCardTemplate(trackInfo) {
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" rel="noreferrer" target="_blank">
       <input type="hidden" name="cmd" value="_s-xclick">
       <input type="hidden" id="keyholder" name="hosted_button_id" value=${paypalCode}>
-      <div class="paypal-button-label-container" style="margin: auto;"></div>
-      <button class="cta-button pulse">Buy now - €30</button>
+      <div class="paypal-button-label-container"></div>
+      <button class="cta-button pulse">Buy now - 30€</button>
       <input type="hidden" border="0" name="submit">
     </form>
     </div>`;

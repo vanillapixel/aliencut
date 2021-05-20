@@ -7,13 +7,13 @@
   --transparent-darker: rgba(0, 0, 0, 0.9);
   --dark-grey: rgba(47, 47, 47, 0.9);
   --light-grey: #6a6e7c;
-  --color-option-1: #ff6138;
-  --color-option-2: #ff2ed2;
+  --color-option-1: #ff3b3b;
+  --color-option-2: #ff6138;
   --color-option-3: #38ff59;
-  --color-option-4: #ff3b3b;
+  --color-option-4: #3be4ff;
   --color-option-5: #0f7ea3;
   --color-option-6: #a037ff;
-  --color-option-7: #0f7ea3;
+  --color-option-7: #ff2ed2;
 }
 
 * {
@@ -596,7 +596,7 @@ video {
 }
 
 .card-column {
-  padding: 2.5rem 5.5rem;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -641,6 +641,7 @@ video {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 0 1rem;
 }
 
 .track-container:before {
@@ -669,9 +670,8 @@ video {
 }
 
 .cta-button {
-  width: auto;
   padding: 2rem 5rem;
-  margin: 2.5rem;
+  margin: 2.5rem auto;
   border: 2px solid var(--main-color) !important;
   cursor: pointer;
   transition: 1s;
@@ -682,6 +682,8 @@ video {
   font-size: 3.2rem;
   white-space: nowrap;
   outline: none;
+  width: 100%;
+  text-align: center;
 }
 
 .cta-button:hover {
@@ -924,6 +926,11 @@ video {
   border-radius: 20px;
   cursor: pointer;
   background: var(--dark-grey);
+}
+
+#events .slider-slot:hover {
+  background: var(--main-color);
+  filter: grayscale(1);
 }
 
 #events .slider-slot:after {
@@ -1315,6 +1322,7 @@ video {
 #contacts .reveal-form-text {
   font-size: 1.4rem;
   transition: 0.5s;
+  white-space: nowrap;
 }
 
 #contacts .reveal-number-text-wrapper,

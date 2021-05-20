@@ -9,13 +9,13 @@
   --transparent-darker: rgba(0, 0, 0, 0.9);
   --dark-grey: rgba(47, 47, 47, 0.9);
   --light-grey: #6a6e7c;
-  --color-option-1: #ff6138;
-  --color-option-2: #ff2ed2;
+  --color-option-1: #ff3b3b;
+  --color-option-2: #ff6138;
   --color-option-3: #38ff59;
-  --color-option-4: #ff3b3b;
+  --color-option-4: #3be4ff;
   --color-option-5: #0f7ea3;
   --color-option-6: #a037ff;
-  --color-option-7: #0f7ea3;
+  --color-option-7: #ff2ed2;
 }
 
 $main-color: var(--main-color);
@@ -557,7 +557,7 @@ video {
   transition: 0.5s;
 }
 .card-column {
-  padding: 2.5rem 5.5rem;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -596,6 +596,7 @@ video {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 0 1rem;
   &:before {
     content: "";
     position: absolute;
@@ -620,9 +621,8 @@ video {
   }
 }
 .cta-button {
-  width: auto;
   padding: 2rem 5rem;
-  margin: 2.5rem;
+  margin: 2.5rem auto;
   border: 2px solid $main-color !important;
   cursor: pointer;
   transition: 1s;
@@ -633,6 +633,8 @@ video {
   font-size: 3.2rem;
   white-space: nowrap;
   outline: none;
+  width: 100%;
+  text-align: center;
   &:hover {
     background: $main-color;
     color: #fff;
@@ -848,6 +850,10 @@ video {
     border-radius: 20px;
     cursor: pointer;
     background: $dark-grey;
+    &:hover {
+      background: $main-color;
+      filter: grayscale(1);
+    }
     &:after {
       content: "";
       position: absolute;
@@ -1239,6 +1245,7 @@ video {
   .reveal-form-text {
     font-size: 1.4rem;
     transition: 0.5s;
+    white-space: nowrap;
   }
   .reveal-number-text-wrapper,
   .reveal-form-text-wrapper {
