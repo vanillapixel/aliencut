@@ -457,7 +457,7 @@ video {
 
 .sidebar-logo {
   margin: 5rem;
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
   opacity: 0;
   transition: 0.3s 0.1s;
   cursor: pointer;
@@ -474,7 +474,7 @@ video {
   text-decoration: none;
   color: #fff;
   z-index: 1;
-  padding: 15px 30px;
+  padding: 1.5rem 3rem;
   transition: 0.3s all;
   white-space: nowrap;
   cursor: pointer;
@@ -989,7 +989,7 @@ video {
   flex-direction: column;
   flex: 1;
   margin: 1rem 2rem;
-  max-height: 500px;
+  max-height: 550px;
   overflow: hidden;
   flex-wrap: wrap;
 }
