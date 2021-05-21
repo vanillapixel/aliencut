@@ -989,7 +989,7 @@ video {
   flex-direction: column;
   flex: 1;
   margin: 1rem 2rem;
-  max-height: 550px;
+  max-height: 55rem;
   overflow: hidden;
   flex-wrap: wrap;
 }
@@ -997,7 +997,7 @@ video {
 #events .events .event {
   display: flex;
   position: relative;
-  width: 63rem;
+  width: 60rem;
   background: var(--transparent-dark);
   align-items: center;
   justify-items: center;
