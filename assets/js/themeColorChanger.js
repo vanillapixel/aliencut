@@ -3,7 +3,10 @@
 const root = document.documentElement;
 
 const dayOfTheWeek = new Date().getDay();
-root.style.setProperty("--main-color", `var(--color-option-${dayOfTheWeek})`);
+root.style.setProperty(
+  "--main-color",
+  `var(--color-option-${dayOfTheWeek + 1})`
+);
 
 // USER COLOR PICKER CONTEST
 // color picker to let the user change the theme color

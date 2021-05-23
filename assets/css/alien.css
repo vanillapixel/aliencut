@@ -12,8 +12,8 @@
   --color-option-3: #38ff59;
   --color-option-4: #3be4ff;
   --color-option-5: #0f7ea3;
-  --color-option-6: #a037ff;
-  --color-option-7: #ff2ed2;
+  --color-option-6: #9656f5;
+  --color-option-7: #ff006a;
 }
 
 * {
@@ -121,6 +121,11 @@ span {
 p {
   position: relative;
   margin: 0;
+}
+
+b {
+  color: var(--main-color);
+  font-size: 4rem;
 }
 
 ul {
@@ -605,12 +610,12 @@ video {
 
 .main-detail {
   border-bottom: 3px solid var(--main-color);
-  text-align: center;
   z-index: 0;
+  min-width: 50%;
 }
 
 .big-text {
-  font-size: 5rem;
+  font-size: 6rem;
   text-transform: capitalize;
 }
 
@@ -1785,7 +1790,7 @@ video {
   }
   header .burger-menu-icon-open .burger-menu-icon-wrapper .lines .line:nth-child(even) {
     transform: translateX(-84%);
-    background: #ff6138;
+    background: var(--main-color);
     width: 130%;
   }
   .vertical-card {
