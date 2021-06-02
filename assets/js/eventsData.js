@@ -343,6 +343,24 @@ let data = [
     city: "casale monferrato",
     province: "al",
   },
+  {
+    date: "2021-07-03",
+    location: "piazza a cambiano",
+    city: "torino",
+    province: "to",
+  },
+  {
+    date: "2021-08-13",
+    location: "piazza a cavaglia",
+    city: "biella",
+    province: "bi",
+  },
+  {
+    date: "2021-09-24",
+    location: "piazza a moncrivello",
+    city: "vercelli",
+    province: "vc",
+  },
 ];
 
 const DATA_LIMIT = 15;
