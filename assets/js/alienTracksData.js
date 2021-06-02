@@ -1,5 +1,5 @@
 const remixesData = {
-  october2020: {
+  october20: {
     id: "oct20-1",
     date: {
       month: "ottobre",
@@ -30,7 +30,7 @@ const remixesData = {
     ],
     paypalCode: `EHN8G9PQQRGU8`,
   },
-  november2020: {
+  november20: {
     id: "nov20-1",
     date: {
       month: "novembre",
@@ -61,7 +61,7 @@ const remixesData = {
     ],
     paypalCode: `B5WU5F38KSGMJ`,
   },
-  december2020: {
+  december20: {
     id: "dic20-1",
     date: {
       month: "dicembre",
@@ -92,7 +92,7 @@ const remixesData = {
     ],
     paypalCode: `4BBS27AF6RRJC`,
   },
-  january2020: {
+  january21: {
     id: "gen21-1",
     date: {
       month: "gennaio",
@@ -124,7 +124,7 @@ const remixesData = {
     paypalCode: `R4BXRNSF9L2E4`,
   },
 
-  february2020: {
+  february21: {
     id: "feb21-1",
     date: {
       month: "febbraio",
@@ -155,7 +155,7 @@ const remixesData = {
     ],
     paypalCode: `7HUTEPGVACU58`,
   },
-  march20: {
+  march21: {
     id: "mar21-1",
     date: {
       month: "marzo",
@@ -186,7 +186,7 @@ const remixesData = {
     ],
     paypalCode: `ESZZVRVG69MXN`,
   },
-  april20: {
+  april21: {
     id: "apr21-1",
     date: {
       month: "aprile",
@@ -216,6 +216,37 @@ const remixesData = {
       },
     ],
     paypalCode: `V4P5529NP8CMU`,
+  },
+  may21: {
+    id: "may-1",
+    date: {
+      month: "maggio",
+      year: 2021,
+    },
+    songs: [
+      {
+        id: "may21-g1-s1",
+        artists: ["Ava Max "],
+        title: "My Head & My Heart",
+        remixArtists: ["Alien Cut"],
+        link: "",
+      },
+      {
+        id: "may21-g1-s2",
+        artists: ["Alvaro Soler"],
+        title: "Magia",
+        remixArtists: ["Alien Cut"],
+        link: "",
+      },
+      {
+        id: "may21-g1-s3",
+        artists: ["Alien Cut", "Marta"],
+        title: "Isacco",
+        remixArtists: [""],
+        link: "",
+      },
+    ],
+    paypalCode: `ETVK88PP7MXE8`,
   },
 };
 const parent = document.querySelector("#alien-tracklist");
