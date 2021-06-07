@@ -242,7 +242,7 @@ const remixesData = {
         id: "may21-g1-s3",
         artists: ["Alien Cut", "Marta"],
         title: "Isacco",
-        remixArtists: [""],
+        remixArtists: [],
         link: "",
       },
     ],
