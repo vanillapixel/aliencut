@@ -1053,6 +1053,7 @@ video {
     .items-category {
       font-size: 6.4rem;
       text-align: center;
+      white-space: nowrap;
     }
     form {
       text-align: center;
@@ -1068,8 +1069,8 @@ video {
     flex-direction: row;
     background: $transparent-dark;
     justify-content: space-around;
-    padding: 5rem 1rem;
-    margin: 1rem;
+    padding: 5rem 0rem;
+    margin: 2rem;
     overflow: hidden;
     &:nth-child(even) {
       flex-direction: row-reverse;
@@ -1089,6 +1090,7 @@ video {
     .items-images-wrapper,
     .items-details {
       z-index: 1;
+      margin: 3rem 5rem;
     }
     .items-images-wrapper {
       display: flex;
@@ -1107,7 +1109,7 @@ video {
         margin: 0 -5rem;
         img {
           max-width: 45rem;
-          height: 20rem;
+          height: 22rem;
           transition: 0.5s 0.1s all, 0.9s filter;
         }
       }
@@ -1225,7 +1227,7 @@ video {
       //   order: 9;
       // }
       img {
-        height: 200px;
+        height: 20rem;
         transition: 0.3s;
       }
     }
@@ -1351,7 +1353,7 @@ video {
         color: $main-color;
       }
       label:after {
-        left: -5%;
+        left: -3%;
       }
     }
   }

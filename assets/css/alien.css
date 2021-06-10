@@ -1144,6 +1144,7 @@ video {
 #eshop .content .items-details .items-category {
   font-size: 6.4rem;
   text-align: center;
+  white-space: nowrap;
 }
 
 #eshop .content .items-details form {
@@ -1161,8 +1162,8 @@ video {
   flex-direction: row;
   background: var(--transparent-dark);
   justify-content: space-around;
-  padding: 5rem 1rem;
-  margin: 1rem;
+  padding: 5rem 0rem;
+  margin: 2rem;
   overflow: hidden;
 }
 
@@ -1185,6 +1186,7 @@ video {
 #eshop .content .category-container .items-images-wrapper,
 #eshop .content .category-container .items-details {
   z-index: 1;
+  margin: 3rem 5rem;
 }
 
 #eshop .content .category-container .items-images-wrapper {
@@ -1208,7 +1210,7 @@ video {
 
 #eshop .content .category-container .items-images-wrapper .item-image img {
   max-width: 45rem;
-  height: 20rem;
+  height: 22rem;
   transition: 0.5s 0.1s all, 0.9s filter;
 }
 
@@ -1305,7 +1307,7 @@ video {
 }
 
 #gallery .content .gallery-pictures .picture img {
-  height: 200px;
+  height: 20rem;
   transition: 0.3s;
 }
 
@@ -1443,7 +1445,7 @@ video {
 }
 
 #contacts .contact-form .form-segment:focus-within label:after {
-  left: -5%;
+  left: -3%;
 }
 
 #contacts .form-extended {
