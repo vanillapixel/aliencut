@@ -136,12 +136,12 @@ ul {
 
 .new-badge:after {
   content: "new";
-  top: 10px;
   left: 10px;
+  writing-mode: vertical-lr;
   position: absolute;
   font-size: 2rem;
-  transform: translateY(30%) rotate(-90deg);
-  border-top: 5px var(--main-color) solid;
+  transform: rotate(-180deg);
+  border-block-end: 5px var(--main-color) solid;
   padding: 0rem;
   animation: blinker 5s infinite;
 }
@@ -523,13 +523,14 @@ video {
 .section-name {
   display: flex;
   position: relative;
+  writing-mode: vertical-lr;
   top: 50px;
   color: white;
   padding: 1rem 2rem;
-  margin: 3rem 0;
+  margin-block: 5rem;
   max-width: 330px;
   font-size: 9rem;
-  transform: rotate(-90deg);
+  transform: rotate(-180deg);
   justify-self: center;
   align-self: center;
   text-shadow: 0px 1px transparent;
@@ -542,8 +543,8 @@ video {
 .section-name-active {
   top: 0px;
   opacity: 1;
-  text-shadow: 7px 1px var(--main-color);
-  box-shadow: inset 100px 0px 0px var(--main-color);
+  text-shadow: 0px 7px var(--main-color);
+  box-shadow: inset 0px 9rem 0px var(--main-color);
 }
 
 .content {
@@ -1679,6 +1680,11 @@ video {
   }
   .section-name {
     transform: rotate(0deg);
+    writing-mode: horizontal-tb;
+  }
+  .section-name {
+    text-shadow: 0.7rem 0px var(--main-color);
+    box-shadow: inset 10rem 0px 0px var(--main-color);
   }
   .sidebar-container {
     display: flex;
