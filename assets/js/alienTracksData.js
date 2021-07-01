@@ -251,7 +251,7 @@ const remixesData = {
 	june21: {
 		id: "june-1",
 		date: {
-			month: "june",
+			month: "giugno",
 			year: 2021,
 		},
 		songs: [
