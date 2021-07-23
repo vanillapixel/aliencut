@@ -150,14 +150,18 @@ ul {
   justify-self: center;
   align-self: center;
   margin: auto;
-  width: 50%;
+  width: auto;
   padding: 5rem 3rem;
   background: black;
   border: 1px solid var(--main-color);
 }
 
+.code-modal .vertical-card .cta-wrapper {
+  display: flex;
+}
+
 .code-modal .vertical-card .cta-button {
-  width: 50%;
+  width: auto;
   margin-top: 8rem;
 }
 
@@ -1983,7 +1987,8 @@ video {
   .special-tracks {
     flex-direction: column;
     margin: auto;
-    width: 70%;
+    width: auto;
+    max-width: 90%;
   }
   .special-tracks .input-wrapper {
     display: flex;

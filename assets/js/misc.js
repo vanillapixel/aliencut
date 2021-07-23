@@ -7,9 +7,11 @@ const closeButton = document.querySelector(".code-modal .close-button");
 const backdrop = document.querySelector(".code-modal .backdrop");
 
 const codeModalMessage = document.querySelector(".code-modal .vertical-card");
-const codeModalWrapper = document.createElement("div");
+const trackDownloadBtn = document.createElement("div");
 
-const trackDownloadBtn = `
+trackDownloadBtn.classList.add("cta-wrapper");
+
+const trackDownloadBtnHtml = `
 	<a
 		class="cta-button pulse"
 		href="./assets/uploads/extended_tracks_mcsv2.rar"
@@ -18,6 +20,8 @@ const trackDownloadBtn = `
 	>
 		Scarica le tracce
 	</a>`;
+
+trackDownloadBtn.innerHTML = trackDownloadBtnHtml;
 
 // const codeSubmit = document.querySelector("#download-btn");
 
@@ -28,7 +32,8 @@ function openModal() {
 function closeModal() {
 	codeModal.style.opacity = 0;
 	setTimeout(() => {
-		body.reoveChild(codeModal);
+		codeModal.style.display = "none";
+		codeModalMessage.removeChild(trackDownloadBtn);
 	}, 1200);
 }
 
@@ -38,10 +43,13 @@ function codeChecker(e) {
 	// code is wrong,
 	// code is empty
 
-	if (specialTracksInput.value === "MCS2ACEXT5") {
+	const code = specialTracksInput.value.toUpperCase();
+
+	if (code === "MCS2ACEXT5") {
 		// open modal
 		openModal();
-		codeModalMessage.innerHTML += trackDownloadBtn;
+		codeModalMessage.appendChild(trackDownloadBtn);
+		trackDownloadBtn.addEventListener("click", closeModal);
 		// link tracce
 	} else {
 		alert("Il codice inserito non è valido");

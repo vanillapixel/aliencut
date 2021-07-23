@@ -147,12 +147,15 @@ ul {
 		justify-self: center;
 		align-self: center;
 		margin: auto;
-		width: 50%;
+		width: auto;
 		padding: 5rem 3rem;
 		background: black;
 		border: 1px solid var(--main-color);
+		.cta-wrapper {
+			display: flex;
+		}
 		.cta-button {
-			width: 50%;
+			width: auto;
 			margin-top: 8rem;
 		}
 	}
@@ -1868,6 +1871,10 @@ video {
 		flex-basis: auto;
 	}
 	.special-tracks {
+		flex-direction: column;
+		margin: auto;
+		width: auto;
+		max-width: 90%;
 		.input-wrapper {
 			display: flex;
 			justify-content: center;
@@ -1882,10 +1889,6 @@ video {
 		.x-small-text {
 			font-size: 1.7rem;
 		}
-		flex-direction: column;
-
-		margin: auto;
-		width: 70%;
 	}
 
 	.content {
