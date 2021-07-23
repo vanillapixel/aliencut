@@ -1674,7 +1674,7 @@ video {
   white-space: nowrap;
   padding: 0.2rem 0.3rem;
   overflow: hidden;
-  top: -100%;
+  top: -80%;
   animation: box-shadow-flash 10s infinite;
 }
 

@@ -66,16 +66,16 @@ setTimeout(() => {
 		};
 
 		// first column is nr.0
-		let displayedColumn = 0;
+		let displayedColumn = Math.floor((eventsArray.length - 1) / itemsPerColumn);
 		let displayedYears;
 		// the upcoming event is displayed
 		eventsArray.forEach((x, id) => {
 			if (x.classList.contains("next-event")) {
 				displayedColumn = Math.floor(id / itemsPerColumn);
-				return;
 			}
-			displayedColumn = Math.floor((eventsArray.length - 1) / itemsPerColumn);
 		});
+
+		console.log(displayedColumn);
 
 		function setEventsTranslateToZero() {
 			eventsArray.forEach((event) => {
@@ -342,12 +342,12 @@ setTimeout(() => {
 		// event listeners
 		window.addEventListener("resize", () => {
 			eventsTranslationHandler();
-			!isMobile() && draggingEnabled
-				? eventsSection.addEventListener("mousedown", startDragItems)
-				: eventsSection.removeEventListener("mousedown", startDragItems);
+			// !isMobile() && draggingEnabled
+			// 	? eventsSection.addEventListener("mousedown", startDragItems)
+			// 	: eventsSection.removeEventListener("mousedown", startDragItems);
 		});
-		!isMobile() &&
-			draggingEnabled &&
-			eventsSection.addEventListener("mousedown", startDragItems);
+		// !isMobile() &&
+		// 	draggingEnabled &&
+		// 	eventsSection.addEventListener("mousedown", startDragItems);
 	}
 }, 1000);

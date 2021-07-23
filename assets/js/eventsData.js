@@ -401,6 +401,9 @@ const eventsContainer = document.querySelector(".events");
 
 function sortData() {
 	data.sort((a, b) => (a.date > b.date ? 1 : b.date > a.date ? -1 : 0));
+	// filter per current year
+	// const currentYear = new Date();
+	// data = data.filter((x) => x.date.includes(currentYear.getFullYear()));
 }
 
 function createElementsFromData() {
