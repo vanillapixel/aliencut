@@ -9,6 +9,8 @@ const backdrop = document.querySelector(".code-modal .backdrop");
 const codeModalMessage = document.querySelector(".code-modal .vertical-card");
 const trackDownloadBtn = document.createElement("div");
 
+let isCodeModalOpen = false;
+
 trackDownloadBtn.classList.add("cta-wrapper");
 
 const trackDownloadBtnHtml = `
@@ -23,37 +25,41 @@ const trackDownloadBtnHtml = `
 
 trackDownloadBtn.innerHTML = trackDownloadBtnHtml;
 
-// const codeSubmit = document.querySelector("#download-btn");
-
 function openModal() {
 	codeModal.style.display = "flex";
 	setTimeout(() => (codeModal.style.opacity = 1), 100);
+	isCodeModalOpen = true;
 }
 function closeModal() {
 	codeModal.style.opacity = 0;
 	setTimeout(() => {
 		codeModal.style.display = "none";
-		codeModalMessage.removeChild(trackDownloadBtn);
+		codeModalMessage.childNodes[length - 1] === "div"
+			? codeModalMessage.removeChild(trackDownloadBtn)
+			: null;
+		isCodeModalOpen = false;
 	}, 1200);
+	trackDownloadBtn.removeEventListener("click", closeModal);
 }
 
 function codeChecker(e) {
 	e.preventDefault();
-	// error management
-	// code is wrong,
-	// code is empty
+	if (!isCodeModalOpen) {
+		const code = specialTracksInput.value.toUpperCase();
 
-	const code = specialTracksInput.value.toUpperCase();
-
-	if (code === "MCS2ACEXT5") {
-		// open modal
-		openModal();
-		codeModalMessage.appendChild(trackDownloadBtn);
-		trackDownloadBtn.addEventListener("click", closeModal);
-		// link tracce
-	} else {
-		alert("Il codice inserito non è valido");
-	}
+		if (code === "MCS2ACEXT5") {
+			// open modal
+			openModal();
+			// tracks button link added
+			codeModalMessage.appendChild(trackDownloadBtn);
+			trackDownloadBtn.addEventListener("click", closeModal);
+		} else {
+			// error management
+			// code is wrong,
+			// code is empty
+			alert("Il codice inserito non è valido");
+		}
+	} else return;
 }
 codeSubmit.addEventListener("click", codeChecker);
 codeForm.addEventListener("submit", codeChecker);

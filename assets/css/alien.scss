@@ -1388,8 +1388,8 @@ video {
 	transition: 0.3s;
 	border: 1px solid transparent;
 	position: relative;
-
 	label {
+		display: flex;
 		color: $main-color;
 		margin-bottom: 7px;
 		position: relative;
