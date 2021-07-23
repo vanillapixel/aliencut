@@ -99,7 +99,6 @@ setTimeout(() => {
 
     function checkYear(item, years) {
       const getDataYear = item.children[0].getAttribute("data-year");
-      console.log(years);
       if (years.hasOwnProperty(getDataYear)) {
         years[getDataYear]++;
       } else {

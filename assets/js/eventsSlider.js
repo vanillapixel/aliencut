@@ -75,8 +75,6 @@ setTimeout(() => {
 			}
 		});
 
-		console.log(displayedColumn);
-
 		function setEventsTranslateToZero() {
 			eventsArray.forEach((event) => {
 				event.style.transform = "translate(0px)";
