@@ -1386,7 +1386,7 @@ video {
 	flex-direction: column-reverse;
 	opacity: 1;
 	transition: 0.3s;
-	border: 1px solid transparent;
+	border: 0.4rem solid transparent;
 	position: relative;
 	label {
 		display: flex;
@@ -1444,8 +1444,10 @@ video {
 	}
 }
 .form-segment:focus-within {
-	border: 1px solid $main-color;
 	opacity: 1;
+	box-shadow: 0 0 10px var(--main-color), 0 0 30px var(--main-color),
+		inset 0 0 10px var(--main-color), inset 0 0 30px var(--main-color);
+	border: 0.4rem solid #fff;
 	label {
 		color: $main-color;
 	}
@@ -2073,15 +2075,15 @@ video {
 		.reveal-form-text {
 			font-size: 2.2rem;
 		}
-		.contact-choice {
-			width: 100%;
-			form {
-				.form-segment-wrapper {
-					flex-direction: column;
-				}
-				label {
-					font-size: 2.2rem;
-				}
+		form {
+			.form-segment-wrapper {
+				flex-direction: column;
+			}
+			label {
+				font-size: 2.2rem;
+			}
+			.contact-choice {
+				width: 100%;
 			}
 		}
 	}
