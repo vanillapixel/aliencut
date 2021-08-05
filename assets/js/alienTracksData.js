@@ -277,7 +277,37 @@ const remixesData = {
 				link: "",
 			},
 		],
-		paypalCode: `UHE8VERWM7U7L`,
+	},
+	july21: {
+		id: "july-1",
+		date: {
+			month: "luglio",
+			year: 2021,
+		},
+		songs: [
+			{
+				id: "july21-g1-s1",
+				artists: ["Ed Sheeran"],
+				title: "Bad Habits",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "july21-g1-s2",
+				artists: ["G Bit"],
+				title: "Tapirulan",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "july21-g1-s3",
+				artists: ["Deorro"],
+				title: "Andele",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `T5W2ZUY2F8HS6`,
 	},
 };
 const parent = document.querySelector("#alien-tracklist");
