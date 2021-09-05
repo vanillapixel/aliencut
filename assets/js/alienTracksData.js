@@ -309,6 +309,37 @@ const remixesData = {
 		],
 		paypalCode: `T5W2ZUY2F8HS6`,
 	},
+	august21: {
+		id: "august-1",
+		date: {
+			month: "agosto",
+			year: 2021,
+		},
+		songs: [
+			{
+				id: "august21-g1-s1",
+				artists: ["Rosa Chemical, Guè Pequeno, Ernia"],
+				title: "Polka 2",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "august21-g1-s2",
+				artists: ["Robert Natus, Arkus P"],
+				title: "Hardcore Salsa",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "august21-g1-s3",
+				artists: ["Alle Farben"],
+				title: "Bad Ideas",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `WAY46C2GFGB8S`,
+	},
 };
 const parent = document.querySelector("#alien-tracklist");
 
@@ -329,20 +360,20 @@ function tracksPackageCardTemplate(trackInfo) {
 
 	let trackNodeElement = `
     <div class="vertical-card">
-    <div class="card-column main-detail">
-    <p class="big-text">${month}</p>
-    <p class="medium-text secondary-detail">${year}</p>
-    </div>
-    <div class="card-column">
-    ${tracksListHtml}
-      <div class="card-column">
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" rel="noreferrer" target="_blank">
-      <input type="hidden" name="cmd" value="_s-xclick">
-      <input type="hidden" id="keyholder" name="hosted_button_id" value=${paypalCode}>
-      <div class="paypal-button-label-container"></div>
-      <button class="cta-button pulse">Buy now - 30€</button>
-      <input type="hidden" border="0" name="submit">
-    </form>
+    	<div class="card-column main-detail">
+    	<p class="big-text">${month}</p>
+    	<p class="medium-text secondary-detail">${year}</p>
+			</div>
+			<div class="card-column">
+			${tracksListHtml}
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" rel="noreferrer" target="_blank">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" id="keyholder" name="hosted_button_id" value=${paypalCode}>
+					<div class="paypal-button-label-container"></div>
+					<button class="cta-button pulse">Buy now - 30€</button>
+					<input type="hidden" border="0" name="submit">
+				</form>
+			</div>
     </div>`;
 
 	return trackNodeElement;

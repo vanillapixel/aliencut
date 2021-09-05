@@ -2176,6 +2176,9 @@ video {
   #contacts .content .reveal-form-text {
     font-size: 2.2rem;
   }
+  #contacts .content .section-container-column {
+    width: 100%;
+  }
   #contacts .content form .form-segment-wrapper {
     flex-direction: column;
   }
