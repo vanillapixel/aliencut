@@ -340,7 +340,39 @@ const remixesData = {
 		],
 		paypalCode: `WAY46C2GFGB8S`,
 	},
+	september21: {
+		id: "september-1",
+		date: {
+			month: "settembre",
+			year: 2021,
+		},
+		songs: [
+			{
+				id: "september21-g1-s1",
+				artists: ["Il Tre"],
+				title: "Apologgo 13",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "september21-g1-s2",
+				artists: ["Parov Stelar"],
+				title: "Mama Talking",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "september21-g1-s3",
+				artists: ["My Sun and Stars"],
+				title: "Change The World",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `M4CMQRPL775ZE`,
+	},
 };
+
 const parent = document.querySelector("#alien-tracklist");
 
 function tracksPackageCardTemplate(trackInfo) {
