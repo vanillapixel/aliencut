@@ -361,9 +361,33 @@ let data = [
 		city: "vercelli",
 		province: "vc",
 	},
+	{
+		date: "2021-11-21",
+		location: "cloz",
+		city: "trento",
+		province: "tn",
+	},
+	{
+		date: "2021-11-27",
+		location: "discoteca milleluci",
+		city: "zavattarello",
+		province: "pv",
+	},
+	{
+		date: "2021-12-07",
+		location: "discoteca fase due",
+		city: "oristano",
+		province: "or",
+	},
+	{
+		date: "2022-01-15",
+		location: "passo del tonale",
+		city: "trento",
+		province: "tn",
+	},
 ];
 
-const DATA_LIMIT = 15;
+const EVENTS_DATA_LIMIT = 15;
 function getClosestDate() {
 	let closestDate = Infinity;
 	data.forEach((event) => {
@@ -408,7 +432,7 @@ function sortData() {
 
 function createElementsFromData() {
 	sortData();
-	data.slice(-DATA_LIMIT).forEach((event) => {
+	data.slice(-EVENTS_DATA_LIMIT).forEach((event) => {
 		const { date, city, province, location } = event;
 		const formattedDate = new Date(date);
 		const newDate = document.createElement("li");

@@ -350,7 +350,7 @@ const remixesData = {
 			{
 				id: "september21-g1-s1",
 				artists: ["Il Tre"],
-				title: "Apologgo 13",
+				title: "Apollo 13",
 				remixArtists: ["Alien Cut"],
 				link: "",
 			},
@@ -371,7 +371,40 @@ const remixesData = {
 		],
 		paypalCode: `M4CMQRPL775ZE`,
 	},
+	october21: {
+		id: "october-1",
+		date: {
+			month: "ottobre",
+			year: 2021,
+		},
+		songs: [
+			{
+				id: "october21-g1-s1",
+				artists: ["Club House"],
+				title: "Speed Of Sound",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "october21-g1-s2",
+				artists: ["Jason Derulo"],
+				title: "Take Me Dancing",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "october21-g1-s3",
+				artists: ["Gigi D'Agostino"],
+				title: "Amorelettronico",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `ZNM8US98U5H2C`,
+	},
 };
+
+const TRACKS_DATA_LIMIT = 20;
 
 const parent = document.querySelector("#alien-tracklist");
 
@@ -393,8 +426,8 @@ function tracksPackageCardTemplate(trackInfo) {
 	let trackNodeElement = `
     <div class="vertical-card">
     	<div class="card-column main-detail">
-    	<p class="big-text">${month}</p>
-    	<p class="medium-text secondary-detail">${year}</p>
+    	<p class="big-text text-underline">${month}</p>
+    	<p class="medium-text secondary-text-color">${year}</p>
 			</div>
 			<div class="card-column">
 			${tracksListHtml}
@@ -411,6 +444,8 @@ function tracksPackageCardTemplate(trackInfo) {
 	return trackNodeElement;
 }
 
-Object.keys(remixesData).forEach((remix) => {
-	parent.innerHTML += tracksPackageCardTemplate(remixesData[remix]);
-});
+Object.keys(remixesData)
+	.slice(-TRACKS_DATA_LIMIT)
+	.forEach((remix) => {
+		parent.innerHTML += tracksPackageCardTemplate(remixesData[remix]);
+	});
