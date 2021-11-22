@@ -277,6 +277,7 @@ const remixesData = {
 				link: "",
 			},
 		],
+		paypalCode: `UHE8VERWM7U7L`,
 	},
 	july21: {
 		id: "july-1",
