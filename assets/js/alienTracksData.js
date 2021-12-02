@@ -403,6 +403,37 @@ const remixesData = {
 		],
 		paypalCode: `ZNM8US98U5H2C`,
 	},
+	november21: {
+		id: "november-1",
+		date: {
+			month: "novembre",
+			year: 2021,
+		},
+		songs: [
+			{
+				id: "november21-g1-s1",
+				artists: ["Jason Derulo"],
+				title: "Acapulco",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "november21-g1-s2",
+				artists: ["Italobrothers"],
+				title: "Daydream",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "november21-g1-s3",
+				artists: ["Freddy Mercury"],
+				title: "Living on my own",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `WNGGGV94AU3QW`,
+	},
 };
 
 const TRACKS_DATA_LIMIT = 20;
