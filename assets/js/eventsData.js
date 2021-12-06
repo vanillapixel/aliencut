@@ -363,8 +363,8 @@ let data = [
 	},
 	{
 		date: "2021-11-21",
-		location: "cloz",
-		city: "trento",
+		location: "bolla 900",
+		city: "cloz",
 		province: "tn",
 	},
 	{
@@ -376,8 +376,14 @@ let data = [
 	{
 		date: "2021-12-07",
 		location: "discoteca fase due",
-		city: "oristano",
+		city: "mogoro",
 		province: "or",
+	},
+	{
+		date: "2021-12-24",
+		location: "mega show",
+		city: "sondrio",
+		province: "so",
 	},
 	{
 		date: "2022-01-15",
