@@ -146,7 +146,7 @@ ul {
   animation: blinker 5s infinite;
 }
 
-.code-modal .vertical-card {
+.info-modal .vertical-card {
   justify-self: center;
   align-self: center;
   margin: auto;
@@ -154,15 +154,21 @@ ul {
   padding: 5rem 3rem;
   background: black;
   border: 1px solid var(--main-color);
+  max-width: 80%;
 }
 
-.code-modal .vertical-card .cta-wrapper {
+.info-modal .vertical-card .cta-wrapper {
   display: flex;
 }
 
-.code-modal .vertical-card .cta-button {
+.info-modal .vertical-card .cta-button {
   width: auto;
   margin-top: 8rem;
+}
+
+.info-modal .card-column {
+  width: 100%;
+  padding: 1.5rem;
 }
 
 .modal {
@@ -659,12 +665,10 @@ video {
 
 .small-text {
   font-size: 2.3rem;
-  margin: 1rem 0 1rem 2rem;
 }
 
 .xs-text {
   font-size: 1.7rem;
-  margin: 1rem 0 1rem 2rem;
 }
 
 .accent-text {
@@ -710,6 +714,7 @@ video {
   flex-wrap: nowrap;
   white-space: nowrap;
   transition: 1.5s;
+  margin: 1rem 0 1rem 2rem;
 }
 
 .track:hover {
@@ -958,33 +963,33 @@ video {
   color: var(--main-color);
 }
 
-.content .ticket .news-image-container {
+.ticket .news-image-container {
   width: 35%;
 }
 
-.content .ticket .news-details p,
-.content .ticket .news-details span,
-.content .ticket .news-details label {
+.ticket .news-details p,
+.ticket .news-details span,
+.ticket .news-details label {
   margin: 0;
 }
 
-.content .conditions {
+.conditions {
   display: flex;
   flex-direction: column;
-  margin: 0 0 15px 0;
+  margin: 15px 0;
   gap: 0.35rem;
 }
 
-.content .conditions .condition {
+.conditions .condition {
   margin-top: 10px;
 }
 
-.content .conditions .condition input,
-.content .conditions .condition label {
+.conditions .condition input,
+.conditions .condition label {
   cursor: pointer;
 }
 
-.content .conditions .condition label {
+.conditions .condition label {
   margin-left: 8px;
 }
 
@@ -996,10 +1001,6 @@ video {
   gap: 2rem;
   align-self: flex-start;
   width: 70%;
-}
-
-.special-tracks p {
-  padding: 2rem;
 }
 
 #news .content .special-tracks .news-details {
@@ -1049,6 +1050,8 @@ video {
 .info-text {
   display: flex;
   flex-direction: column;
+  padding: 0 2rem;
+  gap: 1rem;
 }
 
 #events .content {
@@ -1344,6 +1347,7 @@ video {
   padding: 5rem 0rem;
   margin: 2rem;
   overflow: hidden;
+  width: 100%;
 }
 
 #eshop .content .category-container:nth-child(even) {
@@ -1391,10 +1395,6 @@ video {
   max-width: 45rem;
   height: 22rem;
   transition: 0.5s 0.1s all, 0.9s filter;
-}
-
-#eshop .content #bracelets img {
-  width: 70%;
 }
 
 #eshop .content #bracelets .items-details form .bracelet-color-selection-container {
@@ -1562,6 +1562,7 @@ video {
   font-weight: 800;
   padding: 2px 5px;
   z-index: 1;
+  font-size: 1.6rem;
 }
 
 .form-segment label:after {

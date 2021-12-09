@@ -440,12 +440,95 @@ const TRACKS_DATA_LIMIT = 20;
 
 const parent = document.querySelector("#alien-tracklist");
 
+function trackCheckout(trackInfo) {
+	console.log();
+	const {
+		paypalCode,
+		songs,
+		date: { month, year },
+	} = trackInfo;
+	let tracks = "";
+	songs.forEach((song) => {
+		const { title, artists, remixArtists } = song;
+		tracks += `<div class="track-container">
+			<span class="small-text track">${artists.join(", ")} - ${title} ${
+			remixArtists.length ? `(${remixArtists.join(", ")} Rmx)` : ""
+		}</span>
+			</div>`;
+	});
+	const checkoutConfirmMessage = `
+		<div class="card-column">
+			<div class="conditions">
+				<p class="xs-text accent-text">
+					Pacchetto tracce
+				</p>
+				<span style="text-transform: capitalize" class="medium-text">
+					${month} 
+					<span class="medium-text secondary-text-color">${year}</span>
+				</span>
+				<p class=" big-text">
+					€30
+				</p>
+			</div>
+		</div>
+		<div class="card-column">
+			<p class="xs-text secondary-text-color">
+				Contiene:
+			</p>
+			${tracks}
+		</div>
+		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" rel="noreferrer" target="_blank">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" id="keyholder" name="hosted_button_id" value=${paypalCode}>
+			<div style="margin: 2rem auto; max-width: 60%; align-items: center" class="cta-button pulse">
+			<span style="width: 20%; max-width: 50px">
+				<img src="./assets/img/icon/paypal.png" alt="Paypal icon" />
+			</span>
+			<span class="medium-text">
+				Paga con PayPal
+			</span>
+				<button style="width: 100%; height: 100%; opacity:0; top: 0; left: 0; right: 0; position: absolute;z-index: 999; cursor:pointer; margin: 0" type="submit" name="submit">
+				</button>
+			</div>
+			<div class="conditions xs-text"> Condizioni:
+				<div class="condition">
+					<input type="checkbox" required id="conditions-ticket-reception">  
+					<label class=" xs-text secondary-text-color" for="conditions-ticket-reception"> Riceverai le tracce del pacchetto selezionato via email <span class="xs-text accent-text">entro qualche ora</span> dal completamento del pagamento.</label>
+				</div>
+		</form>
+`;
+
+	// `<div style="border: 2px solid var(--main-color)" class="vertical-card ticket-details">
+	// 	<div class="card-column" style="
+	// 		align-items: flex-end;
+	// 		flex-direction: row;
+	// 		justify-content: space-between;
+	// 		width: 100%;">
+	// 		<div class="conditions">
+	// 			<span class="medium-text">
+	// 				Pacchetto tracce ${Month} ${year}
+	// 				</span>
+	// 		<p class=" big-text">
+	// 			€15
+	// 		</p>
+	// 	</div>
+	// </div>
+	// 	`;
+
+	openModal(checkoutConfirmMessage);
+}
+
 function tracksPackageCardTemplate(trackInfo) {
 	const month = trackInfo.date.month;
 	const year = trackInfo.date.year;
 	const songs = trackInfo.songs;
 	const paypalCode = trackInfo.paypalCode;
 	let tracksListHtml = "";
+	const tracksPackPurchaseButton = document.createElement("button");
+	tracksPackPurchaseButton.classList.add("cta-button", "pulse");
+	tracksPackPurchaseButton.textContent = "Acquista pacchetto - 30€";
+
+	tracksPackPurchaseButton.onclick = () => trackCheckout(trackInfo);
 	songs.forEach((song) => {
 		const { title, artists, remixArtists } = song;
 		tracksListHtml += `<div class="track-container">
@@ -455,23 +538,23 @@ function tracksPackageCardTemplate(trackInfo) {
       </div>`;
 	});
 
-	let trackNodeElement = `
-    <div class="vertical-card">
+	const trackNodeElement = document.createElement("div");
+	trackNodeElement.classList.add("vertical-card");
+
+	trackNodeElement.innerHTML = `
     	<div class="card-column main-detail">
     	<p class="big-text text-underline">${month}</p>
     	<p class="medium-text secondary-text-color">${year}</p>
 			</div>
 			<div class="card-column">
 			${tracksListHtml}
-				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" rel="noreferrer" target="_blank">
-					<input type="hidden" name="cmd" value="_s-xclick">
-					<input type="hidden" id="keyholder" name="hosted_button_id" value=${paypalCode}>
-					<div class="paypal-button-label-container"></div>
-					<button class="cta-button pulse">Buy now - 30€</button>
-					<input type="hidden" border="0" name="submit">
-				</form>
+			<div class="trackspack-purchase-btn-container"></div>
 			</div>
-    </div>`;
+    `;
+	const trackspackButtonContainer = trackNodeElement.querySelector(
+		".trackspack-purchase-btn-container"
+	);
+	trackspackButtonContainer.appendChild(tracksPackPurchaseButton);
 
 	return trackNodeElement;
 }
@@ -479,5 +562,5 @@ function tracksPackageCardTemplate(trackInfo) {
 Object.keys(remixesData)
 	.slice(-TRACKS_DATA_LIMIT)
 	.forEach((remix) => {
-		parent.innerHTML += tracksPackageCardTemplate(remixesData[remix]);
+		parent.appendChild(tracksPackageCardTemplate(remixesData[remix]));
 	});

@@ -142,7 +142,7 @@ ul {
 	padding: 0rem;
 	animation: blinker 5s infinite;
 }
-.code-modal {
+.info-modal {
 	.vertical-card {
 		justify-self: center;
 		align-self: center;
@@ -151,6 +151,7 @@ ul {
 		padding: 5rem 3rem;
 		background: black;
 		border: 1px solid var(--main-color);
+		max-width: 80%;
 		.cta-wrapper {
 			display: flex;
 		}
@@ -158,6 +159,10 @@ ul {
 			width: auto;
 			margin-top: 8rem;
 		}
+	}
+	.card-column {
+		width: 100%;
+		padding: 1.5rem;
 	}
 }
 .modal {
@@ -613,11 +618,9 @@ video {
 }
 .small-text {
 	font-size: 2.3rem;
-	margin: 1rem 0 1rem 2rem;
 }
 .xs-text {
 	font-size: 1.7rem;
-	margin: 1rem 0 1rem 2rem;
 }
 .accent-text {
 	color: var(--main-color);
@@ -657,6 +660,7 @@ video {
 	flex-wrap: nowrap;
 	white-space: nowrap;
 	transition: 1.5s;
+	margin: 1rem 0 1rem 2rem;
 	&:hover {
 		overflow: inherit;
 		text-overflow: initial;
@@ -878,33 +882,31 @@ video {
 		}
 	}
 }
-.content {
-	.ticket {
-		.news-image-container {
-			width: 35%;
-		}
-		.news-details {
-			p,
-			span,
-			label {
-				margin: 0;
-			}
+.ticket {
+	.news-image-container {
+		width: 35%;
+	}
+	.news-details {
+		p,
+		span,
+		label {
+			margin: 0;
 		}
 	}
-	.conditions {
-		display: flex;
-		flex-direction: column;
-		margin: 0 0 15px 0;
-		gap: 0.35rem;
-		.condition {
-			margin-top: 10px;
-			input,
-			label {
-				cursor: pointer;
-			}
-			label {
-				margin-left: 8px;
-			}
+}
+.conditions {
+	display: flex;
+	flex-direction: column;
+	margin: 15px 0;
+	gap: 0.35rem;
+	.condition {
+		margin-top: 10px;
+		input,
+		label {
+			cursor: pointer;
+		}
+		label {
+			margin-left: 8px;
 		}
 	}
 }
@@ -916,9 +918,6 @@ video {
 	gap: 2rem;
 	align-self: flex-start;
 	width: 70%;
-	p {
-		padding: 2rem;
-	}
 }
 #news .content .special-tracks .news-details {
 	flex-direction: row;
@@ -959,6 +958,8 @@ video {
 .info-text {
 	display: flex;
 	flex-direction: column;
+	padding: 0 2rem;
+	gap: 1rem;
 }
 #events {
 	.content {
@@ -1221,6 +1222,7 @@ video {
 		padding: 5rem 0rem;
 		margin: 2rem;
 		overflow: hidden;
+		width: 100%;
 		&:nth-child(even) {
 			flex-direction: row-reverse;
 		}
@@ -1265,9 +1267,6 @@ video {
 		}
 	}
 	#bracelets {
-		img {
-			width: 70%;
-		}
 		.items-details {
 			form {
 				.bracelet-color-selection-container {
@@ -1451,6 +1450,7 @@ video {
 		font-weight: 800;
 		padding: 2px 5px;
 		z-index: 1;
+		font-size: 1.6rem;
 		&:after {
 			box-shadow: inset 16rem 0px 1px #000000, inset -8px -20px 0px $main-color;
 			content: "";
