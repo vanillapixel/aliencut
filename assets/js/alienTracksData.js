@@ -434,6 +434,37 @@ const remixesData = {
 		],
 		paypalCode: `WNGGGV94AU3QW`,
 	},
+	december21: {
+		id: "december-1",
+		date: {
+			month: "dicembre",
+			year: 2021,
+		},
+		songs: [
+			{
+				id: "december21-g1-s1",
+				artists: ["Rauw Alejandro"],
+				title: "Todo de ti",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "december21-g1-s2",
+				artists: ["Chiello, Shalbo"],
+				title: "Quanto ti vorrei",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "december21-g1-s3",
+				artists: ["Floorfilla"],
+				title: "Anthem #2",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `BG2PGS3JXXDB4`,
+	},
 };
 
 const TRACKS_DATA_LIMIT = 20;
@@ -459,14 +490,14 @@ function trackCheckout(trackInfo) {
 	const checkoutConfirmMessage = `
 		<div class="card-column">
 			<div class="conditions">
-				<p class="xs-text accent-text">
+				<p class="medium-text accent-text">
 					Pacchetto tracce
 				</p>
-				<span style="text-transform: capitalize" class="medium-text">
+				<span style="text-transform: capitalize" class="big-text">
 					${month} 
-					<span class="medium-text secondary-text-color">${year}</span>
+					<span class="big-text secondary-text-color">${year}</span>
 				</span>
-				<p class=" big-text">
+				<p class="big-text">
 					€30
 				</p>
 			</div>
@@ -493,7 +524,7 @@ function trackCheckout(trackInfo) {
 			<div class="conditions xs-text"> Condizioni:
 				<div class="condition">
 					<input type="checkbox" required id="conditions-ticket-reception">  
-					<label class=" xs-text secondary-text-color" for="conditions-ticket-reception"> Riceverai le tracce del pacchetto selezionato via email <span class="xs-text accent-text">entro qualche ora</span> dal completamento del pagamento.</label>
+					<label class=" xs-text secondary-text-color" for="conditions-ticket-reception"> Riceverai le tracce del pacchetto selezionato sull'email del tuo account Paypal <span class="xs-text accent-text">entro DUE giorni</span> dal completamento del pagamento.</label>
 				</div>
 		</form>
 `;
