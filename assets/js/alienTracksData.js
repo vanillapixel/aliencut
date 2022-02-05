@@ -465,6 +465,37 @@ const remixesData = {
 		],
 		paypalCode: `BG2PGS3JXXDB4`,
 	},
+	january22: {
+		id: "january-1",
+		date: {
+			month: "Gennaio",
+			year: 2022,
+		},
+		songs: [
+			{
+				id: "january22-g1-s1",
+				artists: ["Albe"],
+				title: "Millevoci",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "january22-g1-s2",
+				artists: ["Rkomi, Elodie"],
+				title: "La coda del diavolo",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "january22-g1-s3",
+				artists: ["Alien Cut"],
+				title: "The mountain king",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `4Q5QBGH4RNVQL`,
+	},
 };
 
 const TRACKS_DATA_LIMIT = 20;
