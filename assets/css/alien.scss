@@ -1319,8 +1319,12 @@ video {
 		}
 	}
 	#keyholder {
-		img {
-			height: auto !important;
+		.item-image {
+			animation: keyholderAnimation 10s infinite;
+			background-image: url(/assets/img/eshop/portachiavi-rosso-aliencut.png);
+			aspect-ratio: 1;
+			background-size: cover;
+			height: 300px;
 		}
 	}
 }
@@ -1344,7 +1348,7 @@ video {
 		.picture {
 			position: relative;
 			list-style: none;
-			margin: 1rem;
+			margin: 2rem;
 			cursor: pointer;
 			// &:nth-child(1) {
 			//   order: 1;
@@ -2309,5 +2313,18 @@ video {
 	}
 	65% {
 		bottom: 0;
+	}
+}
+
+@keyframes keyholderAnimation {
+	0%,
+	100% {
+		background-image: url(/assets/img/eshop/portachiavi-rosso-aliencut.png);
+	}
+	33% {
+		background-image: url(/assets/img/eshop/portachiavi-verde-aliencut.png);
+	}
+	66% {
+		background-image: url(/assets/img/eshop/portachiavi-blu-aliencut.png);
 	}
 }
