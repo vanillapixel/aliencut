@@ -739,7 +739,7 @@ video {
 	#news {
 		position: relative;
 		width: 80%;
-		margin: 8rem 0;
+		margin: 8rem auto;
 		&:after {
 			content: "";
 			width: 100%;
@@ -760,11 +760,11 @@ video {
 
 .content {
 	.news-details {
-		width: 40%;
 		margin-left: 5rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
+		flex-grow: 1;
 	}
 	margin-top: 0;
 	align-items: center;
@@ -917,7 +917,6 @@ video {
 	flex-direction: row;
 	gap: 2rem;
 	align-self: flex-start;
-	width: 70%;
 }
 #news .content .special-tracks .news-details {
 	flex-direction: row;

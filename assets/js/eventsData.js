@@ -391,6 +391,42 @@ let data = [
 		city: "trento",
 		province: "tn",
 	},
+	{
+		date: "2022-03-05",
+		location: "Mirror Disco Club",
+		city: "marsaglia",
+		province: "cn",
+	},
+	{
+		date: "2022-03-19",
+		location: "Colibrí Club",
+		city: "cuneo",
+		province: "cn",
+	},
+	{
+		date: "2022-04-16",
+		location: "Dorian Gray",
+		city: "Cadidavid",
+		province: "vn",
+	},
+	{
+		date: "2022-04-23",
+		location: "Mirror Disco Club",
+		city: "marsaglia",
+		province: "cn",
+	},
+	{
+		date: "2022-06-25",
+		location: "Open Air Event",
+		city: "lagnasco",
+		province: "cn",
+	},
+	{
+		date: "2022-08-12",
+		location: "Open Air Event",
+		city: "cavaglià",
+		province: "bi",
+	},
 ];
 
 const EVENTS_DATA_LIMIT = 15;
