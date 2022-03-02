@@ -468,7 +468,7 @@ const remixesData = {
 	january22: {
 		id: "january-1",
 		date: {
-			month: "Gennaio",
+			month: "gennaio",
 			year: 2022,
 		},
 		songs: [
@@ -495,6 +495,37 @@ const remixesData = {
 			},
 		],
 		paypalCode: `4Q5QBGH4RNVQL`,
+	},
+	february22: {
+		id: "february-1",
+		date: {
+			month: "febbraio",
+			year: 2022,
+		},
+		songs: [
+			{
+				id: "february22-g1-s1",
+				artists: ["Gayle"],
+				title: "Abdefu",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "february22-g1-s2",
+				artists: ["Tananai"],
+				title: "Baby Goddamn",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "february22-g1-s3",
+				artists: ["Japan Girl"],
+				title: "Disco Japan",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `RL2MT4PJNUAGJ`,
 	},
 };
 

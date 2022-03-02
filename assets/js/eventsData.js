@@ -398,6 +398,12 @@ let data = [
 		province: "cn",
 	},
 	{
+		date: "2022-03-18",
+		location: "Temus Club",
+		city: "Agno",
+		province: "Svizzera",
+	},
+	{
 		date: "2022-03-19",
 		location: "Colibrí Club",
 		city: "cuneo",
