@@ -1,5 +1,98 @@
 let isMobile = () => (window.innerWidth <= 800 ? true : false);
 let triggeredByMenu = false;
+
+const EVENTS_DATA_LIMIT = 15;
+function getClosestDate() {
+	let closestDate = Infinity;
+	data.forEach((event) => {
+		let date = new Date(event.date);
+		if (
+			date >= today &&
+			(date < new Date(closestDate) || date < closestDate) &&
+			event.status != "cancelled"
+		) {
+			closestDate = date;
+			event.isNextEvent = true;
+		}
+	});
+}
+const today = new Date();
+async function getData() {
+	const { eventsRef } = await import("./database.js");
+	eventsRef.on("value", async (snapshot) => {
+		data = snapshot.val();
+		//making sure that the dates are sorted
+		processData();
+	});
+}
+
+function processData() {
+	sortData();
+	getClosestDate();
+	createElementsFromData();
+	staggerCancelledEventsAnimations();
+}
+
+// getData();
+
+const eventsContainer = document.querySelector(".events");
+
+function sortData() {
+	data.sort((a, b) => (a.date > b.date ? 1 : b.date > a.date ? -1 : 0));
+	// filter per current year
+	// const currentYear = new Date();
+	// data = data.filter((x) => x.date.includes(currentYear.getFullYear()));
+}
+
+function createElementsFromData() {
+	sortData();
+	data.slice(-EVENTS_DATA_LIMIT).forEach((event) => {
+		const { date, city, province, location } = event;
+		const formattedDate = new Date(date);
+		const newDate = document.createElement("li");
+		newDate.classList.add("event");
+
+		if (event.status === "cancelled") {
+			newDate.classList.add("cancelled");
+		} else if (event.hasOwnProperty("isNextEvent")) {
+			newDate.classList.add("next-event");
+		}
+		newDate.innerHTML = `
+  <div class="event-details" data-year="${formattedDate.getFullYear()}">
+    <h4 class="date">
+    <p class="day">${
+			formattedDate.getDate() > 9
+				? formattedDate.getDate()
+				: "0" + formattedDate.getDate()
+		}</p>
+    <p class="month">${new Intl.DateTimeFormat("it-IT", {
+			month: "short",
+		}).format(formattedDate)}</p>
+    </h4>
+    </div>
+    <div class="location-wrapper">
+      <div class="location-container">
+        <h3><span class="medium-text">@</span> ${location}</h3>
+        <h5 class="city">
+          <p class="comune">${city}</p>
+          <p class="provincia">(${province})</p>
+        </h5>
+      </div>
+    </div>  
+  </div>`;
+		eventsContainer.appendChild(newDate);
+	});
+}
+
+// getClosestDate();
+
+function staggerCancelledEventsAnimations() {
+	const cancelledEvents = document.querySelectorAll(".cancelled");
+	cancelledEvents.forEach((x, id) => {
+		x.style.animationDelay = `${id * 1}s`;
+	});
+}
+processData();
 setTimeout(() => {
 	const $ = (s, o = document) => o.querySelector(s);
 	const $$ = (s, o = document) => o.querySelectorAll(s);

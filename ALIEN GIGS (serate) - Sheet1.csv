@@ -1,0 +1,84 @@
+id,date,location,city,province
+1,2019-01-05,tenax,samugheo,or
+2,2019-01-26,touch club,casale monferrato,al
+3,2019-01-26,international summer dj festival,tempio pausania,ot
+4,2019-02-23,barabba,bricherasio,to
+5,2019-03-04,piazza 1° maggio,ravanusa,ag
+6,2019-03-08,mirror,marsaglia,cn
+7,2019-03-23,club modà,erba,co
+8,2019-03-30,rupe,mezzolombardo,tn
+9,2019-04-07,mirror,marsaglia,cn
+10,2019-04-07,movida,veduggio,mb
+11,2019-04-27,cis land,cis,tn
+12,2019-05-24,number one,piasco,cn
+13,2019-05-31,musica che sposta event,fiorano al serio,bg
+14,2019-06-15,sand music festival,carmagna piemonte,cn
+15,2019-06-29,international summer dj festival,badesi,ot
+16,2019-07-05,number one,cantogno di villafranca,to
+17,2019-07-10,movida,veduggio,mb
+18,2019-07-13,extreme disco,mombercelli,to
+19,2019-07-20,movida,veduggio,mb
+20,2019-08-01,summer party,spello,pg
+21,2019-08-03,international summer dj festival,villagrande strisaili,og
+22,2019-08-03,piazza san giovanni,alà dei sardi,tn
+23,2019-08-10,kapannone disco,casanova di rovegno,ge
+24,2019-08-15,number one,gerbo di fossano,cn
+25,2019-08-15,summer party,cavaglià,to
+26,2019-08-17,paoli fest,semogo,so
+27,2019-08-21,pro loco,limana,or
+28,2019-09-07,mato,borgo valsugana,tn
+29,2019-10-12,international summer dj festival,s. teresa di gallura,ot
+30,2019-10-31,mirror,marsaglia,cn
+31,2019-11-08,barabba,bricherasio,to
+32,2019-11-27,hollywood,milano,mi
+33,2019-12-21,time,milano,mi
+34,2019-12-31,international summer dj festival,carmagna piemonte,cn
+35,2020-01-10,taverna top sound,mantova,mn
+36,2020-01-10,number one event,pancalieri,to
+37,2020-01-11,sonora disco club,roncadelle,bs
+38,2020-01-26,sonora disco club,roncadelle,bs
+39,2020-03-07,mirror,marsaglia,cn
+40,2020-03-14,oscar dei sapori,chiusa sclafani,pa
+41,2020-03-28,snowland,livigno,so
+42,2020-05-16,discoteca Mirror,marsaglia,cn
+43,2020-05-30,musica che sposta event,cloz,tn
+44,2020-05-31,musica che sposta event,fiorano al serio,bg
+45,2020-06-13,musica che sposta event,roncegno,tn
+46,2020-06-27,tamarrowland,cavour,to
+47,2020-06-27,500 - radio number one,cavour,to
+48,2020-07-04,number one event,cambiano,to
+49,2020-07-10,musica che sposta event,veduggio,mb
+50,2020-07-25,musica che sposta event,gattorna,ge
+51,2020-08-07,summer party,cavaglià,to
+52,2020-08-27,sax disco,castelsardo,ss
+53,2020-09-19,musica che sposta event,pancaglieri,to
+54,2020-09-25,musica che sposta event,moncrivello,vc
+55,2020-10-31,discoteca mirror,marsaglia,cn
+56,2021-02-27,touch club,casale monferrato,al
+57,2021-07-03,piazza a cambiano,torino,to
+58,2021-08-13,piazza a cavaglia,biella,bi
+59,2021-09-24,piazza a moncrivello,vercelli,vc
+60,2021-11-21,bolla 900,cloz,tn
+61,2021-11-27,discoteca milleluci,zavattarello,pv
+62,2021-12-07,discoteca fase due,mogoro,or
+63,2021-12-24,mega show,sondrio,so
+64,2022-01-15,passo del tonale,trento,tn
+65,2022-03-05,Mirror Disco Club,marsaglia,cn
+66,2022-03-18,Temus Club,Agno,Svizzera
+67,2022-03-19,Colibrí Club,cuneo,cn
+68,2022-04-09,Arabesk,Civita Castellana,vt
+69,2022-04-16,Dorian Gray,Cadidavid,vr
+70,2022-04-16,Mirror,Marsaglia,cn
+71,2022-04-30,Woodstock,Bellinzona,ch
+72,2022-05-07,TBA,TBA,TBA
+73,2022-05-14,Gazebo,Canelli,at
+74,2022-05-20,Open air Tula,Tula,ss
+75,2022-05-28,TBA,TBA,TBA
+76,2022-06-01,Disco Spiaggia,Baselga di Piné,tn
+77,2022-06-04,Paradise,Montereale Valcellina,pn
+78,2022-06-25,Open Air Lagnasco,Lagnasco,cn
+79,2022-07-16,international summer dj festival,Aosta,ao
+80,2022-07-30,Open air Poschiavo,Poschiavo,ch
+81,2022-08-06,Open air Moncrivelli,Moncrivelli,vc
+82,2022-08-12,Open air Cavaglià,Cavaglià,bi
+83,2022-08-27,TBA,TBA,TBA
