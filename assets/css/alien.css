@@ -135,15 +135,20 @@ ul {
 }
 
 .new-badge:after {
-  content: "new";
-  left: 10px;
-  writing-mode: vertical-lr;
+  content: "NEW";
+  right: 0;
+  top: 0%;
   position: absolute;
   font-size: 2rem;
-  transform: rotate(-180deg);
-  border-block-end: 5px var(--main-color) solid;
-  padding: 0rem;
+  transform: rotate(0deg);
+  background: var(--main-color);
+  padding: 1rem 2rem;
+  display: flex;
+  border: 2px solid var(--main-color);
   animation: blinker 5s infinite;
+  border-radius: 10px 0px 10px 50%;
+  justify-content: center;
+  align-items: center;
 }
 
 .info-modal .vertical-card {
@@ -636,6 +641,8 @@ video {
 }
 
 .main-detail {
+  display: flex;
+  flex-direction: row;
   border-bottom: 3px solid var(--main-color);
   z-index: 0;
   min-width: 50%;
@@ -645,10 +652,10 @@ video {
   content: "";
   background: var(--main-color);
   height: 8rem;
-  width: 112%;
+  width: 120%;
   top: 122%;
   position: absolute;
-  left: 40%;
+  left: 50%;
   z-index: 0;
   transform: skew(-45deg);
 }
@@ -729,7 +736,7 @@ video {
   gap: 2rem;
   justify-content: center;
   padding: 3rem 5rem;
-  margin: 2.5rem auto;
+  margin: auto;
   border: 2px solid var(--main-color) !important;
   cursor: pointer;
   transition: 1s;
@@ -1308,6 +1315,10 @@ video {
   color: var(--main-color);
 }
 
+.trax-section-header {
+  margin-bottom: 3rem;
+}
+
 /*e-shop section*/
 #eshop .content {
   display: flex;
@@ -1320,6 +1331,7 @@ video {
   flex-direction: column;
   align-content: center;
   justify-content: center;
+  gap: 2rem;
 }
 
 #eshop .content .items-details .items-category {

@@ -1,6 +1,6 @@
-const remixesData = {
-	october20: {
-		id: "oct20-1",
+const remixesData = [
+	{
+		id: 1,
 		date: {
 			month: "ottobre",
 			year: 2020,
@@ -30,8 +30,8 @@ const remixesData = {
 		],
 		paypalCode: `EHN8G9PQQRGU8`,
 	},
-	november20: {
-		id: "nov20-1",
+	{
+		id: 2,
 		date: {
 			month: "novembre",
 			year: 2020,
@@ -61,8 +61,8 @@ const remixesData = {
 		],
 		paypalCode: `B5WU5F38KSGMJ`,
 	},
-	december20: {
-		id: "dic20-1",
+	{
+		id: 3,
 		date: {
 			month: "dicembre",
 			year: 2020,
@@ -92,8 +92,8 @@ const remixesData = {
 		],
 		paypalCode: `4BBS27AF6RRJC`,
 	},
-	january21: {
-		id: "gen21-1",
+	{
+		id: 4,
 		date: {
 			month: "gennaio",
 			year: 2021,
@@ -124,8 +124,8 @@ const remixesData = {
 		paypalCode: `R4BXRNSF9L2E4`,
 	},
 
-	february21: {
-		id: "feb21-1",
+	{
+		id: 5,
 		date: {
 			month: "febbraio",
 			year: 2021,
@@ -155,8 +155,8 @@ const remixesData = {
 		],
 		paypalCode: `7HUTEPGVACU58`,
 	},
-	march21: {
-		id: "mar21-1",
+	{
+		id: 6,
 		date: {
 			month: "marzo",
 			year: 2021,
@@ -186,8 +186,8 @@ const remixesData = {
 		],
 		paypalCode: `ESZZVRVG69MXN`,
 	},
-	april21: {
-		id: "apr21-1",
+	{
+		id: 7,
 		date: {
 			month: "aprile",
 			year: 2021,
@@ -217,8 +217,8 @@ const remixesData = {
 		],
 		paypalCode: `V4P5529NP8CMU`,
 	},
-	may21: {
-		id: "may-1",
+	{
+		id: 8,
 		date: {
 			month: "maggio",
 			year: 2021,
@@ -248,8 +248,8 @@ const remixesData = {
 		],
 		paypalCode: `ETVK88PP7MXE8`,
 	},
-	june21: {
-		id: "june-1",
+	{
+		id: 9,
 		date: {
 			month: "giugno",
 			year: 2021,
@@ -279,8 +279,8 @@ const remixesData = {
 		],
 		paypalCode: `UHE8VERWM7U7L`,
 	},
-	july21: {
-		id: "july-1",
+	{
+		id: 10,
 		date: {
 			month: "luglio",
 			year: 2021,
@@ -310,8 +310,8 @@ const remixesData = {
 		],
 		paypalCode: `T5W2ZUY2F8HS6`,
 	},
-	august21: {
-		id: "august-1",
+	{
+		id: 11,
 		date: {
 			month: "agosto",
 			year: 2021,
@@ -341,8 +341,8 @@ const remixesData = {
 		],
 		paypalCode: `WAY46C2GFGB8S`,
 	},
-	september21: {
-		id: "september-1",
+	{
+		id: 12,
 		date: {
 			month: "settembre",
 			year: 2021,
@@ -372,8 +372,8 @@ const remixesData = {
 		],
 		paypalCode: `M4CMQRPL775ZE`,
 	},
-	october21: {
-		id: "october-1",
+	{
+		id: 13,
 		date: {
 			month: "ottobre",
 			year: 2021,
@@ -403,8 +403,8 @@ const remixesData = {
 		],
 		paypalCode: `ZNM8US98U5H2C`,
 	},
-	november21: {
-		id: "november-1",
+	{
+		id: 14,
 		date: {
 			month: "novembre",
 			year: 2021,
@@ -434,8 +434,8 @@ const remixesData = {
 		],
 		paypalCode: `WNGGGV94AU3QW`,
 	},
-	december21: {
-		id: "december-1",
+	{
+		id: 15,
 		date: {
 			month: "dicembre",
 			year: 2021,
@@ -465,8 +465,8 @@ const remixesData = {
 		],
 		paypalCode: `BG2PGS3JXXDB4`,
 	},
-	january22: {
-		id: "january-1",
+	{
+		id: 16,
 		date: {
 			month: "gennaio",
 			year: 2022,
@@ -496,8 +496,8 @@ const remixesData = {
 		],
 		paypalCode: `4Q5QBGH4RNVQL`,
 	},
-	february22: {
-		id: "february-1",
+	{
+		id: 17,
 		date: {
 			month: "febbraio",
 			year: 2022,
@@ -527,14 +527,44 @@ const remixesData = {
 		],
 		paypalCode: `RL2MT4PJNUAGJ`,
 	},
-};
+	{
+		id: 18,
+		date: {
+			month: "marzo",
+			year: 2022,
+		},
+		songs: [
+			{
+				id: "march22-g1-s1",
+				artists: ["Dargen D'amico"],
+				title: "Dove Si Balla",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "march22-g1-s2",
+				artists: ["Purple Disco Machine, Eyelar"],
+				title: "Dopamine",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "march22-g1-s3",
+				artists: ["Kanie West"],
+				title: "Mercy",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `GP7NX9865QERC`,
+	},
+];
 
 const TRACKS_DATA_LIMIT = 12;
 
 const parent = document.querySelector("#alien-tracklist");
 
 function trackCheckout(trackInfo) {
-	console.log();
 	const {
 		paypalCode,
 		songs,
@@ -611,11 +641,10 @@ function trackCheckout(trackInfo) {
 	openModal(checkoutConfirmMessage);
 }
 
-function tracksPackageCardTemplate(trackInfo) {
+function tracksPackageCardTemplate(trackInfo, newTracksPack = false) {
 	const month = trackInfo.date.month;
 	const year = trackInfo.date.year;
 	const songs = trackInfo.songs;
-	const paypalCode = trackInfo.paypalCode;
 	let tracksListHtml = "";
 	const tracksPackPurchaseButton = document.createElement("button");
 	tracksPackPurchaseButton.classList.add("cta-button", "pulse");
@@ -633,6 +662,7 @@ function tracksPackageCardTemplate(trackInfo) {
 
 	const trackNodeElement = document.createElement("div");
 	trackNodeElement.classList.add("vertical-card");
+	if (newTracksPack) trackNodeElement.classList.add("new-badge");
 
 	trackNodeElement.innerHTML = `
     	<div class="card-column main-detail">
@@ -641,6 +671,8 @@ function tracksPackageCardTemplate(trackInfo) {
 			</div>
 			<div class="card-column">
 			${tracksListHtml}
+			</div>
+			<div class="card-column">
 			<div class="trackspack-purchase-btn-container"></div>
 			</div>
     `;
@@ -652,8 +684,11 @@ function tracksPackageCardTemplate(trackInfo) {
 	return trackNodeElement;
 }
 
-Object.keys(remixesData)
+remixesData
 	.slice(-TRACKS_DATA_LIMIT)
-	.forEach((remix) => {
-		parent.appendChild(tracksPackageCardTemplate(remixesData[remix]));
+	.sort((a, b) => (a.id < b.id ? 1 : b.id < a.id ? -1 : 0))
+	.forEach((remix, id) => {
+		id === 0
+			? parent.appendChild(tracksPackageCardTemplate(remix, true))
+			: parent.appendChild(tracksPackageCardTemplate(remix));
 	});

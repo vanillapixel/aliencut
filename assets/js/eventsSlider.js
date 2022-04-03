@@ -1,8 +1,11 @@
 let isMobile = () => (window.innerWidth <= 800 ? true : false);
 let triggeredByMenu = false;
 
-const EVENTS_DATA_LIMIT = 15;
+const EVENTS_DATA_LIMIT = 18;
+let trimmeredData = [];
+
 function getClosestDate() {
+	const today = new Date();
 	let closestDate = Infinity;
 	data.forEach((event) => {
 		let date = new Date(event.date);
@@ -16,15 +19,6 @@ function getClosestDate() {
 		}
 	});
 }
-const today = new Date();
-async function getData() {
-	const { eventsRef } = await import("./database.js");
-	eventsRef.on("value", async (snapshot) => {
-		data = snapshot.val();
-		//making sure that the dates are sorted
-		processData();
-	});
-}
 
 function processData() {
 	sortData();
@@ -33,20 +27,18 @@ function processData() {
 	staggerCancelledEventsAnimations();
 }
 
-// getData();
-
 const eventsContainer = document.querySelector(".events");
 
 function sortData() {
 	data.sort((a, b) => (a.date > b.date ? 1 : b.date > a.date ? -1 : 0));
+	trimmeredData = data.slice(-EVENTS_DATA_LIMIT);
 	// filter per current year
 	// const currentYear = new Date();
 	// data = data.filter((x) => x.date.includes(currentYear.getFullYear()));
 }
 
 function createElementsFromData() {
-	sortData();
-	data.slice(-EVENTS_DATA_LIMIT).forEach((event) => {
+	trimmeredData.forEach((event) => {
 		const { date, city, province, location } = event;
 		const formattedDate = new Date(date);
 		const newDate = document.createElement("li");
