@@ -558,6 +558,37 @@ const remixesData = [
 		],
 		paypalCode: `GP7NX9865QERC`,
 	},
+	{
+		id: 19,
+		date: {
+			month: "aprile",
+			year: 2022,
+		},
+		songs: [
+			{
+				id: "april22-g1-s1",
+				artists: ["Fabri Fibra, Colapesce, Dimartino"],
+				title: "Propaganda",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "april22-g1-s2",
+				artists: ["Niko Pandetta"],
+				title: "Pistole nella fendi",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "april22-g1-s3",
+				artists: ["20 Fingers "],
+				title: "Lick It",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `W6GMLX55GTRAA`,
+	},
 ];
 
 const TRACKS_DATA_LIMIT = 12;
