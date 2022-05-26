@@ -591,7 +591,7 @@ const remixesData = [
 	},
 ];
 
-const TRACKS_DATA_LIMIT = 12;
+const TRACKS_DATA_LIMIT = remixesData.length;
 
 const parent = document.querySelector("#alien-tracklist");
 
