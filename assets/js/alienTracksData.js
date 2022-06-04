@@ -589,6 +589,37 @@ const remixesData = [
 		],
 		paypalCode: `W6GMLX55GTRAA`,
 	},
+	{
+		id: 20,
+		date: {
+			month: "maggio",
+			year: 2022,
+		},
+		songs: [
+			{
+				id: "may22-g1-s1",
+				artists: ["Irama feat. Willy William"],
+				title: "Como Te Llamas",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "may22-g1-s2",
+				artists: ["Sage The Gemini feat. Bygtwo3"],
+				title: "Tick Tick Boom",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "may22-g1-s3",
+				artists: ["Mahmood & Blanco"],
+				title: "Brividi",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `7D7YBQMZGEYQW`,
+	},
 ];
 
 const TRACKS_DATA_LIMIT = remixesData.length;
