@@ -490,7 +490,7 @@ const remixesData = [
 				id: "january22-g1-s3",
 				artists: ["Alien Cut"],
 				title: "The mountain king",
-				remixArtists: ["Alien Cut"],
+				remixArtists: [],
 				link: "",
 			},
 		],
@@ -683,23 +683,6 @@ function trackCheckout(trackInfo) {
 		</form>
 `;
 
-	// `<div style="border: 2px solid var(--main-color)" class="vertical-card ticket-details">
-	// 	<div class="card-column" style="
-	// 		align-items: flex-end;
-	// 		flex-direction: row;
-	// 		justify-content: space-between;
-	// 		width: 100%;">
-	// 		<div class="conditions">
-	// 			<span class="medium-text">
-	// 				Pacchetto tracce ${Month} ${year}
-	// 				</span>
-	// 		<p class=" big-text">
-	// 			€15
-	// 		</p>
-	// 	</div>
-	// </div>
-	// 	`;
-
 	openModal(checkoutConfirmMessage);
 }
 
@@ -711,7 +694,6 @@ function tracksPackageCardTemplate(trackInfo, newTracksPack = false) {
 	const tracksPackPurchaseButton = document.createElement("button");
 	tracksPackPurchaseButton.classList.add("cta-button", "pulse");
 	tracksPackPurchaseButton.textContent = "Acquista pacchetto - 30€";
-
 	tracksPackPurchaseButton.onclick = () => trackCheckout(trackInfo);
 	songs.forEach((song) => {
 		const { title, artists, remixArtists } = song;
@@ -723,6 +705,8 @@ function tracksPackageCardTemplate(trackInfo, newTracksPack = false) {
 	});
 
 	const trackNodeElement = document.createElement("div");
+	trackNodeElement.dataset.year = year;
+	trackNodeElement.dataset.month = month;
 	trackNodeElement.classList.add("vertical-card");
 	if (newTracksPack) trackNodeElement.classList.add("new-badge");
 
@@ -731,7 +715,7 @@ function tracksPackageCardTemplate(trackInfo, newTracksPack = false) {
     	<p class="big-text text-underline">${month}</p>
     	<p class="medium-text secondary-text-color">${year}</p>
 			</div>
-			<div class="card-column">
+			<div class="card-column card-tracks-list">
 			${tracksListHtml}
 			</div>
 			<div class="card-column">
@@ -746,11 +730,74 @@ function tracksPackageCardTemplate(trackInfo, newTracksPack = false) {
 	return trackNodeElement;
 }
 
-remixesData
-	.slice(-TRACKS_DATA_LIMIT)
-	.sort((a, b) => (a.id < b.id ? 1 : b.id < a.id ? -1 : 0))
-	.forEach((remix, id) => {
-		id === 0
-			? parent.appendChild(tracksPackageCardTemplate(remix, true))
-			: parent.appendChild(tracksPackageCardTemplate(remix));
+function createAlienTraxSection() {
+	remixesData
+		.sort((a, b) => (a.id < b.id ? 1 : b.id < a.id ? -1 : 0))
+		.forEach((remix, id) => {
+			id === 0
+				? parent.appendChild(tracksPackageCardTemplate(remix, true))
+				: parent.appendChild(tracksPackageCardTemplate(remix));
+		});
+}
+
+function filterAlienTrax({ year, searchTerm }) {
+	const traxCards = document.querySelectorAll(
+		"#alien-tracklist .vertical-card"
+	);
+	traxCards.forEach((card) => {
+		const cardSongs = card.querySelector(".card-tracks-list");
+		if (searchTerm.length >= 3) {
+			card.style.display =
+				card.getAttribute("data-year") == year &&
+				cardSongs.textContent.toLowerCase().includes(searchTerm)
+					? "flex"
+					: "none";
+			return;
+		}
+		if (year === "all") {
+			card.style.display = "flex";
+			return;
+		}
+		card.style.display =
+			card.getAttribute("data-year") == year ? "flex" : "none";
 	});
+}
+
+const DEFAULT_FILTERS = { year: new Date().getFullYear(), searchTerm: "" };
+
+let filters = DEFAULT_FILTERS;
+
+createAlienTraxSection();
+filterAlienTrax(filters);
+
+const dateFilter = document.querySelector("#date-filter");
+const years = [...new Set(remixesData.map((x) => x.date.year))];
+
+dateFilter.setAttribute("onfocus", `this.size=${years.length + 1}`);
+
+years.forEach((year, id) => {
+	const option = document.createElement("option");
+	option.value = year;
+	option.textContent = year;
+	year === new Date().getFullYear()
+		? option.setAttribute("selected", true)
+		: null;
+	dateFilter.appendChild(option);
+});
+
+dateFilter.addEventListener("change", (e) => {
+	filters = { ...filters, year: e.target.value };
+	filterAlienTrax(filters);
+});
+
+const songFilter = document.querySelector("#song-filter");
+
+songFilter.addEventListener("input", (e) => {
+	filters = { ...filters, searchTerm: e.target.value.toLowerCase() };
+	if (e.target.value.length >= 3) {
+		filterAlienTrax(filters);
+		return;
+	}
+	filters = { ...filters, searchTerm: "" };
+	filterAlienTrax(filters);
+});

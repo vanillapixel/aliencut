@@ -383,8 +383,26 @@
                 Scegli il pack mensile di <b>3 tracce</b> dall'elenco di seguito
               </p>
             </h4>
+
           </div>
-          <div id="alien-tracklist" class="section-container-row"></div>
+          <div class="alien-trax-container">
+            <div class="form-segment-wrapper">
+              <div class="form-segment">
+                <input type="text" name="song-filter" id="song-filter">
+                <label for="song-filter">Artista / Titolo:</label>
+              </div>
+              <div class="form-segment">
+                <select onfocus='this.size=4;' onblur='this.size=1;' onchange='this.size=1; this.blur();'
+                  name="date-filter" id="date-filter">
+                  <option value="all">Tutti</option>
+
+                </select>
+                <label for="date-filter">Anno:</label>
+
+              </div>
+            </div>
+            <div id="alien-tracklist" class="section-container-row"></div>
+          </div>
         </div>
       </section>
       <section id="eshop" class="section-wrapper">

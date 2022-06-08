@@ -576,8 +576,61 @@ video {
 	padding: 4rem 0rem;
 	transition: 0.5s;
 }
-#alien-tracklist .vertical-card {
-	width: calc(50% - 1rem);
+.alien-trax-container {
+	width: 100%;
+	gap: 2rem;
+	display: flex;
+	flex-direction: column;
+}
+#alien-trax {
+	overflow: auto;
+	.form-segment-wrapper {
+		z-index: 9999;
+		width: fit-content;
+		margin-left: auto;
+		max-width: 100%;
+		.form-segment {
+			margin: 0;
+			min-width: 110px;
+			box-shadow: none;
+			border: none;
+			flex-basis: auto;
+		}
+	}
+	label[for="date-filter"] {
+		margin-bottom: 45px;
+	}
+	select {
+		outline: none;
+		background: transparent;
+		color: white;
+		padding: 10px;
+		border: 1px solid #6a6e7c;
+		overflow-y: visible !important;
+		position: absolute;
+		width: 70%;
+		z-index: 3;
+		cursor: pointer;
+		&:focus {
+			top: 50%;
+		}
+	}
+
+	option {
+		color: white;
+		background-color: transparent;
+		padding: 5px;
+		&:hover,
+		&:checked {
+			background: var(--main-color) !important;
+			box-shadow: inset 0px 0px 100px var(--main-color);
+		}
+	}
+}
+#alien-tracklist {
+	.vertical-card {
+		width: calc(50% - 1rem);
+	}
 }
 .horizontal-card {
 	display: flex;
@@ -607,8 +660,8 @@ video {
 .text-underline:after {
 	content: "";
 	background: var(--main-color);
-	height: 8rem;
-	width: 120%;
+	height: 12rem;
+	width: 300%;
 	top: 122%;
 	position: absolute;
 	left: 50%;
@@ -1485,7 +1538,7 @@ video {
 		font-size: 2rem;
 		border: none;
 		border-bottom: 1px solid $light-grey;
-		color: #787878;
+		color: var(--sec-color);
 		padding: 7px;
 		&:focus {
 			outline: none;
