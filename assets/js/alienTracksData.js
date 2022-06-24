@@ -681,7 +681,7 @@ function trackCheckout(trackInfo) {
 		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" rel="noreferrer" target="_blank">
 			<input type="hidden" name="cmd" value="_s-xclick">
 			<input type="hidden" id="keyholder" name="hosted_button_id" value=${paypalCode}>
-			<div style="margin: 2rem auto; max-width: 60%; align-items: center" class="cta-button pulse">
+			<div style="margin: 2rem auto; max-width: clamp(230px, 60%, 550px); align-items: center" class="cta-button pulse">
 			<span style="width: 20%; max-width: 50px">
 				<img src="./assets/img/icon/paypal.png" alt="Paypal icon" />
 			</span>
