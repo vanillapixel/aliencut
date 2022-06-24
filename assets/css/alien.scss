@@ -2090,8 +2090,11 @@ video {
 		}
 	}
 
-	#alien-trax .vertical-card {
+	#alien-trax .alien-trax-packs-container .vertical-card {
 		width: 100%;
+		&:nth-child(even) {
+			transition-delay: 0s;
+		}
 	}
 	.horizontal-card {
 		width: auto;

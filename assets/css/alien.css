@@ -2209,8 +2209,11 @@ video {
   .content .news-main-content .news-details .news-cta-container .news-cta-text-wrapper .news-cta-text p {
     font-size: 3.2rem;
   }
-  #alien-trax .vertical-card {
+  #alien-trax .alien-trax-packs-container .vertical-card {
     width: 100%;
+  }
+  #alien-trax .alien-trax-packs-container .vertical-card:nth-child(even) {
+    transition-delay: 0s;
   }
   .horizontal-card {
     width: auto;
