@@ -624,7 +624,23 @@ const remixesData = [
 
 const TRACKS_DATA_LIMIT = remixesData.length;
 
-const parent = document.querySelector("#alien-tracklist");
+const getAlienPacksParent = (year) => {
+	if (
+		!document.querySelector(
+			`#alien-trax-packs .alien-trax-packs-container[data-year='${year}']`
+		)
+	) {
+		console.log("peto");
+		const alienTraxPackContainer = document.createElement("div");
+		alienTraxPackContainer.classList.add("alien-trax-packs-container");
+		alienTraxPackContainer.dataset.year = year;
+		const alienTraxPacks = document.querySelector("#alien-trax-packs");
+		alienTraxPacks.appendChild(alienTraxPackContainer);
+	}
+	return document.querySelector(
+		`#alien-trax-packs .alien-trax-packs-container[data-year='${year}']`
+	);
+};
 
 function trackCheckout(trackInfo) {
 	const {
@@ -686,7 +702,7 @@ function trackCheckout(trackInfo) {
 	openModal(checkoutConfirmMessage);
 }
 
-function tracksPackageCardTemplate(trackInfo, newTracksPack = false) {
+function createTracksPackageCard(trackInfo, newTracksPack = false) {
 	const month = trackInfo.date.month;
 	const year = trackInfo.date.year;
 	const songs = trackInfo.songs;
@@ -704,13 +720,12 @@ function tracksPackageCardTemplate(trackInfo, newTracksPack = false) {
       </div>`;
 	});
 
-	const trackNodeElement = document.createElement("div");
-	trackNodeElement.dataset.year = year;
-	trackNodeElement.dataset.month = month;
-	trackNodeElement.classList.add("vertical-card");
-	if (newTracksPack) trackNodeElement.classList.add("new-badge");
+	const tracksPackCard = document.createElement("div");
+	tracksPackCard.dataset.month = month;
+	tracksPackCard.classList.add("vertical-card");
+	if (newTracksPack) tracksPackCard.classList.add("new-badge");
 
-	trackNodeElement.innerHTML = `
+	tracksPackCard.innerHTML = `
     	<div class="card-column main-detail">
     	<p class="big-text text-underline">${month}</p>
     	<p class="medium-text secondary-text-color">${year}</p>
@@ -722,12 +737,25 @@ function tracksPackageCardTemplate(trackInfo, newTracksPack = false) {
 			<div class="trackspack-purchase-btn-container"></div>
 			</div>
     `;
-	const trackspackButtonContainer = trackNodeElement.querySelector(
+	const trackspackButtonContainer = tracksPackCard.querySelector(
 		".trackspack-purchase-btn-container"
 	);
 	trackspackButtonContainer.appendChild(tracksPackPurchaseButton);
 
-	return trackNodeElement;
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				entry.target.style.opacity = entry.isIntersecting ? 1 : 0;
+				entry.target.style.top = entry.isIntersecting ? "15px" : 0;
+				if (entry.isIntersecting) observer.unobserve(entry.target);
+			});
+		},
+		{ threshold: 0.3 }
+	);
+
+	observer.observe(tracksPackCard);
+
+	return tracksPackCard;
 }
 
 function createAlienTraxSection() {
@@ -735,31 +763,38 @@ function createAlienTraxSection() {
 		.sort((a, b) => (a.id < b.id ? 1 : b.id < a.id ? -1 : 0))
 		.forEach((remix, id) => {
 			id === 0
-				? parent.appendChild(tracksPackageCardTemplate(remix, true))
-				: parent.appendChild(tracksPackageCardTemplate(remix));
+				? getAlienPacksParent(remix.date.year).appendChild(
+						createTracksPackageCard(remix, true)
+				  )
+				: getAlienPacksParent(remix.date.year).appendChild(
+						createTracksPackageCard(remix)
+				  );
 		});
 }
 
 function filterAlienTrax({ year, searchTerm }) {
-	const traxCards = document.querySelectorAll(
-		"#alien-tracklist .vertical-card"
+	const alienTraxPackContainers = document.querySelectorAll(
+		".alien-trax-packs-container"
 	);
-	traxCards.forEach((card) => {
-		const cardSongs = card.querySelector(".card-tracks-list");
+	alienTraxPackContainers.forEach((container) => {
+		container.classList.add("section-container-row");
+		const cardSongs = container.querySelector(
+			".vertical-card .container-tracks-list"
+		);
 		if (searchTerm.length >= 3) {
-			card.style.display =
-				card.getAttribute("data-year") == year &&
+			container.style.display =
+				container.getAttribute("data-year") == year &&
 				cardSongs.textContent.toLowerCase().includes(searchTerm)
 					? "flex"
 					: "none";
 			return;
 		}
 		if (year === "all") {
-			card.style.display = "flex";
+			container.style.display = "flex";
 			return;
 		}
-		card.style.display =
-			card.getAttribute("data-year") == year ? "flex" : "none";
+		container.style.display =
+			container.getAttribute("data-year") == year ? "flex" : "none";
 	});
 }
 

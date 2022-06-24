@@ -627,9 +627,13 @@ video {
 		}
 	}
 }
-#alien-tracklist {
+#alien-trax-packs {
+	.alien-trax-packs-container .vertical-card:nth-child(even) {
+		transition-delay: 0.2s;
+	}
 	.vertical-card {
 		width: calc(50% - 1rem);
+		opacity: 0;
 	}
 }
 .horizontal-card {
@@ -2086,7 +2090,7 @@ video {
 		}
 	}
 
-	#alien-tracklist .vertical-card {
+	#alien-trax .vertical-card {
 		width: 100%;
 	}
 	.horizontal-card {
@@ -2216,6 +2220,10 @@ video {
 	.ticket-details {
 		padding: 4rem;
 	}
+}
+
+.fade-in-anim {
+	opacity: 1;
 }
 // ANIMATIONS
 
@@ -2369,6 +2377,14 @@ video {
 	}
 	75% {
 		opacity: 0;
+	}
+}
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
 	}
 }
 @keyframes download {

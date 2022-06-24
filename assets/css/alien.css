@@ -674,8 +674,13 @@ video {
   box-shadow: inset 0px 0px 100px var(--main-color);
 }
 
-#alien-tracklist .vertical-card {
+#alien-trax-packs .alien-trax-packs-container .vertical-card:nth-child(even) {
+  transition-delay: 0.2s;
+}
+
+#alien-trax-packs .vertical-card {
   width: calc(50% - 1rem);
+  opacity: 0;
 }
 
 .horizontal-card {
@@ -2204,7 +2209,7 @@ video {
   .content .news-main-content .news-details .news-cta-container .news-cta-text-wrapper .news-cta-text p {
     font-size: 3.2rem;
   }
-  #alien-tracklist .vertical-card {
+  #alien-trax .vertical-card {
     width: 100%;
   }
   .horizontal-card {
@@ -2318,6 +2323,10 @@ video {
   .ticket-details {
     padding: 4rem;
   }
+}
+
+.fade-in-anim {
+  opacity: 1;
 }
 
 @keyframes box-shadow-flash {
@@ -2483,6 +2492,15 @@ video {
   }
   75% {
     opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
