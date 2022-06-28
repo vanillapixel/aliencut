@@ -14,6 +14,11 @@
   --color-option-5: #0f7ea3;
   --color-option-6: #9656f5;
   --color-option-7: #ff006a;
+  --xs-font: 1.7rem;
+  --s-font: 2.3rem;
+  --m-font: 3rem;
+  --l-font: 4rem;
+  --xl-font: 6rem;
 }
 
 * {
@@ -724,21 +729,21 @@ video {
 }
 
 .big-text {
-  font-size: 6rem;
+  font-size: var(--xl-font);
   text-transform: capitalize;
 }
 
 .medium-text {
-  font-size: 3rem;
+  font-size: var(--m-font);
   text-align: left;
 }
 
 .small-text {
-  font-size: 2.3rem;
+  font-size: var(--s-font);
 }
 
 .xs-text {
-  font-size: 1.7rem;
+  font-size: var(--xs-font);
 }
 
 .accent-text {
@@ -1664,11 +1669,17 @@ video {
   border-bottom: 1px solid var(--sec-color-2);
   color: var(--sec-color);
   padding: 7px;
+  font-size: var(--xs-font);
 }
 
 .form-segment input:focus,
 .form-segment textarea:focus {
   outline: none;
+}
+
+.form-segment input:-webkit-autofill,
+.form-segment input:-webkit-autofill:focus {
+  transition: background-color 0s 600000s, color 0s 600000s;
 }
 
 .form-segment textarea {

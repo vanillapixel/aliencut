@@ -2,12 +2,15 @@
 // $main-color: #a05031;
 
 :root {
+	// color palette
+
 	--main-color: #ff5d5d;
 	--sec-color: white;
 	--dark: #0a0a0a;
 	--transparent-dark: rgba(0, 0, 0, 0.4);
 	--transparent-darker: rgba(0, 0, 0, 0.9);
 	--dark-grey: rgba(47, 47, 47, 0.9);
+
 	--sec-color-2: #6a6e7c;
 	--color-option-1: #ff3b3b;
 	--color-option-2: #ff6138;
@@ -16,6 +19,14 @@
 	--color-option-5: #0f7ea3;
 	--color-option-6: #9656f5;
 	--color-option-7: #ff006a;
+
+	// font-sizes
+
+	--xs-font: 1.7rem;
+	--s-font: 2.3rem;
+	--m-font: 3rem;
+	--l-font: 4rem;
+	--xl-font: 6rem;
 }
 
 $main-color: var(--main-color);
@@ -673,18 +684,18 @@ video {
 	transform: skew(-45deg);
 }
 .big-text {
-	font-size: 6rem;
+	font-size: var(--xl-font);
 	text-transform: capitalize;
 }
 .medium-text {
-	font-size: 3rem;
+	font-size: var(--m-font);
 	text-align: left;
 }
 .small-text {
-	font-size: 2.3rem;
+	font-size: var(--s-font);
 }
 .xs-text {
-	font-size: 1.7rem;
+	font-size: var(--xs-font);
 }
 .accent-text {
 	color: var(--main-color);
@@ -1544,9 +1555,14 @@ video {
 		border-bottom: 1px solid $light-grey;
 		color: var(--sec-color);
 		padding: 7px;
+		font-size: var(--xs-font);
 		&:focus {
 			outline: none;
 		}
+	}
+	input:-webkit-autofill,
+	input:-webkit-autofill:focus {
+		transition: background-color 0s 600000s, color 0s 600000s;
 	}
 	textarea {
 		min-height: 150px;
