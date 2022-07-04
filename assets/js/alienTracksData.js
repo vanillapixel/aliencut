@@ -620,6 +620,37 @@ const remixesData = [
 		],
 		paypalCode: `7D7YBQMZGEYQW`,
 	},
+	{
+		id: 21,
+		date: {
+			month: "giugno",
+			year: 2022,
+		},
+		songs: [
+			{
+				id: "jun22-g1-s1",
+				artists: ["James Hype", "Miggy Della Rosa"],
+				title: "Ferrari",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "jun22-g1-s2",
+				artists: ["Alvaro Soler", "Topic"],
+				title: "Solo Para Ti",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "jun22-g1-s3",
+				artists: ["AronChupa, Flamingoz"],
+				title: "Coco Song",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `K7NWG6WNGCFF6`,
+	},
 ];
 
 const TRACKS_DATA_LIMIT = remixesData.length;
