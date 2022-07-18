@@ -991,6 +991,11 @@ video {
   left: 0px;
   transition: 0.5s 0.3s;
   z-index: 0;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .content .news-main-content .news-cta-container .news-cta-text-wrapper:before {
@@ -1102,7 +1107,7 @@ video {
   background: var(--sec-color);
   position: absolute;
   left: 10px;
-  bottom: -5px;
+  bottom: 0;
   transition: 0.4s;
 }
 
@@ -1111,7 +1116,7 @@ video {
 }
 
 .icon-container svg {
-  transform: scale(1) rotate(-90deg) rotateX(-150deg);
+  transform: scale(1) rotate(-90deg) rotateX(-150deg) translateX(5px);
   fill: var(--sec-color);
   animation: download 2s infinite linear;
 }
