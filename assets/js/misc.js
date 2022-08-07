@@ -54,7 +54,7 @@ function codeChecker(e) {
 		}
 	} else return;
 }
-codeSubmit.addEventListener("click", codeChecker);
-codeForm.addEventListener("submit", codeChecker);
+// codeSubmit.addEventListener("click", codeChecker);
+// codeForm.addEventListener("submit", codeChecker);
 closeButton.addEventListener("click", closeModal);
 backdrop.addEventListener("click", closeModal);

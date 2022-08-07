@@ -77,13 +77,9 @@ $headers = 'Da: '.$email_from."\r\n".
 'Rispondi a: '.$email_from."\r\n" .
 @mail($email_to, $email_subject, $email_message, $headers);  
   mail($email_from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
-?>
- 
-<!-- include your own success html here -->
- 
-Grazie per averci scritto. Cercheremo di risponderti al piu' presto!
- 
-<?php
- 
-}
-?>
+  
+  ?>
+  <!-- include your own success html here -->
+  
+  Grazie per averci scritto. Cercheremo di risponderti al piu' presto!
+  

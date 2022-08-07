@@ -651,6 +651,37 @@ const remixesData = [
 		],
 		paypalCode: `K7NWG6WNGCFF6`,
 	},
+	{
+		id: 22,
+		date: {
+			month: "luglio",
+			year: 2022,
+		},
+		songs: [
+			{
+				id: "jul22-g1-s1",
+				artists: ["Elodie"],
+				title: "Bagno a Mezzanotte",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "jul22-g1-s2",
+				artists: ["Boss", "Phil The Beat"],
+				title: "Closer",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "jul22-g1-s3",
+				artists: ["G Bit"],
+				title: "Gianmarco",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `SKQ9NS6TVVP3J`,
+	},
 ];
 
 const TRACKS_DATA_LIMIT = remixesData.length;
@@ -661,7 +692,6 @@ const getAlienPacksParent = (year) => {
 			`#alien-trax-packs .alien-trax-packs-container[data-year='${year}']`
 		)
 	) {
-		console.log("peto");
 		const alienTraxPackContainer = document.createElement("div");
 		alienTraxPackContainer.classList.add("alien-trax-packs-container");
 		alienTraxPackContainer.dataset.year = year;
@@ -714,7 +744,7 @@ function trackCheckout(trackInfo) {
 			<input type="hidden" id="keyholder" name="hosted_button_id" value=${paypalCode}>
 			<div style="margin: 2rem auto; max-width: clamp(230px, 60%, 550px); align-items: center" class="cta-button pulse">
 			<span style="width: 20%; max-width: 50px">
-				<img src="./assets/img/icon/paypal.png" alt="Paypal icon" />
+				<img src="./assets/img/icons/paypal.png" alt="Paypal icon" />
 			</span>
 			<span class="medium-text">
 				Paga con PayPal
@@ -809,17 +839,19 @@ function filterAlienTrax({ year, searchTerm }) {
 	);
 	alienTraxPackContainers.forEach((container) => {
 		container.classList.add("section-container-row");
-		const cardSongs = container.querySelector(
-			".vertical-card .container-tracks-list"
-		);
-		if (searchTerm.length >= 3) {
-			container.style.display =
-				container.getAttribute("data-year") == year &&
-				cardSongs.textContent.toLowerCase().includes(searchTerm)
-					? "flex"
-					: "none";
-			return;
-		}
+		console.log(container);
+		const trackPacks = container.querySelectorAll(".vertical-card");
+		trackPacks.forEach((tracksPack) => {
+			const cardSongs = tracksPack.querySelector(".card-tracks-list");
+			if (searchTerm.length >= 3) {
+				container.style.display =
+					container.getAttribute("data-year") == year &&
+					cardSongs.textContent.toLowerCase().includes(searchTerm)
+						? "flex"
+						: "none";
+				return;
+			}
+		});
 		if (year === "all") {
 			container.style.display = "flex";
 			return;

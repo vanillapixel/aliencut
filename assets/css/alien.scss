@@ -3,15 +3,6 @@
 
 :root {
 	// color palette
-
-	--main-color: #ff5d5d;
-	--sec-color: white;
-	--dark: #0a0a0a;
-	--transparent-dark: rgba(0, 0, 0, 0.4);
-	--transparent-darker: rgba(0, 0, 0, 0.9);
-	--dark-grey: rgba(47, 47, 47, 0.9);
-
-	--sec-color-2: #6a6e7c;
 	--color-option-1: #ff3b3b;
 	--color-option-2: #ff6138;
 	--color-option-3: #38ff59;
@@ -19,6 +10,16 @@
 	--color-option-5: #0f7ea3;
 	--color-option-6: #9656f5;
 	--color-option-7: #ff006a;
+	--color-option-8: #ff5d5d;
+	--main-color: var(--color-option-1);
+
+	--sec-color: white;
+	--dark: #0a0a0a;
+	--transparent-dark: rgba(0, 0, 0, 0.4);
+	--transparent-darker: rgba(0, 0, 0, 0.9);
+	--dark-grey: rgba(47, 47, 47, 0.9);
+
+	--sec-color-2: #6a6e7c;
 
 	// font-sizes
 
@@ -30,12 +31,7 @@
 }
 
 $main-color: var(--main-color);
-$sec-color: var(--sec-color);
-$dark: var(--dark);
-$transparent-dark: var(--transparent-dark);
-$transparent-darker: var(--transparent-darker);
-$dark-grey: var(--dark-grey);
-$light-grey: var(--sec-color-2);
+
 $color-option-1: var(--color-option-1);
 $color-option-2: var(--color-option-2);
 $color-option-3: var(--color-option-3);
@@ -43,6 +39,13 @@ $color-option-4: var(--color-option-4);
 $color-option-5: var(--color-option-5);
 $color-option-6: var(--color-option-6);
 $color-option-7: var(--color-option-7);
+
+$sec-color: var(--sec-color);
+$dark: var(--dark);
+$transparent-dark: var(--transparent-dark);
+$transparent-darker: var(--transparent-darker);
+$dark-grey: var(--dark-grey);
+$light-grey: var(--sec-color-2);
 
 * {
 	-webkit-user-select: none;
@@ -110,6 +113,12 @@ span {
 	text-decoration: none;
 }
 
+strong,
+b {
+	color: var(--main-color);
+	font-size: inherit;
+}
+
 h1,
 h2,
 h3,
@@ -150,11 +159,6 @@ span {
 p {
 	position: relative;
 	margin: 0;
-}
-
-b {
-	color: var(--main-color);
-	font-size: 4rem;
 }
 
 ul {
@@ -631,7 +635,6 @@ video {
 	position: relative;
 	flex-direction: column;
 	justify-content: center;
-	margin-right: 3%;
 	flex-basis: 85%;
 	max-width: 95vw;
 }
@@ -932,12 +935,13 @@ video {
 		width: 80%;
 		margin: 8rem auto;
 
+
 		&:after {
 			content: "";
 			width: 100%;
 			height: 100%;
 			position: absolute;
-			background: url(../img/news/musica-che-sposta-2.jpg);
+			background-image: url('/assets/img/news/alien-lab-exp-1-album.jpg');
 			background-size: cover;
 			background-origin: border-box;
 			background-clip: border-box;
@@ -955,8 +959,9 @@ video {
 		margin-left: 5rem;
 		display: flex;
 		flex-direction: column;
-		justify-content: space-evenly;
 		flex-grow: 1;
+		justify-content: center;
+		gap: 5%;
 	}
 
 	margin-top: 0;
@@ -965,15 +970,13 @@ video {
 	z-index: 1;
 
 	.news-main-content {
-		display: flex;
-		flex-direction: row;
-		align-content: space-around;
+		--grid-columns: 2;
+		display: grid;
+		grid-template-columns: repeat(var(--grid-columns), 1fr);
 		width: 100%;
 		margin: 2rem 0;
 
 		.news-image-container {
-			width: 50%;
-
 			img {
 				width: 100%;
 			}
@@ -1478,6 +1481,9 @@ video {
 
 		form {
 			text-align: center;
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
 		}
 	}
 
@@ -1573,6 +1579,30 @@ video {
 
 						input {
 							display: none;
+						}
+
+						input:disabled+label:after {
+							content: attr(data-quantity);
+							position: absolute;
+							text-transform: capitalize;
+							top: 0;
+							bottom: 0;
+							left: 0;
+							right: 0;
+							align-items: center;
+							font-size: inherit;
+							display: flex;
+							justify-content: center;
+							z-index: 11;
+							color: red;
+							background-color: var(--dark);
+							opacity: 0;
+							line-height: 1;
+							transition: .3s;
+						}
+
+						input:disabled:hover+label:after {
+							opacity: 1;
 						}
 
 						input#white-bracelet+label {
@@ -2015,7 +2045,7 @@ video {
 	}
 
 	.content {
-		margin: 0 3rem;
+		padding: 0 3rem;
 	}
 
 	.section {
@@ -2249,9 +2279,11 @@ video {
 
 	.news-wrapper {
 		flex-direction: column;
-		justify-content: flex-end;
+		justify-content: center;
 		align-items: center;
 		min-height: 1000px;
+		overflow: hidden;
+
 
 		#news {
 			width: 90%;
@@ -2386,10 +2418,10 @@ video {
 		}
 
 		.news-main-content {
-			flex-direction: column;
+			--grid-columns: 1;
 
 			.news-image-container {
-				width: 100%;
+				width: 90%;
 				margin: auto;
 			}
 
@@ -2521,7 +2553,7 @@ video {
 				.item,
 				.select-color-buttons,
 				.cta {
-					width: 90%;
+					width: 60%;
 					margin: auto;
 				}
 

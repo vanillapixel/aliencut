@@ -1,7 +1,7 @@
 let isMobile = () => (window.innerWidth <= 800 ? true : false);
 let triggeredByMenu = false;
 
-const EVENTS_DATA_LIMIT = 18;
+const EVENTS_DATA_LIMIT = 24;
 let trimmeredData = [];
 
 function getClosestDate() {
