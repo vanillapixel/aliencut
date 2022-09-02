@@ -682,6 +682,37 @@ const remixesData = [
 		],
 		paypalCode: `SKQ9NS6TVVP3J`,
 	},
+	{
+		id: 23,
+		date: {
+			month: "agosto",
+			year: 2022,
+		},
+		songs: [
+			{
+				id: "aug22-g1-s1",
+				artists: ["Fred De Palma"],
+				title: "My heart goes boom",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "aug22-g1-s2",
+				artists: ["Alvaro Soler"],
+				title: "My heart goes boom",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "aug22-g1-s3",
+				artists: ["Soolking"],
+				title: "Suavemente",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `7XEZ5283PVL9N`,
+	},
 ];
 
 const TRACKS_DATA_LIMIT = remixesData.length;
