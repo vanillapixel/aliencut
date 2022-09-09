@@ -692,7 +692,7 @@ const remixesData = [
 			{
 				id: "aug22-g1-s1",
 				artists: ["Fred De Palma"],
-				title: "My heart goes boom",
+				title: "Extasy",
 				remixArtists: ["Alien Cut"],
 				link: "",
 			},
