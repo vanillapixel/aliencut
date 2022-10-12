@@ -5,6 +5,8 @@ let data = [
 		location: "tenax",
 		city: "samugheo",
 		province: "or",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "10",
@@ -12,6 +14,8 @@ let data = [
 		location: "movida",
 		city: "veduggio",
 		province: "mb",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "100",
@@ -19,6 +23,98 @@ let data = [
 		location: "Gazebo",
 		city: "Canelli ",
 		province: "at",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "101",
+		date: "2022-10-29",
+		location: "Dorian Gray",
+		city: "Cadidavid",
+		province: "vr",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "102",
+		date: "2022-12-07",
+		location: "Albert",
+		city: "Fino Mornasco",
+		province: "co",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "103",
+		date: "2023-01-14",
+		location: "Gazana",
+		city: "Passo del Tonale",
+		province: "bs",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "104",
+		date: "2022-09-08",
+		location: "Open Air Siurgus Donigala",
+		city: "Siurgus Donigala",
+		province: "su",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "104",
+		date: "2023-02-04",
+		location: "Milleluci",
+		city: "Zavattarello",
+		province: "pv",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "105",
+		date: "2022-09-10",
+		location: "Open Air Las Plassas",
+		city: "Las Plassas ",
+		province: "su",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "106",
+		date: "2022-10-10",
+		location: "Open Air Villasor",
+		city: "Villasor",
+		province: "su",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "107",
+		date: "2022-10-15",
+		location: "Open Air San Vito",
+		city: "San Vito",
+		province: "su",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "108",
+		date: "2022-11-05",
+		location: "Paradise Bissò",
+		city: "Montereale Valcellina",
+		province: "pn",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "109",
+		date: "2022-11-12",
+		location: "Tuttomele ",
+		city: "Cavour",
+		province: "to",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "11",
@@ -26,6 +122,26 @@ let data = [
 		location: "cis land",
 		city: "cis",
 		province: "tn",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "110",
+		date: "2022-11-18",
+		location: "Hotel Del Sole",
+		city: "Tronzano Vercellese",
+		province: "vc",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "111",
+		date: "2022-11-26",
+		location: "Polaris",
+		city: "Carate Brianza",
+		province: "mb",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "12",
@@ -33,6 +149,8 @@ let data = [
 		location: "number one",
 		city: "piasco",
 		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "13",
@@ -40,6 +158,8 @@ let data = [
 		location: "musica che sposta event",
 		city: "fiorano al serio",
 		province: "bg",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "14",
@@ -47,6 +167,8 @@ let data = [
 		location: "sand music festival",
 		city: "carmagna piemonte",
 		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "15",
@@ -54,6 +176,8 @@ let data = [
 		location: "international summer dj festival",
 		city: "badesi",
 		province: "ot",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "16",
@@ -61,6 +185,8 @@ let data = [
 		location: "number one",
 		city: "cantogno di villafranca",
 		province: "to",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "17",
@@ -68,6 +194,8 @@ let data = [
 		location: "movida",
 		city: "veduggio",
 		province: "mb",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "18",
@@ -75,6 +203,8 @@ let data = [
 		location: "extreme disco",
 		city: "mombercelli",
 		province: "to",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "19",
@@ -82,6 +212,8 @@ let data = [
 		location: "movida",
 		city: "veduggio",
 		province: "mb",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "2",
@@ -89,6 +221,8 @@ let data = [
 		location: "touch club",
 		city: "casale monferrato",
 		province: "al",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "20",
@@ -96,6 +230,8 @@ let data = [
 		location: "summer party",
 		city: "spello",
 		province: "pg",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "21",
@@ -103,6 +239,8 @@ let data = [
 		location: "international summer dj festival",
 		city: "villagrande strisaili",
 		province: "og",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "22",
@@ -110,6 +248,8 @@ let data = [
 		location: "piazza san giovanni",
 		city: "alà dei sardi",
 		province: "tn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "23",
@@ -117,6 +257,8 @@ let data = [
 		location: "kapannone disco",
 		city: "casanova di rovegno",
 		province: "ge",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "24",
@@ -124,6 +266,8 @@ let data = [
 		location: "number one",
 		city: "gerbo di fossano",
 		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "25",
@@ -131,6 +275,8 @@ let data = [
 		location: "summer party",
 		city: "cavaglià",
 		province: "to",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "26",
@@ -138,6 +284,8 @@ let data = [
 		location: "paoli fest",
 		city: "semogo",
 		province: "so",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "27",
@@ -145,6 +293,8 @@ let data = [
 		location: "pro loco",
 		city: "limana",
 		province: "or",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "28",
@@ -152,6 +302,8 @@ let data = [
 		location: "mato",
 		city: "borgo valsugana",
 		province: "tn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "29",
@@ -159,6 +311,8 @@ let data = [
 		location: "international summer dj festival",
 		city: "s. teresa di gallura",
 		province: "ot",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "3",
@@ -166,6 +320,8 @@ let data = [
 		location: "international summer dj festival",
 		city: "tempio pausania",
 		province: "ot",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "30",
@@ -173,6 +329,8 @@ let data = [
 		location: "mirror",
 		city: "marsaglia",
 		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "31",
@@ -180,6 +338,8 @@ let data = [
 		location: "barabba",
 		city: "bricherasio",
 		province: "to",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "32",
@@ -187,6 +347,8 @@ let data = [
 		location: "hollywood",
 		city: "milano",
 		province: "mi",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "33",
@@ -194,6 +356,8 @@ let data = [
 		location: "time",
 		city: "milano",
 		province: "mi",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "34",
@@ -201,6 +365,8 @@ let data = [
 		location: "international summer dj festival",
 		city: "carmagna piemonte",
 		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "35",
@@ -208,6 +374,8 @@ let data = [
 		location: "taverna top sound",
 		city: "mantova",
 		province: "mn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "36",
@@ -215,6 +383,8 @@ let data = [
 		location: "number one event",
 		city: "pancalieri",
 		province: "to",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "37",
@@ -222,6 +392,8 @@ let data = [
 		location: "sonora disco club",
 		city: "roncadelle",
 		province: "bs",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "38",
@@ -229,6 +401,8 @@ let data = [
 		location: "sonora disco club",
 		city: "roncadelle",
 		province: "bs",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "39",
@@ -236,6 +410,8 @@ let data = [
 		location: "mirror",
 		city: "marsaglia",
 		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "4",
@@ -243,6 +419,8 @@ let data = [
 		location: "barabba",
 		city: "bricherasio",
 		province: "to",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "40",
@@ -250,6 +428,8 @@ let data = [
 		location: "oscar dei sapori",
 		city: "chiusa sclafani",
 		province: "pa",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "41",
@@ -257,6 +437,8 @@ let data = [
 		location: "snowland",
 		city: "livigno",
 		province: "so",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "42",
@@ -264,6 +446,8 @@ let data = [
 		location: "discoteca Mirror",
 		city: "marsaglia",
 		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "43",
@@ -271,6 +455,8 @@ let data = [
 		location: "musica che sposta event",
 		city: "cloz",
 		province: "tn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "44",
@@ -278,6 +464,8 @@ let data = [
 		location: "musica che sposta event",
 		city: "fiorano al serio",
 		province: "bg",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "45",
@@ -285,6 +473,8 @@ let data = [
 		location: "musica che sposta event",
 		city: "roncegno",
 		province: "tn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "46",
@@ -292,6 +482,8 @@ let data = [
 		location: "tamarrowland",
 		city: "cavour",
 		province: "to",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "47",
@@ -299,6 +491,8 @@ let data = [
 		location: "500 - radio number one",
 		city: "cavour",
 		province: "to",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "48",
@@ -306,6 +500,8 @@ let data = [
 		location: "number one event",
 		city: "cambiano",
 		province: "to",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "49",
@@ -313,6 +509,8 @@ let data = [
 		location: "musica che sposta event",
 		city: "veduggio",
 		province: "mb",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "5",
@@ -320,6 +518,8 @@ let data = [
 		location: "piazza 1° maggio",
 		city: "ravanusa",
 		province: "ag",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "50",
@@ -327,6 +527,8 @@ let data = [
 		location: "musica che sposta event",
 		city: "gattorna",
 		province: "ge",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "51",
@@ -334,6 +536,8 @@ let data = [
 		location: "summer party",
 		city: "cavaglià",
 		province: "to",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "52",
@@ -341,6 +545,8 @@ let data = [
 		location: "sax disco",
 		city: "castelsardo",
 		province: "ss",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "53",
@@ -348,6 +554,8 @@ let data = [
 		location: "musica che sposta event",
 		city: "pancaglieri",
 		province: "to",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "54",
@@ -355,6 +563,8 @@ let data = [
 		location: "musica che sposta event",
 		city: "moncrivello",
 		province: "vc",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "55",
@@ -362,6 +572,8 @@ let data = [
 		location: "discoteca mirror",
 		city: "marsaglia",
 		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "56",
@@ -369,6 +581,8 @@ let data = [
 		location: "touch club",
 		city: "casale monferrato",
 		province: "al",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "57",
@@ -376,6 +590,8 @@ let data = [
 		location: "piazza a cambiano",
 		city: "torino",
 		province: "to",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "58",
@@ -383,6 +599,8 @@ let data = [
 		location: "piazza a cavaglia",
 		city: "biella",
 		province: "bi",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "59",
@@ -390,6 +608,8 @@ let data = [
 		location: "piazza a moncrivello",
 		city: "vercelli",
 		province: "vc",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "6",
@@ -397,6 +617,8 @@ let data = [
 		location: "mirror",
 		city: "marsaglia",
 		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "60",
@@ -404,6 +626,8 @@ let data = [
 		location: "bolla 900",
 		city: "cloz",
 		province: "tn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "61",
@@ -411,6 +635,8 @@ let data = [
 		location: "discoteca milleluci",
 		city: "zavattarello",
 		province: "pv",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "62",
@@ -418,6 +644,8 @@ let data = [
 		location: "discoteca fase due",
 		city: "mogoro",
 		province: "or",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "63",
@@ -425,6 +653,8 @@ let data = [
 		location: "mega show",
 		city: "sondrio",
 		province: "so",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "64",
@@ -432,6 +662,8 @@ let data = [
 		location: "passo del tonale",
 		city: "trento",
 		province: "tn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "65",
@@ -439,6 +671,8 @@ let data = [
 		location: "Mirror Disco Club",
 		city: "marsaglia",
 		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "66",
@@ -446,6 +680,8 @@ let data = [
 		location: "Temus Club",
 		city: "Agno",
 		province: "Svizzera",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "67",
@@ -453,6 +689,8 @@ let data = [
 		location: "Colibrí Club",
 		city: "cuneo",
 		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "68",
@@ -460,6 +698,8 @@ let data = [
 		location: "Arabesk",
 		city: "Civita Castellana",
 		province: "vt",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "69",
@@ -467,6 +707,8 @@ let data = [
 		location: "Dorian Gray",
 		city: "Cadidavid",
 		province: "vr",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "7",
@@ -474,6 +716,8 @@ let data = [
 		location: "club modà",
 		city: "erba",
 		province: "co",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "70",
@@ -481,6 +725,8 @@ let data = [
 		location: "Mirror",
 		city: "Marsaglia",
 		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "71",
@@ -488,6 +734,8 @@ let data = [
 		location: "Woodstock",
 		city: "Bellinzona",
 		province: "ch",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "72",
@@ -495,6 +743,8 @@ let data = [
 		location: "TBA",
 		city: "TBA",
 		province: "TBA",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "73",
@@ -502,6 +752,8 @@ let data = [
 		location: "Gazebo",
 		city: "Canelli",
 		province: "at",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "74",
@@ -509,6 +761,8 @@ let data = [
 		location: "Open air Tula",
 		city: "Tula",
 		province: "ss",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "75",
@@ -516,6 +770,8 @@ let data = [
 		location: "TBA",
 		city: "TBA",
 		province: "TBA",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "76",
@@ -523,6 +779,8 @@ let data = [
 		location: "Disco Spiaggia",
 		city: "Baselga di Piné",
 		province: "tn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "77",
@@ -530,6 +788,8 @@ let data = [
 		location: "Paradise",
 		city: "Montereale Valcellina",
 		province: "pn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "78",
@@ -537,6 +797,8 @@ let data = [
 		location: "Open Air Lagnasco",
 		city: "Lagnasco",
 		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "79",
@@ -544,6 +806,8 @@ let data = [
 		location: "international summer dj festival",
 		city: "Aosta",
 		province: "ao",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "8",
@@ -551,6 +815,8 @@ let data = [
 		location: "rupe",
 		city: "mezzolombardo",
 		province: "tn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "80",
@@ -558,6 +824,8 @@ let data = [
 		location: "Open air Poschiavo",
 		city: "Poschiavo",
 		province: "ch",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "81",
@@ -565,6 +833,8 @@ let data = [
 		location: "Open air Moncrivelli",
 		city: "Moncrivelli",
 		province: "vc",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "82",
@@ -572,6 +842,8 @@ let data = [
 		location: "Open air Cavaglià",
 		city: "Cavaglià",
 		province: "bi",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "83",
@@ -579,6 +851,8 @@ let data = [
 		location: "Arabesk",
 		city: "Civita Castellana",
 		province: "VT",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "84",
@@ -586,6 +860,8 @@ let data = [
 		location: "Open Air Monastero Bormida",
 		city: "Monastero Bormida",
 		province: "at",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "85",
@@ -593,6 +869,8 @@ let data = [
 		location: "Open Air Celledizzo",
 		city: "Peio",
 		province: "tn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "86",
@@ -600,6 +878,8 @@ let data = [
 		location: "Open Air Ollolai",
 		city: "Ollolai",
 		province: "nu",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "87",
@@ -607,6 +887,8 @@ let data = [
 		location: "Open Air Murazzano",
 		city: "Murazzano",
 		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "88",
@@ -614,6 +896,8 @@ let data = [
 		location: "Open Air Bassano Romano",
 		city: "Bassano Romano",
 		province: "vt",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "89",
@@ -621,6 +905,8 @@ let data = [
 		location: "Open Air Oliena",
 		city: "Oliena",
 		province: "nu",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "9",
@@ -628,6 +914,8 @@ let data = [
 		location: "mirror",
 		city: "marsaglia",
 		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "90",
@@ -635,6 +923,8 @@ let data = [
 		location: "Open Air Escalaplano",
 		city: "Escalaplano",
 		province: "su",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "91",
@@ -642,6 +932,8 @@ let data = [
 		location: "King's",
 		city: "Jesolo",
 		province: "ve",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "92",
@@ -649,6 +941,8 @@ let data = [
 		location: "Open Air Aidomaggiore",
 		city: "Aidomaggiore",
 		province: "or",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "93",
@@ -656,13 +950,8 @@ let data = [
 		location: "Open Air Casera",
 		city: "Villanova Monteleone",
 		province: "ss",
-	},
-	{
-		id: "94",
-		date: "2022-09-09",
-		location: "Open Air Cardè",
-		city: "Cardè ",
-		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "95",
@@ -670,6 +959,8 @@ let data = [
 		location: "Open Air Mottalciata",
 		city: "Mottalciata",
 		province: "bi",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "96",
@@ -677,6 +968,8 @@ let data = [
 		location: "Open Air Soazza",
 		city: "Grigioni",
 		province: "ch",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "97",
@@ -684,6 +977,8 @@ let data = [
 		location: "Mirror",
 		city: "Marsaglia",
 		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "98",
@@ -691,12 +986,16 @@ let data = [
 		location: "Open Air Appendini",
 		city: "Appendini",
 		province: "to",
+		country: null,
+		cancelled: null,
 	},
 	{
 		id: "99",
-		date: "2022-11-26",
-		location: "TBA",
-		city: "TBA",
-		province: "tba",
+		date: "2022-11-19",
+		location: "Mirror",
+		city: "Marsaglia",
+		province: "cn",
+		country: null,
+		cancelled: null,
 	},
 ];

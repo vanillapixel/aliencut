@@ -713,6 +713,37 @@ const remixesData = [
 		],
 		paypalCode: `7XEZ5283PVL9N`,
 	},
+	{
+		id: 24,
+		date: {
+			month: "settembre",
+			year: 2022,
+		},
+		songs: [
+			{
+				id: "sep22-g1-s1",
+				artists: ["Kidd Keo, Dan Sanchez, Yay"],
+				title: "Corrido Espacial",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "sep22-g1-s2",
+				artists: ["Lucas Pittaman"],
+				title: "Le Chat Noir",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "sep22-g1-s3",
+				artists: ["King Africa"],
+				title: "Salta",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `WSTL8NYKWW7TA`,
+	},
 ];
 
 const TRACKS_DATA_LIMIT = remixesData.length;
