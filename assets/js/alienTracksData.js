@@ -744,6 +744,37 @@ const remixesData = [
 		],
 		paypalCode: `WSTL8NYKWW7TA`,
 	},
+	{
+		id: 25,
+		date: {
+			month: "ottobre",
+			year: 2022,
+		},
+		songs: [
+			{
+				id: "oct22-g1-s1",
+				artists: ["Liberato"],
+				title: "Partenope",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "oct22-g1-s2",
+				artists: ["Jules Gaia"],
+				title: "Glitz At The Ritz",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "oct22-g1-s3",
+				artists: ["Molella"],
+				title: "Easy People",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `K97BJ8BZVWA78`,
+	},
 ];
 
 const TRACKS_DATA_LIMIT = remixesData.length;
@@ -901,16 +932,15 @@ function filterAlienTrax({ year, searchTerm }) {
 	);
 	alienTraxPackContainers.forEach((container) => {
 		container.classList.add("section-container-row");
-		console.log(container);
 		const trackPacks = container.querySelectorAll(".vertical-card");
 		trackPacks.forEach((tracksPack) => {
 			const cardSongs = tracksPack.querySelector(".card-tracks-list");
 			if (searchTerm.length >= 3) {
-				container.style.display =
-					container.getAttribute("data-year") == year &&
-					cardSongs.textContent.toLowerCase().includes(searchTerm)
-						? "flex"
-						: "none";
+				tracksPack.style.display = cardSongs.textContent
+					.toLowerCase()
+					.includes(searchTerm)
+					? "flex"
+					: "none";
 				return;
 			}
 		});
