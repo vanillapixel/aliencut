@@ -1,7 +1,7 @@
 let data = [
 	{
 		id: "1",
-		date: "2019-01-05",
+		date: "05-01-2019",
 		location: "tenax",
 		city: "samugheo",
 		province: "or",
@@ -10,7 +10,7 @@ let data = [
 	},
 	{
 		id: "10",
-		date: "2019-04-07",
+		date: "07-04-2019",
 		location: "movida",
 		city: "veduggio",
 		province: "mb",
@@ -19,7 +19,7 @@ let data = [
 	},
 	{
 		id: "100",
-		date: "2022-12-03",
+		date: "03-12-2022",
 		location: "Gazebo",
 		city: "Canelli ",
 		province: "at",
@@ -28,7 +28,7 @@ let data = [
 	},
 	{
 		id: "101",
-		date: "2022-10-29",
+		date: "29-10-2022",
 		location: "Dorian Gray",
 		city: "Cadidavid",
 		province: "vr",
@@ -37,7 +37,7 @@ let data = [
 	},
 	{
 		id: "102",
-		date: "2022-12-07",
+		date: "07-12-2022",
 		location: "Albert",
 		city: "Fino Mornasco",
 		province: "co",
@@ -46,7 +46,7 @@ let data = [
 	},
 	{
 		id: "103",
-		date: "2023-01-14",
+		date: "14-01-2023",
 		location: "Gazana",
 		city: "Passo del Tonale",
 		province: "bs",
@@ -55,16 +55,7 @@ let data = [
 	},
 	{
 		id: "104",
-		date: "2022-09-08",
-		location: "Open Air Siurgus Donigala",
-		city: "Siurgus Donigala",
-		province: "su",
-		country: null,
-		cancelled: null,
-	},
-	{
-		id: "104",
-		date: "2023-02-04",
+		date: "04-02-2023",
 		location: "Milleluci",
 		city: "Zavattarello",
 		province: "pv",
@@ -72,8 +63,17 @@ let data = [
 		cancelled: null,
 	},
 	{
+		id: "104",
+		date: "08-09-2022",
+		location: "Open Air Siurgus Donigala",
+		city: "Siurgus Donigala",
+		province: "su",
+		country: null,
+		cancelled: null,
+	},
+	{
 		id: "105",
-		date: "2022-09-10",
+		date: "10-09-2022",
 		location: "Open Air Las Plassas",
 		city: "Las Plassas ",
 		province: "su",
@@ -82,7 +82,7 @@ let data = [
 	},
 	{
 		id: "106",
-		date: "2022-10-10",
+		date: "10-10-2022",
 		location: "Open Air Villasor",
 		city: "Villasor",
 		province: "su",
@@ -91,7 +91,7 @@ let data = [
 	},
 	{
 		id: "107",
-		date: "2022-10-15",
+		date: "15-10-2022",
 		location: "Open Air San Vito",
 		city: "San Vito",
 		province: "su",
@@ -100,7 +100,7 @@ let data = [
 	},
 	{
 		id: "108",
-		date: "2022-11-05",
+		date: "05-11-2022",
 		location: "Paradise Bissò",
 		city: "Montereale Valcellina",
 		province: "pn",
@@ -109,7 +109,7 @@ let data = [
 	},
 	{
 		id: "109",
-		date: "2022-11-12",
+		date: "12-11-2022",
 		location: "Tuttomele ",
 		city: "Cavour",
 		province: "to",
@@ -118,7 +118,7 @@ let data = [
 	},
 	{
 		id: "11",
-		date: "2019-04-27",
+		date: "27-04-2019",
 		location: "cis land",
 		city: "cis",
 		province: "tn",
@@ -127,7 +127,7 @@ let data = [
 	},
 	{
 		id: "110",
-		date: "2022-11-18",
+		date: "18-11-2022",
 		location: "Hotel Del Sole",
 		city: "Tronzano Vercellese",
 		province: "vc",
@@ -136,7 +136,7 @@ let data = [
 	},
 	{
 		id: "111",
-		date: "2022-11-26",
+		date: "26-11-2022",
 		location: "Polaris",
 		city: "Carate Brianza",
 		province: "mb",
@@ -144,8 +144,80 @@ let data = [
 		cancelled: null,
 	},
 	{
+		id: "112",
+		date: "16-12-2022",
+		location: "Nebiopoli",
+		city: "Chiasso",
+		province: "ch",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "113",
+		date: "30-12-2022",
+		location: "Abri du ski",
+		city: "Champoluc",
+		province: "ao",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "114",
+		date: "31-12-2022",
+		location: "Piazza a Dorgali",
+		city: "Dorgali",
+		province: "nu",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "115",
+		date: "05-01-2023",
+		location: "Barabbba",
+		city: "Brischerasio",
+		province: "to",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "116",
+		date: "07-01-2023",
+		location: "Arabesk",
+		city: "Civita Castellana",
+		province: "vt",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "117",
+		date: "14-01-2023",
+		location: "Gazana Bar",
+		city: "Passo del tonale",
+		province: "tn",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "118",
+		date: "21-01-2023",
+		location: "After",
+		city: "Cloz",
+		province: "tn",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "119",
+		date: "28-01-2023",
+		location: "Mirror",
+		city: "Marsaglia",
+		province: "cn",
+		country: null,
+		cancelled: null,
+	},
+	{
 		id: "12",
-		date: "2019-05-24",
+		date: "24-05-2019",
 		location: "number one",
 		city: "piasco",
 		province: "cn",
@@ -153,8 +225,62 @@ let data = [
 		cancelled: null,
 	},
 	{
+		id: "120",
+		date: "02-04-2023",
+		location: "Milleluci",
+		city: "Pavia",
+		province: "pv",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "121",
+		date: "04-03-2023",
+		location: "Polaris",
+		city: "Carate Brianza",
+		province: "mb",
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "121",
+		date: "18-02-2023",
+		location: "Tba",
+		city: null,
+		province: null,
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "122",
+		date: "18-03-2023",
+		location: "Tba",
+		city: null,
+		province: null,
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "123",
+		date: "29-04-2023",
+		location: "Tba",
+		city: null,
+		province: null,
+		country: null,
+		cancelled: null,
+	},
+	{
+		id: "124",
+		date: "24-06-2023",
+		location: "Piazza a Lagnasco",
+		city: "Lagnasco",
+		province: "cn",
+		country: null,
+		cancelled: null,
+	},
+	{
 		id: "13",
-		date: "2019-05-31",
+		date: "31-05-2019",
 		location: "musica che sposta event",
 		city: "fiorano al serio",
 		province: "bg",
@@ -163,7 +289,7 @@ let data = [
 	},
 	{
 		id: "14",
-		date: "2019-06-15",
+		date: "15-06-2019",
 		location: "sand music festival",
 		city: "carmagna piemonte",
 		province: "cn",
@@ -172,7 +298,7 @@ let data = [
 	},
 	{
 		id: "15",
-		date: "2019-06-29",
+		date: "29-06-2019",
 		location: "international summer dj festival",
 		city: "badesi",
 		province: "ot",
@@ -181,7 +307,7 @@ let data = [
 	},
 	{
 		id: "16",
-		date: "2019-07-05",
+		date: "05-07-2019",
 		location: "number one",
 		city: "cantogno di villafranca",
 		province: "to",
@@ -190,7 +316,7 @@ let data = [
 	},
 	{
 		id: "17",
-		date: "2019-07-10",
+		date: "10-07-2019",
 		location: "movida",
 		city: "veduggio",
 		province: "mb",
@@ -199,7 +325,7 @@ let data = [
 	},
 	{
 		id: "18",
-		date: "2019-07-13",
+		date: "13-07-2019",
 		location: "extreme disco",
 		city: "mombercelli",
 		province: "to",
@@ -208,7 +334,7 @@ let data = [
 	},
 	{
 		id: "19",
-		date: "2019-07-20",
+		date: "20-07-2019",
 		location: "movida",
 		city: "veduggio",
 		province: "mb",
@@ -217,7 +343,7 @@ let data = [
 	},
 	{
 		id: "2",
-		date: "2019-01-26",
+		date: "26-01-2019",
 		location: "touch club",
 		city: "casale monferrato",
 		province: "al",
@@ -226,7 +352,7 @@ let data = [
 	},
 	{
 		id: "20",
-		date: "2019-08-01",
+		date: "01-08-2019",
 		location: "summer party",
 		city: "spello",
 		province: "pg",
@@ -235,7 +361,7 @@ let data = [
 	},
 	{
 		id: "21",
-		date: "2019-08-03",
+		date: "03-08-2019",
 		location: "international summer dj festival",
 		city: "villagrande strisaili",
 		province: "og",
@@ -244,7 +370,7 @@ let data = [
 	},
 	{
 		id: "22",
-		date: "2019-08-03",
+		date: "03-08-2019",
 		location: "piazza san giovanni",
 		city: "alà dei sardi",
 		province: "tn",
@@ -253,7 +379,7 @@ let data = [
 	},
 	{
 		id: "23",
-		date: "2019-08-10",
+		date: "10-08-2019",
 		location: "kapannone disco",
 		city: "casanova di rovegno",
 		province: "ge",
@@ -262,7 +388,7 @@ let data = [
 	},
 	{
 		id: "24",
-		date: "2019-08-15",
+		date: "15-08-2019",
 		location: "number one",
 		city: "gerbo di fossano",
 		province: "cn",
@@ -271,7 +397,7 @@ let data = [
 	},
 	{
 		id: "25",
-		date: "2019-08-15",
+		date: "15-08-2019",
 		location: "summer party",
 		city: "cavaglià",
 		province: "to",
@@ -280,7 +406,7 @@ let data = [
 	},
 	{
 		id: "26",
-		date: "2019-08-17",
+		date: "17-08-2019",
 		location: "paoli fest",
 		city: "semogo",
 		province: "so",
@@ -289,7 +415,7 @@ let data = [
 	},
 	{
 		id: "27",
-		date: "2019-08-21",
+		date: "21-08-2019",
 		location: "pro loco",
 		city: "limana",
 		province: "or",
@@ -298,7 +424,7 @@ let data = [
 	},
 	{
 		id: "28",
-		date: "2019-09-07",
+		date: "07-09-2019",
 		location: "mato",
 		city: "borgo valsugana",
 		province: "tn",
@@ -307,7 +433,7 @@ let data = [
 	},
 	{
 		id: "29",
-		date: "2019-10-12",
+		date: "12-10-2019",
 		location: "international summer dj festival",
 		city: "s. teresa di gallura",
 		province: "ot",
@@ -316,7 +442,7 @@ let data = [
 	},
 	{
 		id: "3",
-		date: "2019-01-26",
+		date: "26-01-2019",
 		location: "international summer dj festival",
 		city: "tempio pausania",
 		province: "ot",
@@ -325,7 +451,7 @@ let data = [
 	},
 	{
 		id: "30",
-		date: "2019-10-31",
+		date: "31-10-2019",
 		location: "mirror",
 		city: "marsaglia",
 		province: "cn",
@@ -334,7 +460,7 @@ let data = [
 	},
 	{
 		id: "31",
-		date: "2019-11-08",
+		date: "08-11-2019",
 		location: "barabba",
 		city: "bricherasio",
 		province: "to",
@@ -343,7 +469,7 @@ let data = [
 	},
 	{
 		id: "32",
-		date: "2019-11-27",
+		date: "27-11-2019",
 		location: "hollywood",
 		city: "milano",
 		province: "mi",
@@ -352,7 +478,7 @@ let data = [
 	},
 	{
 		id: "33",
-		date: "2019-12-21",
+		date: "21-12-2019",
 		location: "time",
 		city: "milano",
 		province: "mi",
@@ -361,7 +487,7 @@ let data = [
 	},
 	{
 		id: "34",
-		date: "2019-12-31",
+		date: "31-12-2019",
 		location: "international summer dj festival",
 		city: "carmagna piemonte",
 		province: "cn",
@@ -370,7 +496,7 @@ let data = [
 	},
 	{
 		id: "35",
-		date: "2020-01-10",
+		date: "10-01-2020",
 		location: "taverna top sound",
 		city: "mantova",
 		province: "mn",
@@ -379,7 +505,7 @@ let data = [
 	},
 	{
 		id: "36",
-		date: "2020-01-10",
+		date: "10-01-2020",
 		location: "number one event",
 		city: "pancalieri",
 		province: "to",
@@ -388,7 +514,7 @@ let data = [
 	},
 	{
 		id: "37",
-		date: "2020-01-11",
+		date: "11-01-2020",
 		location: "sonora disco club",
 		city: "roncadelle",
 		province: "bs",
@@ -397,7 +523,7 @@ let data = [
 	},
 	{
 		id: "38",
-		date: "2020-01-26",
+		date: "26-01-2020",
 		location: "sonora disco club",
 		city: "roncadelle",
 		province: "bs",
@@ -406,7 +532,7 @@ let data = [
 	},
 	{
 		id: "39",
-		date: "2020-03-07",
+		date: "07-03-2020",
 		location: "mirror",
 		city: "marsaglia",
 		province: "cn",
@@ -415,7 +541,7 @@ let data = [
 	},
 	{
 		id: "4",
-		date: "2019-02-23",
+		date: "23-02-2019",
 		location: "barabba",
 		city: "bricherasio",
 		province: "to",
@@ -424,7 +550,7 @@ let data = [
 	},
 	{
 		id: "40",
-		date: "2020-03-14",
+		date: "14-03-2020",
 		location: "oscar dei sapori",
 		city: "chiusa sclafani",
 		province: "pa",
@@ -433,7 +559,7 @@ let data = [
 	},
 	{
 		id: "41",
-		date: "2020-03-28",
+		date: "28-03-2020",
 		location: "snowland",
 		city: "livigno",
 		province: "so",
@@ -442,7 +568,7 @@ let data = [
 	},
 	{
 		id: "42",
-		date: "2020-05-16",
+		date: "16-05-2020",
 		location: "discoteca Mirror",
 		city: "marsaglia",
 		province: "cn",
@@ -451,7 +577,7 @@ let data = [
 	},
 	{
 		id: "43",
-		date: "2020-05-30",
+		date: "30-05-2020",
 		location: "musica che sposta event",
 		city: "cloz",
 		province: "tn",
@@ -460,7 +586,7 @@ let data = [
 	},
 	{
 		id: "44",
-		date: "2020-05-31",
+		date: "31-05-2020",
 		location: "musica che sposta event",
 		city: "fiorano al serio",
 		province: "bg",
@@ -469,7 +595,7 @@ let data = [
 	},
 	{
 		id: "45",
-		date: "2020-06-13",
+		date: "13-06-2020",
 		location: "musica che sposta event",
 		city: "roncegno",
 		province: "tn",
@@ -478,7 +604,7 @@ let data = [
 	},
 	{
 		id: "46",
-		date: "2020-06-27",
+		date: "27-06-2020",
 		location: "tamarrowland",
 		city: "cavour",
 		province: "to",
@@ -487,7 +613,7 @@ let data = [
 	},
 	{
 		id: "47",
-		date: "2020-06-27",
+		date: "27-06-2020",
 		location: "500 - radio number one",
 		city: "cavour",
 		province: "to",
@@ -496,7 +622,7 @@ let data = [
 	},
 	{
 		id: "48",
-		date: "2020-07-04",
+		date: "04-07-2020",
 		location: "number one event",
 		city: "cambiano",
 		province: "to",
@@ -505,7 +631,7 @@ let data = [
 	},
 	{
 		id: "49",
-		date: "2020-07-10",
+		date: "10-07-2020",
 		location: "musica che sposta event",
 		city: "veduggio",
 		province: "mb",
@@ -514,7 +640,7 @@ let data = [
 	},
 	{
 		id: "5",
-		date: "2019-03-04",
+		date: "04-03-2019",
 		location: "piazza 1° maggio",
 		city: "ravanusa",
 		province: "ag",
@@ -523,7 +649,7 @@ let data = [
 	},
 	{
 		id: "50",
-		date: "2020-07-25",
+		date: "25-07-2020",
 		location: "musica che sposta event",
 		city: "gattorna",
 		province: "ge",
@@ -532,7 +658,7 @@ let data = [
 	},
 	{
 		id: "51",
-		date: "2020-08-07",
+		date: "07-08-2020",
 		location: "summer party",
 		city: "cavaglià",
 		province: "to",
@@ -541,7 +667,7 @@ let data = [
 	},
 	{
 		id: "52",
-		date: "2020-08-27",
+		date: "27-08-2020",
 		location: "sax disco",
 		city: "castelsardo",
 		province: "ss",
@@ -550,7 +676,7 @@ let data = [
 	},
 	{
 		id: "53",
-		date: "2020-09-19",
+		date: "19-09-2020",
 		location: "musica che sposta event",
 		city: "pancaglieri",
 		province: "to",
@@ -559,7 +685,7 @@ let data = [
 	},
 	{
 		id: "54",
-		date: "2020-09-25",
+		date: "25-09-2020",
 		location: "musica che sposta event",
 		city: "moncrivello",
 		province: "vc",
@@ -568,7 +694,7 @@ let data = [
 	},
 	{
 		id: "55",
-		date: "2020-10-31",
+		date: "31-10-2020",
 		location: "discoteca mirror",
 		city: "marsaglia",
 		province: "cn",
@@ -577,7 +703,7 @@ let data = [
 	},
 	{
 		id: "56",
-		date: "2021-02-27",
+		date: "27-02-2021",
 		location: "touch club",
 		city: "casale monferrato",
 		province: "al",
@@ -586,7 +712,7 @@ let data = [
 	},
 	{
 		id: "57",
-		date: "2021-07-03",
+		date: "03-07-2021",
 		location: "piazza a cambiano",
 		city: "torino",
 		province: "to",
@@ -595,7 +721,7 @@ let data = [
 	},
 	{
 		id: "58",
-		date: "2021-08-13",
+		date: "13-08-2021",
 		location: "piazza a cavaglia",
 		city: "biella",
 		province: "bi",
@@ -604,7 +730,7 @@ let data = [
 	},
 	{
 		id: "59",
-		date: "2021-09-24",
+		date: "24-09-2021",
 		location: "piazza a moncrivello",
 		city: "vercelli",
 		province: "vc",
@@ -613,7 +739,7 @@ let data = [
 	},
 	{
 		id: "6",
-		date: "2019-03-08",
+		date: "08-03-2019",
 		location: "mirror",
 		city: "marsaglia",
 		province: "cn",
@@ -622,7 +748,7 @@ let data = [
 	},
 	{
 		id: "60",
-		date: "2021-11-21",
+		date: "21-11-2021",
 		location: "bolla 900",
 		city: "cloz",
 		province: "tn",
@@ -631,7 +757,7 @@ let data = [
 	},
 	{
 		id: "61",
-		date: "2021-11-27",
+		date: "27-11-2021",
 		location: "discoteca milleluci",
 		city: "zavattarello",
 		province: "pv",
@@ -640,7 +766,7 @@ let data = [
 	},
 	{
 		id: "62",
-		date: "2021-12-07",
+		date: "07-12-2021",
 		location: "discoteca fase due",
 		city: "mogoro",
 		province: "or",
@@ -649,7 +775,7 @@ let data = [
 	},
 	{
 		id: "63",
-		date: "2021-12-24",
+		date: "24-12-2021",
 		location: "mega show",
 		city: "sondrio",
 		province: "so",
@@ -658,7 +784,7 @@ let data = [
 	},
 	{
 		id: "64",
-		date: "2022-01-15",
+		date: "15-01-2022",
 		location: "passo del tonale",
 		city: "trento",
 		province: "tn",
@@ -667,7 +793,7 @@ let data = [
 	},
 	{
 		id: "65",
-		date: "2022-03-05",
+		date: "05-03-2022",
 		location: "Mirror Disco Club",
 		city: "marsaglia",
 		province: "cn",
@@ -676,7 +802,7 @@ let data = [
 	},
 	{
 		id: "66",
-		date: "2022-03-18",
+		date: "18-03-2022",
 		location: "Temus Club",
 		city: "Agno",
 		province: "Svizzera",
@@ -685,7 +811,7 @@ let data = [
 	},
 	{
 		id: "67",
-		date: "2022-03-19",
+		date: "19-03-2022",
 		location: "Colibrí Club",
 		city: "cuneo",
 		province: "cn",
@@ -694,7 +820,7 @@ let data = [
 	},
 	{
 		id: "68",
-		date: "2022-04-09",
+		date: "09-04-2022",
 		location: "Arabesk",
 		city: "Civita Castellana",
 		province: "vt",
@@ -703,7 +829,7 @@ let data = [
 	},
 	{
 		id: "69",
-		date: "2022-04-16",
+		date: "16-04-2022",
 		location: "Dorian Gray",
 		city: "Cadidavid",
 		province: "vr",
@@ -712,7 +838,7 @@ let data = [
 	},
 	{
 		id: "7",
-		date: "2019-03-23",
+		date: "23-03-2019",
 		location: "club modà",
 		city: "erba",
 		province: "co",
@@ -721,7 +847,7 @@ let data = [
 	},
 	{
 		id: "70",
-		date: "2022-04-16",
+		date: "16-04-2022",
 		location: "Mirror",
 		city: "Marsaglia",
 		province: "cn",
@@ -730,7 +856,7 @@ let data = [
 	},
 	{
 		id: "71",
-		date: "2022-04-30",
+		date: "30-04-2022",
 		location: "Woodstock",
 		city: "Bellinzona",
 		province: "ch",
@@ -739,7 +865,7 @@ let data = [
 	},
 	{
 		id: "72",
-		date: "2022-05-07",
+		date: "07-05-2022",
 		location: "TBA",
 		city: "TBA",
 		province: "TBA",
@@ -748,7 +874,7 @@ let data = [
 	},
 	{
 		id: "73",
-		date: "2022-05-14",
+		date: "14-05-2022",
 		location: "Gazebo",
 		city: "Canelli",
 		province: "at",
@@ -757,7 +883,7 @@ let data = [
 	},
 	{
 		id: "74",
-		date: "2022-05-20",
+		date: "20-05-2022",
 		location: "Open air Tula",
 		city: "Tula",
 		province: "ss",
@@ -766,7 +892,7 @@ let data = [
 	},
 	{
 		id: "75",
-		date: "2022-05-28",
+		date: "28-05-2022",
 		location: "TBA",
 		city: "TBA",
 		province: "TBA",
@@ -775,7 +901,7 @@ let data = [
 	},
 	{
 		id: "76",
-		date: "2022-06-01",
+		date: "01-06-2022",
 		location: "Disco Spiaggia",
 		city: "Baselga di Piné",
 		province: "tn",
@@ -784,7 +910,7 @@ let data = [
 	},
 	{
 		id: "77",
-		date: "2022-06-04",
+		date: "04-06-2022",
 		location: "Paradise",
 		city: "Montereale Valcellina",
 		province: "pn",
@@ -793,7 +919,7 @@ let data = [
 	},
 	{
 		id: "78",
-		date: "2022-06-25",
+		date: "25-06-2022",
 		location: "Open Air Lagnasco",
 		city: "Lagnasco",
 		province: "cn",
@@ -802,7 +928,7 @@ let data = [
 	},
 	{
 		id: "79",
-		date: "2022-07-16",
+		date: "16-07-2022",
 		location: "international summer dj festival",
 		city: "Aosta",
 		province: "ao",
@@ -811,7 +937,7 @@ let data = [
 	},
 	{
 		id: "8",
-		date: "2019-03-30",
+		date: "30-03-2019",
 		location: "rupe",
 		city: "mezzolombardo",
 		province: "tn",
@@ -820,7 +946,7 @@ let data = [
 	},
 	{
 		id: "80",
-		date: "2022-07-30",
+		date: "30-07-2022",
 		location: "Open air Poschiavo",
 		city: "Poschiavo",
 		province: "ch",
@@ -829,7 +955,7 @@ let data = [
 	},
 	{
 		id: "81",
-		date: "2022-08-06",
+		date: "06-08-2022",
 		location: "Open air Moncrivelli",
 		city: "Moncrivelli",
 		province: "vc",
@@ -838,7 +964,7 @@ let data = [
 	},
 	{
 		id: "82",
-		date: "2022-08-12",
+		date: "12-08-2022",
 		location: "Open air Cavaglià",
 		city: "Cavaglià",
 		province: "bi",
@@ -847,7 +973,7 @@ let data = [
 	},
 	{
 		id: "83",
-		date: "2022-08-27",
+		date: "27-08-2022",
 		location: "Arabesk",
 		city: "Civita Castellana",
 		province: "VT",
@@ -856,7 +982,7 @@ let data = [
 	},
 	{
 		id: "84",
-		date: "2022-07-29",
+		date: "29-07-2022",
 		location: "Open Air Monastero Bormida",
 		city: "Monastero Bormida",
 		province: "at",
@@ -865,7 +991,7 @@ let data = [
 	},
 	{
 		id: "85",
-		date: "2022-08-05",
+		date: "05-08-2022",
 		location: "Open Air Celledizzo",
 		city: "Peio",
 		province: "tn",
@@ -874,7 +1000,7 @@ let data = [
 	},
 	{
 		id: "86",
-		date: "2022-08-10",
+		date: "10-08-2022",
 		location: "Open Air Ollolai",
 		city: "Ollolai",
 		province: "nu",
@@ -883,7 +1009,7 @@ let data = [
 	},
 	{
 		id: "87",
-		date: "2022-08-12",
+		date: "12-08-2022",
 		location: "Open Air Murazzano",
 		city: "Murazzano",
 		province: "cn",
@@ -892,7 +1018,7 @@ let data = [
 	},
 	{
 		id: "88",
-		date: "2022-08-14",
+		date: "14-08-2022",
 		location: "Open Air Bassano Romano",
 		city: "Bassano Romano",
 		province: "vt",
@@ -901,7 +1027,7 @@ let data = [
 	},
 	{
 		id: "89",
-		date: "2022-08-19",
+		date: "19-08-2022",
 		location: "Open Air Oliena",
 		city: "Oliena",
 		province: "nu",
@@ -910,7 +1036,7 @@ let data = [
 	},
 	{
 		id: "9",
-		date: "2019-04-07",
+		date: "07-04-2019",
 		location: "mirror",
 		city: "marsaglia",
 		province: "cn",
@@ -919,7 +1045,7 @@ let data = [
 	},
 	{
 		id: "90",
-		date: "2022-08-20",
+		date: "20-08-2022",
 		location: "Open Air Escalaplano",
 		city: "Escalaplano",
 		province: "su",
@@ -928,7 +1054,7 @@ let data = [
 	},
 	{
 		id: "91",
-		date: "2022-08-23",
+		date: "23-08-2022",
 		location: "King's",
 		city: "Jesolo",
 		province: "ve",
@@ -937,7 +1063,7 @@ let data = [
 	},
 	{
 		id: "92",
-		date: "2022-08-28",
+		date: "28-08-2022",
 		location: "Open Air Aidomaggiore",
 		city: "Aidomaggiore",
 		province: "or",
@@ -946,7 +1072,7 @@ let data = [
 	},
 	{
 		id: "93",
-		date: "2022-08-29",
+		date: "29-08-2022",
 		location: "Open Air Casera",
 		city: "Villanova Monteleone",
 		province: "ss",
@@ -955,7 +1081,7 @@ let data = [
 	},
 	{
 		id: "95",
-		date: "2022-09-16",
+		date: "16-09-2022",
 		location: "Open Air Mottalciata",
 		city: "Mottalciata",
 		province: "bi",
@@ -964,7 +1090,7 @@ let data = [
 	},
 	{
 		id: "96",
-		date: "2022-09-17",
+		date: "17-09-2022",
 		location: "Open Air Soazza",
 		city: "Grigioni",
 		province: "ch",
@@ -973,7 +1099,7 @@ let data = [
 	},
 	{
 		id: "97",
-		date: "2022-09-24",
+		date: "24-09-2022",
 		location: "Mirror",
 		city: "Marsaglia",
 		province: "cn",
@@ -982,7 +1108,7 @@ let data = [
 	},
 	{
 		id: "98",
-		date: "2022-09-30",
+		date: "30-09-2022",
 		location: "Open Air Appendini",
 		city: "Appendini",
 		province: "to",
@@ -991,7 +1117,7 @@ let data = [
 	},
 	{
 		id: "99",
-		date: "2022-11-19",
+		date: "19-11-2022",
 		location: "Mirror",
 		city: "Marsaglia",
 		province: "cn",

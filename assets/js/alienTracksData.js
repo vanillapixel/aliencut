@@ -775,6 +775,37 @@ const remixesData = [
 		],
 		paypalCode: `K97BJ8BZVWA78`,
 	},
+	{
+		id: 26,
+		date: {
+			month: "novembre",
+			year: 2022,
+		},
+		songs: [
+			{
+				id: "oct22-g1-s1",
+				artists: ["Rkomi, Sfera Ebbasta"],
+				title: "Nuovo Range",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "oct22-g1-s2",
+				artists: ["Gigi D'agostino"],
+				title: "Pioggia e sole",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "oct22-g1-s3",
+				artists: ["Nathan Evans"],
+				title: "Wellerman",
+				remixArtists: ["Alien Cut, Why not"],
+				link: "",
+			},
+		],
+		paypalCode: `T64U8M5YCW2U4`,
+	},
 ];
 
 const TRACKS_DATA_LIMIT = remixesData.length;

@@ -30,19 +30,37 @@ function processData() {
 const eventsContainer = document.querySelector(".events");
 
 function sortData() {
-	data.sort((a, b) => (a.date > b.date ? 1 : b.date > a.date ? -1 : 0));
+	data.sort((a, b) =>
+		a.date.split("-").reverse().join("-") >
+		b.date.split("-").reverse().join("-")
+			? 1
+			: b.date.split("-").reverse().join("-") >
+			  a.date.split("-").reverse().join("-")
+			? -1
+			: 0
+	);
 	trimmeredData = data.slice(-EVENTS_DATA_LIMIT);
 	// filter per current year
 	// const currentYear = new Date();
 	// data = data.filter((x) => x.date.includes(currentYear.getFullYear()));
 }
+function monthNumberToName(monthNumber) {
+	const date = new Date();
+	date.setMonth(monthNumber - 1);
+
+	return date.toLocaleString("it-IT", {
+		month: "long",
+	});
+}
 
 function createElementsFromData() {
 	trimmeredData.forEach((event) => {
 		const { date, city, province, location } = event;
-		const formattedDate = new Date(date);
 		const newDate = document.createElement("li");
 		newDate.classList.add("event");
+		const day = date.split("-")[0];
+		const month = monthNumberToName(date.split("-")[1]);
+		const year = date.split("-")[2];
 
 		if (event.status === "cancelled") {
 			newDate.classList.add("cancelled");
@@ -50,24 +68,24 @@ function createElementsFromData() {
 			newDate.classList.add("next-event");
 		}
 		newDate.innerHTML = `
-  <div class="event-details" data-year="${formattedDate.getFullYear()}">
+  <div class="event-details" data-year="${year}">
     <h4 class="date">
-    <p class="day">${
-			formattedDate.getDate() > 9
-				? formattedDate.getDate()
-				: "0" + formattedDate.getDate()
-		}</p>
-    <p class="month">${new Intl.DateTimeFormat("it-IT", {
-			month: "short",
-		}).format(formattedDate)}</p>
+    <p class="day">${day}</p>
+    <p class="month">${month}</p>
     </h4>
     </div>
     <div class="location-wrapper">
       <div class="location-container">
-        <h3><span class="medium-text">@</span> ${location}</h3>
+        <h3><span class="medium-text">@</span> ${
+					location
+						? location.toLowerCase() === "tba"
+							? "To be announced"
+							: location
+						: ""
+				}</h3>
         <h5 class="city">
-          <p class="comune">${city}</p>
-          <p class="provincia">(${province})</p>
+          <p class="comune">${city ? city : ""}</p>
+          <p class="provincia">${province ? `(${province})` : ""}</p>
         </h5>
       </div>
     </div>  
