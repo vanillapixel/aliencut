@@ -8,7 +8,7 @@ function getClosestDate() {
 	const today = new Date();
 	let closestDate = Infinity;
 	data.forEach((event) => {
-		let date = new Date(event.date);
+		let date = new Date(formatDate(event.date));
 		if (
 			date >= today &&
 			(date < new Date(closestDate) || date < closestDate) &&
@@ -29,13 +29,15 @@ function processData() {
 
 const eventsContainer = document.querySelector(".events");
 
+function formatDate(date) {
+	return date.split("-").reverse().join("-");
+}
+
 function sortData() {
 	data.sort((a, b) =>
-		a.date.split("-").reverse().join("-") >
-		b.date.split("-").reverse().join("-")
+		formatDate(a.date) > formatDate(b.date)
 			? 1
-			: b.date.split("-").reverse().join("-") >
-			  a.date.split("-").reverse().join("-")
+			: formatDate(b.date) > formatDate(a.date)
 			? -1
 			: 0
 	);

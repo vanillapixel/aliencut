@@ -984,7 +984,13 @@ function filterAlienTrax({ year, searchTerm }) {
 	});
 }
 
-const DEFAULT_FILTERS = { year: new Date().getFullYear(), searchTerm: "" };
+const DEFAULT_FILTERS = {
+	year:
+		remixesData.filter((x) => x.date.year == 2023).length > 0
+			? new Date().getFullYear()
+			: new Date().getFullYear() - 1,
+	searchTerm: "",
+};
 
 let filters = DEFAULT_FILTERS;
 
@@ -1000,9 +1006,7 @@ years.forEach((year, id) => {
 	const option = document.createElement("option");
 	option.value = year;
 	option.textContent = year;
-	year === new Date().getFullYear()
-		? option.setAttribute("selected", true)
-		: null;
+	year === DEFAULT_FILTERS.year ? option.setAttribute("selected", true) : null;
 	dateFilter.appendChild(option);
 });
 
