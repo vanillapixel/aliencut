@@ -783,21 +783,21 @@ const remixesData = [
 		},
 		songs: [
 			{
-				id: "oct22-g1-s1",
+				id: "nov22-g1-s1",
 				artists: ["Rkomi, Sfera Ebbasta"],
 				title: "Nuovo Range",
 				remixArtists: ["Alien Cut"],
 				link: "",
 			},
 			{
-				id: "oct22-g1-s2",
+				id: "nov22-g1-s2",
 				artists: ["Gigi D'agostino"],
 				title: "Pioggia e sole",
 				remixArtists: ["Alien Cut"],
 				link: "",
 			},
 			{
-				id: "oct22-g1-s3",
+				id: "nov22-g1-s3",
 				artists: ["Nathan Evans"],
 				title: "Wellerman",
 				remixArtists: ["Alien Cut, Why not"],
@@ -805,6 +805,37 @@ const remixesData = [
 			},
 		],
 		paypalCode: `T64U8M5YCW2U4`,
+	},
+	{
+		id: 27,
+		date: {
+			month: "dicembre",
+			year: 2022,
+		},
+		songs: [
+			{
+				id: "dec22-g1-s1",
+				artists: ["Juan Magan"],
+				title: "Bora Bora",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "dec22-g1-s2",
+				artists: ["Lou Dalfin"],
+				title: "Seguida del Camisards",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "dec22-g1-s3",
+				artists: ["Eva Vulgaris feat. Franchino"],
+				title: "Bastard Ben",
+				remixArtists: ["Alien Cut, Why not"],
+				link: "",
+			},
+		],
+		paypalCode: `JLEYFP4UQDQAJ`,
 	},
 ];
 
