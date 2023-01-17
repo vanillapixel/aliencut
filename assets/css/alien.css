@@ -141,8 +141,8 @@ ul {
   margin: 0;
 }
 
-.new-badge:after {
-  content: "NEW";
+.badge:after {
+  content: attr(data-badge);
   right: 0;
   top: 0%;
   position: absolute;

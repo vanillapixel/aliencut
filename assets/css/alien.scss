@@ -167,8 +167,8 @@ ul {
 	margin: 0;
 }
 
-.new-badge:after {
-	content: "NEW";
+.badge:after {
+	content: attr(data-badge);
 	right: 0;
 	top: 0%;
 	position: absolute;
@@ -856,7 +856,7 @@ video {
 	justify-content: center;
 	padding: 3rem 5rem;
 	margin: auto;
-	border: 2px solid $main-color  !important;
+	border: 2px solid $main-color !important;
 	cursor: pointer;
 	transition: 1s;
 	font-family: play;
@@ -1834,7 +1834,7 @@ video {
 		width: auto;
 		padding: 20px 20%;
 		margin: auto;
-		border: 2px solid $main-color  !important;
+		border: 2px solid $main-color !important;
 		cursor: pointer;
 		transition: 1s;
 		font-family: play;

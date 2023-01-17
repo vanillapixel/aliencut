@@ -834,8 +834,16 @@ const remixesData = [
 				remixArtists: ["Alien Cut, Why not"],
 				link: "",
 			},
+			{
+				id: "dec22-g1-s4",
+				artists: ["Nooran Sisters"],
+				title: "Patakha Guddi",
+				remixArtists: [" Seaska"],
+				link: "",
+			},
 		],
 		paypalCode: `JLEYFP4UQDQAJ`,
+		special: "Traccia bonus!",
 	},
 ];
 
@@ -862,6 +870,8 @@ function trackCheckout(trackInfo) {
 	const {
 		paypalCode,
 		songs,
+		price = 30,
+		special,
 		date: { month, year },
 	} = trackInfo;
 	let tracks = "";
@@ -884,7 +894,7 @@ function trackCheckout(trackInfo) {
 					<span class="big-text secondary-text-color">${year}</span>
 				</span>
 				<p class="big-text">
-					€30
+					${price}€
 				</p>
 			</div>
 		</div>
@@ -919,13 +929,16 @@ function trackCheckout(trackInfo) {
 }
 
 function createTracksPackageCard(trackInfo, newTracksPack = false) {
-	const month = trackInfo.date.month;
-	const year = trackInfo.date.year;
-	const songs = trackInfo.songs;
+	const {
+		songs,
+		price = 30,
+		special,
+		date: { month, year },
+	} = trackInfo;
 	let tracksListHtml = "";
 	const tracksPackPurchaseButton = document.createElement("button");
 	tracksPackPurchaseButton.classList.add("cta-button", "pulse");
-	tracksPackPurchaseButton.textContent = "Acquista pacchetto - 30€";
+	tracksPackPurchaseButton.textContent = `Acquista pacchetto - ${price}€`;
 	tracksPackPurchaseButton.onclick = () => trackCheckout(trackInfo);
 	songs.forEach((song) => {
 		const { title, artists, remixArtists } = song;
@@ -937,10 +950,15 @@ function createTracksPackageCard(trackInfo, newTracksPack = false) {
 	});
 
 	const tracksPackCard = document.createElement("div");
+	let tracksPackCardBadge;
 	tracksPackCard.dataset.month = month;
 	tracksPackCard.classList.add("vertical-card");
-	if (newTracksPack) tracksPackCard.classList.add("new-badge");
-
+	if (newTracksPack) tracksPackCardBadge = "New";
+	if (special) tracksPackCardBadge = special;
+	if (tracksPackCardBadge) {
+		tracksPackCard.setAttribute("data-badge", tracksPackCardBadge);
+		tracksPackCard.classList.add("badge");
+	}
 	tracksPackCard.innerHTML = `
     	<div class="card-column main-detail">
     	<p class="big-text text-underline">${month}</p>
