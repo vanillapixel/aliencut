@@ -829,13 +829,6 @@ const remixesData = [
 			},
 			{
 				id: "dec22-g1-s3",
-				artists: ["Eva Vulgaris feat. Franchino"],
-				title: "Bastard Ben",
-				remixArtists: ["Alien Cut, Why not"],
-				link: "",
-			},
-			{
-				id: "dec22-g1-s4",
 				artists: ["Nooran Sisters"],
 				title: "Patakha Guddi",
 				remixArtists: [" Seaska"],
@@ -843,7 +836,37 @@ const remixesData = [
 			},
 		],
 		paypalCode: `JLEYFP4UQDQAJ`,
-		special: "Traccia bonus!",
+	},
+	{
+		id: 28,
+		date: {
+			month: "gennaio",
+			year: 2023,
+		},
+		songs: [
+			{
+				id: "jan23-g1-s1",
+				artists: ["Jul"],
+				title: "Je Ne Me Vois Pas Briller",
+				remixArtists: ["Alien Cut"],
+				link: "https://www.youtube.com/watch?v=QIoCLoCySMY&lc=UgyjCsjRGdzN8zR91Tt4AaABAg&ab_channel=MusicaCheSposta",
+			},
+			{
+				id: "jan23-g1-s2",
+				artists: ["Aventura"],
+				title: "Cuando Volveras",
+				remixArtists: ["Alien Cut"],
+				link: "https://www.youtube.com/watch?v=X-HBEhavnFk&list=PLi_RoEWEEHEsRUybDBFLo5HTyOx3gkUBY&index=2&ab_channel=MusicaCheSposta",
+			},
+			{
+				id: "jan23-g1-s3",
+				artists: ["Metallic Glide"],
+				title: "Hinei Ma Tov",
+				remixArtists: ["Alien Cut"],
+				link: "https://www.youtube.com/watch?v=wO8X5IcQwyY&list=PLi_RoEWEEHEsRUybDBFLo5HTyOx3gkUBY&index=1&ab_channel=MusicaCheSposta",
+			},
+		],
+		paypalCode: `5K44W6WN8T2JY`,
 	},
 ];
 
