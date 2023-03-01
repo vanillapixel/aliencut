@@ -868,6 +868,37 @@ const remixesData = [
 		],
 		paypalCode: `5K44W6WN8T2JY`,
 	},
+	{
+		id: 29,
+		date: {
+			month: "febbraio",
+			year: 2023,
+		},
+		songs: [
+			{
+				id: "feb23-g1-s1",
+				artists: ["Rosa Chemical, Bdope"],
+				title: "Made In Italy",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "feb23-g1-s2",
+				artists: ["Maitre Gims"],
+				title: "Malheur",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+			{
+				id: "feb23-g1-s3",
+				artists: ["Manu Skar"],
+				title: "Ma Belle",
+				remixArtists: ["Alien Cut"],
+				link: "",
+			},
+		],
+		paypalCode: `4HPRKBNFPHBUQ`,
+	},
 ];
 
 const TRACKS_DATA_LIMIT = remixesData.length;
