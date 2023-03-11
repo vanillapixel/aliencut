@@ -891,9 +891,9 @@ const remixesData = [
 			},
 			{
 				id: "feb23-g1-s3",
-				artists: ["Manu Skar"],
-				title: "Ma Belle",
-				remixArtists: ["Alien Cut"],
+				artists: ["Bonus Track"],
+				title: "",
+				remixArtists: [],
 				link: "",
 			},
 		],
@@ -928,15 +928,7 @@ function trackCheckout(trackInfo) {
 		special,
 		date: { month, year },
 	} = trackInfo;
-	let tracks = "";
-	songs.forEach((song) => {
-		const { title, artists, remixArtists } = song;
-		tracks += `<div class="track-container">
-			<span class="small-text track">${artists.join(", ")} - ${title} ${
-			remixArtists.length ? `(${remixArtists.join(", ")} Rmx)` : ""
-		}</span>
-			</div>`;
-	});
+	let tracks = createTracksList(songs);
 	const checkoutConfirmMessage = `
 		<div class="card-column">
 			<div class="conditions">
@@ -982,6 +974,33 @@ function trackCheckout(trackInfo) {
 	openModal(checkoutConfirmMessage);
 }
 
+function createTracksList(songs) {
+	let tracksListHtml = "";
+	songs.forEach((song) => {
+		const { title, artists, remixArtists, link } = song;
+		tracksListHtml += `<div class="track-container">`;
+		const iconColor = link ? "#F61C0D" : "#3d3d3d";
+		link &&
+			(tracksListHtml += `<a href="${link ? link : "#"}" target="_blank">
+				<svg width="2.5rem" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 461.001 461.001" xml:space="preserve">
+					<g>
+						<path style="fill:${iconColor}" d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728
+							c0,52.878,42.866,95.744,95.744,95.744h269.513c52.878,0,95.744-42.866,95.744-95.744V163.137
+							C461.001,110.259,418.135,67.393,365.257,67.393z M300.506,237.056l-126.06,60.123c-3.359,1.602-7.239-0.847-7.239-4.568V168.607
+							c0-3.774,3.982-6.22,7.348-4.514l126.06,63.881C304.363,229.873,304.298,235.248,300.506,237.056z"/>
+					</g>
+				</svg> 
+			</a>`);
+		tracksListHtml += `<span class="small-text track">`;
+		artists.length > 0 && (tracksListHtml += `${artists.join(", ")}`);
+		title && (tracksListHtml += ` - ${title}`);
+		tracksListHtml +=
+			remixArtists.length > 0 ? ` ( ${remixArtists.join(", ")} Rmx)` : "";
+		tracksListHtml += `</span></div>`;
+	});
+	return tracksListHtml;
+}
+
 function createTracksPackageCard(trackInfo, newTracksPack = false) {
 	const {
 		songs,
@@ -989,19 +1008,12 @@ function createTracksPackageCard(trackInfo, newTracksPack = false) {
 		special,
 		date: { month, year },
 	} = trackInfo;
-	let tracksListHtml = "";
 	const tracksPackPurchaseButton = document.createElement("button");
 	tracksPackPurchaseButton.classList.add("cta-button", "pulse");
 	tracksPackPurchaseButton.textContent = `Acquista pacchetto - ${price}€`;
 	tracksPackPurchaseButton.onclick = () => trackCheckout(trackInfo);
-	songs.forEach((song) => {
-		const { title, artists, remixArtists } = song;
-		tracksListHtml += `<div class="track-container">
-      <span class="small-text track">${artists.join(", ")} - ${title} ${
-			remixArtists.length ? `(${remixArtists.join(", ")} Rmx)` : ""
-		}</span>
-      </div>`;
-	});
+
+	let tracksListHtml = createTracksList(songs);
 
 	const tracksPackCard = document.createElement("div");
 	let tracksPackCardBadge;
@@ -1019,7 +1031,7 @@ function createTracksPackageCard(trackInfo, newTracksPack = false) {
     	<p class="medium-text secondary-text-color">${year}</p>
 			</div>
 			<div class="card-column card-tracks-list">
-			${tracksListHtml}
+					${tracksListHtml}
 			</div>
 			<div class="card-column">
 			<div class="trackspack-purchase-btn-container"></div>
