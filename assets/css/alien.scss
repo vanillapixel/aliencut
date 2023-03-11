@@ -828,6 +828,7 @@ video {
 
 		&:before {
 			content: '';
+			display: block;
 			inset: 5px;
 			background: white;
 			position: absolute;
