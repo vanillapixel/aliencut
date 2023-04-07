@@ -880,14 +880,14 @@ const remixesData = [
 				artists: ["Rosa Chemical, Bdope"],
 				title: "Made In Italy",
 				remixArtists: ["Alien Cut"],
-				link: "",
+				link: "https://www.youtube.com/watch?v=-WYcYIfpa4M&ab_channel=MusicaCheSposta",
 			},
 			{
 				id: "feb23-g1-s2",
 				artists: ["Maitre Gims"],
 				title: "Malheur",
 				remixArtists: ["Alien Cut"],
-				link: "",
+				link: "https://www.youtube.com/watch?v=i0dNLYD3b6E&ab_channel=MusicaCheSposta",
 			},
 			{
 				id: "feb23-g1-s3",
@@ -898,6 +898,37 @@ const remixesData = [
 			},
 		],
 		paypalCode: `4HPRKBNFPHBUQ`,
+	},
+	{
+		id: 30,
+		date: {
+			month: "marzo",
+			year: 2023,
+		},
+		songs: [
+			{
+				id: "mar23-g1-s1",
+				artists: ["Deorro"],
+				title: "Rumba",
+				remixArtists: ["Alien Cut"],
+				link: "https://www.youtube.com/watch?v=9PyxA2n6xqk&ab_channel=MusicaCheSposta",
+			},
+			{
+				id: "mar23-g1-s2",
+				artists: ["Rhove"],
+				title: "Cancelo",
+				remixArtists: ["Alien Cut"],
+				link: "https://www.youtube.com/watch?v=IK3QjgeZO5M&ab_channel=MusicaCheSposta",
+			},
+			{
+				id: "mar23-g1-s3",
+				artists: ["Jone Track"],
+				title: "Ekko inni meg",
+				remixArtists: ["Alien Cut"],
+				link: "https://www.youtube.com/watch?v=Y7oRKenAtIw&ab_channel=MusicaCheSposta",
+			},
+		],
+		paypalCode: `243NQWBNK87ZE`,
 	},
 ];
 
@@ -980,8 +1011,7 @@ function createTracksList(songs) {
 		const { title, artists, remixArtists, link } = song;
 		tracksListHtml += `<div class="track-container">`;
 		const iconColor = link ? "#F61C0D" : "#3d3d3d";
-		link &&
-			(tracksListHtml += `<a href="${link ? link : "#"}" target="_blank">
+		tracksListHtml += `<a ${link ? "href=" + link : "#"}" target="_blank">
 				<svg width="2.5rem" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 461.001 461.001" xml:space="preserve">
 					<g>
 						<path style="fill:${iconColor}" d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728
@@ -990,12 +1020,12 @@ function createTracksList(songs) {
 							c0-3.774,3.982-6.22,7.348-4.514l126.06,63.881C304.363,229.873,304.298,235.248,300.506,237.056z"/>
 					</g>
 				</svg> 
-			</a>`);
+			</a>`;
 		tracksListHtml += `<span class="small-text track">`;
 		artists.length > 0 && (tracksListHtml += `${artists.join(", ")}`);
 		title && (tracksListHtml += ` - ${title}`);
 		tracksListHtml +=
-			remixArtists.length > 0 ? ` ( ${remixArtists.join(", ")} Rmx)` : "";
+			remixArtists.length > 0 ? ` ( ${remixArtists.join(", ")} Rmx )` : "";
 		tracksListHtml += `</span></div>`;
 	});
 	return tracksListHtml;

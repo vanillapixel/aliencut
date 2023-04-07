@@ -744,16 +744,6 @@ video {
   background: white;
   position: absolute;
 }
-.track-container:not(:has(svg)):before {
-  content: "";
-  position: relative;
-  background: var(--sec-color-2);
-  text-align: center;
-  width: 1rem;
-  height: 1rem;
-  display: inline-block;
-  aspect-ratio: 1;
-}
 
 .track {
   text-overflow: ellipsis;

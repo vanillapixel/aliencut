@@ -7,7 +7,7 @@ const csvToObj = require("csv-to-js-parser").csvToObj;
 const data = fs.readFileSync("#ALIEN DATA.csv").toString();
 
 const description = {
-	id: { type: "string", group: 1 },
+	id: { type: "number", group: 1 },
 	date: { type: "string", group: 1 },
 	location: { type: "string", group: 1 },
 	city: { type: "string", group: 1 },
