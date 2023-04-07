@@ -1320,7 +1320,8 @@ video {
 		flex-wrap: wrap;
 
 		.event {
-			display: flex;
+			display: grid;
+			grid-template-columns: minmax(105px, 30%) 1fr;
 			position: relative;
 			width: 60rem;
 			background: $transparent-dark;
@@ -1355,9 +1356,9 @@ video {
 
 			.event-details {
 				display: flex;
-				flex-basis: 25%;
 				flex-direction: row;
 				align-items: center;
+				width: 100%;
 				padding: 1rem;
 				justify-content: space-evenly;
 				text-transform: capitalize;
@@ -1369,6 +1370,7 @@ video {
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
+				width: 100%;
 				color: rgba(999, 999, 999, 0.8);
 				border-right: 3px solid $main-color;
 				padding: 1rem;
