@@ -930,6 +930,34 @@ const remixesData = [
 		],
 		paypalCode: `243NQWBNK87ZE`,
 	},
+	{
+		id: 31,
+		date: {
+			month: "aprile",
+			year: 2023,
+		},
+		songs: [
+			{
+				id: "apr23-g1-s1",
+				artists: ["The Avener", "Waldeck"],
+				title: "Quando Quando",
+				remixArtists: ["Alien Cut"],
+			},
+			{
+				id: "apr23-g1-s2",
+				artists: ["Gigi D'Agostino"],
+				title: "Giallone",
+				remixArtists: ["Alien Cut"],
+			},
+			{
+				id: "apr23-g1-s3",
+				artists: ["Banda Bardò"],
+				title: "Se mi rilasso collasso",
+				remixArtists: ["Alien Cut"],
+			},
+		],
+		paypalCode: `AN9QTB79QDM3C`,
+	},
 ];
 
 const TRACKS_DATA_LIMIT = remixesData.length;
