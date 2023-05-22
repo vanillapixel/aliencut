@@ -1983,13 +1983,15 @@ video {
 				color: var(--sec-color);
 				display: block;
 				font-weight: 800;
-				width: 100%;
+				width: fit-content;
 				position: absolute;
 				white-space: nowrap;
 				padding: 0.2rem 0.3rem;
 				overflow: hidden;
 				top: -80%;
 				animation: box-shadow-flash 10s infinite;
+				left: 50%;
+				transform: translate(-50%);
 			}
 		}
 	}
@@ -2648,6 +2650,7 @@ video {
 				width: 100%;
 			}
 		}
+
 	}
 
 	// extra
