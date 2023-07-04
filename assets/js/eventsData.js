@@ -1244,7 +1244,7 @@ let data = [
   {
     id: 141,
     date: "21-07-2023",
-    location: "Piazza di Civitella del Tronto",
+    location: "La Capannina",
     city: "Civitella del Tronto",
     province: "te",
     country: null,
@@ -1262,8 +1262,8 @@ let data = [
   {
     id: 143,
     date: "28-07-2023",
-    location: "Piazza di Salmour",
-    city: "Salmour",
+    location: "Piazza di Busca",
+    city: "Busca",
     province: "cn",
     country: null,
     cancelled: null,
@@ -1334,7 +1334,7 @@ let data = [
   {
     id: 151,
     date: "26-08-2023",
-    location: "Piazza di Busca",
+    location: "Piazza di Attisano",
     city: "Busca",
     province: "cn",
     country: null,
@@ -1360,6 +1360,24 @@ let data = [
   },
   {
     id: 154,
+    date: "09-09-2023",
+    location: "Piazza di Carmagnola",
+    city: "Carmagnola",
+    province: "cn",
+    country: null,
+    cancelled: null,
+  },
+  {
+    id: 155,
+    date: "16-09-2023",
+    location: "Piazza di Pietramurata",
+    city: "Pietramurata",
+    province: "tn",
+    country: null,
+    cancelled: null,
+  },
+  {
+    id: 156,
     date: "23-09-2023",
     location: "Féta di Resén",
     city: "Chambave",

@@ -992,6 +992,37 @@ const remixesData = [
     ],
     paypalCode: `U94WNML7TA6TJ`,
   },
+  {
+    id: 33,
+    date: {
+      month: "giugno",
+      year: 2023,
+    },
+    songs: [
+      {
+        id: "june23-g1-s1",
+        artists: ["Purple Disco Machine, Kungs"],
+        title: "Substitution",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=kaS8h5LqnQc&ab_channel=MusicaCheSposta",
+      },
+      {
+        id: "june23-g1-s2",
+        artists: ["Thomas Jack"],
+        title: "Rivers",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=JBsSHKR6IYg&ab_channel=MusicaCheSposta",
+      },
+      {
+        id: "june23-g1-s3",
+        artists: ["Aqua"],
+        title: "Roses are red",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=yyIs66t9mfQ&ab_channel=MusicaCheSposta",
+      },
+    ],
+    paypalCode: `R58HFTKZMWF7C`,
+  },
 ];
 
 const TRACKS_DATA_LIMIT = remixesData.length;
