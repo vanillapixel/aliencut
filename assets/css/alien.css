@@ -25,7 +25,6 @@
 * {
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -71,6 +70,11 @@ header .logo-container img {
 }
 header .burger-menu-icon {
   display: none;
+}
+
+::-moz-selection {
+  color: white;
+  background: var(--main-color);
 }
 
 ::selection {
@@ -345,8 +349,6 @@ ul {
   width: 100vw;
   z-index: 0;
   opacity: 1;
-  -o-transition: 1s;
-  -webkit-transition: 1s;
   transition: 1s;
   background: var(--dark-grey);
 }
@@ -604,6 +606,7 @@ video {
 }
 #alien-trax .form-segment-wrapper {
   z-index: 9999;
+  width: -moz-fit-content;
   width: fit-content;
   margin-left: auto;
   max-width: 100%;
@@ -894,18 +897,35 @@ video {
   gap: 5%;
 }
 .content .news-main-content {
-  --grid-columns: 2;
+  --grid-columns: 12;
   display: grid;
   grid-template-columns: repeat(var(--grid-columns), 1fr);
   width: 100%;
   margin: 2rem 0;
 }
+.content .news-main-content .news-image-container {
+  grid-column-end: span 12;
+}
+@media only screen and (min-width: 768px) {
+  .content .news-main-content .news-image-container {
+    grid-column-end: span 6;
+  }
+}
 .content .news-main-content .news-image-container img {
   width: 100%;
 }
+.content .news-main-content .news-details {
+  grid-column-end: span 12;
+}
+@media only screen and (min-width: 768px) {
+  .content .news-main-content .news-details {
+    grid-column-end: span 6;
+  }
+}
+.content .news-main-content .special-tracks {
+  grid-column-end: span 12;
+}
 .content .news-main-content .news-cta-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   overflow: hidden;
   display: flex;
   color: white;
@@ -950,11 +970,9 @@ video {
   width: 500%;
   position: absolute;
   background: #222222;
-  -webkit-transform: skew(-25deg);
   transform: skew(-25deg);
   top: -36px;
   left: 0px;
-  -webkit-transition: 0.5s;
   transition: 0.5s 0.3s;
   z-index: 0;
   backdrop-filter: blur(16px) saturate(180%);
@@ -1006,6 +1024,9 @@ video {
 
 .ticket .news-image-container {
   width: 35%;
+}
+.ticket .news-details {
+  grid-column-end: span 6;
 }
 .ticket .news-details p,
 .ticket .news-details span,
@@ -1474,14 +1495,9 @@ video {
   margin-right: 2rem;
 }
 #gallery .content .gallery-pictures {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   max-width: 100%;
   overflow: hidden;
@@ -1601,6 +1617,7 @@ video {
 }
 .form-segment input:-webkit-autofill,
 .form-segment input:-webkit-autofill:focus {
+  -webkit-transition: background-color 0s 600000s, color 0s 600000s;
   transition: background-color 0s 600000s, color 0s 600000s;
 }
 .form-segment textarea {
@@ -1727,6 +1744,7 @@ video {
   color: var(--sec-color);
   display: block;
   font-weight: 800;
+  width: -moz-fit-content;
   width: fit-content;
   position: absolute;
   white-space: nowrap;
@@ -1815,6 +1833,7 @@ video {
     flex-direction: row;
     justify-content: center;
     min-height: auto;
+    max-height: -moz-fit-content;
     max-height: fit-content;
     min-height: 80vh;
     padding: 8rem 0;
@@ -2080,6 +2099,7 @@ video {
   .news-wrapper {
     flex-direction: column;
     height: auto;
+    min-height: -moz-fit-content;
     min-height: fit-content;
   }
   .news-wrapper #news {
@@ -2147,6 +2167,7 @@ video {
     margin: 0 auto;
   }
   #events .events {
+    max-height: -moz-fit-content;
     max-height: fit-content;
     margin: 1rem 0.5rem;
   }
@@ -2406,4 +2427,4 @@ video {
   66% {
     background-image: url(/assets/img/eshop/portachiavi-blu-aliencut.png);
   }
-}
+}/*# sourceMappingURL=alien.css.map */
