@@ -1023,6 +1023,37 @@ const remixesData = [
     ],
     paypalCode: `R58HFTKZMWF7C`,
   },
+  {
+    id: 34,
+    date: {
+      month: "luglio",
+      year: 2023,
+    },
+    songs: [
+      {
+        id: "july23-g1-s1",
+        artists: ["Rocco Hunt"],
+        title: "Non litighiamo più",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=oVOW1Uh8R5s&ab_channel=MusicaCheSposta",
+      },
+      {
+        id: "july23-g1-s2",
+        artists: ["Mastro G"],
+        title: "Balla",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=8AJHU1UtHeo&ab_channel=MusicaCheSposta",
+      },
+      {
+        id: "july23-g1-s3",
+        artists: ["Jay-Z", "Kanie West"],
+        title: "Niggas in Paris",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=dUl5CE8Tyco&ab_channel=MusicaCheSposta",
+      },
+    ],
+    paypalCode: `2A3VPLPTE5DZA`,
+  },
 ];
 
 const TRACKS_DATA_LIMIT = remixesData.length;
