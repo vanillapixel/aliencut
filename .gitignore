@@ -7,3 +7,5 @@ package.json
 assets/css/alien.css.map
 googleSheetParser.js
 assets/uploads/
+form.php
+download.php

@@ -1,38 +1,28 @@
-const peto = {
-	itemSubtitle: "pacchetto",
-	itemTitle: "Aprile",
-	itemTitleDetail: "2022",
-	itemPrice: "30",
-	content: ["1", "2", "3"],
-	conditions: ["1", "2"],
-	paypalCode,
-};
-
 function createContentList(itemContent) {
-	const itemContentHtml = itemContent.map((item) => {
-		`<div class="track-container">
+  const itemContentHtml = itemContent.map((item) => {
+    `<div class="track-container">
     <span class="small-text track"> ${item}
     </span>
     </div>`;
-	});
+  });
 
-	return itemContentHtml;
+  return itemContentHtml;
 }
 
 function createConditions(conditions) {}
 
 function createModalTemplate(item) {
-	const {
-		itemSubtitle,
-		itemTitle,
-		itemTitleDetail,
-		itemContent,
-		itemPrice,
-		paypalCode,
-		conditions,
-	} = item;
+  const {
+    itemSubtitle,
+    itemTitle,
+    itemTitleDetail,
+    itemContent,
+    itemPrice,
+    paypalCode,
+    conditions,
+  } = item;
 
-	const checkoutConfirmModal = `
+  const checkoutConfirmModal = `
 		<div class="card-column">
 			<div class="conditions">
 				<p class="medium-text accent-text">

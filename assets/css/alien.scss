@@ -851,6 +851,22 @@ video {
 	}
 }
 
+.info-modal {
+	.track {
+		display: flex;
+		gap: 10px;
+		overflow: unset;
+		flex-wrap: wrap;
+		white-space: pre-wrap;
+		text-overflow: initial;
+		text-indent: 0;
+
+		* {
+			cursor: pointer;
+		}
+	}
+}
+
 .cta-button {
 	display: flex;
 	flex-direction: row;
