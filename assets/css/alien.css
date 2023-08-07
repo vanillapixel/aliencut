@@ -766,7 +766,6 @@ video {
   display: flex;
   gap: 10px;
   overflow: unset;
-  flex-wrap: wrap;
   white-space: pre-wrap;
   text-overflow: initial;
   text-indent: 0;
@@ -2135,7 +2134,7 @@ video {
   }
   .content .news-main-content .news-details {
     flex-direction: row;
-    margin-top: 30px;
+    margin: 40px 0;
     width: auto;
     margin-left: 0;
     flex-wrap: wrap;
