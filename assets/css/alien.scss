@@ -23,8 +23,8 @@
 
 	// font-sizes
 
-	--xs-font: 1.7rem;
-	--s-font: 2.3rem;
+	--xs-font: max(12px, 1.7rem);
+	--s-font: max(14px, 2.3rem);
 	--m-font: 3rem;
 	--l-font: 4rem;
 	--xl-font: 6rem;
@@ -2103,6 +2103,7 @@ video {
 @media only screen and (max-width: 1367px) {
 	#news .section-name {
 		top: 0px !important;
+		display: none;
 	}
 
 	.content {
@@ -2421,7 +2422,6 @@ video {
 		flex-direction: column;
 		margin: auto;
 		width: auto;
-		max-width: 90%;
 
 		.input-wrapper {
 			display: flex;
@@ -2440,7 +2440,7 @@ video {
 
 	.content {
 		margin: 3rem auto;
-		width: 90%;
+		width: 100%;
 		padding: 2rem;
 	}
 
@@ -2468,7 +2468,6 @@ video {
 			margin-top: 0;
 			width: 100%;
 			position: relative;
-			transform: scale(0.9);
 		}
 	}
 
@@ -2482,26 +2481,24 @@ video {
 			--grid-columns: 1;
 
 			.news-image-container {
-				width: 90%;
+				width: 100%;
 				margin: auto;
 			}
 
 			.news-details {
-				flex-direction: row;
-				margin: 40px 0;
+				margin: 20px 0;
 				width: auto;
 				margin-left: 0;
-				flex-wrap: wrap;
 
 				a {
-					width: 40%;
-					margin-bottom: 2rem;
-					padding: 2rem 2rem;
-					box-sizing: content-box;
+					width: 100%;
+					margin-bottom: 1rem;
 				}
 
 				.news-cta-container {
-					flex-direction: column;
+					flex-direction: row;
+					justify-content: flex-start;
+					padding: 3rem 1rem;
 
 					.news-cta-text-wrapper {
 						white-space: nowrap;
@@ -2515,6 +2512,8 @@ video {
 
 						.news-cta-text {
 							font-size: 2.8rem;
+							gap: 5px;
+							align-items: flex-start;
 
 							p {
 								font-size: 3.2rem;

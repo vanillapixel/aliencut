@@ -15,8 +15,8 @@
   --transparent-darker: rgba(0, 0, 0, 0.9);
   --dark-grey: rgba(47, 47, 47, 0.9);
   --sec-color-2: #6a6e7c;
-  --xs-font: 1.7rem;
-  --s-font: 2.3rem;
+  --xs-font: max(12px, 1.7rem);
+  --s-font: max(14px, 2.3rem);
   --m-font: 3rem;
   --l-font: 4rem;
   --xl-font: 6rem;
@@ -1824,6 +1824,7 @@ video {
 @media only screen and (max-width: 1367px) {
   #news .section-name {
     top: 0px !important;
+    display: none;
   }
   .content {
     padding: 0 3rem;
@@ -2078,7 +2079,6 @@ video {
     flex-direction: column;
     margin: auto;
     width: auto;
-    max-width: 90%;
   }
   .special-tracks .input-wrapper {
     display: flex;
@@ -2093,7 +2093,7 @@ video {
   }
   .content {
     margin: 3rem auto;
-    width: 90%;
+    width: 100%;
     padding: 2rem;
   }
   .enter-website {
@@ -2119,7 +2119,6 @@ video {
     margin-top: 0;
     width: 100%;
     position: relative;
-    transform: scale(0.9);
   }
   .content .section-name {
     padding: 4rem;
@@ -2129,24 +2128,22 @@ video {
     --grid-columns: 1;
   }
   .content .news-main-content .news-image-container {
-    width: 90%;
+    width: 100%;
     margin: auto;
   }
   .content .news-main-content .news-details {
-    flex-direction: row;
-    margin: 40px 0;
+    margin: 20px 0;
     width: auto;
     margin-left: 0;
-    flex-wrap: wrap;
   }
   .content .news-main-content .news-details a {
-    width: 40%;
-    margin-bottom: 2rem;
-    padding: 2rem 2rem;
-    box-sizing: content-box;
+    width: 100%;
+    margin-bottom: 1rem;
   }
   .content .news-main-content .news-details .news-cta-container {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 3rem 1rem;
   }
   .content .news-main-content .news-details .news-cta-container .news-cta-text-wrapper {
     white-space: nowrap;
@@ -2158,6 +2155,8 @@ video {
   }
   .content .news-main-content .news-details .news-cta-container .news-cta-text-wrapper .news-cta-text {
     font-size: 2.8rem;
+    gap: 5px;
+    align-items: flex-start;
   }
   .content .news-main-content .news-details .news-cta-container .news-cta-text-wrapper .news-cta-text p {
     font-size: 3.2rem;
