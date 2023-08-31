@@ -611,8 +611,11 @@
 
       gtag('config', 'UA-80724916-3');
     </script>
-  <script>
-    COOKIES_ENABLER.init();
+  <script defer>
+    // when dom content loads 
+    document.addEventListener('DOMContentLoaded', () => {
+    window.COOKIES_ENABLER.init();
+    })
   </script>
   <!-- <script src="https://www.paypal.com/sdk/js?client-id=AVf3VWyrBuDsGa1gRRsaO6Q40PZfG4esy2rXyt6UZFpRQAGT3Te9mI4hAC508IZ8mzzGlI0maPzcrjzk&currency=EUR" async data-sdk-integration-source="button-factory"></script> -->
 

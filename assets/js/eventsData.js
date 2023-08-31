@@ -1388,9 +1388,9 @@ let data = [
   {
     id: 157,
     date: "09-09-2023",
-    location: "Piazza di Carmagnola",
+    location: "Foro Festival",
     city: "Carmagnola",
-    province: "cn",
+    province: "to",
     country: null,
     cancelled: null,
   },
