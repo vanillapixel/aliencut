@@ -1024,6 +1024,37 @@ const remixesData = [
     paypalCode: `R58HFTKZMWF7C`,
   },
   {
+    id: 35,
+    date: {
+      month: "agosto",
+      year: 2023,
+    },
+    songs: [
+      {
+        id: "august23-g1-s1",
+        artists: ["Vairo"],
+        title: "Scarab",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=hunWVlDppQA&ab_channel=MusicaCheSposta",
+      },
+      {
+        id: "august23-g1-s2",
+        artists: ["Garmiani"],
+        title: "Ava",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=BQvmTcoZhSw&ab_channel=MusicaCheSposta",
+      },
+      {
+        id: "august23-g1-s3",
+        artists: ["El Gato Dj"],
+        title: "Mueve la colita",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=b2pjasVqVXA&ab_channel=MusicaCheSposta",
+      },
+    ],
+    paypalCode: `Z7LR22EGHKGWL`,
+  },
+  {
     id: 34,
     date: {
       month: "luglio",
