@@ -1024,6 +1024,37 @@ const remixesData = [
     paypalCode: `R58HFTKZMWF7C`,
   },
   {
+    id: 34,
+    date: {
+      month: "luglio",
+      year: 2023,
+    },
+    songs: [
+      {
+        id: "july23-g1-s1",
+        artists: ["Rocco Hunt"],
+        title: "Non litighiamo più",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=oVOW1Uh8R5s&ab_channel=MusicaCheSposta",
+      },
+      {
+        id: "july23-g1-s2",
+        artists: ["Mastro G"],
+        title: "Balla",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=8AJHU1UtHeo&ab_channel=MusicaCheSposta",
+      },
+      {
+        id: "july23-g1-s3",
+        artists: ["Jay-Z", "Kanie West"],
+        title: "Niggas in Paris",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=dUl5CE8Tyco&ab_channel=MusicaCheSposta",
+      },
+    ],
+    paypalCode: `2A3VPLPTE5DZA`,
+  },
+  {
     id: 35,
     date: {
       month: "agosto",
@@ -1055,35 +1086,35 @@ const remixesData = [
     paypalCode: `Z7LR22EGHKGWL`,
   },
   {
-    id: 34,
+    id: 36,
     date: {
-      month: "luglio",
+      month: "settembre",
       year: 2023,
     },
     songs: [
       {
-        id: "july23-g1-s1",
-        artists: ["Rocco Hunt"],
-        title: "Non litighiamo più",
+        id: "sept23-g1-s1",
+        artists: ["Settembre	Emis Killa, Sfera Ebbasta"],
+        title: "On fire",
         remixArtists: ["Alien Cut"],
-        link: "https://www.youtube.com/watch?v=oVOW1Uh8R5s&ab_channel=MusicaCheSposta",
+        link: "https://www.youtube.com/watch?v=b3QsQ827vuw&ab_channel=MusicaCheSposta",
       },
       {
-        id: "july23-g1-s2",
-        artists: ["Mastro G"],
-        title: "Balla",
+        id: "sept23-g1-s2",
+        artists: ["Albatraoz"],
+        title: "Se pa mig (Crunk Rock)",
         remixArtists: ["Alien Cut"],
-        link: "https://www.youtube.com/watch?v=8AJHU1UtHeo&ab_channel=MusicaCheSposta",
+        link: "https://www.youtube.com/watch?v=xGHQVUUn9FY&ab_channel=MusicaCheSposta",
       },
       {
-        id: "july23-g1-s3",
-        artists: ["Jay-Z", "Kanie West"],
-        title: "Niggas in Paris",
+        id: "sept23-g1-s3",
+        artists: ["883"],
+        title: "Sei un mito",
         remixArtists: ["Alien Cut"],
-        link: "https://www.youtube.com/watch?v=dUl5CE8Tyco&ab_channel=MusicaCheSposta",
+        link: "https://www.youtube.com/watch?v=Lxcj5x4w-zQ&ab_channel=MusicaCheSposta",
       },
     ],
-    paypalCode: `2A3VPLPTE5DZA`,
+    paypalCode: `5SPKR2JJFL72Y`,
   },
 ];
 
