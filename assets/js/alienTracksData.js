@@ -1094,7 +1094,7 @@ const remixesData = [
     songs: [
       {
         id: "sept23-g1-s1",
-        artists: ["Settembre	Emis Killa, Sfera Ebbasta"],
+        artists: ["Emis Killa, Sfera Ebbasta"],
         title: "On fire",
         remixArtists: ["Alien Cut"],
         link: "https://www.youtube.com/watch?v=b3QsQ827vuw&ab_channel=MusicaCheSposta",
@@ -1115,6 +1115,37 @@ const remixesData = [
       },
     ],
     paypalCode: `5SPKR2JJFL72Y`,
+  },
+  {
+    id: 37,
+    date: {
+      month: "ottobre",
+      year: 2023,
+    },
+    songs: [
+      {
+        id: "oct23-g1-s1",
+        artists: ["Kid Yugi, Night Skinny"],
+        title: "Massafghanistan",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=r7h2cY7YhZw&ab_channel=MusicaCheSposta",
+      },
+      {
+        id: "oct23-g1-s2",
+        artists: ["Alien Cut"],
+        title: "Born flippy 2k20",
+        remixArtists: [""],
+        link: "https://www.youtube.com/watch?v=CNepWgzpNkE&ab_channel=MusicaCheSposta",
+      },
+      {
+        id: "oct23-g1-s3",
+        artists: ["Edoardo Bennato"],
+        title: "Un giono credi",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=CFU5IjlQ8aE&ab_channel=MusicaCheSposta",
+      },
+    ],
+    paypalCode: `7VRSM8T9DMNZQ`,
   },
 ];
 
