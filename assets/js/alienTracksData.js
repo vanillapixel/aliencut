@@ -1147,6 +1147,37 @@ const remixesData = [
     ],
     paypalCode: `7VRSM8T9DMNZQ`,
   },
+  {
+    id: 38,
+    date: {
+      month: "novembre",
+      year: 2023,
+    },
+    songs: [
+      {
+        id: "nov23-g1-s1",
+        artists: ["Pnau", "Empire Of The Sun"],
+        title: "Aeiou",
+        remixArtists: ["Alien Cut"],
+        link: "https://youtu.be/8Pw3UiwJ0OU",
+      },
+      {
+        id: "nov23-g1-s2",
+        artists: ["Scooter"],
+        title: "Nessaja",
+        remixArtists: ["Alien Cut"],
+        link: "https://youtu.be/prmQCOfiS4Q",
+      },
+      {
+        id: "nov23-g1-s3",
+        artists: ["Jason De Rulo"],
+        title: "Talk Dirty",
+        remixArtists: ["Alien Cut"],
+        link: "https://youtu.be/NByCUTmIWJA",
+      },
+    ],
+    paypalCode: "RUJS56GAW2QBA",
+  },
 ];
 
 const TRACKS_DATA_LIMIT = remixesData.length;
