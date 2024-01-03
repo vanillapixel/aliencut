@@ -1477,6 +1477,15 @@ let data = [
   },
   {
     id: 167,
+    date: "06-01-2024",
+    location: "Mediterraneo",
+    city: "Asti",
+    province: "at",
+    country: null,
+    cancelled: null,
+  },
+  {
+    id: 168,
     date: "16-03-2024",
     location: "Woodstock",
     city: "Bellinzona",
@@ -1485,7 +1494,16 @@ let data = [
     cancelled: null,
   },
   {
-    id: 168,
+    id: 169,
+    date: "29-03-2024",
+    location: "Arabesk",
+    city: "Civita Castellana",
+    province: "vt",
+    country: null,
+    cancelled: null,
+  },
+  {
+    id: 170,
     date: "07-04-2024",
     location: "Piazza di Belluno",
     city: "Belluno",
@@ -1494,7 +1512,7 @@ let data = [
     cancelled: null,
   },
   {
-    id: 169,
+    id: 171,
     date: "07-06-2024",
     location: "Carnevale di Ambri",
     city: "Ambri",
@@ -1503,7 +1521,7 @@ let data = [
     cancelled: null,
   },
   {
-    id: 170,
+    id: 172,
     date: "28-07-2024",
     location: "Bianzè",
     city: "Vercelli",

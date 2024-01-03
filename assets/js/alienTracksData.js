@@ -1,4 +1,4 @@
-const remixesData = [
+const alienTraxData = [
   {
     id: 1,
     date: {
@@ -1178,9 +1178,40 @@ const remixesData = [
     ],
     paypalCode: "RUJS56GAW2QBA",
   },
+  {
+    id: 39,
+    date: {
+      month: "dicembre",
+      year: 2023,
+    },
+    songs: [
+      {
+        id: "dic23-g1-s1",
+        artists: ["Maneskin"],
+        title: "Honey",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=fTHvOLzqKMw",
+      },
+      {
+        id: "dic23-g1-s2",
+        artists: ["Lmfao"],
+        title: "Sexy and i know it",
+        remixArtists: ["Alien Cut"],
+        link: "	https://www.youtube.com/watch?v=wCwengsFsdI",
+      },
+      {
+        id: "dic23-g1-s3",
+        artists: ["Jolly Mask"],
+        title: "The family",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=dNzDCR9pvOY",
+      },
+    ],
+    paypalCode: "LYCLP37ZCE5EW",
+  },
 ];
 
-const TRACKS_DATA_LIMIT = remixesData.length;
+const TRACKS_DATA_LIMIT = alienTraxData.length;
 
 const getAlienPacksParent = (year) => {
   if (
@@ -1337,7 +1368,7 @@ function createTracksPackageCard(trackInfo, newTracksPack = false) {
 }
 
 function createAlienTraxSection() {
-  remixesData
+  alienTraxData
     .sort((a, b) => (a.id < b.id ? 1 : b.id < a.id ? -1 : 0))
     .forEach((remix, id) => {
       id === 0
@@ -1379,7 +1410,8 @@ function filterAlienTrax({ year, searchTerm }) {
 
 const DEFAULT_FILTERS = {
   year:
-    remixesData.filter((x) => x.date.year == 2023).length > 0
+    alienTraxData.filter((x) => x.date.year == new Date().getFullYear())
+      .length > 0
       ? new Date().getFullYear()
       : new Date().getFullYear() - 1,
   searchTerm: "",
@@ -1391,7 +1423,7 @@ createAlienTraxSection();
 filterAlienTrax(filters);
 
 const dateFilter = document.querySelector("#date-filter");
-const years = [...new Set(remixesData.map((x) => x.date.year))];
+const years = [...new Set(alienTraxData.map((x) => x.date.year))];
 
 dateFilter.setAttribute("onfocus", `this.size=${years.length + 1}`);
 
