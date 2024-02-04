@@ -1195,7 +1195,7 @@ const alienTraxData = [
       {
         id: "dic23-g1-s2",
         artists: ["Lmfao"],
-        title: "Sexy and i know it",
+        title: "Sexy and I know it",
         remixArtists: ["Alien Cut"],
         link: "	https://www.youtube.com/watch?v=wCwengsFsdI",
       },
@@ -1208,6 +1208,37 @@ const alienTraxData = [
       },
     ],
     paypalCode: "LYCLP37ZCE5EW",
+  },
+  {
+    id: 40,
+    date: {
+      month: "gennaio",
+      year: 2024,
+    },
+    songs: [
+      {
+        id: "gen24-g1-s1",
+        artists: ["Rhove feat. Anna"],
+        title: "Petit Fou Fou",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=eYEqSCuFIhE",
+      },
+      {
+        id: "gen24-g1-s2",
+        artists: ["Sean Paul"],
+        title: "Busy",
+        remixArtists: ["Alien Cut"],
+        link: "	https://www.youtube.com/watch?v=aC6IOxRj4Ww",
+      },
+      {
+        id: "gen24-g1-s3",
+        artists: ["Avril Lavigne"],
+        title: "Girlfriend",
+        remixArtists: ["Alien Cut"],
+        link: "https://www.youtube.com/watch?v=4zKi4pxyFfo",
+      },
+    ],
+    paypalCode: "MKJ6EY287FRHU",
   },
 ];
 
@@ -1373,11 +1404,11 @@ function createAlienTraxSection() {
     .forEach((remix, id) => {
       id === 0
         ? getAlienPacksParent(remix.date.year).appendChild(
-            createTracksPackageCard(remix, true)
-          )
+          createTracksPackageCard(remix, true)
+        )
         : getAlienPacksParent(remix.date.year).appendChild(
-            createTracksPackageCard(remix)
-          );
+          createTracksPackageCard(remix)
+        );
     });
 }
 
